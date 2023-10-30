@@ -14,6 +14,9 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
+        migrations.DeleteModel(
+            name="Wallet",
+        ),
         migrations.CreateModel(
             name='Wallet',
             fields=[
