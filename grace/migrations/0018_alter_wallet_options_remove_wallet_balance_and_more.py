@@ -22,6 +22,10 @@ class Migration(migrations.Migration):
             model_name='wallet',
             name='user',
         ),
+        migrations.DeleteModel(
+            name="wallet",
+        ),
+        
         migrations.AlterField(
             model_name='nurseorder',
             name='status',
