@@ -136,7 +136,7 @@ AUTH_USER_MODEL = 'user.User'
 SMS_AUTH_SETTINGS = {
     "SMS_CELERY_FILE_NAME": "run_celery",
     "SMS_AUTH_SUCCESS_KEY": "jwt_token",
-    "SMS_AUTH_PROVIDER_FROM": "79587726741",
+    "SMS_AUTH_PROVIDER_FROM": "79587747394",
     "SMS_PROVIDER_URL":'http://api.exolve.ru/messaging/v1/SendSMS',
    
     "SMS_DEBUG": False,
