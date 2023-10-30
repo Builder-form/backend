@@ -105,7 +105,6 @@ sortedcontainers==2.4.0
 soupsieve==2.5
 sqlparse==0.4.4
 stack-data==0.6.2
-TBB==0.2
 telebot==0.0.5
 tornado==6.3.3
 tqdm==4.64.1
