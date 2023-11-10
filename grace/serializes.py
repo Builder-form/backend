@@ -45,8 +45,8 @@ class NurseVisitSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = NurseVisit
-        read_only_fields = ['id', 'create_date', 'completed_date']
-        fields = [ 'completed_date', 'id', 'create_date', 'order', 'date', 'time_start', 'time_end', 'completed', 'nursecomment']
+        read_only_fields = ['id', 'create_date', 'completed_date',  'appelations']
+        fields = [ 'completed_date', 'id', 'create_date', 'order', 'date', 'time_start', 'time_end', 'completed', 'nursecomment',  'appelations']
     
     def create(self, validated_data):
         return NurseVisit.objects.create(**validated_data)

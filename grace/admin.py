@@ -65,9 +65,18 @@ class NurseApplicationAdmin(admin.ModelAdmin):
 
 admin.site.register(Wallet)
 admin.site.register(TransferPrefs)
-admin.site.register(NurseAppelation)
 admin.site.register(ErrorLogs)
 
+
+@admin.register(NurseAppelation)
+class NurseVisitsAdmin(admin.ModelAdmin):
+    
+    list_filter=['status',]
+    list_display=['info','status',]
+
+    def info(self, object):
+        client = User.objects.get(username=object.visit.order.client)
+        return f'Клиент: {client.first_name} {client.last_name}, tel:{client.username}'
 
 @admin.register(NurseVisit)
 class NurseVisitsAdmin(admin.ModelAdmin):

@@ -124,6 +124,7 @@ class NurseOrder(models.Model):
         days = NurseVisit.objects.all().filter(order=self)
         
         return len(days)
+
     visits_count.fget.short_description = 'Количество произведенных посещений'
     class Meta:
         verbose_name='Заказ'
@@ -225,6 +226,11 @@ class NurseVisit(models.Model):
     completed_date =  models.DateTimeField(_('Время выполнения'), auto_now=False, auto_now_add=False, default=datetime.date(2000,1,1))
     
     @property
+    def appelations(self):
+        appelations = NurseAppelation.objects.all().filter(visit=self.id)
+        return [ appelation.id for appelation in appelations]
+
+    @property
     def nurse(self):
         return self.order.nurse.username
 
@@ -239,23 +245,25 @@ class NurseVisit(models.Model):
 class NurseAppelation(models.Model):
     id = models.UUIDField( default=uuid.uuid4, editable=False, primary_key=True)
     visit = models.ForeignKey(NurseVisit,to_field='id', related_name='appelations', verbose_name=_("Посещение"), on_delete=models.CASCADE)
-    comment = models.TextField(_("Причина жалобы"))
+    comment = models.TextField(_("Причина жалобы"), default='')
 
     class Status(models.TextChoices):
-        new = 'new', _('Новая')
-        accepted = 'accepted', _("Удовлетворена")
-        pending = 'pending', _('На рассмотрении')
-        cancled = 'canceled', _('Отменена')
+        new = 'Новая', _('Новая')
+        accepted = 'Удовлетворена', _("Удовлетворена")
+        pending = 'На рассмотрении', _('На рассмотрении')
+        cancled = 'Отменена', _('Отменена')
 
     status = models.CharField(_("Статус"), max_length=50, choices=Status.choices, default=Status.new)
-    ans = models.TextField(_("Ответ администратора"))
+    ans = models.TextField(_("Ответ администратора"), default='')
 
     class Meta:
         verbose_name='Аппеляция визита'
         verbose_name_plural = 'Аппеляции визитов'
 
     def __str__(self) -> str:
-        return f'{self.visit.order.client.first_name} {self.visit.order.client.last_name}, tel:{self.visit.order.client.username}, {self.status}'
+        client = User.objects.get(username=self.visit.order.client)
+
+        return f'Клиент: {client.first_name} {client.last_name}, tel:{client.username}'
     
     
 
