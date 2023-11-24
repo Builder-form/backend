@@ -20,7 +20,7 @@ def secondClientPayment(order):
                 wallet = Wallet.objects.get(user=order.client)
                 wallet.sendTo(order.nurse.username, order.cost_per_week)
         if order.status == OrderStatuses.testing_period:
-            if order.visits_count >= 3:
+            if order.visits_count >= 1:
                 order.status = OrderStatuses.active
                 order.save()
             if order.generateNearestVisit():

@@ -6,7 +6,7 @@ from rest_framework import authentication, permissions, status, generics
 from grace.mixins import ResponsesMixin
 from grace.utils import bitrix_change_archive
 
-from .choices import OrderStatuses
+from .choices import OrderStatuses, CareType
 from .models import Wallet, TransferPrefs, NurseApplication, NurseOrder, NurseVisit, NurseAppelation
 from .serializes import NurseApplicationSerializer, NurseOrderSerializer, NurseVisitSerializer, NurseAppelationSerializer
 from django.http import Http404
@@ -307,15 +307,15 @@ class AcceptOrder(ResponsesMixin, generics.GenericAPIView):
             return self.error_methon_not_allowed_response('Вы пытаетесь оплатить чужой заказ, так быть не должно!', request.user)
 
         if order.status == OrderStatuses.waiting:
-            if order.visits_count < 3:
+            if order.visits_count < 1:
                 if order.generateNearestVisit():
                     now = datetime.date.today()
                     wallet = Wallet.objects.get(user=order.client)
 
                     wallet.sendTo(order.nurse.username, order.cost)
-
-                    order.status = OrderStatuses.testing_period
-                    order.save()
+                    if order.care_type == CareType.several_hours: 
+                        order.status = OrderStatuses.testing_period
+                        order.save()
                     serializer = self.serializer_class(order)
                         
                     secondClientPayment.apply_async(
