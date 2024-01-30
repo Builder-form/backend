@@ -4,16 +4,23 @@ from rest_framework.response import Response
 from rest_framework import authentication, permissions, status, generics
 
 from grace.mixins import ResponsesMixin
-from grace.utils import bitrix_change_archive
+from grace.utils import bitrix_change_archive, bitrix_change_processed, bitrix_change_active
 
 from .choices import OrderStatuses, CareType
-from .models import Wallet, TransferPrefs, NurseApplication, NurseOrder, NurseVisit, NurseAppelation
+from .models import Wallet, TransferPrefs, NurseApplication, NurseOrder, NurseVisit, NurseAppelation, Accumulation
 from .serializes import NurseApplicationSerializer, NurseOrderSerializer, NurseVisitSerializer, NurseAppelationSerializer
 from django.http import Http404
 from django import utils
-from .tasks import secondClientPayment
+from .tasks import secondClientPayment, acceptVisit
 import datetime
 from django.conf import settings
+from user.models import User
+import json
+from cloudpayments import CloudPayments
+
+
+cp = CloudPayments(settings.CLOUDPAYMENTS_PUBLIC_ID, settings.CLOUDPAYMENTS_PASSWORD)
+
 
 #{
 # care_type:str, 
@@ -164,7 +171,7 @@ class NurseVisitsByOrder(ResponsesMixin, generics.GenericAPIView):
     serializer_class = NurseVisitSerializer
 
     def get(self,request, order_id, format=None):
-        visits = NurseVisit.objects.all().filter(order=order_id)
+        visits = NurseVisit.objects.all().filter(order=order_id).order_by('completed', 'date').filter(order=order_id)
         serializer = self.serializer_class(visits, many=True)
         return self.success_objects_response(serializer.data)
 
@@ -186,12 +193,7 @@ class NurseVisitDetail(ResponsesMixin, generics.GenericAPIView):
 
     def post(self, request, visit_id, format=None ):
         visit = self.getVisit(visit_id)
-        if not visit.completed:
-            visit.completed_date = utils.timezone.now()
-            user_wallet = Wallet.objects.get(user=visit.order.client)
-            user_wallet.sendTo(visit.order.nurse.username, visit.order.cost)
 
-        visit.completed = True
         visit.save()
         return self.simple_text_response('ok')
 
@@ -206,7 +208,15 @@ class NurseVisitDetail(ResponsesMixin, generics.GenericAPIView):
         visit = self.getVisit(visit_id)
         serializer = self.serializer_class(visit, data=request.data)
         print(request.data)
+        
+
         if serializer.is_valid():
+            if request.data['completed'] == True:
+                visit.completed_date = utils.timezone.now()
+                acceptVisit.apply_async(
+                    kwargs = {'visit_id': visit_id},
+                    eta =  datetime.datetime.utcnow() + datetime.timedelta(hours=settings.DELTATIME_PAYMENTNURSEPERIOD)
+                )
             serializer.save()
             return self.success_objects_response(serializer.data)
         else:
@@ -307,42 +317,19 @@ class AcceptOrder(ResponsesMixin, generics.GenericAPIView):
             return self.error_methon_not_allowed_response('Вы пытаетесь оплатить чужой заказ, так быть не должно!', request.user)
 
         if order.status == OrderStatuses.waiting:
+            if order.care_type == CareType.with_accommodation:
+                return self.success_objects_response({"cost": order.cost})
             if order.visits_count < 1:
-                if order.generateNearestVisit():
-                    now = datetime.date.today()
-                    wallet = Wallet.objects.get(user=order.client)
-
-                    wallet.sendTo(order.nurse.username, order.cost)
-                    if order.care_type == CareType.several_hours: 
-                        order.status = OrderStatuses.testing_period
-                        order.save()
-                    serializer = self.serializer_class(order)
-                        
-                    secondClientPayment.apply_async(
-                        kwargs = {'order': serializer.data},
-                        eta =  datetime.datetime.utcnow() + datetime.timedelta(days=settings.DELTATIME_TESTPERIOD)
-                    )
+                if order.canGenerateNearestVisit():
+                    return self.success_objects_response({"cost": order.cost})
                 else: return self.error_methon_not_allowed_response('На эти даты уже есть посещения, нельзя оплатить повторно', request.user)
 
             else:
-                generted_visits = order.generateVisitsPerWeek()
+                generted_visits = order.getCountVisitsPerWeek()
                 if generted_visits:
-                    now = datetime.date.today()
-                    wallet = Wallet.objects.get(user=order.client)
-
-                    wallet.sendTo(order.nurse.username, order.cost*generted_visits)
-
-                    order.status = OrderStatuses.active
-                    order.save()
-
-                    serializer = self.serializer_class(order)
-                    secondClientPayment.apply_async(
-                        kwargs = {'order': serializer.data},
-                        eta =  datetime.datetime.utcnow() + datetime.timedelta(days=settings.DELTATIME_ACTIVEPERIOD)
-                    )
+                    return self.success_objects_response({"cost": order.cost * generted_visits})
                 else: return  self.error_methon_not_allowed_response('На эти даты уже есть посещения, нельзя оплатить повторно', request.user)
-
-            return self.simple_text_response('ok')
+        
         else: 
             return self.error_methon_not_allowed_response('Заказ уже оплачен, сделать снова это нельзя!', request.user)
 
@@ -378,7 +365,7 @@ class MoveToArchiveOrder(ResponsesMixin, generics.GenericAPIView):
                     visit.delete()
                 
             order.status = OrderStatuses.in_archive
-            bitrix_change_archive(order.application.bitrix_id)
+            bitrix_change_archive(order.application.bitrix_id, order.client)
             order.save()
             return self.simple_text_response(f'Заказ id:{order.id} перемещен в архив!')
         else:
@@ -417,8 +404,8 @@ class GetVisitsByNurse(ResponsesMixin, generics.GenericAPIView):
 
 
     def get(self, request):
-        active_visits = NurseVisit.objects.all().filter(order__nurse=request.user).filter(completed=False)
-        completed_visits = NurseVisit.objects.all().filter(order__nurse=request.user).filter(completed=True)
+        active_visits = NurseVisit.objects.all().filter(order__nurse=request.user).filter(completed=False).order_by('date').filter(completed=False)
+        completed_visits = NurseVisit.objects.all().filter(order__nurse=request.user).filter(completed=True).order_by('-date').filter(completed=True)
         
         response = {
             "active_visits":[],
@@ -440,3 +427,190 @@ class GetVisitsByNurse(ResponsesMixin, generics.GenericAPIView):
         
         return self.success_objects_response(response)
 
+
+
+class CheckView(ResponsesMixin, generics.GenericAPIView):
+    authentication_classes = []
+    permission_classes = [
+        permissions.AllowAny,
+    ]
+    serializer_class = NurseOrderSerializer
+
+    def getOrder(self, id):
+        try:
+            return NurseOrder.objects.get(id=id)
+        except: 
+            return False
+    def post(self, request):
+        data = json.loads(request.data['Data'])
+
+        if data['isNurse'] == 'True':
+            return self.success_objects_response({'code':0}) 
+
+        order = self.getOrder(request.data['InvoiceId'])
+        code = 0
+        if order:
+            print(request.data, order.client, order.client != request.data['AccountId'] )
+
+            if order.client != request.data['AccountId']:
+                code = 11
+            if order.visits_count < 2:
+                if order.cost != int(float(request.data['Amount'])):
+                    code = 12
+            else:
+                if order.cost_per_week != int(float(request.data['Amount'])):
+                    code = 12
+
+        else:
+            code = 10
+        print(code, order.cost,order.cost, int(float(request.data['Amount'])), )
+        if code != 0:
+            self.create_log(log=f'Некорректные платежные запросы! code:{code}', user=User.objects.get(username=order.client))
+
+        return self.success_objects_response({'code':code}) 
+            
+        
+
+
+       
+
+    # def get(self, request):
+    #     return self.success_objects_response('ok')
+
+class PayView(ResponsesMixin, generics.GenericAPIView):
+    permission_classes = [
+        permissions.AllowAny,
+    ]
+    authentication_classes = []
+    serializer_class = NurseOrderSerializer
+
+    def getOrder(self, id):
+        try:
+            return NurseOrder.objects.get(id=id)
+        except:
+            return False
+
+    def post(self, request):
+        print(request.data)
+        order = self.getOrder(request.data['InvoiceId'])
+        token = request.data['Token']
+        accountId = request.data['AccountId']
+        transaction = request.data['TransactionId']
+        amount = float(request.data['PaymentAmount'])
+        data = json.loads(request.data['Data'])
+        client = False
+
+        try:
+            client = User.objects.get(username=accountId)
+        except:
+            self.create_log('User not found во время выполнения транзакции оплаты',  User.objects.get(username='admin'))
+
+        if client:
+            if len(client.token) == 0:
+                client.token = token
+                client.save()
+        
+        if  data['isNurse'] == 'True' and client:
+            client.linked_card = True
+            client.save()
+            r = cp.void_payment(transaction_id=transaction)
+            print(r)
+            return self.success_objects_response({"code":0})
+
+
+
+        accumId = request.data['EscrowAccumulationId']
+
+
+        if order.status == OrderStatuses.waiting and data['isNurse'] == 'False':
+            bitrix_change_active(order.id, order.client)
+
+            if order.care_type == CareType.with_accommodation:
+                wallet = Wallet.objects.get(user=order.client)
+                wallet.sendTo(order.nurse.username, order.cost)
+                order.status = OrderStatuses.active
+                order.save()
+                serializer = self.serializer_class(order)
+
+                Accumulation.objects.create(
+                    transaction_id = transaction,
+                    amount = order.cost,
+                    token = token,
+                    order = order,
+                    escrowAccumulationId = accumId,
+                    сreatedDateIso = request.data['DateTime'],
+                )
+                secondClientPayment.apply_async(
+                    kwargs = {'order': serializer.data, 'cost': order.cost, 'accumId':accumId, 'transactionID': transaction},
+                    eta =  datetime.datetime.utcnow() + datetime.timedelta(days=settings.DELTATIME_ACTIVEPERIOD)- datetime.timedelta(hours=settings.DELTATIME_PAYMENT_CALLS)
+                )
+            elif order.care_type == CareType.several_hours:
+                if order.visits_count < 1:
+                    if order.generateNearestVisit():
+                        wallet = Wallet.objects.get(user=order.client)
+                        wallet.sendTo(order.nurse.username, order.cost)
+                        order.status = OrderStatuses.testing_period
+                        order.save()
+                        serializer = self.serializer_class(order)
+                        Accumulation.objects.create(
+                            transaction_id = transaction,
+                            amount = order.cost,
+                            token = token,
+                            order = order,
+                            escrowAccumulationId = accumId,
+                            сreatedDateIso = request.data['DateTime'],
+                        )
+                        secondClientPayment.apply_async(
+                            kwargs = {'order': serializer.data, 'cost': order.cost, 'accumId':accumId, 'transactionID': transaction },
+                            eta =  datetime.datetime.utcnow() + datetime.timedelta(days=settings.DELTATIME_TESTPERIOD) - datetime.timedelta(hours=settings.DELTATIME_PAYMENT_CALLS)
+                        )
+                
+                else:
+                    generted_visits = order.generateVisitsPerWeek()
+                    if generted_visits:
+                        wallet = Wallet.objects.get(user=order.client)
+
+                        wallet.sendTo(order.nurse.username, order.cost*generted_visits)
+
+                        order.status = OrderStatuses.active
+                        order.save()
+
+                        serializer = self.serializer_class(order)
+
+                        Accumulation.objects.create(
+                            transaction_id = transaction,
+                            amount = order.cost * generted_visits,
+                            token = token,
+                            order = order,
+                            escrowAccumulationId = accumId,
+                            сreatedDateIso = request.data['DateTime'],
+                        )
+
+                        secondClientPayment.apply_async(
+                            kwargs = {'order': serializer.data, 'cost': order.cost*generted_visits, 'accumId':accumId, 'transactionID': transaction},
+                            eta =  datetime.datetime.utcnow() + datetime.timedelta(days=settings.DELTATIME_ACTIVEPERIOD)- datetime.timedelta(hours=settings.DELTATIME_PAYMENT_CALLS)
+                        )
+            
+        return self.success_objects_response({"code":0})
+
+
+class FailView(ResponsesMixin, generics.GenericAPIView):
+    authentication_classes = []
+    permission_classes = [
+        permissions.AllowAny,
+    ]
+    serializer_class = NurseOrderSerializer
+
+    def getOrder(self, id):
+        try:
+            return NurseOrder.objects.get(id=id)
+        except: 
+            return False
+    
+    def post(self, request):
+        order = self.getOrder(request.data['InvoiceId'])
+        order.status = OrderStatuses.waiting
+        order.save()
+        bitrix_change_processed(order.id, order.cost, order.client)
+
+        return self.success_objects_response({'code':0}) 

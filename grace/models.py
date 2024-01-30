@@ -97,9 +97,9 @@ class NurseOrder(models.Model):
     comment = models.TextField(_("комментарий"), default='', )
     
     status = models.CharField(_("Статус заказа"), max_length=50, choices=OrderStatuses.choices, default=OrderStatuses.waiting)
-    cost = models.PositiveIntegerField(_("Стоимость за посещение"))
-    care_type = models.CharField(_("На какое время нужна сиделка?"), max_length=300, choices=CareType.choices, default=CareType.several_hours)
-    
+    cost = models.PositiveIntegerField(_("Стоимость за посещение (за неделю)"))
+    care_type = models.CharField(_("Тип"), max_length=300, choices=CareType.choices, default=CareType.several_hours)
+
     @property
     def cost_per_week(self):
         if self.cost != None:
@@ -163,10 +163,55 @@ class NurseOrder(models.Model):
                 )
                 return True
             return False
+    
+    def canGenerateNearestVisit(self):
+        if self.care_type == CareType.several_hours and self.status != OrderStatuses.in_archive:
+            now = datetime.date.today() + datetime.timedelta(days=1)
+            days = VisitDay.objects.all().filter(order=self)
+            visits = NurseVisit.objects.all().filter(order=self)
+            week_days = []
+            for day in days:
+                week_days.append(day.day)
+
+            while str(now.weekday()) not in week_days:
+                now += datetime.timedelta(days=1)
             
 
+            day = days.filter(day=str(now.weekday()))[0]
+
+            flag = True
+            for visit in visits:
+                if visit.date == now: 
+                    flag = False
+            if flag:
+                return True
+            return False
 
 
+    def getCountVisitsPerWeek(self):
+        if self.care_type == CareType.several_hours and self.status != OrderStatuses.in_archive:
+            now = datetime.date.today() + datetime.timedelta(days=1)
+            days = VisitDay.objects.all().filter(order=self)
+            visits = NurseVisit.objects.all().filter(order=self)
+
+            week_days = []
+            for day in days:
+                week_days.append(day.day)
+
+            generated_visits = 0
+
+            for _ in range(7):
+                now += datetime.timedelta(days=1)
+                if str(now.weekday()) in week_days:
+                    day = days.filter(day=str(now.weekday()))[0]
+                    flag = True
+                    for visit in visits:
+                        if visit.date == now: 
+                            flag = False
+                    if flag:
+                        generated_visits += 1
+            return generated_visits
+    
     def generateVisitsPerWeek(self):
         if self.care_type == CareType.several_hours and self.status != OrderStatuses.in_archive:
             now = datetime.date.today() + datetime.timedelta(days=1)
@@ -290,3 +335,19 @@ class ErrorLogs(models.Model):
 
     def __str__(self):
         return str(self.date)
+
+
+class Accumulation(models.Model):
+    transaction_id =  models.CharField( max_length=300, default='')
+    amount = models.IntegerField(default=0)
+    сreatedDateIso =  models.CharField( max_length=300, default='')
+    token = models.CharField( max_length=300, default='')
+    order = models.ForeignKey(NurseOrder, to_field='id', related_name='accumalations', verbose_name=_("Безопасная сделка"), on_delete=models.CASCADE)
+    escrowAccumulationId = models.CharField( max_length=300, default='')
+
+    class Meta:
+        verbose_name = _("Безопасная сделка")
+        verbose_name_plural = _("Безопасные сделки")
+
+    def __str__(self):
+        return 'Безопасная сделка' +  str(self.escrowAccumulationId)

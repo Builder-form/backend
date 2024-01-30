@@ -11,12 +11,12 @@ admin.site.register(CustomerInfo)
 
 @admin.register(User)
 class UserAdminCustom(UserAdmin):
-    readonly_fields = ('jwt_token',)
+    readonly_fields = ('jwt_token', 'token')
     list_display = ['username', 'first_name', 'last_name', 'role']
     list_filter = ['role',]
     fieldsets = UserAdmin.fieldsets + (
         ('Информация', {'fields': (
-            'jwt_token', 'role', 'linked_card')}),
+            'jwt_token','token', 'role', 'telegram_username', 'chat_telegram_id' ,'linked_card')}),
     )
 
     

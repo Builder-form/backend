@@ -26,8 +26,8 @@ class NurseApplicationSerializer(serializers.ModelSerializer):
 class NurseOrderSerializer(serializers.ModelSerializer):
     class Meta:
         model = NurseOrder
-        fields = ['id', 'application', 'care_type', 'status','nurse', 'address', 'cost', 'comment', 'client']
-        read_only_fields = ['id', 'client' ]
+        fields = ['id', 'application', 'care_type', 'status','nurse', 'address', 'cost', 'comment', 'client', 'cost_per_week']
+        read_only_fields = ['id', 'client', 'cost_per_week' ]
 
     def create(self, validated_data):
         return NurseOrder.objects.create(**validated_data)

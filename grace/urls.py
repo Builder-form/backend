@@ -13,7 +13,10 @@ from .views import NurseApplicationView, \
     AcceptOrder, \
     MoveToArchiveOrder,\
     GetBalance,\
-    GetVisitsByNurse
+    GetVisitsByNurse,\
+    CheckView, \
+    PayView,\
+    FailView
 
 
 urlpatterns = [
@@ -31,4 +34,8 @@ urlpatterns = [
     path('appelation/visit/<str:visit_id>/', NurseAppelationsByVisit.as_view()),
     path('appelation/<str:appelation_id>/', NurseAppelationDetail.as_view()),
     path('balance/', GetBalance.as_view() ),
+    path('notifications/check/', CheckView.as_view()),
+    path('notifications/pay/', PayView.as_view()),
+    path('notifications/fail/', FailView.as_view())
+    
 ]

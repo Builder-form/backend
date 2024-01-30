@@ -36,6 +36,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
 
+    'sslserver',
+
 ]
 
 MIDDLEWARE = [
@@ -109,6 +111,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 REST_FRAMEWORK = {
+    'TEST_REQUEST_DEFAULT_FORMAT': 'json',
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.IsAuthenticated',
     ),
@@ -121,6 +124,8 @@ REST_FRAMEWORK = {
     'DEFAULT_PARSER_CLASSES': (
         'rest_framework.parsers.JSONParser',
         'rest_framework.parsers.MultiPartParser',
+        'rest_framework.parsers.FormParser',
+
     ),
     'PAGE_SIZE': 20,
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
@@ -157,5 +162,10 @@ CELERY_TIMEZONE = "Europe/Moscow"
 CORS_EXPOSE_HEADERS = ['Content-Type', 'X-CSRFToken']
 CORS_ALLOW_CREDENTIALS = True
 
-DELTATIME_TESTPERIOD = 1/1440
-DELTATIME_ACTIVEPERIOD = 1/1440
+DELTATIME_TESTPERIOD = 1/480/3 #в днях - время оплаты тестового периода (раз в день и тд)
+DELTATIME_ACTIVEPERIOD = 1/480/3#в днях - время оплаты основго периода(раз в неделю и тд)
+DELTATIME_PAYMENTNURSEPERIOD = 1/60 #в часах
+DELTATIME_PAYMENT_CALLS=1/120 # в часах - задержка между следующим платежом и выплатой сиделке
+
+CLOUDPAYMENTS_PUBLIC_ID = 'pk_a2d44a7570fe7490cfe41bb85f660'
+CLOUDPAYMENTS_PASSWORD = ''

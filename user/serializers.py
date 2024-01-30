@@ -35,7 +35,7 @@ class NurseInfoSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['role', 'first_name', 'last_name', 'email', 'linked_card']
+        fields = ['username','role', 'first_name', 'last_name', 'email', 'linked_card', 'token', 'telegram_username',]
         read_only_fields = ['username']
 
     def update(self, instance, validated_data):
@@ -43,5 +43,7 @@ class UserSerializer(serializers.ModelSerializer):
         instance.first_name = validated_data.get('first_name', instance.first_name)
         instance.last_name = validated_data.get('last_name', instance.last_name)
         instance.email = validated_data.get('email', instance.email)
+        instance.telegram_username = validated_data.get('telegram_username', instance.telegram_username)
+        # instance.chat_telegram_id = validated_data.get('chat_telegram_id', instance.chat_telegram_id)
         instance.save()
         return instance

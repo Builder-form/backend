@@ -28,7 +28,7 @@ class DaysOrderInline(admin.TabularInline):
 @admin.register(NurseOrder)
 class NurseOrderAdmin(admin.ModelAdmin):
     form = NurseOrderForm
-    list_display = ("client_info", "nurse_info", "cost", 'status', 'id')
+    list_display = ('status', 'care_type',"client_info", "nurse_info", "cost",'id')
     inlines = [DaysOrderInline, ]
     def client_info(self,object):
         client = User.objects.get(username=object.client)
@@ -38,7 +38,7 @@ class NurseOrderAdmin(admin.ModelAdmin):
         return f'{object.nurse.username} {object.nurse.first_name} {object.nurse.last_name}'
     raw_id_fields = ['nurse', 'application' ]
 
-    list_filter = ['status', 'nurse']
+    list_filter = ['status','care_type', 'nurse']
 
     search_fields = ['client__username', 'client__last_name', 'client__first_name',
     'nurse__username', 'nurse__last_name', 'nurse__first_name',

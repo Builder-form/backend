@@ -122,3 +122,4 @@ websocket-client==1.6.4
 websockets==11.0.3
 wsproto==1.2.0
 yarl==1.9.2
+cloudpayments==1.6.3

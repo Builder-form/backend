@@ -252,3 +252,15 @@ class SetLinkedCardView(APIView):
             'ok', 
             status=status.HTTP_200_OK
         )
+
+class ListenTgBot(APIView):
+    permission_classes = [
+        permissions.AllowAny,
+    ]
+    
+    def post(self, request):
+        print(request.data)
+        return Response(
+            'ok', 
+            status=status.HTTP_200_OK
+        )
