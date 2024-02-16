@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import  NurseAppelation, NurseOrder, NurseVisit, NurseApplication, VisitDay, Wallet,  TransferPrefs, ErrorLogs
+from .models import  NurseAppelation, NurseOrder, NurseVisit, NurseApplication, VisitDay, Wallet,  TransferPrefs, ErrorLogs, Accumulation
     
 # Register your models here.
 from user.models import CustomerInfo, NurseInfo, User
@@ -28,7 +28,7 @@ class DaysOrderInline(admin.TabularInline):
 @admin.register(NurseOrder)
 class NurseOrderAdmin(admin.ModelAdmin):
     form = NurseOrderForm
-    list_display = ('status', 'care_type',"client_info", "nurse_info", "cost",'id')
+    list_display = ('order_number', 'status', 'care_type',"client_info", "nurse_info", "cost",'id')
     inlines = [DaysOrderInline, ]
     def client_info(self,object):
         client = User.objects.get(username=object.client)
@@ -39,13 +39,13 @@ class NurseOrderAdmin(admin.ModelAdmin):
     raw_id_fields = ['nurse', 'application' ]
 
     list_filter = ['status','care_type', 'nurse']
+    fields = ["id",'status',  'visits_count', "application", 'client_info', 'nurse', 'address', 'cost','cost_per_week', 'care_type', 'comment',]
+    readonly_fields = ('id', 'visits_count', 'client_info', 'cost_per_week', 'order_number')
 
-    search_fields = ['client__username', 'client__last_name', 'client__first_name',
-    'nurse__username', 'nurse__last_name', 'nurse__first_name',
+    search_fields = [
+    'nurse__username', 'nurse__last_name', 'nurse__first_name','order_number', 'id'
     ]
 
-    fields = ["id",'status',  'visits_count', "application", 'client_info', 'nurse', 'address', 'cost','cost_per_week', 'care_type', 'comment',]
-    readonly_fields = ('id', 'visits_count', 'client_info', 'cost_per_week',)
 
 
     
@@ -66,7 +66,7 @@ class NurseApplicationAdmin(admin.ModelAdmin):
 admin.site.register(Wallet)
 admin.site.register(TransferPrefs)
 admin.site.register(ErrorLogs)
-
+admin.site.register(Accumulation)
 
 @admin.register(NurseAppelation)
 class NurseVisitsAdmin(admin.ModelAdmin):

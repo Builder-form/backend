@@ -89,6 +89,10 @@ class NurseApplication(models.Model):
 
 
 class NurseOrder(models.Model):
+    class Meta:
+        verbose_name='Заказ'
+        verbose_name_plural = 'Заказы'
+
     id = models.UUIDField( default=uuid.uuid4, editable=False, primary_key=True, )
     application = models.OneToOneField(NurseApplication, to_field='id', related_name='application_orders', verbose_name=_("Заявка"), on_delete=models.CASCADE)
     
@@ -99,6 +103,17 @@ class NurseOrder(models.Model):
     status = models.CharField(_("Статус заказа"), max_length=50, choices=OrderStatuses.choices, default=OrderStatuses.waiting)
     cost = models.PositiveIntegerField(_("Стоимость за посещение (за неделю)"))
     care_type = models.CharField(_("Тип"), max_length=300, choices=CareType.choices, default=CareType.several_hours)
+
+    order_number = models.IntegerField(_("Номер"),default=1)
+
+    def save(self, *args, **kwargs):
+        if self._state.adding:
+            self.object_list = NurseOrder.objects.order_by('order_number')
+            if len(self.object_list) == 0: 
+                self.order_number = 1
+            else:
+                self.order_number = self.object_list.last().order_number + 1
+        super(NurseOrder, self).save()
 
     @property
     def cost_per_week(self):
@@ -122,14 +137,13 @@ class NurseOrder(models.Model):
     @property
     def visits_count(self):
         days = NurseVisit.objects.all().filter(order=self)
-        
+
         return len(days)
 
     visits_count.fget.short_description = 'Количество произведенных посещений'
-    class Meta:
-        verbose_name='Заказ'
-        verbose_name_plural = 'Заказы'
+
     
+
     def  __str__(self):
         client = User.objects.get(username=self.client)
         return f'Клиент:{client.first_name} {client.last_name} Сиделка: {self.nurse.first_name} {self.nurse.last_name}'

@@ -15,8 +15,8 @@ class User(AbstractUser):
 
     role = models.CharField(max_length=300, choices=Roles.choices, default=Roles.customer)
     token = models.CharField(_('Токен в cloudpayments для оплаты'),max_length=300, default='',)
-    telegram_username = models.CharField(_('Username в телеграм'), max_length=300, default='')
-    chat_telegram_id = models.CharField(_('ID чата с user в телеграм'), max_length=300, default='')
+    telegram_username = models.CharField(_('Username в телеграм'), max_length=300, default='', blank=False)
+    chat_telegram_id = models.CharField(_('ID чата с user в телеграм'), max_length=300, default='', blank=False)
     linked_card = models.BooleanField(_('Привязана ли карта'), default=False)
     
 

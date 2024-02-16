@@ -36,7 +36,11 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['username','role', 'first_name', 'last_name', 'email', 'linked_card', 'token', 'telegram_username',]
-        read_only_fields = ['username']
+        read_only_fields = ['username', 'token' ]
+        extra_kwargs = {
+            "telegram_username": {"required": False, "allow_null": True},
+            "email": {"required": False, "allow_null": True}
+        }
 
     def update(self, instance, validated_data):
         instance.role = validated_data.get('role', instance.role)

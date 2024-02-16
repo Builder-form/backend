@@ -11,16 +11,45 @@ from cloudpayments import CloudPayments
 from cloudpayments.errors import CloudPaymentsError
 from cloudpayments.models import Transaction
 from .utils import bitrix_change_active, bitrix_change_processed
+import decimal
+import requests
+from requests.auth import HTTPBasicAuth
+import json
+import os
 
 
 cp = CloudPayments(settings.CLOUDPAYMENTS_PUBLIC_ID, settings.CLOUDPAYMENTS_PASSWORD)
 
+def _send_topup_request(cp, endpoint, params=None, request_id=None):
+    auth = HTTPBasicAuth(settings.CLOUDPAYMENTS_SALARY_PUBLIC_ID, settings.CLOUDPAYMENTS_SALARY_PASSWORD)
+    headers = None
+    
+    with open('text.txt', 'w') as file:
+        json.dump(params, file)
+
+    os.system('openssl cms -sign -signer certificate.crt -inkey private.key -out sign.txt -in text.txt -outform pem')    
+
+    f = open('sign.txt')
+    lines = f.readlines()
+    
+    headers = {
+        'X-Signature': ''.join(map(lambda x: x[:-1], lines[1:-1]))
+    }
+
+
+
+    if request_id is not None:
+        headers['X-Request-ID'] = request_id
+    
+    response = requests.post(cp.URL + endpoint, json=params, auth=auth, headers=headers)
+    print('SEND REQUEST', response.request.body,response.request.headers, response.request.hooks,)
+    return response.json(parse_float=decimal.Decimal)
 
 
 def topup(cp, params):
         print('PARAPMS', params)
 
-        response = cp._send_request('payments/token/topup', params)
+        response = _send_topup_request(cp, 'payments/token/topup', params)
         print('RESPONSE TOPUP', response)
 
 
@@ -31,7 +60,7 @@ def topup(cp, params):
 
 @shared_task
 def sheduledPayment(paymentParams, transaction, amount):
-    cp._send_request('payments/cards/auth', paymentParams)
+    cp._send_request('payments/tokens/auth', paymentParams)
 
 
 
@@ -45,17 +74,17 @@ def acceptVisit(visit_id):
 def secondClientPayment(order, cost, accumId, transactionID):
     order = NurseOrder.objects.get(id=order['id'])
     client = User.objects.get(username=order.client)
-    percent = 35
+    percent = 64
 
     if order.care_type == CareType.with_accommodation and order.status != OrderStatuses.in_archive:
         if len(order.accumalations.all()) > 4:
-            percent = 12
+            percent = 84
         else:
-            percent = 40
+            percent = 52
 
     params = {
             'Token': order.nurse.token,
-            'Amount': cost*(1 - percent/100),
+            'Amount': round(cost*(percent/100),2),
             'AccountId': order.nurse.username,
             'Currency': 'RUB',
                 "Payer": { 
@@ -85,43 +114,32 @@ def secondClientPayment(order, cost, accumId, transactionID):
     
    
     if client.linked_card:
-        if order.status == OrderStatuses.active:
-            generated_visits = order.getCountVisitsPerWeek()
-            payment_params = {
-                "Amount":order.cost * generated_visits,
-                "Currency":"RUB",
-                "InvoiceId":order.id,
-                "Description":"Оплата товаров заказа" + order.id,
-                "AccountId": order.client,
-                "TrInitiatorCode": 0,
-                "PaymentScheduled": 1,
-                "Token":client.token,
-                "Payer":
-                { 
-                    "FirstName":client.first_name,
-                    "LastName":client.last_name,
-                    "Address":order.address,
-                    'Tel': client.username
-                }
-            }
-            sheduledPayment.apply_async(
-                kwargs = {'paymentParams': payment_params, 'transaction': transactionID, 'amount': order.cost * generated_visits },
-                eta=  datetime.datetime.utcnow() + datetime.timedelta(hours=settings.DELTATIME_PAYMENT_CALLS)
-            )
+        order_cost = -1
 
-        if order.status == OrderStatuses.testing_period:
-            if order.visits_count >= 1:
-                order.status = OrderStatuses.active
-                order.save()
-                bitrix_change_active(order.id, order.client)
-                
+        if order.care_type == CareType.with_accommodation and order.status == OrderStatuses.active:
+            order_cost = order.cost
             
-            if order.canGenerateNearestVisit():
-                payment_params = {
-                "Amount":order.cost,
+        if order.care_type == CareType.several_hours:
+            if order.status == OrderStatuses.active:
+                generated_visits = order.getCountVisitsPerWeek()
+                order_cost = order.cost*generated_visits
+
+            elif order.status == OrderStatuses.testing_period:
+                if order.visits_count >= 1:
+                    order.status = OrderStatuses.active
+                    order.save()
+                    bitrix_change_active(order.id, order.client)
+                    
+                
+                if order.canGenerateNearestVisit():
+                    order_cost = order.cost
+
+        if order_cost != -1:  
+            payment_params = {
+                "Amount": order_cost,
                 "Currency":"RUB",
-                "InvoiceId":order.id,
-                "Description":"Оплата товаров заказа" + order.id,
+                "InvoiceId": str(order.id),
+                "Description":"Оплата товаров заказа" + str(order.id),
                 "AccountId": order.client,
                 "TrInitiatorCode": 0,
                 "PaymentScheduled": 1,
@@ -136,19 +154,19 @@ def secondClientPayment(order, cost, accumId, transactionID):
                     "LastName":client.last_name,
                     "Address":order.address,
                     'Tel': client.username
-                }
-                }
+                },
+                "Data": '{"isNurse": "False"}'
+            }
 
 
-                sheduledPayment.apply_async(
-                    kwargs = {'paymentParams': payment_params, 'transaction': transactionID, 'amount': order.cost},
-                    eta=  datetime.datetime.utcnow() + datetime.timedelta(hours=settings.DELTATIME_PAYMENT_CALLS)
-                )
-                
-        secondClientPayment.apply_async(
-                kwargs = {'order': NurseOrderSerializer(order).data},
-                eta=  datetime.datetime.utcnow() + datetime.timedelta(days=settings.DELTATIME_ACTIVEPERIOD if order.status == OrderStatuses.active else settings.DELTATIME_TESTPERIOD )
-        )
+            sheduledPayment.apply_async(
+                kwargs = {'paymentParams': payment_params, 'transaction': transactionID, 'amount': order.cost},
+                eta=  datetime.datetime.utcnow() + datetime.timedelta(hours=settings.DELTATIME_PAYMENT_CALLS)
+            )
+        # secondClientPayment.apply_async(
+        #         kwargs = {'order': NurseOrderSerializer(order).data, },
+        #         eta=  datetime.datetime.utcnow() + datetime.timedelta(days=settings.DELTATIME_ACTIVEPERIOD if order.status == OrderStatuses.active else settings.DELTATIME_TESTPERIOD )
+        # )
 
     else:
         if order.status != OrderStatuses.in_archive:

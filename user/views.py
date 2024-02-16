@@ -50,7 +50,12 @@ class NurseInfoView(APIView):
 
     def post(self, request):
         data = request.data
-
+        if data['user']['telegram_username'] == '':
+             data['user']['telegram_username'] = '@telegram'
+        
+        if data['user']['email'] == '':
+             data['user']['email'] = 'email@email.ru'
+        
         data['nurse_info']['user'] = request.user.pk
         serializer = self.serializer_class(data=request.data['nurse_info'])
         serializer.is_valid(raise_exception=True)
@@ -86,10 +91,21 @@ class NurseInfoView(APIView):
 
     def put(self,request, format=None):
         info = self.getInfo(user=request.user)
+
+        if request.data['user']['telegram_username'] == '':
+             request.data['user']['telegram_username'] = '@telegram'
+        
+        if request.data['user']['email'] == '':
+             request.data['user']['email'] = 'email@email.ru'
+
+        
+
         serializer = self.serializer_class(info, data=request.data['nurse_info'])
         user_serializer = UserSerializer(request.user, data=request.data['user'])
         user_serializer.is_valid()
         serializer.is_valid()
+
+        print(user_serializer.is_valid())
         if user_serializer.is_valid() and serializer.is_valid():
             user_serializer.save()
             serializer.save()
@@ -158,12 +174,18 @@ class CustomerInfoView(APIView):
         data = request.data
 
         data['customer_info']['user'] = request.user.pk
+        if data['user']['telegram_username'] == '':
+             data['user']['telegram_username'] = '@telegram'
+        
+        if data['user']['email'] == '':
+             data['user']['email'] = 'email@email.ru'
+        
+        print(data, request.user)
         serializer = self.serializer_class(data=request.data['customer_info'])
         serializer.is_valid(raise_exception=True)
         serializer.save()
 
         user_serializer = UserSerializer(request.user, data=request.data['user'])
-        
         if user_serializer.is_valid():
             user_serializer.save()
         else:
@@ -194,6 +216,7 @@ class CustomerInfoView(APIView):
         info = self.getInfo(user=request.user)
         serializer = self.serializer_class(info, data=request.data['customer_info'])
         user_serializer = UserSerializer(request.user, data=request.data['user'])
+        print(request.data)
         user_serializer.is_valid()
         serializer.is_valid()
         if user_serializer.is_valid() and serializer.is_valid():

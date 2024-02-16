@@ -125,7 +125,7 @@ class NurseOrderDetail(ResponsesMixin,generics.GenericAPIView):
         data['days'] = order.days_to_visit
 
 
-        return self.success_objects_response(serializer.data)
+        return self.success_objects_response(data)
 
     def put(self,request, id, format=None):
         order = self.getOrder(id)
@@ -442,10 +442,11 @@ class CheckView(ResponsesMixin, generics.GenericAPIView):
         except: 
             return False
     def post(self, request):
-        data = json.loads(request.data['Data'])
+        if 'Data' in request.data.keys():
+            data = json.loads(request.data['Data'])
 
-        if data['isNurse'] == 'True':
-            return self.success_objects_response({'code':0}) 
+            if data['isNurse'] == 'True':
+                return self.success_objects_response({'code':0}) 
 
         order = self.getOrder(request.data['InvoiceId'])
         code = 0
@@ -497,7 +498,6 @@ class PayView(ResponsesMixin, generics.GenericAPIView):
         accountId = request.data['AccountId']
         transaction = request.data['TransactionId']
         amount = float(request.data['PaymentAmount'])
-        data = json.loads(request.data['Data'])
         client = False
 
         try:
@@ -509,21 +509,28 @@ class PayView(ResponsesMixin, generics.GenericAPIView):
             if len(client.token) == 0:
                 client.token = token
                 client.save()
-        
-        if  data['isNurse'] == 'True' and client:
-            client.linked_card = True
-            client.save()
-            r = cp.void_payment(transaction_id=transaction)
-            print(r)
-            return self.success_objects_response({"code":0})
+
+        print('DATA KEYS', request.data.keys())
+        if 'Data' in request.data.keys():
+            data = json.loads(request.data['Data'])
+            if  data['isNurse'] == 'True' and client:
+                client.linked_card = True
+                client.save()
+                r = cp.void_payment(transaction_id=transaction)
+                print(r)
+                return self.success_objects_response({"code":0})
+        else:
+            data = {}
+            data['isNurse'] = 'False'
 
 
 
         accumId = request.data['EscrowAccumulationId']
 
 
-        if order.status == OrderStatuses.waiting and data['isNurse'] == 'False':
-            bitrix_change_active(order.id, order.client)
+        if order.status != OrderStatuses.in_archive and data['isNurse'] == 'False':
+            if order.status == OrderStatuses.waiting:
+                bitrix_change_active(order.id, order.client)
 
             if order.care_type == CareType.with_accommodation:
                 wallet = Wallet.objects.get(user=order.client)
@@ -544,6 +551,7 @@ class PayView(ResponsesMixin, generics.GenericAPIView):
                     kwargs = {'order': serializer.data, 'cost': order.cost, 'accumId':accumId, 'transactionID': transaction},
                     eta =  datetime.datetime.utcnow() + datetime.timedelta(days=settings.DELTATIME_ACTIVEPERIOD)- datetime.timedelta(hours=settings.DELTATIME_PAYMENT_CALLS)
                 )
+            
             elif order.care_type == CareType.several_hours:
                 if order.visits_count < 1:
                     if order.generateNearestVisit():

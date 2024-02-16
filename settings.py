@@ -10,6 +10,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '6dncg2qm)vv0%i4)a3yrvmbg3*$v)3i6^d0c32du93+4^ba#$i'
 
+CSRF_TRUSTED_ORIGINS = ['https://*.gracey.ru','https://*.gracey.ru:4002' ]
+
+
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -167,5 +171,9 @@ DELTATIME_ACTIVEPERIOD = 1/480/3#в днях - время оплаты осно�
 DELTATIME_PAYMENTNURSEPERIOD = 1/60 #в часах
 DELTATIME_PAYMENT_CALLS=1/120 # в часах - задержка между следующим платежом и выплатой сиделке
 
-CLOUDPAYMENTS_PUBLIC_ID = 'pk_a2d44a7570fe7490cfe41bb85f660'
-CLOUDPAYMENTS_PASSWORD = ''
+CLOUDPAYMENTS_PUBLIC_ID = 'pk_a2d44a7570fe7490cfe41bb85f660' # Прием платеежй
+CLOUDPAYMENTS_PASSWORD = 'b3185a124e9a9a4d80183156216221f8'
+
+CLOUDPAYMENTS_SALARY_PUBLIC_ID = 'pk_f3458b2cceee2b656a28cb5fbd49c' #ДЛЯ ВЫПЛАТЫ СИДЕЛКАМ
+CLOUDPAYMENTS_SALARY_PASSWORD = 'd69ab4a9e872f527a818d8b0198b716f'
+
