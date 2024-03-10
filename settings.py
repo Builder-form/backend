@@ -166,10 +166,10 @@ CELERY_TIMEZONE = "Europe/Moscow"
 CORS_EXPOSE_HEADERS = ['Content-Type', 'X-CSRFToken']
 CORS_ALLOW_CREDENTIALS = True
 
-DELTATIME_TESTPERIOD = 1/480/3 #в днях - время оплаты тестового периода (раз в день и тд)
-DELTATIME_ACTIVEPERIOD = 1/480/3#в днях - время оплаты основго периода(раз в неделю и тд)
-DELTATIME_PAYMENTNURSEPERIOD = 1/60 #в часах
-DELTATIME_PAYMENT_CALLS=1/120 # в часах - задержка между следующим платежом и выплатой сиделке
+DELTATIME_TESTPERIOD = 1 #в днях - время оплаты тестового периода (раз в день и тд)
+DELTATIME_ACTIVEPERIOD = 7 #в днях - время оплаты основго периода(раз в неделю и тд)
+DELTATIME_PAYMENTNURSEPERIOD = 1 #в часах
+DELTATIME_PAYMENT_CALLS= 1 # в часах - задержка между следующим платежом и выплатой сиделке
 
 CLOUDPAYMENTS_PUBLIC_ID = 'pk_a2d44a7570fe7490cfe41bb85f660' # Прием платеежй
 CLOUDPAYMENTS_PASSWORD = 'b3185a124e9a9a4d80183156216221f8'

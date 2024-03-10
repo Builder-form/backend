@@ -1,10 +1,11 @@
 from django.urls import path
 
-from .views import NurseInfoView, CustomerInfoView, UserView, CustomerInfoDetail, NurseInfoDetail,  SetLinkedCardView, ListenTgBot
+from .views import NurseInfoView, CustomerInfoView, UserView, CustomerInfoDetail, NurseInfoDetail,  SetLinkedCardView, ListenTgBot, UserMeView
 
 
 urlpatterns = [
-    path('user_info/', UserView.as_view()),
+    path('user_self_info/', UserMeView.as_view()),
+    path('user_info/<str:tel>/', UserView.as_view()),
     path('nurse_info/', NurseInfoView.as_view()),
     path('customer_info/', CustomerInfoView.as_view()),
     path('nurse_info/<str:tel>/',NurseInfoDetail.as_view()),

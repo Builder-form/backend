@@ -16,7 +16,7 @@ class UserAdminCustom(UserAdmin):
     list_filter = ['role',]
     fieldsets = UserAdmin.fieldsets + (
         ('Информация', {'fields': (
-            'jwt_token','token', 'role', 'telegram_username', 'chat_telegram_id' ,'linked_card')}),
+            'jwt_token','token', 'role', 'telegram_username', 'chat_telegram_id' ,'linked_card', 'card_mask', 'card_type')}),
     )
 
     

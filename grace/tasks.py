@@ -3,7 +3,7 @@ import datetime
 from celery import shared_task
 
 from grace.serializes import NurseOrderSerializer
-from .models import NurseOrder, Wallet, NurseVisit
+from .models import NurseOrder, Wallet, NurseVisit, ErrorLogs
 from .choices import OrderStatuses, CareType
 from django.conf import settings
 from user.models import User
@@ -78,9 +78,9 @@ def secondClientPayment(order, cost, accumId, transactionID):
 
     if order.care_type == CareType.with_accommodation and order.status != OrderStatuses.in_archive:
         if len(order.accumalations.all()) > 4:
-            percent = 84
+            percent = 88
         else:
-            percent = 52
+            percent = 50
 
     params = {
             'Token': order.nurse.token,
@@ -101,13 +101,14 @@ def secondClientPayment(order, cost, accumId, transactionID):
                 "AccumulationId": accumId, 
                 "TransactionIds": [int(transactionID)],
                 "EscrowType": "OneToN",
-                "FinalPayout": True
+                # "FinalPayout": True
             }
     }
 
-
-    resp = cp.confirm_payment(transaction_id=int(transactionID), amount=cost)
-    print(resp)        
+    try:
+        resp = cp.confirm_payment(transaction_id=int(transactionID), amount=cost)
+        print(resp)
+    except: pass
     response = topup(cp, params)
     print(response)
 

@@ -204,7 +204,7 @@ class NurseOrder(models.Model):
 
     def getCountVisitsPerWeek(self):
         if self.care_type == CareType.several_hours and self.status != OrderStatuses.in_archive:
-            now = datetime.date.today() + datetime.timedelta(days=1)
+            now = datetime.date.today()
             days = VisitDay.objects.all().filter(order=self)
             visits = NurseVisit.objects.all().filter(order=self)
 
@@ -228,7 +228,7 @@ class NurseOrder(models.Model):
     
     def generateVisitsPerWeek(self):
         if self.care_type == CareType.several_hours and self.status != OrderStatuses.in_archive:
-            now = datetime.date.today() + datetime.timedelta(days=1)
+            now = datetime.date.today()
             days = VisitDay.objects.all().filter(order=self)
             visits = NurseVisit.objects.all().filter(order=self)
 
@@ -284,6 +284,7 @@ class NurseVisit(models.Model):
     create_date = models.DateTimeField(_('Время Создания'),  auto_now_add=True)
     completed_date =  models.DateTimeField(_('Время выполнения'), auto_now=False, auto_now_add=False, default=datetime.date(2000,1,1))
     
+
     @property
     def appelations(self):
         appelations = NurseAppelation.objects.all().filter(visit=self.id)

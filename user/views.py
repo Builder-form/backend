@@ -23,13 +23,31 @@ from django.http import Http404
 # }
 
 
+class UserMeView(APIView):
+    authentication_classes = [authentication.TokenAuthentication]
+    serializer_class = UserSerializer
+
+    def get(self,request, format=None):
+        serializer = self.serializer_class(request.user)
+        
+        return Response(
+            serializer.data, 
+            status=status.HTTP_200_OK
+        )
+
 class UserView(APIView):
     authentication_classes = [authentication.TokenAuthentication]
     serializer_class = UserSerializer
 
+    def getInfo(self, user):
+        try:
+            return User.objects.get(username=user)
+        except NurseInfo.DoesNotExist:
+            raise Http404("Нет такого пользователя")
 
-    def get(self,request, format=None):
-        serializer = self.serializer_class(request.user)
+    def get(self,request, tel, format=None):
+        info = self.getInfo(user=tel)
+        serializer = self.serializer_class(info)
 
         return Response(
             serializer.data, 
@@ -180,6 +198,7 @@ class CustomerInfoView(APIView):
         if data['user']['email'] == '':
              data['user']['email'] = 'email@email.ru'
         
+
         print(data, request.user)
         serializer = self.serializer_class(data=request.data['customer_info'])
         serializer.is_valid(raise_exception=True)

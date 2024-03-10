@@ -35,8 +35,8 @@ class NurseInfoSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['username','role', 'first_name', 'last_name', 'email', 'linked_card', 'token', 'telegram_username',]
-        read_only_fields = ['username', 'token' ]
+        fields = ['username','role', 'first_name', 'last_name', 'email', 'linked_card', 'token', 'telegram_username', 'card_type', 'card_mask']
+        read_only_fields = ['username', 'token', 'card_type', 'card_mask' ]
         extra_kwargs = {
             "telegram_username": {"required": False, "allow_null": True},
             "email": {"required": False, "allow_null": True}

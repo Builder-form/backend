@@ -455,7 +455,7 @@ class CheckView(ResponsesMixin, generics.GenericAPIView):
 
             if order.client != request.data['AccountId']:
                 code = 11
-            if order.visits_count < 2:
+            if order.visits_count < 1:
                 if order.cost != int(float(request.data['Amount'])):
                     code = 12
             else:
@@ -497,6 +497,8 @@ class PayView(ResponsesMixin, generics.GenericAPIView):
         token = request.data['Token']
         accountId = request.data['AccountId']
         transaction = request.data['TransactionId']
+        card_mask = request.data['CardFirstSix'] + ' ... ' + request.data['CardLastFour']
+        card_type = request.data['CardType']
         amount = float(request.data['PaymentAmount'])
         client = False
 
@@ -508,6 +510,8 @@ class PayView(ResponsesMixin, generics.GenericAPIView):
         if client:
             if len(client.token) == 0:
                 client.token = token
+                client.card_mask = card_mask
+                client.card_type = card_type
                 client.save()
 
         print('DATA KEYS', request.data.keys())
@@ -598,7 +602,6 @@ class PayView(ResponsesMixin, generics.GenericAPIView):
                             kwargs = {'order': serializer.data, 'cost': order.cost*generted_visits, 'accumId':accumId, 'transactionID': transaction},
                             eta =  datetime.datetime.utcnow() + datetime.timedelta(days=settings.DELTATIME_ACTIVEPERIOD)- datetime.timedelta(hours=settings.DELTATIME_PAYMENT_CALLS)
                         )
-            
         return self.success_objects_response({"code":0})
 
 
@@ -616,6 +619,12 @@ class FailView(ResponsesMixin, generics.GenericAPIView):
             return False
     
     def post(self, request):
+        if 'Data' in request.data.keys():
+            data = json.loads(request.data['Data'])
+            if  data['isNurse'] == 'True':
+                return self.success_objects_response({'code':0}) 
+
+        print('FAIL', request.data)
         order = self.getOrder(request.data['InvoiceId'])
         order.status = OrderStatuses.waiting
         order.save()
