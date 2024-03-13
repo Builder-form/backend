@@ -9,7 +9,7 @@ import os
 
 params = {
             'Token': 'tk_ba86bc3759b5b04f3afc9ade0b547',
-            'Amount': 1824,
+            'Amount': 9120,
             'AccountId': '+79771125519',
             'Currency': 'RUB',
                 "Payer": { 
@@ -26,7 +26,7 @@ params = {
                 "AccumulationId": '5466982', 
                 "TransactionIds": [int('2096583704')],
                 "EscrowType": "OneToN",
-                # "FinalPayout": True
+                "FinalPayout": True
             }
 }
 
