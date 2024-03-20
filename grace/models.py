@@ -372,6 +372,8 @@ class CreateNursePayment(models.Model):
     order = models.ForeignKey(NurseOrder, verbose_name=_("Заказ"), on_delete=models.CASCADE)
     accumulation = models.ForeignKey(Accumulation, verbose_name='Безопасная сделка', on_delete=models.CASCADE)
     cost = models.PositiveIntegerField(_("Сумма начисления сиделке"))
+    close_escrow = models.BooleanField(_("Закрыть ли сделку?"))
+
     log = models.CharField(_("LOG"), max_length=500, null=True, blank=True)
     class Meta:
         verbose_name = _('Выплата')

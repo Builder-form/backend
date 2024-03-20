@@ -87,6 +87,9 @@ def order_saved(sender, instance, created, **kwargs):
                     "EscrowType": "OneToN",
                 }
         }
+        if instance.close_escrow:
+            params['Escrow']['FinalPayout'] = True
+        
 
         try:
             resp = cp.confirm_payment(transaction_id=int(acum.transaction_id))
