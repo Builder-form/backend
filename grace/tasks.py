@@ -101,16 +101,25 @@ def secondClientPayment(order, cost, accumId, transactionID):
                 "AccumulationId": accumId, 
                 "TransactionIds": [int(transactionID)],
                 "EscrowType": "OneToN",
-                # "FinalPayout": True
+                "FinalPayout": True
             }
     }
 
     try:
         resp = cp.confirm_payment(transaction_id=int(transactionID), amount=cost)
         print(resp)
-    except: pass
-    response = topup(cp, params)
-    print(response)
+    except:
+        ErrorLogs.objects.create(
+            log='Ошибка подтверждения транзакции, она скорее всего была подтверждена ранее',
+            user=order.nurse
+        )
+    try:
+        response = topup(cp, params)
+        print(response)
+    except: ErrorLogs.objects.create(
+            log='Ошибка ВЫПЛАТЫ исполнителю',
+            user=order.nurse
+        )
 
     
    

@@ -366,3 +366,17 @@ class Accumulation(models.Model):
 
     def __str__(self):
         return 'Безопасная сделка' +  str(self.escrowAccumulationId)
+
+
+class CreateNursePayment(models.Model):
+    order = models.ForeignKey(NurseOrder, verbose_name=_("Заказ"), on_delete=models.CASCADE)
+    accumulation = models.ForeignKey(Accumulation, verbose_name='Безопасная сделка', on_delete=models.CASCADE)
+    cost = models.PositiveIntegerField(_("Сумма начисления сиделке"))
+    log = models.CharField(_("LOG"), max_length=500, null=True, blank=True)
+    class Meta:
+        verbose_name = _('Выплата')
+        verbose_name_plural = _("Выплаты")
+    
+    def __str__(self) -> str:
+        return f'Выплата по заказу {self.order}, сумма: {self.cost}'
+    

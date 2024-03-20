@@ -9,7 +9,7 @@ import os
 
 params = {
             'Token': 'tk_ba86bc3759b5b04f3afc9ade0b547',
-            'Amount': 9120,
+            'Amount': 10944,
             'AccountId': '+79771125519',
             'Currency': 'RUB',
                 "Payer": { 
@@ -23,8 +23,8 @@ params = {
             },
 
             "Escrow": {
-                "AccumulationId": '5466982', 
-                "TransactionIds": [int('2096583704')],
+                "AccumulationId": '5519766', 
+                "TransactionIds": [int('2099202939')],
                 "EscrowType": "OneToN",
                 "FinalPayout": True
             }
@@ -58,11 +58,7 @@ def _send_topup_request(cp, endpoint, params=None, request_id=None):
 
 
 def topup(cp, params):
-        print('PARAPMS', params)
-
         response = _send_topup_request(cp, 'payments/token/topup', params)
-        print('RESPONSE TOPUP', response)
-
 
         if response['Success']:
            return Transaction.from_dict(response['Model'])

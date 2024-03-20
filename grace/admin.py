@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import  NurseAppelation, NurseOrder, NurseVisit, NurseApplication, VisitDay, Wallet,  TransferPrefs, ErrorLogs, Accumulation
+from .models import  NurseAppelation, NurseOrder, NurseVisit, NurseApplication, VisitDay, Wallet,  TransferPrefs, ErrorLogs, Accumulation, CreateNursePayment
     
 # Register your models here.
 from user.models import CustomerInfo, NurseInfo, User
@@ -48,6 +48,7 @@ class NurseOrderAdmin(admin.ModelAdmin):
 
 
 
+
     
 
 @admin.register(NurseApplication)
@@ -67,6 +68,15 @@ admin.site.register(Wallet)
 admin.site.register(TransferPrefs)
 admin.site.register(ErrorLogs)
 admin.site.register(Accumulation)
+
+@admin.register(CreateNursePayment)
+class CreateNursePaymentAdmin(admin.ModelAdmin):
+    raw_id_fields = ['order', 'accumulation' ]
+    list_display=['order', 'accumulation', 'cost']
+    readonly_fields=['log']
+
+
+
 
 @admin.register(NurseAppelation)
 class NurseVisitsAdmin(admin.ModelAdmin):
