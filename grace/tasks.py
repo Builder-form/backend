@@ -86,6 +86,7 @@ def secondClientPayment(order, cost, accumId, transactionID):
             'Token': order.nurse.token,
             'Amount': round(cost*(percent/100),2),
             'AccountId': order.nurse.username,
+            "InvoiceId": str(order.id),
             'Currency': 'RUB',
                 "Payer": { 
                 "FirstName": order.nurse.first_name,

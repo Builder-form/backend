@@ -2,7 +2,7 @@ import uuid
 
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-from .models import NurseApplication, NurseOrder, ErrorLogs, User, NurseVisit,CreateNursePayment
+from .models import NurseApplication, NurseOrder, ErrorLogs, User, NurseVisit,CreateNursePayment, CreateClientPayment
 from .utils import bitrix_add_lead, bitrix_change_active, bitrix_delete_lead, bitrix_change_processed
 from django.contrib import messages # Here
 from .choices import OrderStatuses
@@ -63,7 +63,7 @@ def order_saved(sender, instance, created, **kwargs):
 
 
 @receiver(post_save, sender=CreateNursePayment, dispatch_uid=uuid.uuid4())
-def order_saved(sender, instance, created, **kwargs):
+def payment_saved(sender, instance, created, **kwargs):
     if created:
         order = instance.order
         acum = instance.accumulation
@@ -91,23 +91,81 @@ def order_saved(sender, instance, created, **kwargs):
             params['Escrow']['FinalPayout'] = True
         
 
-        try:
-            resp = cp.confirm_payment(transaction_id=int(acum.transaction_id))
-            print('CONFIRM')
-        except:
-            ErrorLogs.objects.create(
-                log='Ошибка подтверждения транзакции, она скорее всего была подтверждена ранее',
-                user=order.nurse
-            )
+        # try:
+        #     resp = cp.confirm_payment(transaction_id=int(acum.transaction_id), amount=int(acum.amount))
+        #     print('CONFIRM')
+        # except:
+        #     instance.log = f'Ошибка подтверждения транзакции: {resp}'
+
+        #     ErrorLogs.objects.create(
+        #         log='Ошибка подтверждения транзакции, она скорее всего была подтверждена ранее',
+        #         user=order.nurse
+        #     )
         
         try:
             response = topup(cp, params)
             print('RESP')
             instance.log = str(response)
         except: 
-            instance.log = 'Ошибка ВЫПЛАТЫ исполнителю'
+            instance.log = f'Ошибка ВЫПЛАТЫ исполнителю:'
             ErrorLogs.objects.create(
-                log='Ошибка ВЫПЛАТЫ исполнителю',
+                log=f'Ошибка ВЫПЛАТЫ исполнителю:',
                 user=order.nurse
+            )
+        instance.save()
+
+
+@receiver(post_save, sender=CreateClientPayment, dispatch_uid=uuid.uuid4())
+def payment_client_saved(sender, instance, created, **kwargs):
+    client = User.objects.get(username=instance.order.client)
+
+    if created:
+        order = instance.order
+        acum = instance.accumulation
+        params = {
+                'Token': client.token,
+                'Amount': instance.cost,
+                'AccountId': client.username,
+                'Currency': 'RUB',
+                    "Payer": { 
+                    "FirstName": client.first_name,
+                    "LastName": client.last_name,
+                    "MiddleName": '-',
+                    "Address": order.address,
+                    "City":"MO",
+                    "Country":"RU",
+                    "Phone": client.username,
+                },
+                "Escrow": {
+                    "AccumulationId": acum.escrowAccumulationId, 
+                    "TransactionIds": [int(acum.transaction_id)],
+                    "EscrowType": "OneToN",
+                }
+        }
+        if instance.close_escrow:
+            params['Escrow']['FinalPayout'] = True
+        
+
+        # try:
+        #     resp = cp.confirm_payment(transaction_id=int(acum.transaction_id), amount=int(acum.amount))
+        #     print('CONFIRM')
+        # except:
+        #     instance.log = f'Ошибка подтверждения транзакции: {response}'
+
+        #     ErrorLogs.objects.create(
+        #         log='Ошибка подтверждения транзакции, она скорее всего была подтверждена ранее',
+        #         user=client
+        #     )
+        
+        r = ''
+        try:
+            r = topup(cp, params)
+            print('RESP')
+            instance.log = str(r)
+        except: 
+            instance.log = f'Ошибка ВЫПЛАТЫ клиенту {r}'
+            ErrorLogs.objects.create(
+                log= f'Ошибка ВЫПЛАТЫ клиенту {r}',
+                user=client
             )
         instance.save()
