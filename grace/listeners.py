@@ -13,9 +13,15 @@ from .tasks import topup, cp
 def application_saved(sender, instance, created, **kwargs):
     
     if created:
-        ans = bitrix_add_lead(instance)
-        instance.bitrix_id = int(ans)
-        instance.save()
+        try:
+            ans = bitrix_add_lead(instance)
+            instance.bitrix_id = int(ans)
+            instance.save()
+        except:
+             ErrorLogs.objects.create(
+               log=f'Не удалось создать лид в Битриксе, id: {instance.id}',
+                 user=User.objects.get(username=instance.user) if type(instance.user) == str else instance.user
+            )
         
 @receiver(post_save, sender=NurseOrder, dispatch_uid=uuid.uuid4())
 def order_saved(sender, instance, created, **kwargs):

@@ -74,13 +74,13 @@ def acceptVisit(visit_id):
 def secondClientPayment(order, cost, accumId, transactionID):
     order = NurseOrder.objects.get(id=order['id'])
     client = User.objects.get(username=order.client)
-    percent = 64
+    percent = 71
 
     if order.care_type == CareType.with_accommodation and order.status != OrderStatuses.in_archive:
         if len(order.accumalations.all()) > 4:
-            percent = 88
+            percent = 91
         else:
-            percent = 50
+            percent = 48
 
     params = {
             'Token': order.nurse.token,
