@@ -5,19 +5,17 @@ from rest_framework import serializers
 
 User = get_user_model()
 
-
 class EntrySerializer(serializers.Serializer):
-    phone_number = PhoneNumberField()
+    email = serializers.EmailField()
 
 
 class AuthSerializer(serializers.Serializer):
-    phone_number = PhoneNumberField()
+    email = serializers.EmailField()
     code = serializers.IntegerField()
 
 
 class ChangePhoneNumberSerializer(serializers.Serializer):
-    new_phone_number = PhoneNumberField()
-
+    new_email = serializers.EmailField()
 
 
 class DefaultUserSerializer(serializers.ModelSerializer):
@@ -26,6 +24,5 @@ class DefaultUserSerializer(serializers.ModelSerializer):
         fields = [
             'first_name',
             'last_name',
-            'role',
             'jwt_token'
         ]

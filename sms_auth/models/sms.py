@@ -2,10 +2,8 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth import get_user_model
 
-from phonenumber_field.modelfields import PhoneNumberField
 
 from ..utils import random_code, valid_to
-
 
 class SMSMessage(models.Model):
     """
@@ -13,25 +11,25 @@ class SMSMessage(models.Model):
     """
 
     created = models.DateTimeField(auto_now_add=True)
-    phone_number = models.CharField("Phone number", max_length=20)
+    email = models.EmailField("Email", max_length=300)
 
     def __str__(self):
-        return f"{self.phone_number} / {self.created}"
+        return f"{self.email} / {self.created}"
 
     def __repr__(self):
-        return f"{self.phone_number}"
+        return f"{self.email}"
 
     class Meta:
-        verbose_name = "Sms log"
-        verbose_name_plural = "Sms log"
+        verbose_name = "Email log"
+        verbose_name_plural = "Email logs"
 
 
-class PhoneCode(models.Model):
+class EmailCode(models.Model):
     """
     After validation save phone code instance
     """
 
-    phone_number = PhoneNumberField(unique=True)
+    email = models.EmailField("Email", max_length=300, unique=True)
     owner = models.ForeignKey(get_user_model(),
                               null=True,
                               on_delete=models.CASCADE)
@@ -41,11 +39,11 @@ class PhoneCode(models.Model):
 
     class Meta:
         ordering = ("created_at",)
-        verbose_name = "Phone code"
-        verbose_name_plural = "Phone codes"
+        verbose_name = "Email code"
+        verbose_name_plural = "Email codes"
 
     def __str__(self):
-        return f"{self.phone_number} ({self.code})"
+        return f"{self.email} ({self.code})"
 
     def __repr__(self):
         return self.__str__()
@@ -62,13 +60,13 @@ class PhoneCode(models.Model):
         from ..conf import conf
 
         pretendent = self.__class__.objects.filter(
-            phone_number=self.phone_number
+            email=self.email
         ).first()
         if pretendent is not None:
             self.pk = pretendent.pk
 
         if conf.SMS_AUTH_DEBUG_PHONE_NUMBER is not None:
-            if self.phone_number == conf.SMS_AUTH_DEBUG_PHONE_NUMBER:
+            if self.email == conf.SMS_AUTH_DEBUG_PHONE_NUMBER:
                 self.code = conf.SMS_DEBUG_CODE
 
         super().save(*args, **kwargs)

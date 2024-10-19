@@ -10,14 +10,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '6dncg2qm)vv0%i4)a3yrvmbg3*$v)3i6^d0c32du93+4^ba#$i'
 
-CSRF_TRUSTED_ORIGINS = ['https://*.gracey.ru','https://*.gracey.ru:4002' ]
 
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', 'https://a011-93-175-7-121.ngrok-free.app']
 CORS_ORIGIN_ALLOW_ALL = True
 
 # Application definition
@@ -31,8 +30,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'user',
-    
-    'grace',
+    'builder_form',
 
     'sms_auth',
     'sms_auth.providers.megafon',
@@ -47,12 +45,12 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 
 ]
 
@@ -154,7 +152,6 @@ SMS_AUTH_SETTINGS = {
 
 }
 
-BITRIX_URL = 'https://gracerussia.bitrix24.ru/rest/18/nxa54xtae7cw3bs8/'
 BROKER_URL = 'redis://127.0.0.1:6379/0'
 CELERY_RESULT_BACKEND = 'redis://127.0.0.1:6379'
 CELERY_ACCEPT_CONTENT = ['application/json']
@@ -163,17 +160,7 @@ CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = "Europe/Moscow"
 
 
-CORS_EXPOSE_HEADERS = ['Content-Type', 'X-CSRFToken']
-CORS_ALLOW_CREDENTIALS = True
 
-DELTATIME_TESTPERIOD = 1 #в днях - время оплаты тестового периода (раз в день и тд)
-DELTATIME_ACTIVEPERIOD = 7 #в днях - время оплаты основго периода(раз в неделю и тд)
-DELTATIME_PAYMENTNURSEPERIOD = 1 #в часах
-DELTATIME_PAYMENT_CALLS= 1 # в часах - задержка между следующим платежом и выплатой сиделке
 
-CLOUDPAYMENTS_PUBLIC_ID = 'pk_a2d44a7570fe7490cfe41bb85f660' # Прием платеежй
-CLOUDPAYMENTS_PASSWORD = 'b3185a124e9a9a4d80183156216221f8'
 
-CLOUDPAYMENTS_SALARY_PUBLIC_ID = 'pk_f3458b2cceee2b656a28cb5fbd49c' #ДЛЯ ВЫПЛАТЫ СИДЕЛКАМ
-CLOUDPAYMENTS_SALARY_PASSWORD = 'd69ab4a9e872f527a818d8b0198b716f'
 

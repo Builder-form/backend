@@ -4,7 +4,6 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from .models import User
 from rest_framework.authtoken.models import Token
-from grace.models import Wallet
 
 
 
@@ -12,6 +11,5 @@ from grace.models import Wallet
 def create_auth_token(sender, instance=None, created=False, **kwargs):
     if created:
         Token.objects.create(user=instance)
-        Wallet.objects.create(user=instance)
         
         

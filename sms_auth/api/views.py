@@ -28,8 +28,8 @@ class EntryAPIView(ResponsesMixin, generics.GenericAPIView):
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         if serializer.is_valid():
-            phone_number = serializer.validated_data.get("phone_number")
-            GeneratorService.execute(phone_number=phone_number)
+            email = serializer.validated_data.get("email")
+            GeneratorService.execute(email=email)
             return self.simple_text_response()
         else:
             return self.error_response(serializer.errors)
@@ -63,9 +63,9 @@ class AuthAPIView(ResponsesMixin, generics.GenericAPIView):
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         if serializer.is_valid():
-            phone_number = serializer.validated_data.get("phone_number")
+            email = serializer.validated_data.get("email")
             code = serializer.validated_data.get("code")
-            user, is_created = AuthService.execute(phone_number=phone_number, code=code)
+            user, is_created = AuthService.execute(email=email, code=code)
             self.after_auth(user=user, is_created=is_created)
             serializer = self.get_response_serializer()
             success_value = serializer(instance=user, context={'request': request}).data
@@ -84,9 +84,9 @@ class ChangePhoneNumberAPIView(ResponsesMixin, generics.GenericAPIView):
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         if serializer.is_valid():
-            new_phone_number = serializer.validated_data.get('new_phone_number')
+            new_email = serializer.validated_data.get('new_email')
             owner = request.user
-            GeneratorService.execute(phone_number=new_phone_number, owner=owner)
+            GeneratorService.execute(email=new_email, owner=owner)
 
             return self.simple_text_response()
 

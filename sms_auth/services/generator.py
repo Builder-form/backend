@@ -4,24 +4,24 @@ from ..api.exceptions import \
     SMSWaitException, \
     UserAlreadyExistException
 
-from ..models import PhoneCode
+from ..models import EmailCode
 from ..utils import SmsService
 from ..conf import conf
 
 
 class GeneratorService(SmsService):
-    def __init__(self, phone_number: str, owner=None):
-        self.phone_number = phone_number
+    def __init__(self, email: str, owner=None):
+        self.email = email
         self.owner = owner
 
     def process(self):
         if self.owner is not None:
-            code = PhoneCode.objects\
+            code = EmailCode.objects\
                 .filter(owner=self.owner)\
                 .first()
         else:
-            code = PhoneCode.objects\
-                .filter(phone_number=self.phone_number)\
+            code = EmailCode.objects\
+                .filter(email=self.email)\
                 .first()
 
         if code is not None:
@@ -31,10 +31,10 @@ class GeneratorService(SmsService):
             code.delete()
 
         if self.owner is not None:
-            kwargs = {conf.SMS_USER_FIELD: self.phone_number}
+            kwargs = {conf.SMS_USER_FIELD: self.email}
             if get_user_model().objects.filter(**kwargs).exists():
                 raise UserAlreadyExistException()
 
-        PhoneCode.objects\
-            .create(phone_number=self.phone_number,
+        EmailCode.objects\
+            .create(email=self.email,
                     owner=self.owner)

@@ -12,20 +12,21 @@ class Megafon(SMSProvider):
             ssl._create_default_https_context = ssl._create_unverified_context
 
     def send_megafon_sms(self):
-        self._prepare_headers()
+        print("SEND_CODE", self.message, self.to)
+        # self._prepare_headers()
 
-        url = "https://api.exolve.ru/messaging/v1/SendSMS"
+        # url = "https://api.exolve.ru/messaging/v1/SendSMS"
         
-        payload = "{\n   \"number\": \"" + self.conf.SMS_PROVIDER_FROM + "\",\n   \"destination\": \"" +  str(self.to)[1:] + "\",\n   \"text\": \"" +  self.message+ "\"\n}"
+        # payload = "{\n   \"number\": \"" + self.conf.SMS_PROVIDER_FROM + "\",\n   \"destination\": \"" +  str(self.to)[1:] + "\",\n   \"text\": \"" +  self.message+ "\"\n}"
         
-        headers = {
-        'Content-Type': 'text/plain',
-        'Authorization': 'Bearer '+ self.token
-        }
+        # headers = {
+        # 'Content-Type': 'text/plain',
+        # 'Authorization': 'Bearer '+ self.token
+        # }
 
-        response = requests.request("POST", url, headers=headers, data=payload)
+        # response = requests.request("POST", url, headers=headers, data=payload)
 
-        return response
+        # return response
 
     def send_sms(self):
         # return ''

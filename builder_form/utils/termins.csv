@@ -1,0 +1,394 @@
+House refurbishment,Renovation or restoration of an existing house,Q3
+House extensions,Addition of a new section or space to an existing house,Q3
+Loft conversion,Conversion of an unused loft space into a habitable room,Q3
+Porch,Covered entrance to a house,Q3
+Garage conversion,Conversion of a garage into a habitable room or space,Q3
+Basement,Underground room or level below the ground floor of a house,Q3
+Outbuilding,"Separate structure on a property, usually for storage or other non-residential purposes",Q3
+Customise,Make changes to suit individual preferences or needs,Q3
+refurbishment,The process of renovating or improving an existing building,Q4
+structural alterations,"Changes to the load-bearing elements of a building, such as the walls, floors, or roof",Q4
+non-structural alterations,"Changes to the non-load-bearing elements of a building, such as the finishes, fixtures, or fittings",Q4
+Refurbishment,The process of renovating or improving a building or structure.,Q5
+Structural alterations,Changes to the load-bearing elements of a building or structure.,Q5
+Demolition,The act of tearing down or destroying a building or structure.,Q5
+Extension,"An addition to an existing building, typically increasing the floor area.",Q6
+Garage,A building or part of a building used for housing a motor vehicle.,Q6
+Porch,"A covered entrance to a building, typically with a roof supported by columns.",Q6
+Outbuilding,"A small building located on a property, separate from the main house.",Q6
+Conservatory,"A glass-enclosed room attached to a house, used for growing plants.",Q6
+Pergola,"A structure consisting of a framework of beams and columns, typically used to support climbing plants.",Q6
+Rear extension,An extension that is added to the back of a house.,Q11
+Side extension,An extension that is added to the side of a house.,Q11
+Rear and side extensions,An extension that is added to both the back and side of a house.,Q11
+Conservatory,"A room with a glass roof and walls, typically used as a living space.",Q11
+Pergola,"A structure with a latticework of beams, typically used to support climbing plants.",Q11
+Flat,"A flat roof is a roof that is flat or nearly flat, with a slope of less than 10 degrees.",Q12
+Pitched,A pitched roof is a roof that has a slope of more than 10 degrees.pitched roof,Q12
+Half pitched,A half pitched roof is a roof that has a slope of between 10 and 45 degrees.,Q12
+Crown,The crown of a roof is the highest point of the roof.,Q12
+Kitchen,A room or area where food is prepared and cooked.,Q13
+Utility room,"A room or area used for household chores such as laundry, ironing, and storage.",Q13
+Bathroom,"A room or area containing a toilet, sink, and bathtub or shower.",Q13
+Shower,A fixture that sprays water over a person for bathing.,Q13
+Toilet,A fixture used for the disposal of human waste.,Q13
+Storage,The act or process of keeping something for future use.,Q13
+Study,A room or area used for studying or working.,Q13
+Library,A room or building containing a large collection of books.,Q13
+Playroom,A room or area used for children to play in.,Q13
+Bedroom,A room or area used for sleeping.,Q13
+Gym,A room or area used for physical exercise.,Q13
+Spa room,A room or area used for relaxation and rejuvenation.,Q13
+Home cinema,A room or area used for watching movies or television.,Q13
+Music room,A room or area used for making or listening to music.,Q13
+Loft conversion,Loft conversion is the conversion of a loft space into a usable room or rooms.,Q14
+Skylight loft conversion,A skylight loft conversion is a type of loft conversion that involves the installation of a skylight in the roof of the loft.,Q14
+Dormer loft conversion,A dormer loft conversion is a type of loft conversion that involves the construction of a dormer window in the roof of the loft.,Q14
+Hip-to-gable loft conversion,A hip-to-gable loft conversion is a type of loft conversion that involves the conversion of a hipped roof into a gabled roof.,Q14
+Mansard loft conversion,A mansard loft conversion is a type of loft conversion that involves the construction of a mansard roof.,Q14
+L-shaped dormer loft conversion,An L-shaped dormer loft conversion is a type of loft conversion that involves the construction of an L-shaped dormer window in the roof of the loft.,Q14
+Loft,"A loft is a room or space that is located in the roof of a building, typically accessed by a ladder or stairs.",Q15
+Porch,"A covered entrance to a building, typically with a roof supported by columns or pillars.",Q16
+Flat roof,"A roof with a slight slope, typically less than 10 degrees.",Q16
+Pitched roof,"A roof with a sloping surface, typically greater than 10 degrees.",Q16
+Half pitched roof,A roof with a slope of approximately 45 degrees.,Q16
+Crown,The highest point of a pitched roof.,Q16
+Garage conversion integrated (under 1st floor),"A garage conversion that is integrated into the existing structure of the house, typically by converting the space beneath the first floor.",Q17
+Garage conversion attached,"A garage conversion that is attached to the main structure of the house, but has its own separate entrance and is not integrated into the living space.",Q17
+Garage conversion free-standing,"A garage conversion that is completely separate from the main structure of the house, typically located in the backyard or on a side lot.",Q17
+Flat,A roof with a slope of less than 10 degrees.,Q18
+Pitched,A roof with a slope of more than 10 degrees.,Q18
+Half pitched,A roof with a slope of between 10 and 45 degrees.,Q18
+Crown,The highest point of a pitched roof.,Q18
+Garage conversion,Converting a garage into a habitable space such as a room or playroom,Q19
+Basement,A basement is a floor of a building that is below ground level.,Q20
+Kitchen,A kitchen is a room in a house or apartment that is used for cooking and preparing food.,Q20
+Utility room,"A utility room is a room in a house or apartment that is used for storing and maintaining household appliances, such as a washing machine and dryer.",Q20
+Bathroom,"A bathroom is a room in a house or apartment that is used for bathing, showering, and brushing teeth.",Q20
+Shower,"A shower is a device that is used for bathing, in which water is sprayed down from a nozzle onto the user's body.",Q20
+Toilet,A toilet is a device that is used for disposing of human waste.,Q20
+Storage,Storage is the act of storing things in a place for future use.,Q20
+Study,A study is a room in a house or apartment that is used for studying or working.,Q20
+Library,"A library is a room or building that contains a collection of books and other materials for reading, reference, or study.",Q20
+Playroom,A playroom is a room in a house or apartment that is used for children to play in.,Q20
+Bedroom,A bedroom is a room in a house or apartment that is used for sleeping.,Q20
+Gym,A gym is a room or building that is used for exercising.,Q20
+Home cinema,A home cinema is a room in a house or apartment that is used for watching movies and television.,Q20
+Music room,A music room is a room in a house or apartment that is used for playing music.,Q20
+Crown,The highest point of a roof.,Q22
+Flat,A roof that is level with the horizon.,Q22
+Pitched,A roof that is sloped.,Q22
+Outbuilding,"A separate building on a property, typically used for storage or other non-residential purposes.",Q23
+Basement,"The lowest level of a building, typically below ground level, used for storage or other purposes.",Q26
+Ground floor,The lowest floor of a building that is level with the ground.,Q26
+1st floor,The first floor above the ground floor.,Q26
+2nd floor,The second floor above the ground floor.,Q26
+3rd floor,The third floor above the ground floor.,Q26
+Rooms,"A room is a space within a building that is separated from other spaces by walls, doors, or windows. Rooms are typically used for specific purposes, such as sleeping, eating, or working.",Q27
+living room,"A room used for relaxation, entertainment, or socializing",Q30
+sitting room,"A room used for relaxing and entertaining guests, typically furnished with comfortable seating and a fireplace",Q30
+TV room,"A room dedicated to watching television, typically equipped with a comfortable seating area and a large screen TV",Q30
+library,"A room containing a collection of books and other printed materials, often used for studying, research, or quiet contemplation",Q30
+guest room,A room in a house or apartment that is used to accommodate guests,Q30
+utility room,"A room used for storage, laundry, or other household chores, typically equipped with a sink, washing machine, and dryer",Q30
+play room,"A room designated for children to play, often equipped with toys, games, and other play equipment",Q30
+gym,"A room dedicated to physical fitness, typically equipped with exercise equipment such as treadmills, bikes, and weightlifting equipment",Q30
+pray room,A room designed for religious practices and meditation,Q30
+study,"A room used for studying, reading, or working, typically equipped with a desk, chair, and bookshelves",Q30
+master bedroom,"The main bedroom in a house or apartment, typically the largest and most luxuriously appointed",Q30
+hallway,A passageway connecting rooms in a house or apartment,Q30
+stairway,A series of steps connecting different levels of a house or apartment,Q30
+landing,"A platform at the top or bottom of a stairway, used as a resting place or for changing directions",Q30
+Kitchen,A room in a house or apartment that is used for cooking and preparing food.,Q31
+Utility room,A room in a house or apartment that is used for storing and using appliances such as a washing machine and dryer.,Q31
+Storage,"A place where things are kept, especially for a long time.",Q31
+Attic,"A room in the roof of a house, typically used for storage.",Q31
+Built-in wardrobe,"A wardrobe that is built into the wall, typically with sliding or hinged doors.",Q34
+Built-in cupboard,"A cupboard that is built into the wall, typically with hinged doors.",Q34
+Shelves,A series of horizontal boards or panels that are fixed to a wall or frame to provide storage space.,Q34
+Free-standing furniture,"Furniture that is not built into the wall or floor, such as a sofa, chair, or table.",Q34
+Curtains,A piece of fabric that is hung from a window or door to cover it and provide privacy.,Q34
+Curtain rails,A metal or wooden rod that is fixed to the wall or ceiling to hang curtains on.,Q34
+Radiator,"A device that emits heat to warm a room, typically using hot water or steam.",Q34
+Fireplace,"A structure made of brick, stone, or metal that is used for burning wood or other fuel to heat a room.",Q34
+Vanity unit,A cabinet that is typically placed under a bathroom sink and used for storing toiletries and other bathroom items.,Q34
+Door,A hinged or sliding panel that is used to open and close an entrance or passageway.,Q34
+Door with frame,"A door that is sold together with its frame, which is the fixed structure that the door is attached to.",Q34
+Window,An opening in a wall or roof that is filled with glass or other transparent material to allow light and air to enter.,Q34
+Window board,"A board or shelf that is fixed beneath a window, typically used for displaying plants or other decorative items.",Q34
+Staircase,A series of steps that connect different levels of a building.,Q34
+Strip out and demolition,"The process of removing all or part of a building's interior, including walls, floors, and ceilings.",Q35
+Strip out,"The process of removing all non-structural elements from a building, such as fixtures, fittings, and services.",Q38
+Demolition,The process of destroying a building or structure.,Q38
+Water tank,A container used to store water.,Q38
+Items and boxes,Personal belongings and other items that are stored in boxes.,Q38
+Old insulation,Insulation that is no longer effective or has been damaged.,Q38
+Old floorboards,Floorboards that are no longer in good condition or need to be replaced.,Q38
+Hatch and ladder,"A small opening in a roof or ceiling that leads to a ladder, allowing access to the loft or attic.",Q38
+Customise,To make changes to a building or structure to suit the individual needs of the owner or occupant.,Q38
+Flat,"A self-contained housing unit that is part of a larger building, typically consisting of multiple apartments or flats",Q41
+Floor Name,The name or designation of a specific floor within a building,Q41
+Strip out,"The process of removing all of the fixtures, fittings, and materials from a room or building, typically in preparation for refurbishment or demolition",Q41
+Demolition,The process of intentionally tearing down or destroying a building or structure,Q41
+ceiling boards,A type of board used to cover the underside of a roof or the ceiling of a room.,Q46
+coving,A decorative molding that is used to cover the joint between a wall and a ceiling.,Q46
+ceiling rose,A decorative molding that is used to cover the point where a light fitting is attached to the ceiling.,Q46
+strip out and demolition,"The process of removing all or part of a building or structure, including demolition of the load-bearing elements.",Q47
+walls,"A vertical structure, typically made of brick, stone, concrete, or wood, that forms the exterior or interior of a building.",Q47
+lining/wallpaper,"A material, such as paper, fabric, or vinyl, that is applied to walls or ceilings for decorative purposes.",Q47
+tiles,"A thin, flat piece of material, such as ceramic, stone, or glass, that is used to cover walls, floors, or other surfaces.",Q47
+loose plaster,Plaster that has become detached from the wall or ceiling.,Q47
+picture rails ,A narrow strip of molding or wood that is attached to a wall to hang pictures or other objects.,Q47
+dado rails ,"A strip of molding or wood that is attached to a wall at a height of about 3 feet, creating a horizontal division between the upper and lower parts of the wall.",Q47
+skirting boards,A narrow strip of wood or molding that is attached to the bottom of a wall to cover the joint between the wall and the floor.,Q47
+structural (load bearing) wall,A wall that supports the weight of the building or structure.,Q47
+chimney breast,The part of the wall that extends out from the fireplace to accommodate the chimney.,Q47
+non-structural wall (stud/brick),A wall that does not support the weight of the building or structure.,Q47
+Floor,A structure extending over a space and serving as the base for a room or other area.,Q49
+Floor boards,"Long, narrow, wooden planks that are used to form the surface of a floor.",Q49
+Floor joists,Wooden beams that support the floorboards and distribute weight.,Q49
+Concrete subfloor,A layer of concrete that is poured over a subgrade and serves as the base for a floor.,Q49
+Floor Name,A name given to a specific level or story of a building.,Q51
+Room Sequence Number,"A number assigned to each room in a building, typically in sequential order.",Q51
+Structure improvement,Any work done to enhance the structural integrity or stability of a building.,Q51
+Floor,A floor is a structural element of a building that separates two levels and provides support for the occupants and their belongings.,Q52
+Room Sequence Number,The room sequence number is a unique identifier for each room in a building. It is used to track the location of rooms and to identify them on floor plans.,Q52
+Structure improvement,A structure improvement is a change to a building that improves its structural integrity or stability.,Q52
+Ceilings,"A ceiling is the overhead surface of a room or building. It can be made of a variety of materials, including drywall, plaster, or wood.",Q52
+Level ceiling joists,Level ceiling joists are horizontal beams that support the ceiling. They are typically made of wood or metal.,Q52
+Suspended ceiling structure,A suspended ceiling structure is a ceiling that is hung from the roof or another structural element. It is typically made of metal or drywall.,Q52
+Niche,A niche is a small recess in a wall or ceiling. It can be used to display objects or to provide storage.,Q52
+LED light,An LED light is a light-emitting diode. It is a semiconductor device that emits light when an electrical current passes through it.,Q52
+Resilient bars,Resilient bars are a type of soundproofing material that is used to reduce the transmission of sound through walls and ceilings.,Q52
+Sound insulation,Sound insulation is a material that is used to reduce the transmission of sound through walls and ceilings.,Q52
+Plasterboard,Plasterboard is a type of drywall that is made of gypsum plaster and paper. It is used to create walls and ceilings.,Q52
+Shadow gap,A shadow gap is a small space between two surfaces. It is often used to create a visual effect or to reduce the transmission of sound.,Q52
+Stud wall,A wall made of vertical wooden studs covered with plasterboard.,Q53
+Block wall,A wall made of concrete blocks.,Q53
+Door opening,An opening in a wall for a door.,Q53
+Window opening,An opening in a wall for a window.,Q53
+Block door opening,To close up a door opening with bricks or other materials.,Q53
+Block window opening,To close up a window opening with bricks or other materials.,Q53
+Alcove,"A recess in a wall, often used for storage or display.",Q53
+Render,A layer of plaster or cement applied to a wall to make it smooth and weatherproof.,Q53
+Dot and dab,A method of fixing plasterboard to a wall by applying small amounts of adhesive to the back of the plasterboard.,Q53
+Plasterboard,A type of board made of gypsum plaster sandwiched between two layers of paper.,Q53
+Acoustic boards,"Boards made of sound-absorbing materials, such as fiberglass or mineral wool.",Q53
+PIR,"Polyisocyanurate insulation, a rigid foam insulation used in construction.",Q54
+battens,Thin strips of wood or metal fixed to a surface to provide support for other materials.,Q54
+Screed,"A thin layer of material, such as concrete or mortar, applied to a floor or wall to level or smooth it.",Q54
+Skim plaster,A thin finish coat of plaster applied to the surface of a wall or ceiling to smooth and even it.,Q56
+Tape joint,A type of drywall joint where a strip of paper or mesh is applied to the joint between two pieces of drywall to reinforce it.,Q56
+Apply lining paper,The application of a paper layer to a wall or ceiling to provide a smooth and even surface for painting or wallpapering.,Q56
+Apply wall paper,The application of decorative paper to a wall or ceiling.,Q56
+Paint: prepare and apply mistcoat and 2 final coats of Dulux trade white matt,The application of a primer coat followed by two coats of Dulux Trade White Matt paint to a surface.,Q56
+Supply and fit coving (standard plaster coving),The installation of a decorative molding around the perimeter of a ceiling.,Q56
+Skim plaster,A thin layer of plaster applied to a wall or ceiling to create a smooth and even surface.,Q57
+Tape joint,A joint between two pieces of drywall or plasterboard that is covered with tape and then filled with joint compound to create a smooth and seamless surface.,Q57
+Apply lining paper,A thin paper that is applied to a wall or ceiling to provide a smooth and even surface for painting or wallpapering.,Q57
+Apply wall paper,A decorative paper that is applied to a wall or ceiling to provide a finished look.,Q57
+Paint: prepare and apply mistcoat and 2 final coats of Dulux trade,"A process of preparing a wall or ceiling for painting, including applying a mistcoat and two final coats of paint.",Q57
+Water proof prior tiling,A process of applying a waterproof membrane to a wall or ceiling before tiling to prevent water damage.,Q57
+Tile - ceramic tiles,A type of tile made from clay and fired at a high temperature.,Q57
+Tile - porcelian tiles,A type of tile made from a mixture of clay and feldspar and fired at a high temperature.,Q57
+Tile - natural stone,"A type of tile made from natural stone, such as marble, granite, or slate.",Q57
+Customise,To make something unique or personal to the individual.,Q57
+LEAVE AS IT IS,To leave something in its current state.,Q57
+Laminate floor,"A type of flooring made of multiple layers of synthetic materials, typically including a wear layer, a decorative layer, and a backing layer.",Q59
+Engineered floor,A type of flooring made of a top layer of real wood veneer bonded to a core of plywood or other materials.,Q59
+Hardwood floor,A type of flooring made of solid wood planks.,Q59
+Parkquet floor,A type of flooring made of small pieces of wood arranged in a geometric pattern.,Q59
+LVT - vinyl floor click system,A type of flooring made of luxury vinyl tiles that are installed using a click-lock system.,Q59
+LVT - vinyl floor glued,A type of flooring made of luxury vinyl tiles that are installed using adhesive.,Q59
+Water proof prior tiling,A waterproof membrane installed prior to tiling to prevent water damage.,Q59
+Ceramic tiles,A type of tile made of fired clay.,Q59
+Porcelain tiles,"A type of tile made of a denser clay than ceramic tiles, resulting in a more durable and water-resistant product.",Q59
+Natural stone,"A type of tile made from quarried stone, such as marble, granite, or slate.",Q59
+Carpet floor,A type of flooring made of synthetic or natural fibers.,Q59
+Skirting board,A board installed around the perimeter of a room where the wall meets the floor.,Q59
+Floor Name,"The name of the floor, such as ground floor, first floor, etc.",Q62
+Room Sequence Number,"The sequence number of the room, such as 01, 02, etc.",Q62
+Fitting and installing,"The process of installing and fitting fixtures, such as cabinets, countertops, etc.",Q62
+uPVC window,A window frame made from unplasticized polyvinyl chloride (uPVC).,Q63
+Aluminium window,A window frame made from aluminium.,Q63
+Timber window,A window frame made from timber.,Q63
+Sash window,A window that is made up of two or more sliding panels that overlap each other.,Q63
+Front entrance door,A door that provides access to the front of a building.,Q641
+Composite door,"A door made from a combination of materials, such as wood, fiberglass, and metal.",Q641
+uPVC door,A door made from unplasticized polyvinyl chloride.,Q641
+Garden door,A door that provides access to a garden.,Q641
+Sliding door,A door that opens by sliding horizontally.,Q641
+Bi-folding door,A door that opens by folding in half.,Q641
+ironmongery,"The metalwork used in the construction of a building, such as locks, hinges, and bolts.",Q65
+frame,The structure that supports the door or window.,Q65
+Fitting and installing,"The process of putting in place and connecting fixtures, appliances, and equipment in a building.",Q67
+Flat packed wardrobe,A wardrobe that is delivered in pieces and assembled at home.,Q67
+Flat packed cupboard,A cupboard that is delivered in pieces and assembled at home.,Q67
+Custom made wardrobe,A wardrobe that is made to order and fitted to a specific space.,Q67
+Custom made cupboard,A cupboard that is made to order and fitted to a specific space.,Q67
+Shelves,A set of horizontal surfaces fixed to a wall or other vertical surface for the storage of objects.,Q67
+Curtains,A piece of fabric that is hung over a window or doorway to block out light or provide privacy.,Q67
+Curtain rails,A rod or track that is fixed to a wall or ceiling to hang curtains from.,Q67
+Radiator,A device that heats a room by circulating hot water or steam through pipes.,Q67
+Economic range,A range of products that are relatively inexpensive.,Q67
+Designer range,A range of products that are designed by a well-known designer.,Q67
+Fireplace,"A structure made of brick, stone, or metal that is used to burn fuel and provide heat.",Q67
+Electric fireplace,A fireplace that uses electricity to create the appearance of a real fire.,Q67
+Air conditioner,A device that cools a room by circulating cold air.,Q67
+Under floor heating,A system that heats a room by circulating warm water through pipes that are installed under the floor.,Q67
+New fuse board,"A new fuse board is a type of electrical panel that contains fuses, which are safety devices that protect electrical circuits from damage caused by overcurrent.",Q69
+Down lights,Down lights are a type of lighting fixture that is recessed into a ceiling and directs light downwards.,Q69
+Ceiling pendant light,A ceiling pendant light is a type of lighting fixture that hangs from the ceiling on a cord or chain.,Q69
+Wall lights,Wall lights are a type of lighting fixture that is mounted on a wall.,Q69
+LED lights,LED lights are a type of lighting fixture that uses light-emitting diodes (LEDs) to produce light.,Q69
+Switches,Switches are electrical devices that are used to control the flow of electricity in a circuit.,Q69
+Sockets,Sockets are electrical devices that provide a connection point for electrical plugs.,Q69
+Electrics,The electrical system and wiring within a building,Q691
+Fitting,"The process of installing or attaching fixtures, fittings, or equipment to a building",Q691
+Inside kitchen,The kitchen area within a building,Q691
+Utility,"A room or area in a building used for domestic purposes, such as laundry or storage",Q691
+Worktop,"A flat horizontal surface, typically made of stone, wood, or laminate, that is installed on top of kitchen cabinets and used for food preparation and other kitchen tasks.",Q72
+Laminate,"A thin decorative layer that is applied to a surface, such as a countertop, to improve its appearance and durability.",Q72
+Hardwood,"A type of wood that is strong, durable, and has a beautiful grain pattern.",Q72
+Stone,"A solid material that is found in nature and is used for a variety of construction purposes, including countertops.",Q72
+Fitting,The process of installing or attaching something.,Q73
+Installing,The process of putting something in place.,Q73
+Appliances,"Electrical or gas-powered devices that are used in a home, such as a stove, refrigerator, or dishwasher.",Q74
+Extractor hood,A ventilation device that removes cooking smells and fumes from the air,Q76
+Air conditioner,A device that cools or heats the air in a room,Q77
+Fitting,"The process of installing fixtures, appliances, and other equipment in a building.",Q78
+Installing,"The process of putting something in place, especially by fixing it to something else.",Q78
+Fitting,"The process of installing or attaching fixtures, components, or equipment to a building or structure.",Q82
+Installing,The process of putting something in place or into position.,Q82
+Supply,"To provide something, such as a product or service.",Q82
+Client,A person or organization that employs the services of a professional.,Q82
+Radiator,A device used to heat a room or other space by means of hot water or steam passing through it.,Q83
+Under floor heating,A system of heating a home by circulating hot water or electricity through pipes or cables embedded in the floor.,Q85
+Combi boiler,A combination boiler is a type of central heating boiler that provides both heating and hot water for a home.,Q87
+Inside storage/attic,The area in a house or building that is used for storage or as an attic.,Q87
+system boiler,A device that heats water for use in heating and hot water systems in a building.,Q89
+cylinder,A cylindrical vessel used for storing water or other liquids.,Q89
+Inside storage,"A storage space located inside a building, typically used to store items that are not needed on a regular basis.",Q90
+Radiator,"A device that emits heat into a room, typically consisting of a metal casing filled with water or another liquid and heated by electricity or a boiler.",Q91
+ceramic tile,"A type of tile made from clay and fired at a high temperature, typically used for flooring and wall covering.",Q93
+porcelain tile,"A type of ceramic tile that is made from a finer clay and fired at a higher temperature, resulting in a harder and more durable tile.",Q93
+natural stone,"A type of tile that is made from natural stone, such as marble, granite, or limestone.",Q93
+Inside Bathroom/shower/toilet,"A bathroom, shower, or toilet that is located inside of a building, as opposed to an outdoor bathroom, shower, or toilet.",Q94
+Fitting,"The act of installing or attaching something, such as a piece of equipment or a fixture.",Q94
+Installing,The act of putting something in place or fixing it to something else.,Q94
+Basin,"A basin is a bowl-shaped fixture that is used for washing hands, face, or other body parts. It is typically made of ceramic, porcelain, or metal and is installed in a bathroom or kitchen.",Q97
+Tap,"A tap is a device that controls the flow of water from a pipe. It is typically made of metal and is installed in a bathroom, kitchen, or other area where water is needed.",Q97
+Vanity unit,"A vanity unit is a cabinet that is used to store bathroom items such as toiletries, towels, and cleaning supplies. It typically has a sink and a mirror and is installed in a bathroom.",Q97
+Floor standing toilet unit,A floor standing toilet unit is a toilet that is installed on the floor. It typically has a tank and a bowl and is made of ceramic or porcelain.,Q97
+Wall hung toilet unit,A wall hung toilet unit is a toilet that is installed on the wall. It typically has a tank and a bowl and is made of ceramic or porcelain.,Q97
+Shower tray,A shower tray is a waterproof tray that is installed in a shower to collect water. It is typically made of acrylic or fiberglass.,Q97
+Trap,A trap is a device that prevents sewer gases from entering a building. It is typically installed in a drain or a sink.,Q97
+Shower cubicle,"A shower cubicle is a pre-fabricated enclosure that is used for showering. It typically has a door, a shower head, and a drain.",Q97
+Shower mixer,A shower mixer is a device that controls the temperature and flow of water in a shower. It is typically installed on the wall of a shower.,Q97
+Bath,"A bath is a large container that is used for bathing. It is typically made of acrylic, fiberglass, or cast iron and is installed in a bathroom.",Q97
+Bath screen,A bath screen is a panel that is installed around a bath to prevent water from splashing out. It is typically made of glass or plastic.,Q97
+Towel rail,A towel rail is a bar that is used to hang towels. It is typically made of metal and is installed in a bathroom.,Q97
+Maserator,A maserator is a device that grinds waste into small pieces so that it can be flushed down a drain. It is typically installed in a bathroom or kitchen.,Q97
+Accessories,"Accessories are items that are added to a bathroom to make it more comfortable or stylish. They can include items such as soap dishes, toothbrush holders, and mirrors.",Q97
+Floor Name,"The name given to a specific floor in a building, such as the ground floor, first floor, or second floor.",Q101
+Room Sequence Number,"A number assigned to a room in a building, used to identify its location and order.",Q101
+Fitting,The process of installing or assembling components or fixtures in a building.,Q101
+Installing,The process of placing and securing components or fixtures in a building.,Q101
+Inside Bathroom/shower/toilet,"A room in a building that contains a bathtub, shower, and toilet.",Q101
+Radiator,"A device used to heat a room or building, typically consisting of a metal casing filled with water or steam that is heated and then released into the room.",Q102
+Floor Name,The name of the floor.,Q103
+Room Sequence Number,The order in which the rooms are arranged.,Q103
+Fitting and installing,The process of installing and assembling.,Q103
+Inside Bathroom/shower/toilet,"The bathroom, shower, or toilet located inside the house or flat.",Q103
+Floor Name,The name of the floor in a building.,Q104
+Room Sequence Number,The number of the room in a sequence.,Q104
+Inside Bathroom/shower/toilet,"The bathroom, shower or toilet inside a building.",Q104
+Under floor heating,A heating system that is installed under the floor.,Q104
+Fitting,The process of installing equipment or fixtures in a building.,Q105
+Installing,"The process of putting something in place, especially a machine or piece of equipment.",Q105
+External house surfaces,"The exterior surfaces of a house, typically consisting of walls, roof, and windows.",Q107
+Driveway,"A paved area leading from a road to a house, garage, or other building, providing access for vehicles.",Q107
+Side passage,"A narrow passageway or path along the side of a building, providing access to the rear or other parts of the property.",Q107
+Garden,"An area of land adjacent to a house or other building, typically used for growing plants, recreation, or relaxation.",Q107
+Pitched roof,"A roof with a sloping surface, typically used in residential construction.",Q109
+Flat roof,"A roof with a horizontal surface, typically used in commercial construction.",Q109
+Roof,The roof is the upper part of a building that covers and protects the structure from the elements.,Q110
+eaves soffit,The underside of the eaves of a roof.,Q111
+fascia,"A long, flat board used to cover the exposed ends of rafters or to trim the edges of a roof.",Q111
+gutter,A channel or trough fixed along the eaves of a roof to collect and convey rainwater.,Q111
+parapet,A low wall or raised edge constructed along the edge of a roof to prevent people or objects from falling off.,Q111
+pitch,The slope or incline of a roof.,Q111
+pointing,The process of filling in the joints between bricks or stones with mortar.,Q111
+rafter,A sloping beam that supports the roof of a building.,Q111
+roof tile,A flat or curved piece of material used to cover the roof of a building.,Q111
+Roof,"The topmost covering of a building, protecting it from the elements.",Q112
+Guttering,A channel or pipe designed to collect and carry away rainwater from a roof.,Q112
+Fascia,"A long, flat board forming the outer edge of a roof, covering the ends of the rafters.",Q112
+Soffit,"The underside of a roof overhang, typically consisting of boards or panels.",Q112
+Fixing,The process of securing or fastening one or more building components or materials together,Q113
+Renewal,The process of replacing or restoring an existing building component or material to its original condition,Q113
+Refurbishment,The process of restoring a building to a good condition.,Q114
+Render,A layer of mortar applied to the exterior of a wall to protect it from the weather.,Q114
+Downpipe,A pipe that carries rainwater from the roof of a building to the ground.,Q114
+render,A layer of plaster or cement applied to the exterior walls of a building to protect it from the elements and to improve its appearance.,Q115
+downpipes,Pipes that carry rainwater from the roof of a building to the ground.,Q115
+Render,A layer of cement or plaster applied to the exterior walls of a building to protect it from the elements.,Q117
+Downpipes,Pipes that carry rainwater from the roof of a building to the ground.,Q117
+render,A layer of plaster or other material applied to the exterior of a building to protect it from the elements and improve its appearance.,Q118
+downpipes,Vertical pipes that carry rainwater from the roof of a building to the ground.,Q118
+Downpipe,A vertical pipe that carries rainwater from the roof to the ground.,Q120
+Render,A layer of cement or plaster applied to the exterior of a building to protect it from the weather.,Q120
+render,"A layer of material applied to the exterior walls of a building to provide a smooth, weather-resistant surface.",Q121
+silicon render,A type of render that is made from silicone resins and is water-resistant and durable.,Q121
+downpipes,Pipes that carry rainwater from the roof of a building to the ground.,Q121
+left hand side wall,The wall on the left-hand side of a building when facing it.,Q121
+Fixing,The process of attaching or securing something in place.,Q122
+Renewal,The process of replacing something with a new one.,Q122
+render,A layer of plaster or cement applied to the exterior of a building to protect it from the weather.,Q123
+downpipes,Pipes that carry rainwater from the roof of a building to the ground.,Q123
+render,a layer of plaster or other material applied to the exterior of a building to protect it from the elements or for decorative purposes,Q124
+silicon render,a type of render that is made with silicone resin and is highly water-resistant and durable,Q124
+downpipes,pipes that carry rainwater from the roof of a building to the ground,Q124
+Fuse board,"A fuse board is a safety device that protects an electrical circuit from damage caused by overcurrent. It contains fuses, which are thin wires that melt and break the circuit if the current exceeds a safe level.",Q125
+Down lights,Down lights are recessed lighting fixtures that shine light downwards from the ceiling. They are often used to provide general illumination in a room.,Q125
+Ceiling pendant light,A ceiling pendant light is a light fixture that hangs from the ceiling on a cord or chain. It is often used to provide general illumination in a room or to highlight a specific area.,Q125
+Wall lights,Wall lights are light fixtures that are mounted on a wall. They are often used to provide supplementary lighting in a room or to highlight a specific feature.,Q125
+LED lights,"LED lights are light fixtures that use light-emitting diodes (LEDs) as the source of light. LEDs are energy-efficient and long-lasting, making them a popular choice for lighting.",Q125
+Switches,"Switches are electrical devices that are used to control the flow of electricity in a circuit. They can be used to turn lights on and off, or to control the speed of a fan.",Q125
+Sockets,"Sockets are electrical devices that are used to provide a connection point for electrical devices. They can be used to plug in appliances, lamps, or other electrical devices.",Q125
+External Refurbishment,"The process of renovating or repairing the exterior of a house, typically involving work on the roof, walls, windows, and doors.",Q126
+External Electrics,"The electrical wiring and fixtures located outside of a house, such as lighting, outlets, and security systems.",Q126
+House,A building that people live in,Q128
+External,Situated on the outside,Q128
+Refurbishment,The act of restoring or improving a building,Q128
+Fix,To repair or mend something,Q128
+Brick,A small rectangular block of baked clay used in building,Q128
+Wall,An upright structure enclosing or dividing an area,Q128
+Gate,A movable barrier that closes an opening in a fence or wall,Q128
+Driveway,A path for vehicles leading to a building,Q128
+Surface,The outermost layer of something,Q128
+Remove,To take away or get rid of something,Q128
+Weed,A plant that grows where it is not wanted,Q128
+Block,"A solid piece of material, typically square or rectangular in shape",Q128
+Paving,"A hard surface laid over an area, typically made of concrete, stone, or bricks",Q128
+Wash,To clean something with water and soap or detergent,Q128
+Customise,To modify something to make it unique or suited to a particular purpose,Q128
+brick wall,A wall made of bricks.,Q129
+drive way,A paved area leading to a garage or other building.,Q129
+Fixing,The action of attaching or securing something in place.,Q130
+Renewal,The act of replacing or restoring something to its original condition.,Q130
+fence,"a barrier around an area of land, typically made of wood, metal, or stone",Q131
+side passage surface,"the surface of the ground next to a passage, typically made of concrete or asphalt",Q131
+block paving,"a type of paving made of concrete blocks, usually used for driveways and patios",Q131
+canopy,"a roof or covering that projects over a door, window, or other opening",Q135
+fences,"a structure that encloses an area of land, typically made of wood, metal, or plastic",Q135
+flower beds,an area of ground in a garden that is used for growing flowers,Q135
+garden lights,"lights that are designed to be used in a garden, typically powered by electricity or solar energy",Q135
+garden shed,a small building in a garden that is used for storing tools and equipment,Q135
+garden tap,"a water tap that is located in a garden, typically used for watering plants",Q135
+gravel boards,boards that are placed around the edge of a patio or driveway to prevent gravel from spreading,Q135
+hedges,a row of closely planted bushes or shrubs that forms a boundary or screen,Q135
+patio,a paved area in a garden that is used for sitting and relaxing,Q135
+posts,upright pieces of wood or metal that are used to support a fence or gate,Q135
+steps,a set of stairs that lead up or down from one level to another,Q135
+tree stamp,"the base of a tree trunk, typically protected by a metal or plastic ring",Q135

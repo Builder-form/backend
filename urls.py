@@ -22,16 +22,16 @@ from rest_framework import permissions
 
 schema_view = get_schema_view(  # new
     openapi.Info(
-        title="Grace API",
+        title="Builder-from API",
         default_version='v1',
-        description="Это API сервиса сиделок grace",
+        description="API for builder form service",
         terms_of_service="https://www.google.com/policies/terms/",
-        contact=openapi.Contact(email="contact@snippets.local"),
-        license=openapi.License(name="BSD License"),
+        contact=openapi.Contact(email="firesieht@mail.ru"),
+        license=openapi.License(name="MIT"),
     ),
     # url=f'{settings.APP_URL}/api/v3/',
     patterns=[
-        path('api/', include('grace.urls')), 
+        path('api/', include('builder_form.urls')), 
         path('user/', include('user.urls')),
         path('auth/', include('sms_auth.api.urls')),
     ],
@@ -55,7 +55,7 @@ urlpatterns = [
         name='schema-json'),
     path('admin/', admin.site.urls),
     path('auth/', include('sms_auth.api.urls')),
-    path('api/', include('grace.urls')),
+    path('api/', include('builder_form.urls')),
     path('user/', include('user.urls')),
 
 ]

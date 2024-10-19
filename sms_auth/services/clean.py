@@ -1,10 +1,10 @@
 from django.utils import timezone
-from ..models import PhoneCode
+from ..models import EmailCode
 
 
 class CleanService:
     @classmethod
     def clear(cls):
-        PhoneCode.objects\
+        EmailCode.objects\
             .filter(valid_to__lt=timezone.now())\
             .delete()

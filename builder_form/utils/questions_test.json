@@ -1,0 +1,111 @@
+[
+    {
+        "id": "Q1",
+        "text": "Q1",
+        "answers": [
+            {
+                "answer": "Q1_A1",
+                "id": "Q1_A1",
+                "parent_id": "Q1_A1",
+                "next_id": "Q3",
+                "answer_type": "SINGLE"
+            },
+            {
+                "answer": "Q1_A2",
+                "id": "Q1_A2",
+                "parent_id": "Q1_A2",
+                "next_id": "Q2",
+                "answer_type": "SINGLE"
+            }
+        ]
+    },
+    {
+        "id": "Q2",
+        "text": "Q2",
+        "answers": [
+            {
+                "answer": "Q2_A1",
+                "id": "Q2_A1",
+                "parent_id": "Q2_A1",
+                "next_id": "Q3",
+                "conditions":"{ \"conditions\":\"IF (Q1_A, Q1_A2, EQUAL):Q4\", \"insertion\": \"Right\"}",
+                "answer_type": "MULTI - NQ EACH"
+            },
+            {
+                "answer": "Q2_A2",
+                "id": "Q2_A2",
+                "parent_id": "Q2_A2",
+                "next_id": "Q3",
+                "conditions":"{\"params\": \"PARAMS1\", insertion: \"Left\"}",
+                "answer_type": "MULTI - NQ EACH"
+            }
+        ]
+    },
+    {
+        "id": "Q3",
+        "text": "Q3 {0}",
+        "answers": [
+            {
+                "answer": "Q3_A1",
+                "id": "Q3_A1",
+                "parent_id": "Q3_A1",
+                "next_id": "END",
+                "conditions":"",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Q3_A2",
+                "id": "Q3_A2",
+                "parent_id": "Q3_A2",
+                "next_id": "END",
+                "conditions":"",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Q3_A3",
+                "id": "Q3_A3",
+                "parent_id": "Q1_A3",
+                "next_id": "Q4",
+                "conditions":"{params: \"PARAMS1\", insertion: \"Left\"}",
+                "answer_type": "MULTI - NQ EACH"
+            }
+        ]
+    }, 
+    {
+        "id": "Q4",
+        "text": "Q4",
+        "answers": [
+            {
+                "answer": "Q4_A1",
+                "id": "Q4_A1",
+                "parent_id": "Q4_A1",
+                "next_id": "END",
+                "conditions":"",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Q4_A2",
+                "id": "Q4_A2",
+                "parent_id": "Q4_A2",
+                "next_id": "END",
+                "conditions":"",
+                "answer_type": "MULTI - NQ ONE"
+            }
+            
+        ]
+    },
+
+    {
+        "id": "END",
+        "text": "END",
+        "answers": [
+            {
+                "answer": "END",
+                "id": "END_A1",
+                "parent_id": "END_A1",
+                "next_id": "",
+                "answer_type": "SINGLE"
+            }
+        ]
+    }
+]

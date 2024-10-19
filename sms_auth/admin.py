@@ -7,15 +7,15 @@ from .models import *
 class SMSMessageAdmin(ModelAdmin):
     readonly_fields = (
         "created",
-        "phone_number",
+        "email",
     )
 
     def has_add_permission(self, request):
         return False
 
 
-@register(PhoneCode)
-class PhoneCodeAdmin(ModelAdmin):
+@register(EmailCode)
+class EmailCodeAdmin(ModelAdmin):
     readonly_fields = (
         "valid_to",
         "created_at",

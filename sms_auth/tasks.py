@@ -1,7 +1,7 @@
 import importlib
 
 from .conf import conf
-from .models import PhoneCode
+from .models import EmailCode
 from celery.contrib import rdb
 from celery import shared_task
 
@@ -18,10 +18,10 @@ def get_provider_class():
 
 @shared_task
 def send_sms_async(identifier: int):
-    code_instance = PhoneCode.objects.filter(pk=identifier).first()
+    code_instance = EmailCode.objects.filter(pk=identifier).first()
     if code_instance:
         provider_class = get_provider_class()
         provider = provider_class(
-            to=str(code_instance.phone_number), message=code_instance.message, conf=conf
+            to=str(code_instance.email), message=code_instance.message, conf=conf
         )
         provider.send_sms()
