@@ -1316,7 +1316,7 @@
     },
     {
         "id": "Q27",
-        "text": "House. Select Number of Rooms for {0}",
+        "text": "House. Select Number of Rooms for [Floor Name]",
         "answers": [
             {
                 "answer": "Customise:",
@@ -1343,7 +1343,7 @@
     },
     {
         "id": "Q29",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - {0}-Room Type selection\n\nFor Flat (Q1_A2 - selected):\nFlat - {0}- Room Type selection",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number] -Room Type selection\n\nFor Flat (Q1_A2 - selected):\nFlat - - Room Type selection",
         "answers": [
             {
                 "answer": "Rooms/hallway/landings",
@@ -1659,7 +1659,7 @@
     },
     {
         "id": "Q33",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - {0}-Strip out and demolition needed?\n\nFor Flat (Q1_A2 - selected):\nFlat - {0} - Strip out and demolition needed?",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Strip out and demolition needed?\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number] - Strip out and demolition needed?",
         "answers": [
             {
                 "answer": "Yes, lets make Strip out and demolition",
@@ -1681,7 +1681,7 @@
     },
     {
         "id": "Q34",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] -Room number {0}-Strip out and demolition details\n\nFor Flat (Q1_A2 - selected):\nFlat - Room number {0}- Strip out and demolition details",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] -Room number [Room Sequence Number]-Strip out and demolition details\n\nFor Flat (Q1_A2 - selected):\nFlat - Room number [Room Sequence Number]- Strip out and demolition details",
         "answers": [
             {
                 "answer": "Built-in wardrobe",
@@ -1806,7 +1806,7 @@
 
     {
         "id": "Q35",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - Room Number {0}-Strip out and demolition - [Q34 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - Room Number {0} - Strip out and demolition - [Q34 ANSWER]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - Room Number [Room Sequence Number]-Strip out and demolition - [Q34 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - Room Number [Room Sequence Number] - Strip out and demolition - [Q34 ANSWER]",
         "answers": [
             {
                 "answer": "Remove to dispose",
@@ -1830,7 +1830,7 @@
     },
     {
         "id": "Q36",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - {0} -Strip out and demolition details\n\nFor Flat (Q1_A2 - selected):\nFlat - {} - Strip out and demolition details",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number] -Strip out and demolition details\n\nFor Flat (Q1_A2 - selected):\nFlat - {} - Strip out and demolition details",
         "answers": [
             {
                 "answer": "Kitchen units",
@@ -1989,7 +1989,7 @@
     },
     {
         "id": "Q38",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] -{0}-Strip out and demolition details\n\nFor Flat (Q1_A2 - selected):\nFlat - {0}- Strip out and demolition details",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - Room Number [Room Sequence Number]-Strip out and demolition details\n\nFor Flat (Q1_A2 - selected):\nFlat - Room Number [Room Sequence Number]- Strip out and demolition details",
         "answers": [
             {
                 "answer": "Water tank",
@@ -2161,7 +2161,7 @@
     },
     {
         "id": "Q41",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - {0} -Strip out and demolition - [Q40 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - {0}- Strip out and demolition - [Q40 ANSWER]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - Room Number [Room Sequence Number] -Strip out and demolition - [Q40 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - Room Number [Room Sequence Number]- Strip out and demolition - [Q40 ANSWER]",
         "answers": [
             {
                 "answer": "Remove to dispose",
@@ -2272,7 +2272,7 @@
     },
     {
         "id": "Q43",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - {0} -Strip out and demolition - [Q42 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Strip out and demolition - [Q42 ANSWER]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - Room Number [Room Sequence Number] -Strip out and demolition - [Q42 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Strip out and demolition - [Q42 ANSWER]",
         "answers": [
             {
                 "answer": "Remove to dispose",
@@ -3411,7 +3411,7 @@
     },
     {
         "id": "Q64",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Windows - {0}[Q63 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing- Windows - {0}[Q63 ANSWER]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Windows - [Q63 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing- Windows - [Q63 ANSWER]",
         "answers": [
             {
                 "answer": "Supply and install",
@@ -3550,7 +3550,7 @@
     },
     {
         "id": "Q642",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- External doors-[Q641 Answer]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing- External doors-{0}[Q641 Answer]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- External doors-[Q641 Answer]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing- External doors-[Q641 Answer]",
         "answers": [
             {
                 "answer": "Supply and install",
@@ -3659,7 +3659,7 @@
     },
     {
         "id": "Q66",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Enternal doors - {0} [Q65 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing- Internal doors - {0} [Q65 ANSWER]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Enternal doors - [Q65 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing- Internal doors - [Q65 ANSWER]",
         "answers": [
             {
                 "answer": "Supply and install",
@@ -3835,7 +3835,7 @@
     },
     {
         "id": "Q68",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside rooms/hallway/landings - {0} [Q67 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing- Inside rooms/hallway/landings - {0} [Q67 ANSWER]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside rooms/hallway/landings - [Q67 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing- Inside rooms/hallway/landings - [Q67 ANSWER]",
         "answers": [
             {
                 "answer": "Supply and install",
@@ -3944,7 +3944,7 @@
     },
     {
         "id": "Q691",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Electrics- {0}[Q69 Answer]:\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility- Electrics-{0}[Q69 Answer]:",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Electrics- [Q69 Answer]:\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility- Electrics-[Q69 Answer]:",
         "answers": [
             {
                 "answer": "Supply and install",
@@ -4059,7 +4059,7 @@
     },
     {
         "id": "Q73",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-{0}[Q72 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-{0}[Q72 ANSWER]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-[Q72 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-[Q72 ANSWER]",
         "answers": [
             {
                 "answer": "Supply and install",
@@ -4116,7 +4116,7 @@
     },
     {
         "id": "Q75",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility- {0}[Q74 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-{0}[Q74 ANSWER]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility- [Q74 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-[Q74 ANSWER]",
         "answers": [
             {
                 "answer": "Supply and install",
@@ -4278,7 +4278,7 @@
     },
     {
         "id": "Q78",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-{0}[Q77 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-{0}[Q77 ANSWER]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-[Q77 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-[Q77 ANSWER]",
         "answers": [
             {
                 "answer": "Supply and install",
@@ -4335,7 +4335,7 @@
     },
     {
         "id": "Q80",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility- {0}[Q79 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-{0}[Q79 ANSWER]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility- [Q79 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-[Q79 ANSWER]",
         "answers": [
             {
                 "answer": "Supply and install",
@@ -4394,7 +4394,7 @@
     },
     {
         "id": "Q82",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-{0}[Q81 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-{0}[Q81 ANSWER]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-[Q81 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-[Q81 ANSWER]",
         "answers": [
             {
                 "answer": "Supply and install",
@@ -4444,7 +4444,7 @@
     },
     {
         "id": "Q84",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-{0}[Q83 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-{0}[Q83 ANSWER]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-[Q83 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-[Q83 ANSWER]",
         "answers": [
             {
                 "answer": "Supply and install",
@@ -4487,7 +4487,7 @@
     },
     {
         "id": "Q86",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-{0}[Q85 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-{0}[Q85 ANSWER]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-[Q85 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-[Q85 ANSWER]",
         "answers": [
             {
                 "answer": "Supply and install",
@@ -4550,7 +4550,7 @@
     },
     {
         "id": "Q88",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing-Inside storage/attic-{0}[Q87 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside storage/attic-{0}[Q87 ANSWER]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing-Inside storage/attic-[Q87 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside storage/attic-[Q87 ANSWER]",
         "answers": [
             {
                 "answer": "Supply and install",
@@ -4607,7 +4607,7 @@
     },
     {
         "id": "Q90",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing-Inside storage/attic-{0}[Q89 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside storage/attic-{0}[Q89 ANSWER]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing-Inside storage/attic-[Q89 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside storage/attic-[Q89 ANSWER]",
         "answers": [
             {
                 "answer": "Supply and install",
@@ -4719,7 +4719,7 @@
     },
     {
         "id": "Q94",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing-Inside Bathroom/shower/toilet-{0}[Q93 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing- Inside Bathroom/shower/toilet-{0}[Q93 ANSWER]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing-Inside Bathroom/shower/toilet-[Q93 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing- Inside Bathroom/shower/toilet-[Q93 ANSWER]",
         "answers": [
             {
                 "answer": "Supply and install",
@@ -4779,7 +4779,7 @@
     },
     {
         "id": "Q96",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing-Inside Bathroom/shower/toilet-{0}[Q95 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing- Inside Bathroom/shower/toilet-{0}[Q95 ANSWER]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing-Inside Bathroom/shower/toilet-[Q95 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing- Inside Bathroom/shower/toilet-[Q95 ANSWER]",
         "answers": [
             {
                 "answer": "Supply and install",
@@ -4947,7 +4947,7 @@
     },
     {
         "id": "Q99",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside Bathroom/shower/toilet-{0}[Q98 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside Bathroom/shower/toilet-{0}[Q98 ANSWER]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside Bathroom/shower/toilet-[Q98 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside Bathroom/shower/toilet-[Q98 ANSWER]",
         "answers": [
             {
                 "answer": "Supply and install",
@@ -5007,7 +5007,7 @@
     },
     {
         "id": "Q101",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside Bathroom/shower/toilet-{0}[Q100 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside Bathroom/shower/toilet-{0}[Q100 ANSWER]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside Bathroom/shower/toilet-[Q100 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside Bathroom/shower/toilet-[Q100 ANSWER]",
         "answers": [
             {
                 "answer": "Supply and install",
@@ -5058,7 +5058,7 @@
     },
     {
         "id": "Q103",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside Bathroom/shower/toilet-{0}[Q102 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside Bathroom/shower/toilet-{0}[Q102 ANSWER]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside Bathroom/shower/toilet-[Q102 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside Bathroom/shower/toilet-[Q102 ANSWER]",
         "answers": [
             {
                 "answer": "Supply and install",
@@ -5102,7 +5102,7 @@
     },
     {
         "id": "Q105",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside Bathroom/shower/toilet-{0}[Q104 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside Bathroom/shower/toilet-{0}[Q104 ANSWER]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside Bathroom/shower/toilet-[Q104 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside Bathroom/shower/toilet-[Q104 ANSWER]",
         "answers": [
             {
                 "answer": "Supply and install",
@@ -5192,7 +5192,7 @@
     },
     {
         "id": "Q108",
-        "text": "House - External Refurbishment - {0}[Q107 Answer]",
+        "text": "House - External Refurbishment - [Q107 Answer]",
         "answers": [
             {
                 "answer": "Roof",
@@ -5233,7 +5233,7 @@
     },
     {
         "id": "Q109",
-        "text": "House - External Refurbishment - {0}[Q107 Answer] - Roof type",
+        "text": "House - External Refurbishment - [Q107 Answer] - Roof type",
         "answers": [
             {
                 "answer": "Pitched roof",
@@ -5255,7 +5255,7 @@
     },
     {
         "id": "Q110",
-        "text": "House - External Refurbishment - {0}[Q107 Answer] - Roof - {1}[Q109 Answer]",
+        "text": "House - External Refurbishment - [Q107 Answer] - Roof - {1}[Q109 Answer]",
         "answers": [
             {
                 "answer": "Fixing",
@@ -5275,7 +5275,7 @@
     },
     {
         "id": "Q111",
-        "text": "House - External Refurbishment - [Q107 Answer] - Roof - {0}[Q109 Answer] - [Q110 Answer]",
+        "text": "House - External Refurbishment - [Q107 Answer] - Roof - [Q109 Answer] - [Q110 Answer]",
         "answers": [
             {
                 "answer": "Fix roof tiles",
@@ -5521,7 +5521,7 @@
     },
     {
         "id": "Q117",
-        "text": "House - External Refurbishment - [Q107 Answer] - Back Wall- {0}[Q116 Answer]",
+        "text": "House - External Refurbishment - [Q107 Answer] - Back Wall- [Q116 Answer]",
         "answers": [
             {
                 "answer": "Fix cracks on render",
@@ -5572,7 +5572,7 @@
     },
     {
         "id": "Q118",
-        "text": "House - External Refurbishment - [Q107 Answer] - Back Wall- {0}[Q116 Answer]",
+        "text": "House - External Refurbishment - [Q107 Answer] - Back Wall- [Q116 Answer]",
         "answers": [
             {
                 "answer": "Remove old render",
@@ -5636,7 +5636,7 @@
     },
     {
         "id": "Q120",
-        "text": "House - External Refurbishment - [Q107 Answer] -Left hand side wall (facing the house)-{0}[Q119 Answer]",
+        "text": "House - External Refurbishment - [Q107 Answer] -Left hand side wall (facing the house)-[Q119 Answer]",
         "answers": [
             {
                 "answer": "Fix cracks on render",
@@ -5687,7 +5687,7 @@
     },
     {
         "id": "Q121",
-        "text": "House - External Refurbishment - [Q107 Answer]- Left hand side wall (facing the house)-{0}[Q119 Answer]",
+        "text": "House - External Refurbishment - [Q107 Answer]- Left hand side wall (facing the house)-[Q119 Answer]",
         "answers": [
             {
                 "answer": "Remove old render",
@@ -5751,7 +5751,7 @@
     },
     {
         "id": "Q123",
-        "text": "House - External Refurbishment - [Q107 Answer] - Right hand side wall (facing the house)-{0}[Q122 Answer]",
+        "text": "House - External Refurbishment - [Q107 Answer] - Right hand side wall (facing the house)-[Q122 Answer]",
         "answers": [
             {
                 "answer": "Fix cracks on render",
@@ -5792,7 +5792,7 @@
     },
     {
         "id": "Q124",
-        "text": "House - External Refurbishment - [Q107 Answer] -Right hand side wall (facing the house)-{0}[Q122 Answer]",
+        "text": "House - External Refurbishment - [Q107 Answer] -Right hand side wall (facing the house)-[Q122 Answer]",
         "answers": [
             {
                 "answer": "Remove old render",
@@ -5904,7 +5904,7 @@
     },
     {
         "id": "Q126",
-        "text": "House - External Refurbishment - [Q107 Answer]- External Electrics-{0}[Q125 Answer]:",
+        "text": "House - External Refurbishment - [Q107 Answer]- External Electrics-[Q125 Answer]:",
         "answers": [
             {
                 "answer": "Supply and install",
@@ -5950,7 +5950,7 @@
     },
     {
         "id": "Q128",
-        "text": "House - External Refurbishment - [Q107 Answer] - {0}[Q127 Answer]",
+        "text": "House - External Refurbishment - [Q107 Answer] - [Q127 Answer]",
         "answers": [
             {
                 "answer": "Fix brick wall",
@@ -6019,7 +6019,7 @@
     },
     {
         "id": "Q129",
-        "text": "House - External Refurbishment - [Q107 Answer] - {0}[Q127 Answer]",
+        "text": "House - External Refurbishment - [Q107 Answer] - [Q127 Answer]",
         "answers": [
             {
                 "answer": "Demolish brick wall",
@@ -6083,7 +6083,7 @@
     },
     {
         "id": "Q131",
-        "text": "House - External Refurbishment - [Q107 Answer] - {0}[Q130 Answer]",
+        "text": "House - External Refurbishment - [Q107 Answer] - [Q130 Answer]",
         "answers": [
             {
                 "answer": "Fix fences",
@@ -6143,7 +6143,7 @@
     },
     {
         "id": "Q132",
-        "text": "House - External Refurbishment - [Q107 Answer] - {0}[Q130 Answer]",
+        "text": "House - External Refurbishment - [Q107 Answer] - [Q130 Answer]",
         "answers": [
             {
                 "answer": "Replace fences",
@@ -6207,7 +6207,7 @@
     },
     {
         "id": "Q134",
-        "text": "House - External Refurbishment - [Q107 Answer] - {0}[Q133 Answer]",
+        "text": "House - External Refurbishment - [Q107 Answer] - [Q133 Answer]",
         "answers": [
             {
                 "answer": "Fix fences",
@@ -6339,7 +6339,7 @@
     },
     {
         "id": "Q135",
-        "text": "House - External Refurbishment - [Q107 Answer] - {0}[Q133 Answer]",
+        "text": "House - External Refurbishment - [Q107 Answer] - [Q133 Answer]",
         "answers": [
             {
                 "answer": "Replace fences ",

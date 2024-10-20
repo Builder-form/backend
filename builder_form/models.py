@@ -4,13 +4,27 @@ import uuid
 import json
 from django.utils import timezone
 from user.models import User
-
+from django.core.exceptions import ValidationError
+import re
 class AnswerTypes(models.TextChoices):
-        SINGLE = 'SINGLE',     _("Single")
-        NQONE = 'MULTI - NQ ONE', _('MULTI - NQ ONE')
-        CUSTOM = 'CUSTOM', _('Custom')
-        NQEACH = 'MULTI - NQ EACH', _('MULTI - NQ EACH')
-        NUMBEREACH = 'NUMBER EACH', _('NUMBER EACH')
+    SINGLE = 'SINGLE', _("Single")
+    NQONE = 'MULTI - NQ ONE', _('MULTI - NQ ONE')
+    CUSTOM = 'CUSTOM', _('Custom')
+    NQEACH = 'MULTI - NQ EACH', _('MULTI - NQ EACH')
+    NUMBEREACH = 'NUMBER EACH', _('NUMBER EACH')
+
+class ConditionTypes(models.TextChoices):
+    EQUAL = 'EQUAL', _('Equal')
+    NOT_EQUAL = 'NOT_EQUAL', _('Not Equal')
+    # GREATER_THAN = 'GREATER_THAN', _('Greater Than')
+    # LESS_THAN = 'LESS_THAN', _('Less Than')
+    # IN = 'IN', _('In')
+    # NOT_IN = 'NOT_IN', _('Not In')
+    # CONTAINS = 'CONTAINS', _('Contains')
+    # NOT_CONTAINS = 'NOT_CONTAINS', _('Not Contains')
+    # ANSWERED = 'ANSWERED', _('Answered')
+    # NOT_ANSWERED = 'NOT_ANSWERED', _('Not Answered')
+    
 
 class Question(models.Model):
     id = models.CharField(_("id"), max_length=50, primary_key=True)
@@ -496,15 +510,78 @@ class QuestionInstance(models.Model):
     parent =  models.ForeignKey(Question, verbose_name=_("parent_question"), on_delete=models.CASCADE)
     parent_pk =models.PositiveIntegerField(_("parent_pk"), max_length=50, default='')
     text = models.CharField(_("text"), max_length=1000)
-   
+    context = models.JSONField(_("context"),default=dict)
+    
+    
+    def setContext(self, key, value):
+        self.context[key] = value
+        self.save()
+    
+    def getContext(self, key):
+        
+        try:
+            return self.context[key]
+        except:
+            return ''
+        
+    def getParentQuestion(self, question:Question):
+        instance = self
+        while instance.parent_pk != 0:
+            parent = QuestionInstance.objects.get(pk=instance.parent_pk)
+            if parent.qid == question.id:
+                return parent
+            instance = parent
+        if instance.qid == question.id:
+            return instance
+        return ValidationError('Don`t have parent for this question')
+    
+        
+        
+    
+       
+
+                
     def save(self, *args, **kwargs): 
-        print(self.params, self)
-        json_params = json.loads(self.params)
-        print(json_params)
-        if len(json_params['data']) > 0:
-            self.text = self.text.format(*json_params['data'])
+        # print(self.params, self)
+        # json_params = json.loads(self.params)
+        # print(json_params)
+        #check conditions
+        
+        conditions = NamingCondition.objects.filter(parent_question=Question.objects.get(id=self.qid))
+        for condition in conditions:
+            res = condition.evaluate(self)
+            if res:
+                self.text = res
+        # update text
+        if '[' in self.text:
+            text  = self.text
+            if '[Floor Name]' in text:
+                text = text.replace('[Floor Name]', self.getContext('Floor Name'))
+            if '[Room Sequence Number]' in text:
+                text = text.replace('[Room Sequence Number]', self.getContext('Room Sequence Number'))
+            parent_answer_pattern = re.compile(r'\[Q\d+\s+ANSWER\]')
+            for match in parent_answer_pattern.finditer(text):
+                parent_qid = match.group()[1:-8]
+                try:
+                    parent_question = self.getParentQuestion(Question.objects.get(id=parent_qid))
+                    parent_answer = AnswerQuestion.objects.filter(
+                        question_instance=parent_question.pk,
+                        project=self.project
+                    ).first()
+                    if parent_answer:
+                        text = text.replace(match.group(), parent_answer.answer_text)
+                    else:
+                        text = text.replace(match.group(), '')
+                except Question.DoesNotExist:
+                    print("QUESTION DOES NOT EXIST BY REPLACING IN QUESTION INSTANCE")
+                    pass
+            self.text = text
 
         super(QuestionInstance, self).save(*args, **kwargs)
+
+        # if len(json_params['data']) > 0:
+        #     self.text = self.text.format(*json_params['data'])
+
 
 
 
@@ -597,11 +674,6 @@ class AnswerQuestion(models.Model):
             return self.answer.next_id
         return self.answer.next_id
 
-
-
-
-
-
     def save(self, *args, **kwargs):
         new_question = []
         print(self.answer.type)
@@ -618,6 +690,7 @@ class AnswerQuestion(models.Model):
         
         print('NEXTID', next_id, 'PARENT_PK', self.question_instance)
 
+        parentContext = QuestionInstance.objects.get(pk=self.question_instance).context
 
         match self.answer.type.strip():
             case AnswerTypes.CUSTOM:
@@ -628,7 +701,8 @@ class AnswerQuestion(models.Model):
                     project=self.project,
                     params='{"data":' + json.dumps(params) + '}',
                     parent=self.answer.question,
-                    parent_pk= self.question_instance
+                    parent_pk= self.question_instance,
+                    context=parentContext,
                 ))
 
             case AnswerTypes.SINGLE:
@@ -644,7 +718,8 @@ class AnswerQuestion(models.Model):
                         project=self.project,
                         params='{"data":' + json.dumps(params) + '}',
                         parent=self.answer.question,
-                        parent_pk= self.question_instance
+                        parent_pk= self.question_instance,
+                        context=parentContext,
                     ))
             case AnswerTypes.NQONE:
                 print(QuestionInstance.objects.all().filter(project=self.project).filter(parent_pk=self.question_instance))
@@ -656,30 +731,39 @@ class AnswerQuestion(models.Model):
                         project=self.project,
                         params='{"data":' + json.dumps(params) + '}',
                         parent=self.answer.question,
-                        parent_pk= self.question_instance
+                        parent_pk= self.question_instance,
+                        context=parentContext,
                     ))
             case AnswerTypes.NQEACH:
                 question_template = Question.objects.get(id=next_id)
+                if next_id == 'Q27':
+                    parentContext['Floor Name'] = self.answer_text
                 new_question.append(QuestionInstance.objects.create(
                     qid=question_template.id,
                     text=question_template.text_template,
                     project=self.project,
                     params='{"data":' + json.dumps(params) + '}',
                     parent_pk= self.question_instance,
-                    parent=self.answer.question
+                    parent=self.answer.question,
+                    context=parentContext,
                 ))
             case AnswerTypes.NUMBEREACH:
                 for i in range(int(self.answer_text)):
                     print(next_id)
                     question_template = Question.objects.get(id=next_id)
-                    new_question.append(QuestionInstance.objects.create(
+                    localContext = parentContext
+                    localContext.update({"Room Sequence Number":str(i+1)})
+                    local_new_question = QuestionInstance.objects.create(
                         qid=question_template.id,
                         text=question_template.text_template,
                         project=self.project,
                         params='{"data":["' + str(i) + '"]}',
                         parent=self.answer.question,
-                        parent_pk= self.question_instance
-                    ))
+                        parent_pk=self.question_instance,
+                        context=localContext,
+                    )
+                    
+                    new_question.append(local_new_question)
         print('NEW QUESTIONS', new_question)
         if len(new_question) > 0:
             for question in new_question:
@@ -687,8 +771,45 @@ class AnswerQuestion(models.Model):
         super(AnswerQuestion, self).save(*args, **kwargs)
 
 
+class NamingCondition(models.Model):
+    parent_question = models.ForeignKey(Question,related_name='parent_question', verbose_name=_("Parent Question"), on_delete=models.CASCADE)
+    left_operand = models.ForeignKey(Question,related_name='left_operand',  verbose_name=_("Question Answers"), on_delete=models.CASCADE)
+    condition_type = models.CharField(_("Condition Type"), max_length=50, choices=ConditionTypes.choices)
+    right_operand = models.ManyToManyField(Answer, verbose_name=_("Answers"), blank=True)
+    text_template = models.CharField(_("Text template"), max_length=1000, default='')
+    def __str__(self):
+        return f"{self.parent_question}: {self.left_operand} {self.condition_type} {self.right_operand}"
 
-
+    def getParentQuestion(self,questionInstance:QuestionInstance,  question:Question):
+        instance = questionInstance
+        while instance.parent_pk != 0:
+            parent = QuestionInstance.objects.get(pk=instance.parent_pk)
+            if parent.qid == question.id:
+                return parent
+            instance = parent
+        if instance.qid == question.id:
+            return instance
+        return ValidationError('Don`t have parent for this question')
+            
+    def evaluate(self, questionInstance:QuestionInstance):
+        parent = self.getParentQuestion(questionInstance, self.left_operand)
+        left_value = list(map(lambda answer: answer.answer_text, AnswerQuestion.objects.filter(question_instance=parent.pk)))
+        right_value = list(map(lambda answer:answer.text, self.right_operand.all()))        
+        
+        
+        if self.condition_type == 'EQUAL':
+            for answer in left_value:
+                if answer not in right_value:
+                    return False
+            return self.text_template
+        
+        elif self.condition_type == 'NOT_EQUAL':
+            for answer in left_value:
+                if answer not in right_value:
+                    return self.text_template
+            return False
+        else:
+            raise ValidationError(f"Unknown condition type: {self.condition_type}")
 
 
 

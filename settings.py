@@ -88,7 +88,8 @@ WSGI_APPLICATION = 'wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'builder_form_database',
+        'NAME': 'firesieht',
+        # 'NAME': 'builder_form_database',
         'USER': 'firesieht',
     }
 }
@@ -146,7 +147,8 @@ SMS_AUTH_SETTINGS = {
     "SMS_AUTH_PROVIDER_FROM": "79587747394",
     "SMS_PROVIDER_URL":'http://api.exolve.ru/messaging/v1/SendSMS',
    
-    "SMS_DEBUG": False,
+    "SMS_DEBUG": True,
+    "SMS_DEBUG_CODE":1111,
     "SMS_USER_SERIALIZER": "api.serializers.DefaultUserSerializer",
     "SMS_USER_ALREADY_EXIST": "Пользователь с указаными номером уже существует"
 
