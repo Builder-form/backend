@@ -94,9 +94,9 @@ class Project(models.Model):
         if mi == 0: return a
         for i in range(m):
             if mi == len(answers2):
-                a += f'<div>&emsp;* {answers1[i]} - {answers2[i%(mi)]}</div>'
+                a += f'<div>&emsp;* {answers1[i]} - {answers2[i%(mi)]}</div><br/>'
             else:
-                a += f'<div>&emsp;* {answers1[i%mi]} - {answers2[i]}</div>'
+                a += f'<div>&emsp;* {answers1[i%mi]} - {answers2[i]}</div><br/>'
 
         return a
     
