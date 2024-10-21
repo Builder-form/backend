@@ -83,7 +83,7 @@ class Project(models.Model):
     def formatAnswers(self, answers):
         a = ''
         for ans in answers:
-            a+=f"<div>&emsp;* {ans}\n</div>"
+            a+=f"<div>&emsp;* {ans}<br/></div>"
         return a
         
     def formatPairAnswers(self, answers1, answers2):
@@ -157,89 +157,89 @@ class Project(models.Model):
         
         
         
-        report += f"<strong>Room purposes</strong>: {', '.join(get_answers('Q30'))}  {', '.join(get_answers('Q31'))}  {', '.join(get_answers('Q32'))} \n\n"
+        report += f"<strong>Room purposes</strong>: {', '.join(get_answers('Q30'))}  {', '.join(get_answers('Q31'))}  {', '.join(get_answers('Q32'))} <br/><br/>"
         
-        report += "<strong>RN.1) Strip out and demolition</strong>:\n\n"
-        report += "<strong>Room type specific:\n</strong>"
+        report += "<strong>RN.1) Strip out and demolition</strong>:<br/><br/>"
+        report += "<strong>Room type specific:<br/></strong>"
 
         for q in range(34, 46, 2):
             addStringReport(self.formatPairAnswers(get_answers(f'Q{q}'), get_answers(f'Q{q+1}')) , f'Q{q}')
         
-        addStringReport("Ceilings:\n", 'Q46')
+        addStringReport("Ceilings:<br/>", 'Q46')
         addStringReport(self.formatAnswers(get_answers('Q46')), 'Q46')
 
-        addStringReport("Walls:\n", 'Q47')
+        addStringReport("Walls:<br/>", 'Q47')
         addStringReport(self.formatPairAnswers(get_answers('Q47'),get_answers('Q48')), 'Q47')
 
-        addStringReport("Floors:\n", 'Q49')
+        addStringReport("Floors:<br/>", 'Q49')
         addStringReport(self.formatPairAnswers(get_answers('Q49'),get_answers('Q50')), 'Q49')
 
-        addStringReport("\nRN.2) Structure improvement:\n", 'Q52')
-        addStringReport("Ceilings:\n", 'Q52')
+        addStringReport("<br/>RN.2) Structure improvement:<br/>", 'Q52')
+        addStringReport("Ceilings:<br/>", 'Q52')
         addStringReport(self.formatAnswers(get_answers('Q52')), 'Q52')
 
-        addStringReport("Walls:\n", 'Q53')
+        addStringReport("Walls:<br/>", 'Q53')
         addStringReport(self.formatAnswers(get_answers('Q53')), 'Q53')
 
-        addStringReport("Floors:\n", 'Q54')
+        addStringReport("Floors:<br/>", 'Q54')
         addStringReport(self.formatAnswers(get_answers('Q54')), 'Q54')
         
-        addStringReport("\nRN.3) Internal decoration and finishes:\n", 'Q56')
-        addStringReport("Ceilings:\n", 'Q56')
+        addStringReport("<br/>RN.3) Internal decoration and finishes:<br/>", 'Q56')
+        addStringReport("Ceilings:<br/>", 'Q56')
         addStringReport(self.formatAnswers(get_answers('Q56')), 'Q56')
 
-        addStringReport("Walls:\n", 'Q57')
+        addStringReport("Walls:<br/>", 'Q57')
         addStringReport(self.formatPairAnswers(get_answers('Q57'),get_answers('Q58')), 'Q57')
 
-        addStringReport("Floors:\n", 'Q59')
+        addStringReport("Floors:<br/>", 'Q59')
         addStringReport(self.formatPairAnswers(get_answers('Q59'),get_answers('Q60')), 'Q59')
         
-        addStringReport("Woodwork:\n", 'Q61')
+        addStringReport("Woodwork:<br/>", 'Q61')
         addStringReport(self.formatAnswers(get_answers('Q61')), 'Q61')
 
-        addStringReport("\nRN.4) Fitting and installing:\n", 'Q63')
-        addStringReport("Windows:\n", 'Q63')
+        addStringReport("<br/>RN.4) Fitting and installing:<br/>", 'Q63')
+        addStringReport("Windows:<br/>", 'Q63')
         addStringReport(self.formatPairAnswers(get_answers('Q63'),get_answers('Q64')), 'Q63')
 
-        addStringReport("External doors:\n", 'Q641')
+        addStringReport("External doors:<br/>", 'Q641')
         addStringReport(self.formatPairAnswers(get_answers('Q641'),get_answers('Q642')), 'Q641')
 
-        addStringReport("Internal doors:\n", 'Q65')
+        addStringReport("Internal doors:<br/>", 'Q65')
         addStringReport(self.formatPairAnswers(get_answers('Q65'),get_answers('Q66')), 'Q65')
 
-        addStringReport("Inside rooms/hallway/landings:\n", 'Q67')
+        addStringReport("Inside rooms/hallway/landings:<br/>", 'Q67')
         addStringReport(self.formatPairAnswers(get_answers('Q67'),get_answers('Q68')), 'Q67')
 
-        addStringReport("Electrics:\n", 'Q69')
+        addStringReport("Electrics:<br/>", 'Q69')
         addStringReport(self.formatPairAnswers(get_answers('Q69'),get_answers('Q691')), 'Q69')
 
 
         if get_answers('Q31') in ['Q31_A1', 'Q31_A2']:
-            report += "Room type specific:\n"
-            report += "Kitchen / Ulitity:\n"
+            report += "Room type specific:<br/>"
+            report += "Kitchen / Ulitity:<br/>"
             for q in range(70, 87, 2):
                 addStringReport(self.formatPairAnswers(get_answers('Q{q}'),get_answers(f'Q{q+1}')), 'Q{q}')
                 if q == 74:
                     addStringReport(get_answer('Q76'), 'Q76')
         
         if get_answers('Q31') in ['Q31_A3', 'Q31_A4']:
-            report += "Storage / Attic:\n"
+            report += "Storage / Attic:<br/>"
             for q in range(87, 93, 2):
                 
-                report += f"* {get_answer(f'Q{q}')} - {get_answer(f'Q{q+1}')}\n"
+                report += f"* {get_answer(f'Q{q}')} - {get_answer(f'Q{q+1}')}<br/>"
         
         if get_answers('Q32') in ['Q32_A1', 'Q32_A2', 'Q32_A3']:
-            report += "Bathroom/shower/toilet:\n"
+            report += "Bathroom/shower/toilet:<br/>"
             for q in range(93, 106, 2):
-                report += f"* {get_answer(f'Q{q}')} - {get_answer(f'Q{q+1}')}\n"
+                report += f"* {get_answer(f'Q{q}')} - {get_answer(f'Q{q+1}')}<br/>"
                 if q == 95:
-                    report += f": {get_answer('Q97')}\n"
+                    report += f": {get_answer('Q97')}<br/>"
                 
         return report
 
     def generate_house_report(self, key_word):
         answers = AnswerQuestion.objects.all().filter(project=self)
-        report = "<strong>Project type detalisation</strong>: \n"
+        report = "<strong>Project type detalisation</strong>: <br/>"
 
         def answered(aid):
             nonlocal answers
@@ -266,70 +266,70 @@ class Project(models.Model):
         if answered('Q3_A1'):
             addStringReport("<strong>House refurbishment</strong>: * " + ", ".join(get_answers('Q5')), 'Q5')
             if answered('Q5_A3'):
-                addStringReport(" <strong>Demolition Details</strong>: \n", 'Q6')
+                addStringReport(" <strong>Demolition Details</strong>: <br/>", 'Q6')
                 addStringReport(self.formatPairAnswers(get_answers('Q6'),get_answers('Q7')), 'Q6')
 
         if answered('Q3_A2'):
-            addStringReport(f"House extension: \n Extension type: {get_answer('Q11')}\n Roof type: {get_answer('Q12')}\n Extension Purposes: {', '.join(get_answers('Q13'))}\n\n", 'Q11')
+            addStringReport(f"House extension: <br/> Extension type: {get_answer('Q11')}<br/> Roof type: {get_answer('Q12')}<br/> Extension Purposes: {', '.join(get_answers('Q13'))}<br/><br/>", 'Q11')
 
         if answered('Q3_A3'):
-            addStringReport(f"Loft Conversion: \n Conversion Type: {get_answer('Q14')}\n Conversion Purposes: {', '.join(get_answers('Q15'))}\n\n", 'Q14')
+            addStringReport(f"Loft Conversion: <br/> Conversion Type: {get_answer('Q14')}<br/> Conversion Purposes: {', '.join(get_answers('Q15'))}<br/><br/>", 'Q14')
 
         if answered('Q3_A4'):
-            addStringReport(f"Porch:\n Roof Type: {get_answer('Q16')}\n\n", 'Q16')
+            addStringReport(f"Porch:<br/> Roof Type: {get_answer('Q16')}<br/><br/>", 'Q16')
 
         if answered('Q3_A5'):
-            addStringReport(f"Garage Conversion:\n Conversion type:\n {get_answer('Q17')} \nRoof type: {get_answer('Q18')} \n Conversion Purposes: {', '.join(get_answers('Q19'))}\n\n", 'Q17')
+            addStringReport(f"Garage Conversion:<br/> Conversion type:<br/> {get_answer('Q17')} <br/>Roof type: {get_answer('Q18')} <br/> Conversion Purposes: {', '.join(get_answers('Q19'))}<br/><br/>", 'Q17')
 
         if answered('Q3_A6'):
-            addStringReport(f"Basement:\n Basement Purposes: {', '.join(get_answers('Q20'))}\n\n", 'Q20')
+            addStringReport(f"Basement:<br/> Basement Purposes: {', '.join(get_answers('Q20'))}<br/><br/>", 'Q20')
 
         if answered('Q3_A7'):
-            addStringReport(f"Outbuilding: \n Type: {get_answer('Q21')} \n Roof type: {get_answer('Q22')} \n Outbuilding Purposes: {', '.join(get_answers('Q23'))}\n\n, 'Q21'")
+            addStringReport(f"Outbuilding: <br/> Type: {get_answer('Q21')} <br/> Roof type: {get_answer('Q22')} <br/> Outbuilding Purposes: {', '.join(get_answers('Q23'))}<br/><br/>, 'Q21'")
 
-        addStringReport("\nInternal Refurbishment detalisation:\n ", 'Q24')
+        addStringReport("<br/>Internal Refurbishment detalisation:<br/> ", 'Q24')
         if answered('Q24_A2'):
-            addStringReport("Not needed\n", 'Q24')
+            addStringReport("Not needed<br/>", 'Q24')
         elif answered('Q24_A1'):
-            addStringReport("Number of Rooms to Refurbish on each Floor:\n ", 'Q26')
+            addStringReport("Number of Rooms to Refurbish on each Floor:<br/> ", 'Q26')
             addStringReport(self.formatPairAnswers(get_answers('Q26'),get_answers('Q27')), 'Q26')
 
-        report += '\n\n'
+        report += '<br/><br/>'
         report += key_word
 
-        addStringReport("\nExternal Refurbishment detalisation:\n", 'Q106')
+        addStringReport("<br/>External Refurbishment detalisation:<br/>", 'Q106')
         if answered('Q106_A2') in get_answers('Q106'):
-            addStringReport("Not needed\n", 'Q106')
+            addStringReport("Not needed<br/>", 'Q106')
             
         elif answered('Q106_A1'):
             if answered('Q107_A1'):
-                addStringReport("Exterior house surfaces:\n ", 'Q107')
+                addStringReport("Exterior house surfaces:<br/> ", 'Q107')
                 if answered('Q108_A1'):
-                    addStringReport(f"Roof:\n Type: {get_answer('Q109')}\n Work:{get_answer('Q110')} \n Work details:{', '.join(get_answers('Q111'))} / {', '.join(get_answers('Q112'))}\n\n", 'Q109')
+                    addStringReport(f"Roof:<br/> Type: {get_answer('Q109')}<br/> Work:{get_answer('Q110')} <br/> Work details:{', '.join(get_answers('Q111'))} / {', '.join(get_answers('Q112'))}<br/><br/>", 'Q109')
                 if answered('Q108_A2'):
-                    addStringReport(f"Front wall: Work: {get_answer('Q113')}\n Work details: {', '.join(get_answers('Q114'))} / {', '.join(get_answers('Q115'))}\n\n",'Q113')
+                    addStringReport(f"Front wall: Work: {get_answer('Q113')}<br/> Work details: {', '.join(get_answers('Q114'))} / {', '.join(get_answers('Q115'))}<br/><br/>",'Q113')
                 if answered('Q108_A3'):
-                    addStringReport(f"Back wall:\n Work: {get_answer('Q116')} \n Work details: {', '.join(get_answers('Q117'))} / {', '.join(get_answers('Q118'))}\n\n", 'Q116')
+                    addStringReport(f"Back wall:<br/> Work: {get_answer('Q116')} <br/> Work details: {', '.join(get_answers('Q117'))} / {', '.join(get_answers('Q118'))}<br/><br/>", 'Q116')
                 if answered('Q108_A4'):
-                    addStringReport(f"Left hand side wall (facing the house) \nWork: {get_answer('Q119')} \nWork details: {', '.join(get_answers('Q120'))} / {', '.join(get_answers('Q121'))}\n\n", 'Q119')
+                    addStringReport(f"Left hand side wall (facing the house) <br/>Work: {get_answer('Q119')} <br/>Work details: {', '.join(get_answers('Q120'))} / {', '.join(get_answers('Q121'))}<br/><br/>", 'Q119')
                 if answered('Q108_A5'):
-                    addStringReport(f"Right hand side wall (facing the house) \nWork: {get_answer('Q122')} \nWork details: {', '.join(get_answers('Q123'))} / {', '.join(get_answers('Q124'))}\n\n", 'Q122')
+                    addStringReport(f"Right hand side wall (facing the house) <br/>Work: {get_answer('Q122')} <br/>Work details: {', '.join(get_answers('Q123'))} / {', '.join(get_answers('Q124'))}<br/><br/>", 'Q122')
                 
-                addStringReport("External Electrics:\n ", 'Q125')
+                addStringReport("External Electrics:<br/> ", 'Q125')
                 addStringReport(self.formatPairAnswers(get_answers('Q125'),get_answers('Q126')), 'Q125')
             
             if answered('Q107_A2'):
-                addStringReport("Driveway:\n ", 'Q127')
+                addStringReport("Driveway:<br/> ", 'Q127')
                 addStringReport(self.formatPairAnswers(get_answers('Q127'),get_answers('Q128')), 'Q127')
             if answered('Q107_A3'):
-                addStringReport("Side passage:\n ", 'Q130')
+                addStringReport("Side passage:<br/> ", 'Q130')
                 addStringReport(self.formatPairAnswers(get_answers('Q130'),get_answers('Q131')), 'Q130')
             if answered('Q107_A4'):
-                addStringReport("Garden:\n ", 'Q133')
+                addStringReport("Garden:<br/> ", 'Q133')
                 addStringReport(self.formatPairAnswers(get_answers('Q133'),get_answers('Q134')), 'Q133')
                 addStringReport(self.formatAnswers(get_answers('Q135')), 'Q135')
             if answered('Q107_A5'):
-                addStringReport(f"\n{get_answer('Q107')}\n", 'Q107')
+                addStringReport(f"<br/>{get_answer('Q107')}<br/>", 'Q107')
                 
         return report
     @property
@@ -373,7 +373,7 @@ class Project(models.Model):
                 for answer in answers:
                     if answer.answer.id == 'Q1_A1':
                         flat = True
-                        table['project_type']['text'] += '<strong>Flat refurbishment</strong>' + '\n\n'
+                        table['project_type']['text'] += '<strong>Flat refurbishment</strong>' + '<br/><br/>'
                     if answer.answer.id == 'Q1_A2':
                         flat = False
                         table['list_of_work']['text'] += self.generate_house_report(key_word)
@@ -384,23 +384,23 @@ class Project(models.Model):
                     answers = AnswerQuestion.objects.all().filter(question_instance=question.pk)
                     
                     for answer in answers:
-                        table['project_type']['text'] += answer.answer_text + '\n'
+                        table['project_type']['text'] += answer.answer_text + '<br/>'
 
             if question.qid == 'Q4':
-                table['list_of_work']['text'] += '<strong>Project type detalisation:</strong> ' + ''.join(get_answers(question.pk)) + '\n\n'
+                table['list_of_work']['text'] += '<strong>Project type detalisation:</strong> ' + ''.join(get_answers(question.pk)) + '<br/><br/>'
             
             if question.qid == 'Q28':
-                table['list_of_work']['text'] += '<strong>Refurbishment detalisation</strong>:\n    Number of Rooms to Refurbish: ' + ''.join(get_answers(question.pk)) + '\n\n'
+                table['list_of_work']['text'] += '<strong>Refurbishment detalisation</strong>:<br/>    Number of Rooms to Refurbish: ' + ''.join(get_answers(question.pk)) + '<br/><br/>'
             
             if question.qid == 'Q29':
                 current_room += 1
                 if flat:
-                    table['list_of_work']['text'] += f'Room {current_room}:\n'
-                    table['list_of_work']['text'] += self.generate_room_report(question.pk) + '\n\n'
+                    table['list_of_work']['text'] += f'Room {current_room}:<br/>'
+                    table['list_of_work']['text'] += self.generate_room_report(question.pk) + '<br/><br/>'
                 else:
                     ind =  table['list_of_work']['text'].find(key_word)
                     if ind:
-                        table['list_of_work']['text'] = table['list_of_work']['text'][:ind+len(key_word)] + f'Room {current_room}:\n' +  self.generate_room_report(question.pk) + '\n\n' + table['list_of_work']['text'][ind+len(key_word):]
+                        table['list_of_work']['text'] = table['list_of_work']['text'][:ind+len(key_word)] + f'Room {current_room}:<br/>' +  self.generate_room_report(question.pk) + '<br/><br/>' + table['list_of_work']['text'][ind+len(key_word):]
         table['list_of_work']['text'] = table['list_of_work']['text'].replace(key_word, '')
         return table
 
@@ -635,7 +635,7 @@ class AnswerQuestion(models.Model):
                             try:
                                 parent_id = QuestionInstance.objects.get(question__qid=el.split('_')[1]).parent.id
                                 elements.append(parent_id)
-                            except: print(f'Parent question not found!\n{conditions}')
+                            except: print(f'Parent question not found!<br/>{conditions}')
                         else:
                             elements.append(el)
                         

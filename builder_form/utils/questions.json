@@ -160,7 +160,7 @@
                 "next_id":"Q24",
                 "conditions":"{\"insertion\": \"After equvalent questions\"}",
                 "comment": "If Q3 create questions more then Q5, go back to Q3 next logic..\n\nElse go Q24",
-                "answer_type": "CUSTOM"
+                "answer_type": "SINGLE"
             },
             {
                 "answer": "Refurb with structural alterations",
@@ -169,14 +169,14 @@
                 "next_id":"Q24",
                 "conditions":"{\"insertion\": \"After equvalent questions\"}",
                 "comment": "If Q3 create questions more then Q5, go back to Q3 next logic..\n\nElse go Q24",
-                "answer_type": "CUSTOM"
+                "answer_type": "Single"
             },
             {
                 "answer": "Refurb with demolition of adjacent structures",
                 "id": "Q5_A3",
                 "parent_id": "Q5_A3",
                 "next_id": "Q6",
-                "answer_type": "CUSTOM"
+                "answer_type": "SINGLE"
             }
         ]
     },
@@ -2538,7 +2538,7 @@
                 "id": "Q48_A1",
                 "parent_id": "Q48_A1",
                 "conditions":"{ \"insertion\": \"After equvalent questions\"}",
-                "next_id":"Q46",
+                "next_id":"Q49",
                 "comment": "Answer all Q48 created, \nif answered go Q49",
                 "answer_type": "SINGLE"
             },
@@ -2547,7 +2547,7 @@
                 "id": "Q48_A2",
                 "parent_id": "Q48_A2",
                 "conditions":"{ \"insertion\": \"After equvalent questions\"}",
-                "next_id":"Q46",
+                "next_id":"Q49",
                 "comment": "Answer all Q48 created, \nif answered go Q49",
                 "answer_type": "SINGLE"
             }
