@@ -157,9 +157,9 @@ class Project(models.Model):
         
         
         
-        report += f"<strong>Room purposes</strong>: {', '.join(get_answers('Q30'))}  {', '.join(get_answers('Q31'))}  {', '.join(get_answers('Q32'))} <br/><br/>"
+        report += f"<strong>Room purposes</strong>: {', '.join(get_answers('Q30'))}  {', '.join(get_answers('Q31'))}  {', '.join(get_answers('Q32'))} <br/>"
         
-        report += "<strong>RN.1) Strip out and demolition</strong>:<br/><br/>"
+        report += "<strong>RN.1) Strip out and demolition</strong>:<br/>"
         report += "<strong>Room type specific:<br/></strong>"
 
         for q in range(34, 46, 2):
@@ -270,22 +270,22 @@ class Project(models.Model):
                 addStringReport(self.formatPairAnswers(get_answers('Q6'),get_answers('Q7')), 'Q6')
 
         if answered('Q3_A2'):
-            addStringReport(f"House extension: <br/> Extension type: {get_answer('Q11')}<br/> Roof type: {get_answer('Q12')}<br/> Extension Purposes: {', '.join(get_answers('Q13'))}<br/><br/>", 'Q11')
+            addStringReport(f"House extension: <br/> Extension type: {get_answer('Q11')}<br/> Roof type: {get_answer('Q12')}<br/> Extension Purposes: {', '.join(get_answers('Q13'))}<br/>", 'Q11')
 
         if answered('Q3_A3'):
-            addStringReport(f"Loft Conversion: <br/> Conversion Type: {get_answer('Q14')}<br/> Conversion Purposes: {', '.join(get_answers('Q15'))}<br/><br/>", 'Q14')
+            addStringReport(f"Loft Conversion: <br/> Conversion Type: {get_answer('Q14')}<br/> Conversion Purposes: {', '.join(get_answers('Q15'))}<br/>", 'Q14')
 
         if answered('Q3_A4'):
-            addStringReport(f"Porch:<br/> Roof Type: {get_answer('Q16')}<br/><br/>", 'Q16')
+            addStringReport(f"Porch:<br/> Roof Type: {get_answer('Q16')}<br/>", 'Q16')
 
         if answered('Q3_A5'):
-            addStringReport(f"Garage Conversion:<br/> Conversion type:<br/> {get_answer('Q17')} <br/>Roof type: {get_answer('Q18')} <br/> Conversion Purposes: {', '.join(get_answers('Q19'))}<br/><br/>", 'Q17')
+            addStringReport(f"Garage Conversion:<br/> Conversion type:<br/> {get_answer('Q17')} <br/>Roof type: {get_answer('Q18')} <br/> Conversion Purposes: {', '.join(get_answers('Q19'))}<br/>", 'Q17')
 
         if answered('Q3_A6'):
-            addStringReport(f"Basement:<br/> Basement Purposes: {', '.join(get_answers('Q20'))}<br/><br/>", 'Q20')
+            addStringReport(f"Basement:<br/> Basement Purposes: {', '.join(get_answers('Q20'))}<br/>", 'Q20')
 
         if answered('Q3_A7'):
-            addStringReport(f"Outbuilding: <br/> Type: {get_answer('Q21')} <br/> Roof type: {get_answer('Q22')} <br/> Outbuilding Purposes: {', '.join(get_answers('Q23'))}<br/><br/>, 'Q21'")
+            addStringReport(f"Outbuilding: <br/> Type: {get_answer('Q21')} <br/> Roof type: {get_answer('Q22')} <br/> Outbuilding Purposes: {', '.join(get_answers('Q23'))}<br/>, 'Q21'")
 
         addStringReport("<br/>Internal Refurbishment detalisation:<br/> ", 'Q24')
         if answered('Q24_A2'):
@@ -294,7 +294,7 @@ class Project(models.Model):
             addStringReport("Number of Rooms to Refurbish on each Floor:<br/> ", 'Q26')
             addStringReport(self.formatPairAnswers(get_answers('Q26'),get_answers('Q27')), 'Q26')
 
-        report += '<br/><br/>'
+        report += '<br/>'
         report += key_word
 
         addStringReport("<br/>External Refurbishment detalisation:<br/>", 'Q106')
@@ -305,15 +305,15 @@ class Project(models.Model):
             if answered('Q107_A1'):
                 addStringReport("Exterior house surfaces:<br/> ", 'Q107')
                 if answered('Q108_A1'):
-                    addStringReport(f"Roof:<br/> Type: {get_answer('Q109')}<br/> Work:{get_answer('Q110')} <br/> Work details:{', '.join(get_answers('Q111'))} / {', '.join(get_answers('Q112'))}<br/><br/>", 'Q109')
+                    addStringReport(f"Roof:<br/> Type: {get_answer('Q109')}<br/> Work:{get_answer('Q110')} <br/> Work details:{', '.join(get_answers('Q111'))} / {', '.join(get_answers('Q112'))}<br/>", 'Q109')
                 if answered('Q108_A2'):
-                    addStringReport(f"Front wall: Work: {get_answer('Q113')}<br/> Work details: {', '.join(get_answers('Q114'))} / {', '.join(get_answers('Q115'))}<br/><br/>",'Q113')
+                    addStringReport(f"Front wall: Work: {get_answer('Q113')}<br/> Work details: {', '.join(get_answers('Q114'))} / {', '.join(get_answers('Q115'))}<br/>",'Q113')
                 if answered('Q108_A3'):
-                    addStringReport(f"Back wall:<br/> Work: {get_answer('Q116')} <br/> Work details: {', '.join(get_answers('Q117'))} / {', '.join(get_answers('Q118'))}<br/><br/>", 'Q116')
+                    addStringReport(f"Back wall:<br/> Work: {get_answer('Q116')} <br/> Work details: {', '.join(get_answers('Q117'))} / {', '.join(get_answers('Q118'))}<br/>", 'Q116')
                 if answered('Q108_A4'):
-                    addStringReport(f"Left hand side wall (facing the house) <br/>Work: {get_answer('Q119')} <br/>Work details: {', '.join(get_answers('Q120'))} / {', '.join(get_answers('Q121'))}<br/><br/>", 'Q119')
+                    addStringReport(f"Left hand side wall (facing the house) <br/>Work: {get_answer('Q119')} <br/>Work details: {', '.join(get_answers('Q120'))} / {', '.join(get_answers('Q121'))}<br/>", 'Q119')
                 if answered('Q108_A5'):
-                    addStringReport(f"Right hand side wall (facing the house) <br/>Work: {get_answer('Q122')} <br/>Work details: {', '.join(get_answers('Q123'))} / {', '.join(get_answers('Q124'))}<br/><br/>", 'Q122')
+                    addStringReport(f"Right hand side wall (facing the house) <br/>Work: {get_answer('Q122')} <br/>Work details: {', '.join(get_answers('Q123'))} / {', '.join(get_answers('Q124'))}<br/>", 'Q122')
                 
                 addStringReport("External Electrics:<br/> ", 'Q125')
                 addStringReport(self.formatPairAnswers(get_answers('Q125'),get_answers('Q126')), 'Q125')
@@ -373,7 +373,7 @@ class Project(models.Model):
                 for answer in answers:
                     if answer.answer.id == 'Q1_A1':
                         flat = True
-                        table['project_type']['text'] += '<strong>Flat refurbishment</strong>' + '<br/><br/>'
+                        table['project_type']['text'] += '<strong>Flat refurbishment</strong>' + '<br/>'
                     if answer.answer.id == 'Q1_A2':
                         flat = False
                         table['list_of_work']['text'] += self.generate_house_report(key_word)
@@ -387,20 +387,20 @@ class Project(models.Model):
                         table['project_type']['text'] += answer.answer_text + '<br/>'
 
             if question.qid == 'Q4':
-                table['list_of_work']['text'] += '<strong>Project type detalisation:</strong> ' + ''.join(get_answers(question.pk)) + '<br/><br/>'
+                table['list_of_work']['text'] += '<strong>Project type detalisation:</strong> ' + ''.join(get_answers(question.pk)) + '<br/>'
             
             if question.qid == 'Q28':
-                table['list_of_work']['text'] += '<strong>Refurbishment detalisation</strong>:<br/>    Number of Rooms to Refurbish: ' + ''.join(get_answers(question.pk)) + '<br/><br/>'
+                table['list_of_work']['text'] += '<strong>Refurbishment detalisation</strong>:<br/>    Number of Rooms to Refurbish: ' + ''.join(get_answers(question.pk)) + '<br/>'
             
             if question.qid == 'Q29':
                 current_room += 1
                 if flat:
                     table['list_of_work']['text'] += f'Room {current_room}:<br/>'
-                    table['list_of_work']['text'] += self.generate_room_report(question.pk) + '<br/><br/>'
+                    table['list_of_work']['text'] += self.generate_room_report(question.pk) + '<br/>'
                 else:
                     ind =  table['list_of_work']['text'].find(key_word)
                     if ind:
-                        table['list_of_work']['text'] = table['list_of_work']['text'][:ind+len(key_word)] + f'Room {current_room}:<br/>' +  self.generate_room_report(question.pk) + '<br/><br/>' + table['list_of_work']['text'][ind+len(key_word):]
+                        table['list_of_work']['text'] = table['list_of_work']['text'][:ind+len(key_word)] + f'Room {current_room}:<br/>' +  self.generate_room_report(question.pk) + '<br/>' + table['list_of_work']['text'][ind+len(key_word):]
         table['list_of_work']['text'] = table['list_of_work']['text'].replace(key_word, '')
         return table
 
