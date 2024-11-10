@@ -1,10 +1,14 @@
 from django.shortcuts import render
 from builder_form.mixins import ResponsesMixin
 from rest_framework import generics, permissions
-from .models import Answer, AnswerTypes, AnswerQuestion, Project, Termin
+from .models import Answer, AnswerTypes, AnswerQuestion, Project, Termin, APPSettings
 from .serializers import QuestionInstanceSerializer,AnswerQuestionSerializer,AnswerSerializer, ProjectSerializer, TerminSerializer
 from rest_framework import authentication, permissions, status, generics
 import json
+from django.conf import settings
+from django.http import JsonResponse
+import requests
+
 
 
 
@@ -168,3 +172,65 @@ class BackProjectAPIView(ResponsesMixin, generics.GenericAPIView):
         data['termins'] = serializer_termin.data
 
         return self.success_objects_response(data)
+    
+    
+class CreatePaymentView(ResponsesMixin, generics.GenericAPIView):
+    authentication_classes = [authentication.TokenAuthentication]
+
+    
+    
+    def post(self, request):
+        payment_settings = APPSettings.objects.all().filter(isActive=True)[0]
+        url = f"{settings.PAYPAL_API_URL}/v1/payments/payment"
+        headers = {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " +settings.PAYPAL_ACCESS_TOKEN
+        }
+        
+        payment_data = {
+            "intent": "sale",
+            "payer": {
+                "payment_method": "paypal",
+            },
+            "transactions": [{
+                "amount": {
+                    "total": str(round(payment_settings.cost)),
+                    "currency": "GBP"
+                },
+                "description": "Payment for payment"
+            }],
+            "application_context": {
+                "brand_name":"COMBIT CONSTRUCT",
+                "shipping_preference": 'NO_SHIPPING'
+            },
+            "note_to_payer":  str(request.user.pk),
+            "redirect_urls": {
+                "return_url": "https://example.com/return",
+                "cancel_url": "https://example.com/cancel"
+            }
+        }
+
+        response = requests.post(url, headers=headers, data=json.dumps(payment_data))
+        return JsonResponse(response.json(), status=response.status_code)
+
+class ExecutePaymentView(ResponsesMixin, generics.GenericAPIView):
+    permission_classes = [
+        permissions.AllowAny,
+    ]
+    def post(self, request):
+        payment_id = request.data.get("paymentID")
+        payer_id = request.data.get("payerID")
+        print(request.data, payment_id, payer_id)
+        url = f"{settings.PAYPAL_API_URL}/v1/payments/payment/{payment_id}/execute"
+        headers = {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " +settings.PAYPAL_ACCESS_TOKEN
+        }
+        execute_data = {
+            "payer_id": payer_id
+        }
+
+        response = requests.post(url, headers=headers, data=json.dumps(execute_data))
+        if response.status_code == 200: pass
+            
+        return JsonResponse(response.json(), status=response.status_code)

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Question, Answer, AnswerQuestion, Project, QuestionInstance, Termin, NamingCondition
+from .models import APPSettings, Question, Answer, AnswerQuestion, Project, QuestionInstance, Termin, NamingCondition
 
 
 class AnswerInline(admin.TabularInline):
@@ -16,7 +16,11 @@ class NamingConditionInline(admin.TabularInline):
 
 
 admin.site.register(NamingCondition)
-# Register your models here.
+@admin.register(APPSettings)
+class APPSettingsAdmin(admin.ModelAdmin):
+    list_display = ('isActive', 'cost', 'projects_per_purchase')
+
+
 @admin.register(Question)
 class QuestionAdmin(admin.ModelAdmin):
     list_display = ('pk', 'id', 'text_template')

@@ -6,6 +6,10 @@ from django.utils import timezone
 from user.models import User
 from django.core.exceptions import ValidationError
 import re
+
+
+
+
 class AnswerTypes(models.TextChoices):
     SINGLE = 'SINGLE', _("Single")
     NQONE = 'MULTI - NQ ONE', _('MULTI - NQ ONE')
@@ -24,6 +28,12 @@ class ConditionTypes(models.TextChoices):
     # NOT_CONTAINS = 'NOT_CONTAINS', _('Not Contains')
     # ANSWERED = 'ANSWERED', _('Answered')
     # NOT_ANSWERED = 'NOT_ANSWERED', _('Not Answered')
+    
+
+class APPSettings(models.Model):
+    cost = models.PositiveIntegerField(_("Cost of one purchase"), default=10)
+    projects_per_purchase = models.PositiveBigIntegerField(_('Projects per one purchase'), default=1)
+    isActive = models.BooleanField(_('Is Active'), default=False)
     
 
 class Question(models.Model):
@@ -236,6 +246,7 @@ class Project(models.Model):
                     report += f": {get_answer('Q97')}<br/>"
                 
         return report
+
 
     def generate_house_report(self, key_word):
         answers = AnswerQuestion.objects.all().filter(project=self)
