@@ -92,6 +92,8 @@ class CreateProjectAPIView(ResponsesMixin, generics.GenericAPIView):
         data = request.data
         data['user'] = request.user.username
 
+        if request.user.projects_availables <= request.user.projects_created:
+            return self.error_response('You created projects more than available to your acccount, please buy more projects')
         serializer = self.serializer_class(data=data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
@@ -173,45 +175,45 @@ class BackProjectAPIView(ResponsesMixin, generics.GenericAPIView):
 
         return self.success_objects_response(data)
     
-    
 class CreatePaymentView(ResponsesMixin, generics.GenericAPIView):
-    authentication_classes = [authentication.TokenAuthentication]
-
-    
-    
     def post(self, request):
         payment_settings = APPSettings.objects.all().filter(isActive=True)[0]
-        url = f"{settings.PAYPAL_API_URL}/v1/payments/payment"
+        client_id = settings.PAYPAL_CLIENT_ID
+        secret = settings.PAYPAL_SECRET
+        
+        url = "https://api.sandbox.paypal.com/v2/checkout/orders"
+
+        response = requests.post(
+            "https://api.sandbox.paypal.com/v1/oauth2/token",
+            auth=(client_id, secret),
+            data={"grant_type": "client_credentials"},
+        )
+        access_token = response.json().get("access_token")
+
         headers = {
             "Content-Type": "application/json",
-            "Authorization": "Bearer " +settings.PAYPAL_ACCESS_TOKEN
-        }
-        
-        payment_data = {
-            "intent": "sale",
-            "payer": {
-                "payment_method": "paypal",
-            },
-            "transactions": [{
-                "amount": {
-                    "total": str(round(payment_settings.cost)),
-                    "currency": "GBP"
-                },
-                "description": "Payment for payment"
-            }],
-            "application_context": {
-                "brand_name":"COMBIT CONSTRUCT",
-                "shipping_preference": 'NO_SHIPPING'
-            },
-            "note_to_payer":  str(request.user.pk),
-            "redirect_urls": {
-                "return_url": "https://example.com/return",
-                "cancel_url": "https://example.com/cancel"
-            }
+            "Authorization": f"Bearer {access_token}",
         }
 
-        response = requests.post(url, headers=headers, data=json.dumps(payment_data))
-        return JsonResponse(response.json(), status=response.status_code)
+        order_data = {
+            "intent": "CAPTURE",
+            "purchase_units": [
+                {
+                    "amount": {
+                        "currency_code": "GBP",
+                        "value":  str(round(payment_settings.cost)),
+                    }
+                }
+            ],
+        }
+        
+        user = request.user
+        user.projects_availables += payment_settings.projects_per_purchase
+        user.save()
+        
+        response = requests.post(url, headers=headers, json=order_data)
+        return JsonResponse(response.json())
+  
 
 class ExecutePaymentView(ResponsesMixin, generics.GenericAPIView):
     permission_classes = [

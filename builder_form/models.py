@@ -401,7 +401,7 @@ class Project(models.Model):
                 table['list_of_work']['text'] += '<strong>Project type detalisation:</strong> ' + ''.join(get_answers(question.pk)) + '<br/>'
             
             if question.qid == 'Q28':
-                table['list_of_work']['text'] += '<strong>Refurbishment detalisation</strong>:<br/>    Number of Rooms to Refurbish: ' + ''.join(get_answers(question.pk)) + '<br/>'
+                table['list_of_work']['text'] += '<strong>Refurbishment detalisation:</strong><br/>    Number of Rooms to Refurbish: ' + ''.join(get_answers(question.pk)) + '<br/>'
             
             if question.qid == 'Q29':
                 current_room += 1
