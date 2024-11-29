@@ -1,0 +1,1370 @@
+[
+    {
+        "parent_question_id": "Q29",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Room Type selection"
+    },
+    {
+        "parent_question_id": "Q29",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Room Type selection"
+    },
+    {
+        "parent_question_id": "Q33",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Strip out and demolition needed?"
+    },
+    {
+        "parent_question_id": "Q33",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Strip out and demolition needed?"
+    },
+    {
+        "parent_question_id": "Q34",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Strip out and demolition details"
+    },
+    {
+        "parent_question_id": "Q34",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Strip out and demolition details"
+    },
+    {
+        "parent_question_id": "Q35",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Strip out and demolition - [Q34 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q35",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Strip out and demolition - [Q34 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q36",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Strip out and demolition details"
+    },
+    {
+        "parent_question_id": "Q36",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Strip out and demolition details"
+    },
+    {
+        "parent_question_id": "Q37",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Strip out and demolition - [Q36 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q37",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Strip out and demolition - [Q36 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q38",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Strip out and demolition details"
+    },
+    {
+        "parent_question_id": "Q38",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Strip out and demolition details"
+    },
+    {
+        "parent_question_id": "Q39",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Strip out and demolition - [Q38 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q39",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Strip out and demolition - [Q38 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q40",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Strip out and demolition details"
+    },
+    {
+        "parent_question_id": "Q40",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Strip out and demolition details"
+    },
+    {
+        "parent_question_id": "Q41",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Strip out and demolition - [Q40 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q41",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Strip out and demolition - [Q40 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q42",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Strip out and demolition details"
+    },
+    {
+        "parent_question_id": "Q42",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Strip out and demolition details"
+    },
+    {
+        "parent_question_id": "Q43",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Strip out and demolition - [Q42 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q43",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Strip out and demolition - [Q42 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q44",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Strip out and demolition details"
+    },
+    {
+        "parent_question_id": "Q44",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Strip out and demolition details"
+    },
+    {
+        "parent_question_id": "Q45",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Strip out and demolition - [Q44 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q45",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Strip out and demolition - [Q44 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q46",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Strip out and demolition - Ceilings"
+    },
+    {
+        "parent_question_id": "Q46",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Strip out and demolition - Ceilings"
+    },
+    {
+        "parent_question_id": "Q47",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Strip out and demolition - Walls"
+    },
+    {
+        "parent_question_id": "Q47",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Strip out and demolition - Walls"
+    },
+    {
+        "parent_question_id": "Q48",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Strip out and demolition - Walls - [Q47 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q48",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Strip out and demolition - Walls - [Q47 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q49",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Strip out and demolition - Floors"
+    },
+    {
+        "parent_question_id": "Q49",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Strip out and demolition - Floors"
+    },
+    {
+        "parent_question_id": "Q50",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Strip out and demolition - Floors - [Q49 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q50",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Strip out and demolition - Floors - [Q49 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q51",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Structure improvement needed?"
+    },
+    {
+        "parent_question_id": "Q51",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Structure improvement needed?"
+    },
+    {
+        "parent_question_id": "Q52",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Structure improvement - Ceilings:"
+    },
+    {
+        "parent_question_id": "Q52",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Structure improvement - Ceilings:"
+    },
+    {
+        "parent_question_id": "Q53",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Structure improvement - Walls:"
+    },
+    {
+        "parent_question_id": "Q53",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Structure improvement - Walls:"
+    },
+    {
+        "parent_question_id": "Q54",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Structure improvement - Floors:"
+    },
+    {
+        "parent_question_id": "Q54",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Structure improvement - Floors:"
+    },
+    {
+        "parent_question_id": "Q55",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Internal decoration and finishes needed?"
+    },
+    {
+        "parent_question_id": "Q55",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Internal decoration and finishes needed?"
+    },
+    {
+        "parent_question_id": "Q56",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Internal decoration and finishes - Ceilings:"
+    },
+    {
+        "parent_question_id": "Q56",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Internal decoration and finishes - Ceilings:"
+    },
+    {
+        "parent_question_id": "Q57",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Internal decoration and finishes- Walls:"
+    },
+    {
+        "parent_question_id": "Q57",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Internal decoration and finishes - Walls:"
+    },
+    {
+        "parent_question_id": "Q58",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Internal decoration and finishes - Walls - [Q57 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q58",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Internal decoration and finishes - Walls - [Q57 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q59",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Internal decoration and finishes- Floors:"
+    },
+    {
+        "parent_question_id": "Q59",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Internal decoration and finishes - Floors:"
+    },
+    {
+        "parent_question_id": "Q61",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Internal decoration and finishes- Woodwork:"
+    },
+    {
+        "parent_question_id": "Q61",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Internal decoration and finishes - Woodwork:"
+    },
+    {
+        "parent_question_id": "Q62",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing needed?"
+    },
+    {
+        "parent_question_id": "Q62",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing needed?"
+    },
+    {
+        "parent_question_id": "Q63",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Windows:"
+    },
+    {
+        "parent_question_id": "Q63",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing- Windows:"
+    },
+    {
+        "parent_question_id": "Q64",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Windows - [Q63 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q64",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing- Windows - [Q63 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q641",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- External doors:"
+    },
+    {
+        "parent_question_id": "Q641",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing- External doors:"
+    },
+    {
+        "parent_question_id": "Q642",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- External doors-[Q641 Answer]"
+    },
+    {
+        "parent_question_id": "Q642",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing- External doors-[Q641 Answer]"
+    },
+    {
+        "parent_question_id": "Q65",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Internal doors:"
+    },
+    {
+        "parent_question_id": "Q65",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing- Internal doors:"
+    },
+    {
+        "parent_question_id": "Q66",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Enternal doors - [Q65 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q66",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing- Internal doors - [Q65 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q67",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside rooms/hallway/landings:"
+    },
+    {
+        "parent_question_id": "Q67",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing- Inside rooms/hallway/landings:"
+    },
+    {
+        "parent_question_id": "Q68",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside rooms/hallway/landings - [Q67 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q68",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing- Inside rooms/hallway/landings - [Q67 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q69",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Electrics:"
+    },
+    {
+        "parent_question_id": "Q69",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Electrics:"
+    },
+    {
+        "parent_question_id": "Q691",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Electrics-[Q69 Answer]:"
+    },
+    {
+        "parent_question_id": "Q691",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility- Electrics-[Q69 Answer]:"
+    },
+    {
+        "parent_question_id": "Q70",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-Kitchen:"
+    },
+    {
+        "parent_question_id": "Q70",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-Kitchen:"
+    },
+    {
+        "parent_question_id": "Q71",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-[Q70 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q71",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-[Q70 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q72",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-Worktop:"
+    },
+    {
+        "parent_question_id": "Q72",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-Worktop:"
+    },
+    {
+        "parent_question_id": "Q73",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-[Q72 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q73",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-[Q72 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q74",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-Appliances:"
+    },
+    {
+        "parent_question_id": "Q74",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-Appliances:"
+    },
+    {
+        "parent_question_id": "Q75",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-[Q74 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q75",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-[Q74 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q76",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-Kitchen/utility appliances:"
+    },
+    {
+        "parent_question_id": "Q76",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-Kitchen/utility appliances:"
+    },
+    {
+        "parent_question_id": "Q77",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-Air conditioner:"
+    },
+    {
+        "parent_question_id": "Q77",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-Air conditioner:"
+    },
+    {
+        "parent_question_id": "Q78",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-[Q77 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q78",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-[Q77 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q79",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-Combi boiler:"
+    },
+    {
+        "parent_question_id": "Q79",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-Combi boiler:"
+    },
+    {
+        "parent_question_id": "Q80",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-[Q79 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q80",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-[Q79 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q81",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-System boiler & cylinder"
+    },
+    {
+        "parent_question_id": "Q81",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility- System boiler & cylinder"
+    },
+    {
+        "parent_question_id": "Q82",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-[Q81 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q82",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-[Q81 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q83",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-Radiator:"
+    },
+    {
+        "parent_question_id": "Q83",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-Radiator:"
+    },
+    {
+        "parent_question_id": "Q84",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-[Q83 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q84",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-[Q83 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q85",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-Under floor heating:"
+    },
+    {
+        "parent_question_id": "Q85",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-Under floor heating:"
+    },
+    {
+        "parent_question_id": "Q86",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-[Q85 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q86",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-[Q85 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q87",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside storage/attic - Combi Bolier:"
+    },
+    {
+        "parent_question_id": "Q87",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside storage/attic -Combi Bolier:"
+    },
+    {
+        "parent_question_id": "Q88",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing-Inside storage/attic-[Q87 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q88",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside storage/attic-[Q87 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q89",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside storage/attic -System boiler & cylinder:"
+    },
+    {
+        "parent_question_id": "Q89",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside storage/attic -System boiler & cylinder:"
+    },
+    {
+        "parent_question_id": "Q90",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing-Inside storage/attic-[Q89 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q90",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside storage/attic-[Q89 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q91",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside storage/attic -Radiator:"
+    },
+    {
+        "parent_question_id": "Q91",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside storage/attic - Radiator:"
+    },
+    {
+        "parent_question_id": "Q92",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing-Inside storage/attic-[Q91 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q92",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside storage/attic-[Q91 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q93",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside Bathroom/shower/toilet-Tile floor & walls:"
+    },
+    {
+        "parent_question_id": "Q93",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside Bathroom/shower/toilet - Tile floor & walls:"
+    },
+    {
+        "parent_question_id": "Q94",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing-Inside Bathroom/shower/toilet-[Q93 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q94",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing- Inside Bathroom/shower/toilet-[Q93 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q95",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside Bathroom/shower/toilet-Appliances:"
+    },
+    {
+        "parent_question_id": "Q95",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside Bathroom/shower/toilet - Appliances:"
+    },
+    {
+        "parent_question_id": "Q96",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing-Inside Bathroom/shower/toilet-[Q95 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q96",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing- Inside Bathroom/shower/toilet-[Q95 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q97",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside Bathroom/shower/toilet-Appliances:"
+    },
+    {
+        "parent_question_id": "Q97",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside Bathroom/shower/toilet - Appliances:"
+    },
+    {
+        "parent_question_id": "Q98",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside Bathroom/shower/toilet-Combi boiler:"
+    },
+    {
+        "parent_question_id": "Q98",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside Bathroom/shower/toilet-Combi boiler:"
+    },
+    {
+        "parent_question_id": "Q99",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside Bathroom/shower/toilet-[Q98 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q99",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside Bathroom/shower/toilet-[Q98 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q100",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside Bathroom/shower/toilet-System boiler & cylinder:"
+    },
+    {
+        "parent_question_id": "Q100",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside Bathroom/shower/toilet-System boiler & cylinder:"
+    },
+    {
+        "parent_question_id": "Q101",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside Bathroom/shower/toilet-[Q100 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q101",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside Bathroom/shower/toilet-[Q100 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q102",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside Bathroom/shower/toilet-Radiator:"
+    },
+    {
+        "parent_question_id": "Q102",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside Bathroom/shower/toilet-Radiator:"
+    },
+    {
+        "parent_question_id": "Q103",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside Bathroom/shower/toilet-[Q102 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q103",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside Bathroom/shower/toilet-[Q102 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q104",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside Bathroom/shower/toilet-Under floor heating:"
+    },
+    {
+        "parent_question_id": "Q104",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside Bathroom/shower/toilet-Under floor heating:"
+    },
+    {
+        "parent_question_id": "Q105",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside Bathroom/shower/toilet-[Q104 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q105",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside Bathroom/shower/toilet-[Q104 ANSWER]"
+    }
+]
