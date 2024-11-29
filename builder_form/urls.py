@@ -7,7 +7,7 @@ urlpatterns = [
     path("current_question/", GetCurrentQuestionAPIView.as_view()),
     path("get_projects/", GetProjectsAPIView.as_view()),
     path("get_answers/", GetAnswersAPIView.as_view()),
-    path("project/", CreateProjectAPIView.as_view()),
+    # path("project/", CreateProjectAPIView.as_view()),
     path('project/back/', BackProjectAPIView.as_view()),
     path("project/<str:id>/", ProjectAPIView.as_view()),
     path('create_payment/', CreatePaymentView.as_view()),

@@ -10,5 +10,5 @@ from rest_framework.authtoken.models import Token
 @receiver(post_save, sender=Project)
 def increment_project(sender, instance=None, created=False, **kwargs):
     if created:
-        instance.user.projects_created += 1
+        # instance.user.projects_created += 1
         instance.user.save()

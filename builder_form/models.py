@@ -429,10 +429,6 @@ class Project(models.Model):
         queue.remove(pk)
         self.questions_queue = ','.join(queue)
         return queue
-    
-    
-
-
 
     def get_current_question(self):
         current_question_id = list(self.questions_queue.strip().split(','))[0]

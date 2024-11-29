@@ -91,9 +91,8 @@ class CreateProjectAPIView(ResponsesMixin, generics.GenericAPIView):
         data = request.data
         data = request.data
         data['user'] = request.user.username
-
-        if request.user.projects_availables <= request.user.projects_created:
-            return self.error_response('You created projects more than available to your acccount, please buy more projects')
+        # if request.user.projects_availables <= request.user.projects_created:
+        #     return self.error_response('You created projects more than available to your acccount, please buy more projects')
         serializer = self.serializer_class(data=data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
@@ -207,12 +206,16 @@ class CreatePaymentView(ResponsesMixin, generics.GenericAPIView):
             ],
         }
         
-        user = request.user
-        user.projects_availables += payment_settings.projects_per_purchase
-        user.save()
         
-        response = requests.post(url, headers=headers, json=order_data)
-        return JsonResponse(response.json())
+
+        # response = requests.post(url, headers=headers, json=order_data)
+        data = request.data
+        data['user'] = request.user.username
+        print(data)
+        serializer = ProjectSerializer(data=data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return self.create_object_response(serializer.data)
   
 
 class ExecutePaymentView(ResponsesMixin, generics.GenericAPIView):

@@ -7,13 +7,13 @@ admin.site.register(Token)
 
 @admin.register(User)
 class UserAdminCustom(UserAdmin):
-    readonly_fields = ('jwt_token', 'projects_created')
+    readonly_fields = ('jwt_token', )
     
     list_display = ['username', 'first_name', 'last_name', ]
     
     fieldsets = UserAdmin.fieldsets + (
         ('Информация', {'fields': (
-            'jwt_token', 'phone_number', 'projects_availables', 'projects_created')}),
+            'jwt_token', 'phone_number', )}),
     )
 
     

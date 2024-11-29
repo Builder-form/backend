@@ -1659,7 +1659,7 @@
     },
     {
         "id": "Q33",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Strip out and demolition needed?\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number] - Strip out and demolition needed?",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number] - Strip out and demolition needed?\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number] - Strip out and demolition needed?",
         "answers": [
             {
                 "answer": "Yes, lets make Strip out and demolition",
@@ -2438,7 +2438,7 @@
                 "answer_type": "MULTI - NQ ONE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q46_A7",
                 "parent_id": "Q46_A7",
                 "next_id": "Q47",
@@ -2521,7 +2521,7 @@
                 "answer_type": "MULTI - NQ ONE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q47_A11",
                 "parent_id": "Q47_A11",
                 "next_id": "Q49",
@@ -2641,7 +2641,7 @@
                 "answer_type": "MULTI - NQ ONE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q49_A11",
                 "parent_id": "Q49_A11",
                 "next_id": "Q51",
@@ -2771,7 +2771,7 @@
                 "answer_type": "MULTI - NQ ONE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q52_A12",
                 "parent_id": "Q52_A12",
                 "next_id": "Q53",
@@ -2875,7 +2875,7 @@
                 "answer_type": "MULTI - NQ ONE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q53_A14",
                 "parent_id": "Q53_A14",
                 "next_id": "Q54",
@@ -2965,7 +2965,7 @@
                 "answer_type": "MULTI - NQ ONE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q54_A12",
                 "parent_id": "Q54_A12",
                 "next_id": "Q55",
@@ -3047,7 +3047,7 @@
                 "answer_type": "MULTI - NQ ONE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q56_A8",
                 "parent_id": "Q56_A8",
                 "next_id": "Q57",
@@ -3130,7 +3130,7 @@
                 "answer_type": "MULTI - NQ ONE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q57_A11",
                 "parent_id": "Q57_A11",
                 "next_id": "Q59",
@@ -3146,14 +3146,16 @@
                 "answer": "Supply and install",
                 "id": "Q58_A1",
                 "parent_id": "Q58_A1",
-                "next_id": "Answer all Q58 created, \nif answered go Q59",
+                "conditions":"{ \"insertion\": \"After equvalent questions\"}",
+                "next_id": "Q59",
                 "answer_type": "SINGLE"
             },
             {
                 "answer": "Install - Client supply",
                 "id": "Q58_A2",
                 "parent_id": "Q58_A2",
-                "next_id": "Answer all Q58 created, \nif answered go Q59",
+                "conditions":"{ \"insertion\": \"After equvalent questions\"}",
+                "next_id": "Q59",
                 "answer_type": "SINGLE"
             }
         ]
@@ -3254,7 +3256,7 @@
                 "answer_type": "MULTI - NQ ONE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q59_A14",
                 "parent_id": "Q59_A14",
                 "next_id": "Q61",
@@ -3333,7 +3335,7 @@
                 "answer_type": "MULTI - NQ ONE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q61_A7",
                 "parent_id": "Q61_A7",
                 "next_id": "Q62",
@@ -3401,7 +3403,7 @@
                 "answer_type": "MULTI - NQ EACH"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q63_A5",
                 "parent_id": "Q63_A5",
                 "next_id": "Q641",
@@ -3540,7 +3542,7 @@
                 "answer_type": "MULTI - NQ EACH"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q641_A13",
                 "parent_id": "Q641_A13",
                 "next_id": "Q65",
@@ -3649,7 +3651,7 @@
                 "answer_type": "MULTI - NQ EACH"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q65_A10",
                 "parent_id": "Q65_A10",
                 "next_id": "Q67",
@@ -3825,7 +3827,7 @@
                 "answer_type": "MULTI - NQ ONE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q67_A17",
                 "parent_id": "Q67_A17",
                 "next_id": "Q69",
@@ -3932,7 +3934,7 @@
                 "answer_type": "MULTI - NQ ONE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q69_A9",
                 "parent_id": "Q69_A9",
                 "conditions":"{\"conditions\": \"IF (Q31_A1, 31_A2, ANSWERED_ANY): Q70;IF (Q31_A3, 31_A4, ANSWERED_ANY): Q87;IF (Q32_A1, 32_A2, ANSWERED_ANY): Q93; IF (Q1_ANSWER, Q1_A2 , EQUAL): Q106; \"}",
@@ -3992,7 +3994,7 @@
                 "answer_type": "SINGLE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q70_A4",
                 "parent_id": "Q70_A4",
                 "next_id": "Q72",
@@ -4049,7 +4051,7 @@
                 "answer_type": "SINGLE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q72_A4",
                 "parent_id": "Q72_A4",
                 "next_id": "Q74",
@@ -4106,7 +4108,7 @@
                 "answer_type": "SINGLE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q74_A4",
                 "parent_id": "Q74_A4",
                 "next_id": "Q77",
@@ -4268,7 +4270,7 @@
                 "answer_type": "SINGLE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q77_A4",
                 "parent_id": "Q77_A4",
                 "next_id": "Q79",
@@ -4325,7 +4327,7 @@
                 "answer_type": "SINGLE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q79_A4",
                 "parent_id": "Q79_A4",
                 "next_id": "Q81",
@@ -4384,7 +4386,7 @@
                 "answer_type": "SINGLE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q81_A4",
                 "parent_id": "Q81_A4",
                 "next_id": "Q83",
@@ -4434,7 +4436,7 @@
                 "answer_type": "SINGLE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q83_A3",
                 "parent_id": "Q83_A3",
                 "next_id": "Q85",
@@ -4475,7 +4477,7 @@
                 "answer_type": "SINGLE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q85_A2",
                 "parent_id": "Q85_A2",
                 "conditions":"{\"conditions\": \"IF (Q87_ANSWER, ANSWERED_ANY):NEXT;IF (Q93_ANSWER, ANSWERED_ANY):NEXT; IF (Q1_A2, ANSWERED_ANY): Q106\"}",
@@ -4540,7 +4542,7 @@
                 "answer_type": "SINGLE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q87_A4",
                 "parent_id": "Q87_A4",
                 "next_id": "Q89",
@@ -4597,7 +4599,7 @@
                 "answer_type": "SINGLE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q89_A4",
                 "parent_id": "Q89_A4",
                 "next_id": "Q91",
@@ -4646,7 +4648,7 @@
                 "answer_type": "SINGLE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q91_A3",
                 "parent_id": "Q91_A3",
                 "conditions":"{\"conditions\": \"IF (Q93_ANSWER, ANSWERED_ANY):NEXT; IF (Q1_A2, ANSWERED_ANY): Q106\"}",
@@ -4709,7 +4711,7 @@
                 "answer_type": "SINGLE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q93_A4",
                 "parent_id": "Q93_A4",
                 "next_id": "Q95",
@@ -4769,7 +4771,7 @@
                 "answer_type": "SINGLE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q95_A4",
                 "parent_id": "Q95_A4",
                 "next_id": "Q98",
@@ -4937,7 +4939,7 @@
                 "answer_type": "SINGLE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q98_A4",
                 "parent_id": "Q98_A4",
                 "next_id": "Q100",
@@ -4997,7 +4999,7 @@
                 "answer_type": "SINGLE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q100_A4",
                 "parent_id": "Q100_A4",
                 "next_id": "Q102",
@@ -5048,7 +5050,7 @@
                 "answer_type": "SINGLE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q102_A3",
                 "parent_id": "Q102_A3",
                 "next_id": "Q104",
@@ -5090,7 +5092,7 @@
                 "answer_type": "SINGLE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q104_A2",
                 "parent_id": "Q104_A2",
                 "conditions":"{\"conditions\": \"IF (Q1_A2, ANSWERED_ANY): Q106;\"}",
@@ -5893,7 +5895,7 @@
                 "answer_type": "MULTI - NQ ONE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q125_9",
                 "parent_id": "Q125_9",
                 "next_id":"NEXT",
