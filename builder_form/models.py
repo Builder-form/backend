@@ -66,7 +66,9 @@ class Project(models.Model):
     history_queue = models.CharField(_("History queue"), max_length=10000, default='', blank=True)
     user = models.ForeignKey(User, verbose_name=_("User"), to_field='username', on_delete=models.CASCADE)
 
-
+    @property
+    def QuestionInstanceCnt(self):
+        return self.questioninstance_set.count()
 
     def back(self):
         current_question = self.get_current_question()
@@ -494,6 +496,7 @@ class Project(models.Model):
         super(Project, self).save(*args, **kwargs)
         if  len(QuestionInstance.objects.all().filter(project=self)) == 0:
             q = QuestionInstance.objects.create(
+                number_id=1,
                 project=self,
                 qid=Question.objects.get(id='Q1').id,
                 parent=Question.objects.get(id='END'),
@@ -512,6 +515,7 @@ class Project(models.Model):
 
 class QuestionInstance(models.Model):
     qid = models.CharField(_("question_id"), max_length=50)
+    number_id = models.PositiveIntegerField(_('question is in project'), default=0)
     project =  models.ForeignKey(Project, verbose_name=_("project_id"), on_delete=models.CASCADE)
     params = models.CharField(_("params"), max_length=10000, default="{\"data\":[]}") #{data:['ans1', 'ans2']}
     parent =  models.ForeignKey(Question, verbose_name=_("parent_question"), on_delete=models.CASCADE)
@@ -703,6 +707,7 @@ class AnswerQuestion(models.Model):
             case AnswerTypes.CUSTOM:
                 question_template = Question.objects.get(id=next_id)
                 new_question.append(QuestionInstance.objects.create(
+                    number_id=self.project.QuestionInstanceCnt + 1,
                     qid=question_template.id,
                     text=question_template.text_template,
                     project=self.project,
@@ -720,6 +725,7 @@ class AnswerQuestion(models.Model):
 
                 if len(QuestionInstance.objects.all().filter(project=self.project).filter(parent_pk=self.question_instance)) == 0:
                      new_question.append(QuestionInstance.objects.create(
+                        number_id=self.project.QuestionInstanceCnt + 1,
                         qid=question_template.id,
                         text=question_template.text_template,
                         project=self.project,
@@ -733,6 +739,7 @@ class AnswerQuestion(models.Model):
                 question_template = Question.objects.get(id=next_id)
                 if len(QuestionInstance.objects.all().filter(project=self.project).filter(parent_pk=self.question_instance)) == 0:
                      new_question.append(QuestionInstance.objects.create(
+                        number_id=self.project.QuestionInstanceCnt + 1,
                         qid=question_template.id,
                         text=question_template.text_template,
                         project=self.project,
@@ -746,6 +753,7 @@ class AnswerQuestion(models.Model):
                 if next_id == 'Q27':
                     parentContext['Floor Name'] = self.answer_text
                 new_question.append(QuestionInstance.objects.create(
+                    number_id=self.project.QuestionInstanceCnt + 1,
                     qid=question_template.id,
                     text=question_template.text_template,
                     project=self.project,
@@ -761,6 +769,7 @@ class AnswerQuestion(models.Model):
                     localContext = parentContext
                     localContext.update({"Room Sequence Number":str(i+1)})
                     local_new_question = QuestionInstance.objects.create(
+                        number_id=self.project.QuestionInstanceCnt + 1,
                         qid=question_template.id,
                         text=question_template.text_template,
                         project=self.project,

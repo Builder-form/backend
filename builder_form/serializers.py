@@ -7,8 +7,8 @@ import datetime
 class QuestionInstanceSerializer(serializers.ModelSerializer):
     class Meta:
         model = QuestionInstance
-        read_only_fields = ['project', 'pk']
-        fields = ['qid','project','params', 'parent', 'text', 'pk']
+        read_only_fields = ['project', 'pk', 'number_id']
+        fields = ['qid','project','params', 'parent', 'text', 'pk', 'number_id']
     
     def create(self, validated_data):
         return QuestionInstance.objects.create(**validated_data)

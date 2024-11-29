@@ -85,15 +85,27 @@ WSGI_APPLICATION = 'wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'firesieht',
-        # 'NAME': 'builder_form_database',
-        'USER': 'firesieht',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'firesieht',
+#         # 'NAME': 'builder_form_database',
+#         'USER': 'firesieht',
+#     }
+# }
 
+DATABASES = {
+         'default': {
+             'ENGINE': 'django.db.backends.mysql',  
+             'NAME': 'combitco_forms',                  
+             'USER': 'forms_user',         
+             'PASSWORD': 'Combit1234!',    
+             'HOST': 'localhost',          
+             'PORT': '3306',               
+         }
+     }
+    
+ 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
