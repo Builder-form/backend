@@ -88,9 +88,11 @@ WSGI_APPLICATION = 'wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'firesieht',
+        'NAME': 'builder_forms_bd',
+        'USER': 'builder_forms',
+        # 'NAME': 'firesieht',
         # 'NAME': 'builder_form_database',
-        'USER': 'firesieht',
+        # 'USER': 'firesieht',
     }
 }
 
