@@ -89,7 +89,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'builder_forms_db',
-        'USER': 'builder_forms_user',
+        'USER': 'postgres',
         # 'NAME': 'firesieht',
         # 'NAME': 'builder_form_database',
         # 'USER': 'firesieht',
