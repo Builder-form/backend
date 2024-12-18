@@ -88,14 +88,14 @@ WSGI_APPLICATION = 'wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'builder_forms_db',
-        'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': 'localhost',
-        'PORT': '5432',
-        # 'NAME': 'firesieht',
+        # 'NAME': 'builder_forms_db',
+        # 'USER': 'postgres',
+        # 'PASSWORD': 'postgres',
+        # 'HOST': 'localhost',
+        # 'PORT': '5432',
+        'NAME': 'firesieht',
         # 'NAME': 'builder_form_database',
-        # 'USER': 'firesieht',
+        'USER': 'firesieht',
     }
 }
 
@@ -165,7 +165,7 @@ SMS_AUTH_SETTINGS = {
     "SMS_AUTH_PROVIDER_FROM": "79587747394",
     "SMS_PROVIDER_URL":'http://api.exolve.ru/messaging/v1/SendSMS',
    
-    "SMS_DEBUG": True,
+    "SMS_DEBUG": False,
     "SMS_DEBUG_CODE":1111,
     "SMS_USER_SERIALIZER": "api.serializers.DefaultUserSerializer",
     "SMS_USER_ALREADY_EXIST": "Пользователь с указаными номером уже существует"
@@ -186,4 +186,12 @@ PAYPAL_SECRET = 'EMkOXp2pjbNq3WrIUpS87-s6DZ50SZBSSsqXqLoD_syJ2-IPlnLsAF7eaNFk8sP
 PAYPAL_API_URL = 'https://api-m.sandbox.paypal.com' 
 PAYPAL_ACCESS_TOKEN = 'A21AALVHHJEkwOFU351jM42RLoDHMbx-TxiytxzxjpvIm9iKSuaPIfVJue4a2KNNBJnMvmPGHKEOCqHKwbCNSUAFNtVIUtKOA'
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = True
+EMAIL_HOST = 'mail.combit-construction.com'
+EMAIL_PORT = 465
+EMAIL_HOST_USER = 'forms@combit-construction.com'
+EMAIL_HOST_PASSWORD = 'j4jjKStHGWjf5qm'
+DEFAULT_FROM_EMAIL = 'Auth code'
 

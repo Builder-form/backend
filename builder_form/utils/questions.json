@@ -5,16 +5,16 @@
         "answers": [
             {
                 "answer": "Flat",
-                "id": "Q1_A1",
-                "parent_id": "Q1_A1",
+                "id": "Q1_A2",
+                "parent_id": "Q1_A2",
                 "next_id": "Q4",
                 "conditions":"",
                 "answer_type": "SINGLE"
             },
             {
                 "answer": "House",
-                "id": "Q1_A2",
-                "parent_id": "Q1_A2",
+                "id": "Q1_A1",
+                "parent_id": "Q1_A1",
                 "next_id": "Q2",
                 "answer_type": "SINGLE",
                 "conditions":""
@@ -248,7 +248,7 @@
     },
     {
         "id": "Q7",
-        "text": "Type of demolishing {0}",
+        "text": "Type of demolishing [Q6 ANSWER]",
         "answers": [
             {
                 "answer": "remove entire extension",
@@ -4480,7 +4480,7 @@
                 "answer": "Leave as it is",
                 "id": "Q85_A2",
                 "parent_id": "Q85_A2",
-                "conditions":"{\"conditions\": \"IF (Q87_ANSWER, ANSWERED_ANY):NEXT;IF (Q93_ANSWER, ANSWERED_ANY):NEXT; IF (Q1_A2, ANSWERED_ANY): Q106\"}",
+                "conditions":"{\"conditions\": \"IF (Q87_ANSWER, ANSWERED_ANY):NEXT;IF (Q93_ANSWER, ANSWERED_ANY):NEXT; IF (Q1_A1, ANSWERED_ANY): Q106\"}",
                 "next_id":"END",
                 "comment": "IF Q69 created Q87 / Q93 - go closest created\nElse for HOUSE: Q 106\nElse for FLAT: END",
                 "answer_type": "SINGLE"
@@ -4495,7 +4495,7 @@
                 "answer": "Supply and install",
                 "id": "Q86_A1",
                 "parent_id": "Q86_A1",
-                "conditions":"{\"conditions\": \"IF (Q87_ANSWER, ANSWERED_ANY):NEXT;IF (Q93_ANSWER, ANSWERED_ANY):NEXT; IF (Q1_A2, ANSWERED_ANY): Q106\"}",
+                "conditions":"{\"conditions\": \"IF (Q87_ANSWER, ANSWERED_ANY):NEXT;IF (Q93_ANSWER, ANSWERED_ANY):NEXT; IF (Q1_A1, ANSWERED_ANY): Q106\"}",
                 "next_id":"END",
                 "comment": "IF Q69 created Q87 / Q93 - go closest created\nElse for HOUSE: Q 106\nElse for FLAT: END",
                 "answer_type": "SINGLE"
@@ -4504,7 +4504,7 @@
                 "answer": "Install - Client supply",
                 "id": "Q86_A2",
                 "parent_id": "Q86_A2",
-                "conditions":"{\"conditions\": \"IF (Q87_ANSWER, ANSWERED_ANY):NEXT;IF (Q93_ANSWER, ANSWERED_ANY):NEXT; IF (Q1_A2, ANSWERED_ANY): Q106\"}",
+                "conditions":"{\"conditions\": \"IF (Q87_ANSWER, ANSWERED_ANY):NEXT;IF (Q93_ANSWER, ANSWERED_ANY):NEXT; IF (Q1_A1, ANSWERED_ANY): Q106\"}",
                 "next_id":"END",
                 "comment": "IF Q69 created Q87 / Q93 - go closest created\nElse for HOUSE: Q 106\nElse for FLAT: END",
                 "answer_type": "SINGLE"
@@ -4651,7 +4651,7 @@
                 "answer": "Leave as it is",
                 "id": "Q91_A3",
                 "parent_id": "Q91_A3",
-                "conditions":"{\"conditions\": \"IF (Q93_ANSWER, ANSWERED_ANY):NEXT; IF (Q1_A2, ANSWERED_ANY): Q106\"}",
+                "conditions":"{\"conditions\": \"IF (Q93_ANSWER, ANSWERED_ANY):NEXT; IF (Q1_A1, ANSWERED_ANY): Q106\"}",
                 "next_id":"END",
                 "comment": "IF Q69 created Q 93 - go closest created\nElse for HOUSE: Q 106\nElse for FLAT: END",
                 "answer_type": "SINGLE"
@@ -4666,7 +4666,7 @@
                 "answer": "Supply and install",
                 "id": "Q92_A1",
                 "parent_id": "Q92_A1",
-                "conditions":"{\"conditions\": \"IF (Q93_ANSWER, ANSWERED_ANY):NEXT; IF (Q1_A2, ANSWERED_ANY): Q106\"}",
+                "conditions":"{\"conditions\": \"IF (Q93_ANSWER, ANSWERED_ANY):NEXT; IF (Q1_A1, ANSWERED_ANY): Q106\"}",
                 "next_id":"END",
                 "comment": "IF 69Q created Q 93 - go closest created\nElse for HOUSE: Q 106\nElse for FLAT: END",
                 "answer_type": "SINGLE"
@@ -4675,7 +4675,7 @@
                 "answer": "Install - Client supply",
                 "id": "Q92_A2",
                 "parent_id": "Q92_A2",
-                "conditions":"{\"conditions\": \"IF (Q93_ANSWER, ANSWERED_ANY):NEXT; IF (Q1_A2, ANSWERED_ANY): Q106\"}",
+                "conditions":"{\"conditions\": \"IF (Q93_ANSWER, ANSWERED_ANY):NEXT; IF (Q1_A1, ANSWERED_ANY): Q106\"}",
                 "next_id":"END",
                 "comment": "IF 69Q created Q 93 - go closest created\nElse for HOUSE: Q 106\nElse for FLAT: END",
                 "answer_type": "SINGLE"
@@ -5095,7 +5095,7 @@
                 "answer": "Leave as it is",
                 "id": "Q104_A2",
                 "parent_id": "Q104_A2",
-                "conditions":"{\"conditions\": \"IF (Q1_A2, ANSWERED_ANY): Q106;\"}",
+                "conditions":"{\"conditions\": \"IF (Q1_A1, ANSWERED_ANY): Q106;\"}",
                 "next_id":"END",
                 "comment": " for HOUSE: Q 106\nfor FLAT: END",
                 "answer_type": "SINGLE"
@@ -5110,7 +5110,7 @@
                 "answer": "Supply and install",
                 "id": "Q105_A1",
                 "parent_id": "Q105_A1",
-                "conditions":"{\"conditions\": \"IF (Q1_A2, ANSWERED_ANY): Q106;\"}",
+                "conditions":"{\"conditions\": \"IF (Q1_A1, ANSWERED_ANY): Q106;\"}",
                 "next_id":"END",
                 "comment": " for HOUSE: Q 106\nfor FLAT: END",
                 "answer_type": "SINGLE"
@@ -5119,7 +5119,7 @@
                 "answer": "Install - Client supply",
                 "id": "Q105_A2",
                 "parent_id": "Q105_A2",
-                "conditions":"{\"conditions\": \"IF (Q1_A2, ANSWERED_ANY): Q106;\"}",
+                "conditions":"{\"conditions\": \"IF (Q1_A1, ANSWERED_ANY): Q106;\"}",
                 "next_id":"END",
                 "comment": " for HOUSE: Q 106\nfor FLAT: END",
                 "answer_type": "SINGLE"

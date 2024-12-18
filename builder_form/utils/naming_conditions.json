@@ -504,6 +504,24 @@
         "text_template": "Flat - [Room Sequence Number]- Internal decoration and finishes - Floors:"
     },
     {
+        "parent_question_id": "Q60",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A1"
+        ],
+        "text_template": "House - [Floor Name] - [Room Sequence Number]-Internal decoration and finishes - Walls - [Q59 ANSWER]"
+    },
+    {
+        "parent_question_id": "Q60",
+        "left_operand_id": "Q1",
+        "condition_type": "EQUAL",
+        "right_operand_ids": [
+            "Q1_A2"
+        ],
+        "text_template": "Flat - [Room Sequence Number]- Internal decoration and finishes - Walls - [Q59 ANSWER]"
+    },
+    {
         "parent_question_id": "Q61",
         "left_operand_id": "Q1",
         "condition_type": "EQUAL",
