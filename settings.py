@@ -90,11 +90,11 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'HOST': 'localhost',
         'PORT': '5432',
-        # 'NAME': 'builder_forms_db',
-        # 'USER': 'postgres',
-        # 'PASSWORD': 'postgres',
-        'NAME': 'firesieht',
-        'USER': 'firesieht',
+        'NAME': 'builder_forms_db',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        # 'NAME': 'firesieht',
+        # 'USER': 'firesieht',
     }
 }
 
