@@ -2,7 +2,7 @@ from django.shortcuts import render
 from builder_form.mixins import ResponsesMixin
 from rest_framework import generics, permissions
 from .models import Answer, AnswerTypes, AnswerQuestion, Project, Termin, APPSettings
-from .serializers import ProjectListSerializer, QuestionInstanceSerializer,AnswerQuestionSerializer,AnswerSerializer, ProjectSerializer, TerminSerializer
+from .serializers import ProjectListSerializer, QuestionInstanceSerializer,AnswerQuestionSerializer,AnswerSerializer, ProjectSerializer, TerminSerializer, TransactionSerializer
 from rest_framework import authentication, permissions, status, generics
 import json
 from django.conf import settings
@@ -11,7 +11,7 @@ import requests
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
-
+from .models import Transaction
 
 
 class AnswerQuestionAPIView(ResponsesMixin, generics.GenericAPIView): #sample request {project_id:str, answers:{id: str, text:str}[]}
@@ -238,6 +238,7 @@ class CreatePaymentView(ResponsesMixin, generics.GenericAPIView):
         serializer = ProjectSerializer(data=data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
+        transaction = Transaction.objects.create(user=request.user, amount=payment_settings.cost, project=serializer.instance)
         return self.create_object_response(serializer.data)
   
 
@@ -281,3 +282,12 @@ class TestEmailView(ResponsesMixin, generics.GenericAPIView):
 
         send_mail('Subject here', 'Here is the message.', 'forms@combit-construction.com', ['firesieht@mail.ru'], fail_silently=False)
         return self.success_objects_response('Email sent')
+    
+class TransactionAPIView(ResponsesMixin, generics.GenericAPIView):
+    authentication_classes = [authentication.TokenAuthentication]
+    serializer_class = TransactionSerializer
+    def get(self, request):
+        transactions = Transaction.objects.all().filter(user=request.user).order_by('-created')
+        serializer = self.serializer_class(transactions, many=True)
+        return self.success_objects_response(serializer.data)
+    

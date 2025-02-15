@@ -1,4 +1,4 @@
-from .models import Answer, AnswerQuestion, Question, QuestionInstance, Project, Termin
+from .models import Answer, AnswerQuestion, Question, QuestionInstance, Project, Termin, Transaction
 from rest_framework import serializers
 from user.models import User
 import datetime
@@ -56,8 +56,8 @@ class AnswerQuestionSerializer(serializers.ModelSerializer):
 class ProjectSerializer(serializers.ModelSerializer):
     class Meta:
         model = Project
-        fields = ['name', 'id', 'last_edit', 'created', 'progress', 'user', 'tree']
-        read_only_fields = ['id', 'last_edit','created','progress', 'tree']
+        fields = ['name', 'id', 'last_edit', 'created', 'progress', 'user', 'tree', 'short_description']
+        read_only_fields = ['id', 'last_edit','created','progress', 'tree', 'short_description']
    
     def create(self, validated_data):
         return Project.objects.create(**validated_data)
@@ -70,5 +70,14 @@ class ProjectSerializer(serializers.ModelSerializer):
 class ProjectListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Project
-        fields = ['id', 'name', 'last_edit', 'created', 'progress', 'user']
-        read_only_fields = ['id', 'last_edit','created','progress', 'user']
+        fields = ['id', 'name', 'last_edit', 'created', 'progress', 'user', 'short_description']
+        read_only_fields = ['id', 'last_edit','created','progress', 'user', 'short_description']
+
+class TransactionSerializer(serializers.ModelSerializer):
+    project = serializers.CharField(source='project.name', read_only=True)
+
+    class Meta:
+        model = Transaction
+        fields = ['id', 'created', 'amount', 'project']
+        read_only_fields = ['id', 'created', 'project']
+

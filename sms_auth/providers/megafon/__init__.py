@@ -13,12 +13,21 @@ class Megafon(SMSProvider):
 
     def send_megafon_sms(self):
         print('SEND_CODE', self.message, self.to)
-        send_mail( 'Your authorization code for the site  forms.combit-construction.com',
-                self.message, 
-                'forms@combit-construction.com', 
-                [self.to], 
-                fail_silently=False)
-
+        send_mail(
+            'Your authorization code for the site forms.combit-construction.com',
+            'Your authorization code is:' + self.message,
+            'forms@combit-construction.com',
+            [self.to],
+            html_message=f"""
+                <html>
+                    <body>
+                        <h3>Your authorization code is:</h3>
+                        <h1 style="font-size: 48px; color: #333;">{self.message}</h1>
+                    </body>
+                </html>
+            """,
+            fail_silently=False,
+        )
 
     def send_sms(self):
         # return ''

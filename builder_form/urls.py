@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import AnswerQuestionAPIView, CreatePaymentView, ExecutePaymentView,GetCurrentQuestionAPIView, GetProjectsAPIView, ProjectAPIView, CreateProjectAPIView, GetAnswersAPIView,BackProjectAPIView, ProjectUserAPIView, SendEmailView, TestEmailView
+from .views import AnswerQuestionAPIView, CreatePaymentView, ExecutePaymentView,GetCurrentQuestionAPIView, GetProjectsAPIView, ProjectAPIView, CreateProjectAPIView, GetAnswersAPIView,BackProjectAPIView, ProjectUserAPIView, SendEmailView, TestEmailView, TransactionAPIView
 
 urlpatterns = [
     path("answer_question/", AnswerQuestionAPIView.as_view()),
@@ -13,4 +13,5 @@ urlpatterns = [
     path('execute_payment/', ExecutePaymentView.as_view()),
     path('user_projects/', ProjectUserAPIView.as_view()),
     path('send_email/', SendEmailView.as_view()),
+    path('user_transactions/', TransactionAPIView.as_view()),
 ]

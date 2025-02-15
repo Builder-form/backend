@@ -5,10 +5,9 @@ import json
 from django.utils import timezone
 from user.models import User
 from django.core.exceptions import ValidationError
+from collections import defaultdict
 import re
-
-
-
+from django.contrib.auth.models import Group
 
 class AnswerTypes(models.TextChoices):
     SINGLE = 'SINGLE', _("Single")
@@ -66,17 +65,15 @@ class Project(models.Model):
     history_queue = models.CharField(_("History queue"), max_length=10000, default='', blank=True)
     user = models.ForeignKey(User, verbose_name=_("User"), to_field='username', on_delete=models.CASCADE)
     answered_questions = models.PositiveIntegerField(_("Answered questions"), default=0, blank=True)
-   
+    short_description = models.CharField(_("Short description"), max_length=10000, default='', blank=True)
 
-    
     def normalize_history_or_queue(self, history_or_queue_list):
         while '' in history_or_queue_list:
             history_or_queue_list.remove('')
         while ' ' in history_or_queue_list:
             history_or_queue_list.remove(' ')
         return history_or_queue_list
-    
-    
+
     def back(self):
         current_question = self.get_current_question()
         self.deleteFromQueue(str(current_question.pk))
@@ -89,7 +86,7 @@ class Project(models.Model):
         history.pop()
 
         last_question_instance_childrens = QuestionInstance.objects.filter(parent_pk=last_answered_question_instance.pk)
-        print(last_question_instance_childrens)
+        # print(last_question_instance_childrens)
         for child in last_question_instance_childrens:
             try: 
                 history.remove(child.pk)
@@ -133,7 +130,7 @@ class Project(models.Model):
         answers = AnswerQuestion.objects.filter(project=self)
         ans = answers.filter(answer__question__id=qid)
 
-        print('PARENT_PK',ans, parent_pk)
+        # print('PARENT_PK',ans, parent_pk)
 
         answers_text = []
         for a in ans:
@@ -175,6 +172,9 @@ class Project(models.Model):
             
             return ""
 
+        def get_answer_text(list_qid):
+            return [Answer.objects.get(id=qid).text for qid in list_qid]
+        
         def get_answers(qid):
             nonlocal answers
             ans = answers.filter(answer__question__id=qid)
@@ -209,84 +209,82 @@ class Project(models.Model):
             return ''
         report += f"<strong>Room purposes</strong>: {', '.join(get_answers('Q30'))}  {', '.join(get_answers('Q31'))}  {', '.join(get_answers('Q32'))} <br/>"
         
-        report += "<strong><u>RN.1) Strip out and demolition</u></strong>:<br/>"
-        report += "<strong>Room type specific:<br/></strong>"
+        report += "<strong><u>Strip out and demolition</u></strong>:<br/>"
+        report += "<strong>Room type specific:</strong><br/>"
 
         for q in range(34, 46, 2):
             addStringReport(self.formatPairAnswers(get_answers(f'Q{q}'), get_answers(f'Q{q+1}')) , f'Q{q}')
         
-        addStringReport("<strong>Ceilings:<br/></strong>", 'Q46')
+        addStringReport("<strong>Ceilings:</strong><br/>", 'Q46')
         addStringReport(self.formatAnswers(get_answers('Q46')), 'Q46')
 
-        addStringReport("<strong>Walls:<br/></strong>", 'Q47')
+        addStringReport("<strong>Walls:</strong><br/>", 'Q47')
         addStringReport(self.formatPairAnswers(get_answers('Q47'),get_answers('Q48')), 'Q47')
 
-        addStringReport("<strong>Floors:<br/></strong>", 'Q49')
+        addStringReport("<strong>Floors:</strong><br/>", 'Q49')
         addStringReport(self.formatPairAnswers(get_answers('Q49'),get_answers('Q50')), 'Q49')
 
-        addStringReport("<br/><strong><u>RN.2) Structure improvement:<br/></u></strong>", 'Q52')
-        addStringReport("<strong>Ceilings:<br/></strong>", 'Q52')
+        addStringReport("<br/><strong><u>Structure improvement:<br/></u></strong>", 'Q52')
+        addStringReport("<strong>Ceilings:</strong><br/>", 'Q52')
         addStringReport(self.formatAnswers(get_answers('Q52')), 'Q52')
 
-        addStringReport("<strong>Walls:<br/></strong>", 'Q53')
+        addStringReport("<strong>Walls:</strong><br/>", 'Q53')
         addStringReport(self.formatAnswers(get_answers('Q53')), 'Q53')
 
-        addStringReport("<strong>Floors:<br/></strong>", 'Q54')
+        addStringReport("<strong>Floors:</strong><br/>", 'Q54')
         addStringReport(self.formatAnswers(get_answers('Q54')), 'Q54')
         
-        addStringReport("<br/><strong><u>RN.3) Internal decoration and finishes:<br/></u></strong>", 'Q56')
-        addStringReport("<strong>Ceilings:<br/></strong>", 'Q56')
+        addStringReport("<br/><strong><u>Internal decoration and finishes:<br/></u></strong>", 'Q56')
+        addStringReport("<strong>Ceilings:</strong><br/>", 'Q56')
         addStringReport(self.formatAnswers(get_answers('Q56')), 'Q56')
 
-        addStringReport("<strong>Walls:<br/></strong>", 'Q57')
+        addStringReport("<strong>Walls:</strong><br/>", 'Q57')
         addStringReport(self.formatPairAnswers(get_answers('Q57'),get_answers('Q58')), 'Q57')
 
-        addStringReport("<strong>Floors:<br/></strong>", 'Q59')
+        addStringReport("<strong>Floors:</strong><br/>", 'Q59')
         addStringReport(self.formatPairAnswers(get_answers('Q59'),get_answers('Q60')), 'Q59')
         
-        addStringReport("<strong>Woodwork:<br/></strong>", 'Q61')
+        addStringReport("<strong>Woodwork:</strong><br/>", 'Q61')
         addStringReport(self.formatAnswers(get_answers('Q61')), 'Q61')
 
-        addStringReport("<br/><strong><u>RN.4) Fitting and installing:<br/></u></strong>", 'Q63')
-        addStringReport("<strong>Windows:<br/></strong>", 'Q63')
+        addStringReport("<br/><strong><u>Fitting and installing:<br/></u></strong>", 'Q63')
+        addStringReport("<strong>Windows:</strong><br/>", 'Q63')
         addStringReport(self.formatPairAnswers(get_answers('Q63'),get_answers('Q64')), 'Q63')
 
-        addStringReport("<strong>External doors:<br/></strong>", 'Q641')
+        addStringReport("<strong>External doors:</strong><br/>", 'Q641')
         addStringReport(self.formatPairAnswers(get_answers('Q641'),get_answers('Q642')), 'Q641')
 
-        addStringReport("<strong>Internal doors:<br/></strong>", 'Q65')
+        addStringReport("<strong>Internal doors:</strong><br/>", 'Q65')
         addStringReport(self.formatPairAnswers(get_answers('Q65'),get_answers('Q66')), 'Q65')
 
-        addStringReport("<strong>Inside rooms/hallway/landings:<br/></strong>", 'Q67')
+        addStringReport("<strong>Inside rooms/hallway/landings:</strong><br/>", 'Q67')
         addStringReport(self.formatPairAnswers(get_answers('Q67'),get_answers('Q68')), 'Q67')
 
-        addStringReport("<strong>Electrics:<br/></strong>", 'Q69')
+        addStringReport("<strong>Electrics:</strong><br/>", 'Q69')
         addStringReport(self.formatPairAnswers(get_answers('Q69'),get_answers('Q691')), 'Q69')
 
-
-        if get_answers('Q31') in ['Q31_A1', 'Q31_A2']:
+        print('Q31 ANWERS', get_answers('Q31'), get_answer_text(['Q31_A1', 'Q31_A2', 'Q31_A3', 'Q31_A4']))
+        if any(ans in get_answer_text(['Q31_A1', 'Q31_A2']) for ans in get_answers('Q31')):
             report += "Room type specific:<br/>"
             report += "Kitchen / Ulitity:<br/>"
             for q in range(70, 87, 2):
-                addStringReport(self.formatPairAnswers(get_answers('Q{q}'),get_answers(f'Q{q+1}')), 'Q{q}')
+                addStringReport(self.formatPairAnswers(get_answers(f'Q{q}'), get_answers(f'Q{q+1}')), f'Q{q}')
                 if q == 74:
                     addStringReport(get_answer('Q76'), 'Q76')
         
-        if get_answers('Q31') in ['Q31_A3', 'Q31_A4']:
+        if any(ans in get_answer_text(['Q31_A3', 'Q31_A4']) for ans in get_answers('Q31')):
             report += "Storage / Attic:<br/>"
             for q in range(87, 93, 2):
-                
-                report += f"- {get_answer(f'Q{q}')} - {get_answer(f'Q{q+1}')}<br/>"
+                addStringReport(self.formatPairAnswers(get_answers(f'Q{q}'), get_answers(f'Q{q+1}')), f'Q{q}')
         
-        if get_answers('Q32') in ['Q32_A1', 'Q32_A2', 'Q32_A3']:
+        if any(ans in get_answer_text(['Q32_A1', 'Q32_A2', 'Q32_A3']) for ans in get_answers('Q32')):
             report += "Bathroom/shower/toilet:<br/>"
             for q in range(93, 106, 2):
-                report += f"- {get_answer(f'Q{q}')} - {get_answer(f'Q{q+1}')}<br/>"
+                addStringReport(self.formatPairAnswers(get_answers(f'Q{q}'), get_answers(f'Q{q+1}')), f'Q{q}')
                 if q == 95:
-                    report += f": {get_answer('Q97')}<br/>"
+                    addStringReport(get_answer('Q97'), 'Q97')
                 
         return report
-
 
     def generate_house_report(self, key_word):
         answers = AnswerQuestion.objects.all().filter(project=self)
@@ -383,10 +381,9 @@ class Project(models.Model):
                 addStringReport(f"<br/>{get_answer('Q107')}<br/>", 'Q107')
                 
         return report
-    
+
     @property
     def tree(self):
-        
         def get_answers(question_instance_pk):
             answers = AnswerQuestion.objects.filter(question_instance=question_instance_pk, project=self)
             return [answer.answer_text for answer in answers]
@@ -439,11 +436,13 @@ class Project(models.Model):
                         table['project_type']['text'] += answer.answer_text + '<br/>'
 
             if question.qid == 'Q4':
-                table['list_of_work']['text'] += '<strong>Project type detalisation:</strong> ' + ''.join(get_answers(question.pk)) + '<br/>'
-            
+                # table['list_of_work']['text'] += '<strong>Project type detalisation:</strong> ' + ''.join(get_answers(question.pk)) + '<br/>'
+                table['list_of_work']['text'] +=  ''.join(get_answers(question.pk)) + '<br/>'
+
             if question.qid == 'Q28':
-                table['list_of_work']['text'] += '<strong>Refurbishment detalisation:</strong><br/>    Number of Rooms to Refurbish: ' + ''.join(get_answers(question.pk)) + '<br/>'
-            
+                # table['list_of_work']['text'] += '<strong>Refurbishment detalisation:</strong><br/>    Number of Rooms to Refurbish: ' + ''.join(get_answers(question.pk)) + '<br/>'
+                table['list_of_work']['text'] += 'Number of Rooms to Refurbish: ' + ''.join(get_answers(question.pk)) + '<br/>'
+
             if question.qid == 'Q29' and self:
                 current_room += 1
                 # print("LEN_TREE", question.pk, self.get_answers_tree('Q30', question.pk), self.get_answers_tree('Q31', question.pk), self.get_answers_tree('Q32', question.pk))
@@ -460,7 +459,6 @@ class Project(models.Model):
         table['list_of_work']['text'] = table['list_of_work']['text'].replace(key_word, '')
         table['list_of_work']['text'] = re.sub(r'(?:<br/>)+$', '', table['list_of_work']['text'])
         return table
-
 
     @property
     def progress(self):
@@ -481,7 +479,6 @@ class Project(models.Model):
         denominator = len(Question.objects.all())
         return round(numerator/denominator * 100)
     
-
     def deleteFromQueue(self, pk:str):
         queue = list(self.questions_queue.split(','))
         queue.remove(pk)
@@ -505,13 +502,22 @@ class Project(models.Model):
         self.questions_queue = ','.join([list(self.questions_queue.strip().split(','))[0]] + [str(questionInstance.pk)] + list(self.questions_queue.strip().split(','))[1:])
         self.questions_queue = ','.join(self.normalize_history_or_queue(list(self.questions_queue.split(',')))) + ','
         return list(self.questions_queue.split(','))
-
+    
+    def get_recursive_children_in_queue(self, instance):
+        children_eq = []
+        children = QuestionInstance.objects.filter(project=self, parent_pk=instance.pk)
+        for child in children:
+            if str(child.pk) in self.questions_queue:
+                children_eq.append(child.pk)
+            children_eq.extend(self.get_recursive_children_in_queue(child))
+        return children_eq
     
     def pushAfterEquvalentQuestions(self, questionInstance):
         try:
             parent = QuestionInstance.objects.get(pk=questionInstance.parent_pk)
         except:
             return list(self.questions_queue.split(','))
+        
 
 
         current = parent
@@ -519,21 +525,27 @@ class Project(models.Model):
         list_of_questions = list(self.questions_queue.split(','))
         while current.parent_pk != 0:
             siblings = QuestionInstance.objects.filter(project=self, parent_pk=current.parent_pk)
+            # print('SIBLINGS', siblings)
             if siblings.count() > 1:
-                equivalent_questions = [s.pk for s in siblings if str(s.pk) in self.questions_queue]
+                equivalent_questions = []
+                for s in siblings:
+                    if str(s.pk) in self.questions_queue:
+                        equivalent_questions.append(s.pk)
+                    equivalent_questions.extend(self.get_recursive_children_in_queue(s))
                 break
             try:
                 current = QuestionInstance.objects.get(pk=current.parent_pk)
             except QuestionInstance.DoesNotExist:
                 break
         
+        # print('EQUIVALENT_QUESTIONS', equivalent_questions)
         list_of_questions = self.normalize_history_or_queue(list_of_questions)
 
         if equivalent_questions:
             last_equiv_index = max([list_of_questions.index(str(pk)) for pk in equivalent_questions])
             if last_equiv_index + 1 < len(list_of_questions):
                 first_after_equiv = QuestionInstance.objects.get(pk=list_of_questions[last_equiv_index + 1])
-                print('FIRST_AFTER_EQUIV', first_after_equiv.pk, questionInstance.pk)
+                # print('FIRST_AFTER_EQUIV', first_after_equiv.pk, questionInstance.pk)
                 if questionInstance.parent == first_after_equiv.parent and questionInstance.text == first_after_equiv.text:
                     questionInstance.delete()
                     return list(self.questions_queue.split(','))
@@ -568,20 +580,41 @@ class Project(models.Model):
         self.history_queue =  ','.join(self.normalize_history_or_queue(history_queue))
         self.questions_queue = ','.join(questions_queue)
         self.save()
-        print(next_question)
+        # print(next_question)
         return next_question
     
     def getNextQuestionInfo(self):
         return  QuestionInstance.objects.get(pk=self.get_queue()[1])
 
-
     def save(self, *args, **kwargs):
-        print(self.pk)
         self.last_edit = timezone.now()
-        if  len(QuestionInstance.objects.all().filter(project=self)) == 0:
+        questions = QuestionInstance.objects.all().filter(project=self)
+        # if len(self.history_queue.split(',')) > 1:
+        if len(self.history_queue.split(',')) > 1 and  int(QuestionInstance.objects.get(pk=self.history_queue.split(',')[-1]).qid[1:]) < 10:
+            description = ""
+            answered_questions = AnswerQuestion.objects.filter(project=self)
+
+            question_answers = defaultdict(list)
+            for aq in answered_questions:
+                question = aq.answer.question
+                question_answers[question.id].append(aq.answer.text)
+            # print('ANSWERED_QUESTIONS', question_answers, answered_questions)
+            sorted_questions = sorted(question_answers.items(), key=lambda x: int(x[0][1:]))
+
+            for qid, answers in sorted_questions:
+                if int(qid[1:]) < 10:
+                    question_text = answered_questions.filter(answer__question__id=qid).first().answer.question.text_template
+                    description += f"<strong>{question_text}</strong><br/>"
+                    for answer in answers:
+                        description += f"&emsp;- {answer}<br/>"
+            # print("DESCRIPTION", description)
+            self.short_description = description
+            
+
+        if len(questions) == 0:
             self.created = timezone.now()
         super(Project, self).save(*args, **kwargs)
-        if  len(QuestionInstance.objects.all().filter(project=self)) == 0:
+        if  len(questions) == 0:
             q = QuestionInstance.objects.create(
                 project=self,
                 qid=Question.objects.get(id='Q1').id,
@@ -615,8 +648,7 @@ class QuestionInstance(models.Model):
         self.context[key] = value
         self.save()
     
-    def getContext(self, key):
-        
+    def getContext(self, key):   
         try:
             return self.context[key]
         except:
@@ -641,12 +673,7 @@ class QuestionInstance(models.Model):
                 return parent_answer
             instance = parent_answer
         return ValidationError('Don`t have parent_answer for this question')
-        
-        
-    
-       
-
-                
+                    
     def save(self, *args, **kwargs): 
         # print(self.params, self)
         # json_params = json.loads(self.params)
@@ -683,13 +710,6 @@ class QuestionInstance(models.Model):
 
         super(QuestionInstance, self).save(*args, **kwargs)
 
-        # if len(json_params['data']) > 0:
-        #     self.text = self.text.format(*json_params['data'])
-
-
-
-
-
 
 class AnswerQuestion(models.Model):
     answer = models.ForeignKey(Answer, verbose_name=_("answer_id"), on_delete=models.CASCADE)
@@ -717,37 +737,68 @@ class AnswerQuestion(models.Model):
                 self.project.pushAfterEquvalentQuestions(questionInstance)
         self.project.save()
 
-        
-
     def checkConditions(self, *args, **kwargs):
         if self.answer.conditions.find('conditions') != -1:
             json_conditions = json.loads(self.answer.conditions)
             conditions = json_conditions['conditions'].strip()
-        else: conditions = ''
+        else:
+            conditions = ''
         try:
+            # Получаем список идентификаторов предков текущего QuestionInstance
+            ancestor_ids = []
+            try:
+                current_instance = QuestionInstance.objects.get(pk=self.question_instance)
+                while current_instance.parent_pk:
+                    try:
+                        current_instance = QuestionInstance.objects.get(pk=current_instance.parent_pk)
+                        ancestor_ids.append(current_instance.pk)
+                    except QuestionInstance.DoesNotExist:
+                        break
+            except Exception as e:
+                print("Ошибка при получении предков:", e)
+
             if len(conditions) > 0:
                 for condition in conditions.split(';'):
+                    if not condition.strip():
+                        continue
                     result = condition.split(':')[1].strip()
-                    body = list(map(lambda x: x.strip(), condition.split('(')[1].split(')')[0].strip().split(',')))
+                    body = list(
+                        map(lambda x: x.strip(), 
+                            condition.split('(')[1].split(')')[0].strip().split(',')
+                        )
+                    )
                     
                     type_condition = body[-1]
                     body.pop()
 
                     elements = []
 
+                    print(body, type_condition)
+
                     for el in body:
                         if 'ANSWER' in el:
-                            for i in  AnswerQuestion.objects.filter(project=self.project):
+                            # Искать среди ответов, принадлежащих предкам
+                            for i in AnswerQuestion.objects.filter(
+                                project=self.project,
+                                question_instance__in=ancestor_ids
+                            ):
                                 if i.answer.question.id == el.split('_')[1]:
                                     elements.append(i.answer.id)
                         elif 'PARENT' in el:
                             try:
-                                parent_id = QuestionInstance.objects.get(question__qid=el.split('_')[1]).parent.id
-                                elements.append(parent_id)
-                            except: print(f'Parent question not found!<br/>{conditions}')
+                                # Поиск родительского вопроса только среди предков
+                                parent_instance = QuestionInstance.objects.filter(
+                                    pk__in=ancestor_ids,
+                                    question__qid=el.split('_')[1]
+                                ).first()
+                                if parent_instance:
+                                    elements.append(parent_instance.parent.id)
+                            except Exception as e:
+                                print(f'Родительский вопрос не найден!<br/>{conditions}: {e}')
                         else:
                             elements.append(el)
-                        
+                    
+                    print('ELEMENTS', elements)
 
                     match type_condition:
                         case 'EQUAL':
@@ -757,7 +808,6 @@ class AnswerQuestion(models.Model):
                             
                         case 'NOTEQUAL':
                             flag = True
-
                             for el in elements[:-1]:
                                 if el == elements[-1]:
                                     flag = False
@@ -767,19 +817,43 @@ class AnswerQuestion(models.Model):
                         case 'ANSWERED_ALL':
                             flag = 0
                             for el in elements:
-                                answered = AnswerQuestion.objects.filter(answer__id=el)
-                                if len(answered) > 0:
+                                answered = AnswerQuestion.objects.filter(
+                                    answer__id=el,
+                                    question_instance__in=ancestor_ids
+                                )
+                                if answered.exists():
                                     flag += 1
                             if flag == len(elements):
                                 return result
-
                         case 'ANSWERED_ANY':
                             for el in elements:
-                                answered = AnswerQuestion.objects.filter(answer__id=el)
-                                if len(answered) > 0:
+                                answered = AnswerQuestion.objects.filter(
+                                    answer__id=el,
+                                    question_instance__in=ancestor_ids
+                                )
+                                if answered.exists():
                                     return result
+                        case 'EXIST_SUPPLY':
+                            siblings = QuestionInstance.objects.filter(
+                                project=self.project,
+                                parent_pk=QuestionInstance.objects.get(pk=self.question_instance).parent_pk
+                            )
+
+                            cnt = 0
+                            for sibling in siblings:
+                                if sibling.qid == self.answer.next_id: # значит что отец создал вопрос (пример с remove to dispose)
+                                    return result
+                                try:
+                                    cnt += QuestionInstance.objects.filter(
+                                    project=self.project,
+                                    parent_pk=sibling.pk,
+                                ).count()
+                                except:
+                                    pass
+                            if cnt > 0:
+                                return result
         except Exception as e: 
-            print('!!!!CHECK CONDITIONS ERRROR!!!!!!!', e)
+            print('!!!!CHECK CONDITIONS ERROR!!!!!!!', e)
             return self.answer.next_id
         return self.answer.next_id
 
@@ -790,7 +864,7 @@ class AnswerQuestion(models.Model):
 
             try: 
                 new_question = []
-                print(self.answer.type)
+                # print(self.answer.type)
 
                 if self.answer.conditions.find('params') != -1:
                     json_conditions = json.loads(self.answer.conditions)
@@ -799,10 +873,13 @@ class AnswerQuestion(models.Model):
 
                 next_id = self.checkConditions()
 
+                if next_id == 'SKIP':
+                    return
                 if next_id == 'NEXT':
                     next_id = self.project.getNextQuestionInfo()
+                
 
-                print('NEXTID', next_id, 'PARENT_PK', self.question_instance)
+                # print('NEXTID', next_id, 'PARENT_PK', self.question_instance)
 
                 parentContext = QuestionInstance.objects.get(pk=self.question_instance).context
 
@@ -825,7 +902,7 @@ class AnswerQuestion(models.Model):
 
                         question_template = Question.objects.get(id=next_id)
 
-                        print(QuestionInstance.objects.all().filter(project=self.project).filter(parent_pk=self.question_instance))
+                        # print(QuestionInstance.objects.all().filter(project=self.project).filter(parent_pk=self.question_instance))
 
                         if len(QuestionInstance.objects.all().filter(project=self.project).filter(parent_pk=self.question_instance)) == 0:
                             new_question.append(QuestionInstance.objects.create(
@@ -839,7 +916,7 @@ class AnswerQuestion(models.Model):
                                 parent_answer_pk= self.pk,
                             ))
                     case AnswerTypes.NQONE:
-                        print(QuestionInstance.objects.all().filter(project=self.project).filter(parent_pk=self.question_instance))
+                        # print(QuestionInstance.objects.all().filter(project=self.project).filter(parent_pk=self.question_instance))
                         question_template = Question.objects.get(id=next_id)
                         if len(QuestionInstance.objects.all().filter(project=self.project).filter(parent_pk=self.question_instance)) == 0:
                             new_question.append(QuestionInstance.objects.create(
@@ -868,7 +945,7 @@ class AnswerQuestion(models.Model):
                         ))
                     case AnswerTypes.NUMBEREACH:
                         for i in range(int(self.answer_text), 0, -1):
-                            print('ITER', i,next_id)
+                            # print('ITER', i,next_id)
                             question_template = Question.objects.get(id=next_id)
                             localContext = parentContext
                             localContext.update({"Room Sequence Number":str(i)})
@@ -882,9 +959,8 @@ class AnswerQuestion(models.Model):
                                 context=localContext,
                                 parent_answer_pk=self.pk,
                             )
-
                             new_question.append(local_new_question)
-                print('NEW QUESTIONS', new_question)
+                # print('NEW QUESTIONS', new_question)
                 if len(new_question) > 0:
                     for question in new_question:
                         self.addQuestionToQueue(question)
@@ -933,6 +1009,26 @@ class NamingCondition(models.Model):
         else:
             raise ValidationError(f"Unknown condition type: {self.condition_type}")
 
+class EmailMessage(models.Model):
+    created = models.DateTimeField(_("Date created"), auto_now_add=True)
+    subject = models.CharField(_("Header"), max_length=255)
+    html_content = models.TextField(_("HTML-code"))
+    users = models.ManyToManyField(User, verbose_name=_("Users"), blank=True)
+    groups = models.ManyToManyField(Group, verbose_name=_("Groups"), blank=True)
+
+    class Meta:
+        verbose_name = _("Email mail")
+        verbose_name_plural = _("Email messages")
+        ordering = ['-created']
+
+    def __str__(self):
+        return self.subject
 
 
-
+class Transaction(models.Model):
+    created = models.DateTimeField(_("Date created"), auto_now_add=True)
+    user = models.ForeignKey(User, verbose_name=_("User"), on_delete=models.CASCADE)
+    amount = models.PositiveIntegerField(_("Amount"), default=0)
+    project = models.ForeignKey(Project, verbose_name=_("Project"), on_delete=models.CASCADE)
+    
+    

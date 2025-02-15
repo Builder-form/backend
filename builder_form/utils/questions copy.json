@@ -5,16 +5,16 @@
         "answers": [
             {
                 "answer": "Flat",
-                "id": "Q1_A1",
-                "parent_id": "Q1_A1",
+                "id": "Q1_A2",
+                "parent_id": "Q1_A2",
                 "next_id": "Q4",
                 "conditions":"",
                 "answer_type": "SINGLE"
             },
             {
                 "answer": "House",
-                "id": "Q1_A2",
-                "parent_id": "Q1_A2",
+                "id": "Q1_A1",
+                "parent_id": "Q1_A1",
                 "next_id": "Q2",
                 "answer_type": "SINGLE",
                 "conditions":""
@@ -160,7 +160,7 @@
                 "next_id":"Q24",
                 "conditions":"{\"insertion\": \"After equvalent questions\"}",
                 "comment": "If Q3 create questions more then Q5, go back to Q3 next logic..\n\nElse go Q24",
-                "answer_type": "CUSTOM"
+                "answer_type": "SINGLE"
             },
             {
                 "answer": "Refurb with structural alterations",
@@ -169,14 +169,14 @@
                 "next_id":"Q24",
                 "conditions":"{\"insertion\": \"After equvalent questions\"}",
                 "comment": "If Q3 create questions more then Q5, go back to Q3 next logic..\n\nElse go Q24",
-                "answer_type": "CUSTOM"
+                "answer_type": "Single"
             },
             {
                 "answer": "Refurb with demolition of adjacent structures",
                 "id": "Q5_A3",
                 "parent_id": "Q5_A3",
                 "next_id": "Q6",
-                "answer_type": "CUSTOM"
+                "answer_type": "SINGLE"
             }
         ]
     },
@@ -248,7 +248,7 @@
     },
     {
         "id": "Q7",
-        "text": "Type of demolishing {0}",
+        "text": "Type of demolishing [Q6 ANSWER]",
         "answers": [
             {
                 "answer": "remove entire extension",
@@ -1316,13 +1316,14 @@
     },
     {
         "id": "Q27",
-        "text": "House. Select Number of Rooms for {0}",
+        "text": "House. Select Number of Rooms for [Floor Name]",
         "answers": [
             {
                 "answer": "Customise:",
                 "id": "Q27_A1",
                 "parent_id": "Q27_A1",
-                "next_id": "Answer all Q27 created, \nif answered go Q29",
+                "conditions":"{ \"insertion\": \"After equvalent questions\"}",
+                "next_id": "Q29",
                 "answer_type": "NUMBER EACH"
             }
         ]
@@ -1342,28 +1343,28 @@
     },
     {
         "id": "Q29",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - {0}-Room Type selection\n\nFor Flat (Q1_A2 - selected):\nFlat - {0}- Room Type selection",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number] -Room Type selection\n\nFor Flat (Q1_A2 - selected):\nFlat - - Room Type selection",
         "answers": [
             {
                 "answer": "Rooms/hallway/landings",
                 "id": "Q29_A1",
                 "parent_id": "Q29_A1",
                 "next_id": "Q30",
-                "answer_type": "MULTI - NQ ONE"
+                "answer_type": "SINGLE"
             },
             {
                 "answer": "Kitchen/utility/storage/attic",
                 "id": "Q29_A2",
                 "parent_id": "Q29_A2",
                 "next_id": "Q31",
-                "answer_type": "MULTI - NQ ONE"
+                "answer_type": "SINGLE"
             },
             {
                 "answer": "Bathooms/shower roms/toilets",
                 "id": "Q29_A3",
                 "parent_id": "Q29_A3",
                 "next_id": "Q32",
-                "answer_type": "MULTI - NQ ONE"
+                "answer_type": "SINGLE"
             }
         ]
     },
@@ -1658,7 +1659,7 @@
     },
     {
         "id": "Q33",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - {0}-Strip out and demolition needed?\n\nFor Flat (Q1_A2 - selected):\nFlat - {0} - Strip out and demolition needed?",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number] - Strip out and demolition needed?\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number] - Strip out and demolition needed?",
         "answers": [
             {
                 "answer": "Yes, lets make Strip out and demolition",
@@ -1680,7 +1681,7 @@
     },
     {
         "id": "Q34",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] -Room number {0}-Strip out and demolition details\n\nFor Flat (Q1_A2 - selected):\nFlat - Room number {0}- Strip out and demolition details",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] -Room number [Room Sequence Number]-Strip out and demolition details\n\nFor Flat (Q1_A2 - selected):\nFlat - Room number [Room Sequence Number]- Strip out and demolition details",
         "answers": [
             {
                 "answer": "Built-in wardrobe",
@@ -1805,7 +1806,7 @@
 
     {
         "id": "Q35",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - Room Number {0}-Strip out and demolition - [Q34 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - Room Number {0} - Strip out and demolition - [Q34 ANSWER]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - Room Number [Room Sequence Number]-Strip out and demolition - [Q34 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - Room Number [Room Sequence Number] - Strip out and demolition - [Q34 ANSWER]",
         "answers": [
             {
                 "answer": "Remove to dispose",
@@ -1829,7 +1830,7 @@
     },
     {
         "id": "Q36",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - {0} -Strip out and demolition details\n\nFor Flat (Q1_A2 - selected):\nFlat - {} - Strip out and demolition details",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number] -Strip out and demolition details\n\nFor Flat (Q1_A2 - selected):\nFlat - {} - Strip out and demolition details",
         "answers": [
             {
                 "answer": "Kitchen units",
@@ -1988,7 +1989,7 @@
     },
     {
         "id": "Q38",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] -{0}-Strip out and demolition details\n\nFor Flat (Q1_A2 - selected):\nFlat - {0}- Strip out and demolition details",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - Room Number [Room Sequence Number]-Strip out and demolition details\n\nFor Flat (Q1_A2 - selected):\nFlat - Room Number [Room Sequence Number]- Strip out and demolition details",
         "answers": [
             {
                 "answer": "Water tank",
@@ -2160,7 +2161,7 @@
     },
     {
         "id": "Q41",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - {0} -Strip out and demolition - [Q40 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - {0}- Strip out and demolition - [Q40 ANSWER]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - Room Number [Room Sequence Number] -Strip out and demolition - [Q40 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - Room Number [Room Sequence Number]- Strip out and demolition - [Q40 ANSWER]",
         "answers": [
             {
                 "answer": "Remove to dispose",
@@ -2271,7 +2272,7 @@
     },
     {
         "id": "Q43",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - {0} -Strip out and demolition - [Q42 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Strip out and demolition - [Q42 ANSWER]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - Room Number [Room Sequence Number] -Strip out and demolition - [Q42 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Strip out and demolition - [Q42 ANSWER]",
         "answers": [
             {
                 "answer": "Remove to dispose",
@@ -2437,7 +2438,7 @@
                 "answer_type": "MULTI - NQ ONE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q46_A7",
                 "parent_id": "Q46_A7",
                 "next_id": "Q47",
@@ -2520,7 +2521,7 @@
                 "answer_type": "MULTI - NQ ONE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q47_A11",
                 "parent_id": "Q47_A11",
                 "next_id": "Q49",
@@ -2537,7 +2538,7 @@
                 "id": "Q48_A1",
                 "parent_id": "Q48_A1",
                 "conditions":"{ \"insertion\": \"After equvalent questions\"}",
-                "next_id":"Q46",
+                "next_id":"Q49",
                 "comment": "Answer all Q48 created, \nif answered go Q49",
                 "answer_type": "SINGLE"
             },
@@ -2546,7 +2547,7 @@
                 "id": "Q48_A2",
                 "parent_id": "Q48_A2",
                 "conditions":"{ \"insertion\": \"After equvalent questions\"}",
-                "next_id":"Q46",
+                "next_id":"Q49",
                 "comment": "Answer all Q48 created, \nif answered go Q49",
                 "answer_type": "SINGLE"
             }
@@ -2640,7 +2641,7 @@
                 "answer_type": "MULTI - NQ ONE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q49_A11",
                 "parent_id": "Q49_A11",
                 "next_id": "Q51",
@@ -2770,7 +2771,7 @@
                 "answer_type": "MULTI - NQ ONE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q52_A12",
                 "parent_id": "Q52_A12",
                 "next_id": "Q53",
@@ -2874,7 +2875,7 @@
                 "answer_type": "MULTI - NQ ONE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q53_A14",
                 "parent_id": "Q53_A14",
                 "next_id": "Q54",
@@ -2964,7 +2965,7 @@
                 "answer_type": "MULTI - NQ ONE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q54_A12",
                 "parent_id": "Q54_A12",
                 "next_id": "Q55",
@@ -3046,7 +3047,7 @@
                 "answer_type": "MULTI - NQ ONE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q56_A8",
                 "parent_id": "Q56_A8",
                 "next_id": "Q57",
@@ -3129,7 +3130,7 @@
                 "answer_type": "MULTI - NQ ONE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q57_A11",
                 "parent_id": "Q57_A11",
                 "next_id": "Q59",
@@ -3145,14 +3146,16 @@
                 "answer": "Supply and install",
                 "id": "Q58_A1",
                 "parent_id": "Q58_A1",
-                "next_id": "Answer all Q58 created, \nif answered go Q59",
+                "conditions":"{ \"insertion\": \"After equvalent questions\"}",
+                "next_id": "Q59",
                 "answer_type": "SINGLE"
             },
             {
                 "answer": "Install - Client supply",
                 "id": "Q58_A2",
                 "parent_id": "Q58_A2",
-                "next_id": "Answer all Q58 created, \nif answered go Q59",
+                "conditions":"{ \"insertion\": \"After equvalent questions\"}",
+                "next_id": "Q59",
                 "answer_type": "SINGLE"
             }
         ]
@@ -3253,7 +3256,7 @@
                 "answer_type": "MULTI - NQ ONE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q59_A14",
                 "parent_id": "Q59_A14",
                 "next_id": "Q61",
@@ -3262,7 +3265,7 @@
         ]
     },
     {
-        "id": "Q60_A1",
+        "id": "Q60",
         "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Internal decoration and finishes - Walls - [Q59 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Internal decoration and finishes - Walls - [Q59 ANSWER]",
         "answers": [
             {
@@ -3332,7 +3335,7 @@
                 "answer_type": "MULTI - NQ ONE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q61_A7",
                 "parent_id": "Q61_A7",
                 "next_id": "Q62",
@@ -3400,7 +3403,7 @@
                 "answer_type": "MULTI - NQ EACH"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q63_A5",
                 "parent_id": "Q63_A5",
                 "next_id": "Q641",
@@ -3410,20 +3413,24 @@
     },
     {
         "id": "Q64",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Windows - {0}[Q63 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing- Windows - {0}[Q63 ANSWER]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Windows - [Q63 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing- Windows - [Q63 ANSWER]",
         "answers": [
             {
                 "answer": "Supply and install",
                 "id": "Q64_A1",
                 "parent_id": "Q64_A1",
-                "next_id": "Answer all Q64 created, \nif answered go Q641",
+                "conditions":"{ \"insertion\": \"After equvalent questions\"}",
+                "next_id":"Q641",
+                "comment": "Answer all Q64 created, \nif answered go Q641",
                 "answer_type": "SINGLE"
             },
             {
                 "answer": "Install - Client supply",
                 "id": "Q64_A2",
                 "parent_id": "Q64_A2",
-                "next_id": "Answer all Q64 created, \nif answered go Q641",
+                "conditions":"{ \"insertion\": \"After equvalent questions\"}",
+                "next_id":"Q641",
+                "comment": "Answer all Q64 created, \nif answered go Q641",
                 "answer_type": "SINGLE"
             }
         ]
@@ -3535,7 +3542,7 @@
                 "answer_type": "MULTI - NQ EACH"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q641_A13",
                 "parent_id": "Q641_A13",
                 "next_id": "Q65",
@@ -3545,7 +3552,7 @@
     },
     {
         "id": "Q642",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- External doors-[Q641 Answer]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing- External doors-{0}[Q641 Answer]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- External doors-[Q641 Answer]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing- External doors-[Q641 Answer]",
         "answers": [
             {
                 "answer": "Supply and install",
@@ -3644,7 +3651,7 @@
                 "answer_type": "MULTI - NQ EACH"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q65_A10",
                 "parent_id": "Q65_A10",
                 "next_id": "Q67",
@@ -3654,20 +3661,24 @@
     },
     {
         "id": "Q66",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Enternal doors - {0} [Q65 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing- Internal doors - {0} [Q65 ANSWER]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Enternal doors - [Q65 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing- Internal doors - [Q65 ANSWER]",
         "answers": [
             {
                 "answer": "Supply and install",
                 "id": "Q66_A1",
                 "parent_id": "Q66_A1",
-                "next_id": "Answer all Q66 created, \nif answered go Q67",
+                "conditions":"{ \"insertion\": \"After equvalent questions\"}",
+                "next_id":"Q67",
+                "comment": "Answer all Q66 created, \nif answered go Q67",
                 "answer_type": "SINGLE"
             },
             {
                 "answer": "Install - Client supply",
                 "id": "Q66_A2",
                 "parent_id": "Q66_A2",
-                "next_id": "Answer all Q66 created, \nif answered go Q67",
+                "conditions":"{ \"insertion\": \"After equvalent questions\"}",
+                "next_id":"Q67",
+                "comment": "Answer all Q66 created, \nif answered go Q67",
                 "answer_type": "SINGLE"
             }
         ]
@@ -3816,7 +3827,7 @@
                 "answer_type": "MULTI - NQ ONE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q67_A17",
                 "parent_id": "Q67_A17",
                 "next_id": "Q69",
@@ -3826,20 +3837,24 @@
     },
     {
         "id": "Q68",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside rooms/hallway/landings - {0} [Q67 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing- Inside rooms/hallway/landings - {0} [Q67 ANSWER]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside rooms/hallway/landings - [Q67 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing- Inside rooms/hallway/landings - [Q67 ANSWER]",
         "answers": [
             {
                 "answer": "Supply and install",
                 "id": "Q68_A1",
                 "parent_id": "Q68_A1",
-                "next_id": "Answer all Q68 created, \nif answered go Q69",
+                "conditions":"{ \"insertion\": \"After equvalent questions\"}",
+                "next_id":"Q69",
+                "comment": "Answer all Q68 created, \nif answered go Q69",
                 "answer_type": "SINGLE"
             },
             {
                 "answer": "Install - Client supply",
                 "id": "Q68_A2",
                 "parent_id": "Q68_A2",
-                "next_id": "Answer all Q68 created, \nif answered go Q69",
+                "conditions":"{ \"insertion\": \"After equvalent questions\"}",
+                "next_id":"Q69",
+                "comment": "Answer all Q68 created, \nif answered go Q69",
                 "answer_type": "SINGLE"
             }
         ]
@@ -3913,13 +3928,13 @@
                 "answer": "Customise:",
                 "id": "Q69_A8",
                 "parent_id": "Q69_A8",
-                "conditions":"{\"conditions\": \"IF (Q31_A1, 31_A2, ANSWERED_ANY): Q70;IF (Q31_A3, 31_A4, ANSWERED_ANY): Q87;IF (Q32_A1, 32_A2, ANSWERED_ANY): Q93; IF (Q1_ANSWER, Q1_A2 , EQUAL): Q70; \"}",
+                "conditions":"{\"conditions\": \"IF (Q31_A1, Q31_A2, ANSWERED_ANY): Q70;IF (Q31_A3, Q31_A4, ANSWERED_ANY): Q87;IF (Q32_A1, Q32_A2, ANSWERED_ANY): Q93; IF (Q1_ANSWER, Q1_A2 , EQUAL): Q70; \"}",
                 "next_id":"END",
                 "comment": "IF Q31_A1 Or Q31_A2 answered then -> Q70\nIF Q31_A3 Or Q31_A4 answered then -> Q87\nIF Q32_A1 or Q32_A2 or Q32_A3 answered then -> Q93\nElse -> for HOUSE: Q106\nElse -> for FLAT: END",
                 "answer_type": "MULTI - NQ ONE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q69_A9",
                 "parent_id": "Q69_A9",
                 "conditions":"{\"conditions\": \"IF (Q31_A1, 31_A2, ANSWERED_ANY): Q70;IF (Q31_A3, 31_A4, ANSWERED_ANY): Q87;IF (Q32_A1, 32_A2, ANSWERED_ANY): Q93; IF (Q1_ANSWER, Q1_A2 , EQUAL): Q106; \"}",
@@ -3931,7 +3946,7 @@
     },
     {
         "id": "Q691",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Electrics- {0}[Q69 Answer]:\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility- Electrics-{0}[Q69 Answer]:",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Electrics- [Q69 Answer]:\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility- Electrics-[Q69 Answer]:",
         "answers": [
             {
                 "answer": "Supply and install",
@@ -3979,7 +3994,7 @@
                 "answer_type": "SINGLE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q70_A4",
                 "parent_id": "Q70_A4",
                 "next_id": "Q72",
@@ -4036,7 +4051,7 @@
                 "answer_type": "SINGLE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q72_A4",
                 "parent_id": "Q72_A4",
                 "next_id": "Q74",
@@ -4046,7 +4061,7 @@
     },
     {
         "id": "Q73",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-{0}[Q72 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-{0}[Q72 ANSWER]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-[Q72 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-[Q72 ANSWER]",
         "answers": [
             {
                 "answer": "Supply and install",
@@ -4093,7 +4108,7 @@
                 "answer_type": "SINGLE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q74_A4",
                 "parent_id": "Q74_A4",
                 "next_id": "Q77",
@@ -4103,7 +4118,7 @@
     },
     {
         "id": "Q75",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility- {0}[Q74 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-{0}[Q74 ANSWER]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility- [Q74 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-[Q74 ANSWER]",
         "answers": [
             {
                 "answer": "Supply and install",
@@ -4255,7 +4270,7 @@
                 "answer_type": "SINGLE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q77_A4",
                 "parent_id": "Q77_A4",
                 "next_id": "Q79",
@@ -4265,7 +4280,7 @@
     },
     {
         "id": "Q78",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-{0}[Q77 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-{0}[Q77 ANSWER]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-[Q77 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-[Q77 ANSWER]",
         "answers": [
             {
                 "answer": "Supply and install",
@@ -4312,7 +4327,7 @@
                 "answer_type": "SINGLE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q79_A4",
                 "parent_id": "Q79_A4",
                 "next_id": "Q81",
@@ -4322,7 +4337,7 @@
     },
     {
         "id": "Q80",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility- {0}[Q79 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-{0}[Q79 ANSWER]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility- [Q79 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-[Q79 ANSWER]",
         "answers": [
             {
                 "answer": "Supply and install",
@@ -4371,7 +4386,7 @@
                 "answer_type": "SINGLE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q81_A4",
                 "parent_id": "Q81_A4",
                 "next_id": "Q83",
@@ -4381,7 +4396,7 @@
     },
     {
         "id": "Q82",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-{0}[Q81 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-{0}[Q81 ANSWER]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-[Q81 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-[Q81 ANSWER]",
         "answers": [
             {
                 "answer": "Supply and install",
@@ -4421,7 +4436,7 @@
                 "answer_type": "SINGLE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q83_A3",
                 "parent_id": "Q83_A3",
                 "next_id": "Q85",
@@ -4431,7 +4446,7 @@
     },
     {
         "id": "Q84",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-{0}[Q83 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-{0}[Q83 ANSWER]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-[Q83 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-[Q83 ANSWER]",
         "answers": [
             {
                 "answer": "Supply and install",
@@ -4462,10 +4477,10 @@
                 "answer_type": "SINGLE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q85_A2",
                 "parent_id": "Q85_A2",
-                "conditions":"{\"conditions\": \"IF (Q87_ANSWER, ANSWERED_ANY):NEXT;IF (Q93_ANSWER, ANSWERED_ANY):NEXT; IF (Q1_A2, ANSWERED_ANY): Q106\"}",
+                "conditions":"{\"conditions\": \"IF (Q87_ANSWER, ANSWERED_ANY):NEXT;IF (Q93_ANSWER, ANSWERED_ANY):NEXT; IF (Q1_A1, ANSWERED_ANY): Q106\"}",
                 "next_id":"END",
                 "comment": "IF Q69 created Q87 / Q93 - go closest created\nElse for HOUSE: Q 106\nElse for FLAT: END",
                 "answer_type": "SINGLE"
@@ -4474,13 +4489,13 @@
     },
     {
         "id": "Q86",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-{0}[Q85 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-{0}[Q85 ANSWER]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-[Q85 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-[Q85 ANSWER]",
         "answers": [
             {
                 "answer": "Supply and install",
                 "id": "Q86_A1",
                 "parent_id": "Q86_A1",
-                "conditions":"{\"conditions\": \"IF (Q87_ANSWER, ANSWERED_ANY):NEXT;IF (Q93_ANSWER, ANSWERED_ANY):NEXT; IF (Q1_A2, ANSWERED_ANY): Q106\"}",
+                "conditions":"{\"conditions\": \"IF (Q87_ANSWER, ANSWERED_ANY):NEXT;IF (Q93_ANSWER, ANSWERED_ANY):NEXT; IF (Q1_A1, ANSWERED_ANY): Q106\"}",
                 "next_id":"END",
                 "comment": "IF Q69 created Q87 / Q93 - go closest created\nElse for HOUSE: Q 106\nElse for FLAT: END",
                 "answer_type": "SINGLE"
@@ -4489,7 +4504,7 @@
                 "answer": "Install - Client supply",
                 "id": "Q86_A2",
                 "parent_id": "Q86_A2",
-                "conditions":"{\"conditions\": \"IF (Q87_ANSWER, ANSWERED_ANY):NEXT;IF (Q93_ANSWER, ANSWERED_ANY):NEXT; IF (Q1_A2, ANSWERED_ANY): Q106\"}",
+                "conditions":"{\"conditions\": \"IF (Q87_ANSWER, ANSWERED_ANY):NEXT;IF (Q93_ANSWER, ANSWERED_ANY):NEXT; IF (Q1_A1, ANSWERED_ANY): Q106\"}",
                 "next_id":"END",
                 "comment": "IF Q69 created Q87 / Q93 - go closest created\nElse for HOUSE: Q 106\nElse for FLAT: END",
                 "answer_type": "SINGLE"
@@ -4527,7 +4542,7 @@
                 "answer_type": "SINGLE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q87_A4",
                 "parent_id": "Q87_A4",
                 "next_id": "Q89",
@@ -4537,7 +4552,7 @@
     },
     {
         "id": "Q88",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing-Inside storage/attic-{0}[Q87 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside storage/attic-{0}[Q87 ANSWER]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing-Inside storage/attic-[Q87 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside storage/attic-[Q87 ANSWER]",
         "answers": [
             {
                 "answer": "Supply and install",
@@ -4584,7 +4599,7 @@
                 "answer_type": "SINGLE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q89_A4",
                 "parent_id": "Q89_A4",
                 "next_id": "Q91",
@@ -4594,7 +4609,7 @@
     },
     {
         "id": "Q90",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing-Inside storage/attic-{0}[Q89 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside storage/attic-{0}[Q89 ANSWER]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing-Inside storage/attic-[Q89 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside storage/attic-[Q89 ANSWER]",
         "answers": [
             {
                 "answer": "Supply and install",
@@ -4633,10 +4648,10 @@
                 "answer_type": "SINGLE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q91_A3",
                 "parent_id": "Q91_A3",
-                "conditions":"{\"conditions\": \"IF (Q93_ANSWER, ANSWERED_ANY):NEXT; IF (Q1_A2, ANSWERED_ANY): Q106\"}",
+                "conditions":"{\"conditions\": \"IF (Q93_ANSWER, ANSWERED_ANY):NEXT; IF (Q1_A1, ANSWERED_ANY): Q106\"}",
                 "next_id":"END",
                 "comment": "IF Q69 created Q 93 - go closest created\nElse for HOUSE: Q 106\nElse for FLAT: END",
                 "answer_type": "SINGLE"
@@ -4651,7 +4666,7 @@
                 "answer": "Supply and install",
                 "id": "Q92_A1",
                 "parent_id": "Q92_A1",
-                "conditions":"{\"conditions\": \"IF (Q93_ANSWER, ANSWERED_ANY):NEXT; IF (Q1_A2, ANSWERED_ANY): Q106\"}",
+                "conditions":"{\"conditions\": \"IF (Q93_ANSWER, ANSWERED_ANY):NEXT; IF (Q1_A1, ANSWERED_ANY): Q106\"}",
                 "next_id":"END",
                 "comment": "IF 69Q created Q 93 - go closest created\nElse for HOUSE: Q 106\nElse for FLAT: END",
                 "answer_type": "SINGLE"
@@ -4660,7 +4675,7 @@
                 "answer": "Install - Client supply",
                 "id": "Q92_A2",
                 "parent_id": "Q92_A2",
-                "conditions":"{\"conditions\": \"IF (Q93_ANSWER, ANSWERED_ANY):NEXT; IF (Q1_A2, ANSWERED_ANY): Q106\"}",
+                "conditions":"{\"conditions\": \"IF (Q93_ANSWER, ANSWERED_ANY):NEXT; IF (Q1_A1, ANSWERED_ANY): Q106\"}",
                 "next_id":"END",
                 "comment": "IF 69Q created Q 93 - go closest created\nElse for HOUSE: Q 106\nElse for FLAT: END",
                 "answer_type": "SINGLE"
@@ -4696,7 +4711,7 @@
                 "answer_type": "SINGLE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q93_A4",
                 "parent_id": "Q93_A4",
                 "next_id": "Q95",
@@ -4706,7 +4721,7 @@
     },
     {
         "id": "Q94",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing-Inside Bathroom/shower/toilet-{0}[Q93 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing- Inside Bathroom/shower/toilet-{0}[Q93 ANSWER]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing-Inside Bathroom/shower/toilet-[Q93 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing- Inside Bathroom/shower/toilet-[Q93 ANSWER]",
         "answers": [
             {
                 "answer": "Supply and install",
@@ -4756,7 +4771,7 @@
                 "answer_type": "SINGLE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q95_A4",
                 "parent_id": "Q95_A4",
                 "next_id": "Q98",
@@ -4766,7 +4781,7 @@
     },
     {
         "id": "Q96",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing-Inside Bathroom/shower/toilet-{0}[Q95 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing- Inside Bathroom/shower/toilet-{0}[Q95 ANSWER]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing-Inside Bathroom/shower/toilet-[Q95 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing- Inside Bathroom/shower/toilet-[Q95 ANSWER]",
         "answers": [
             {
                 "answer": "Supply and install",
@@ -4924,7 +4939,7 @@
                 "answer_type": "SINGLE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q98_A4",
                 "parent_id": "Q98_A4",
                 "next_id": "Q100",
@@ -4934,7 +4949,7 @@
     },
     {
         "id": "Q99",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside Bathroom/shower/toilet-{0}[Q98 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside Bathroom/shower/toilet-{0}[Q98 ANSWER]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside Bathroom/shower/toilet-[Q98 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside Bathroom/shower/toilet-[Q98 ANSWER]",
         "answers": [
             {
                 "answer": "Supply and install",
@@ -4984,7 +4999,7 @@
                 "answer_type": "SINGLE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q100_A4",
                 "parent_id": "Q100_A4",
                 "next_id": "Q102",
@@ -4994,7 +5009,7 @@
     },
     {
         "id": "Q101",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside Bathroom/shower/toilet-{0}[Q100 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside Bathroom/shower/toilet-{0}[Q100 ANSWER]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside Bathroom/shower/toilet-[Q100 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside Bathroom/shower/toilet-[Q100 ANSWER]",
         "answers": [
             {
                 "answer": "Supply and install",
@@ -5035,7 +5050,7 @@
                 "answer_type": "SINGLE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q102_A3",
                 "parent_id": "Q102_A3",
                 "next_id": "Q104",
@@ -5045,7 +5060,7 @@
     },
     {
         "id": "Q103",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside Bathroom/shower/toilet-{0}[Q102 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside Bathroom/shower/toilet-{0}[Q102 ANSWER]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside Bathroom/shower/toilet-[Q102 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside Bathroom/shower/toilet-[Q102 ANSWER]",
         "answers": [
             {
                 "answer": "Supply and install",
@@ -5077,10 +5092,10 @@
                 "answer_type": "SINGLE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q104_A2",
                 "parent_id": "Q104_A2",
-                "conditions":"{\"conditions\": \"IF (Q1_A2, ANSWERED_ANY): Q106;\"}",
+                "conditions":"{\"conditions\": \"IF (Q1_A1, ANSWERED_ANY): Q106;\"}",
                 "next_id":"END",
                 "comment": " for HOUSE: Q 106\nfor FLAT: END",
                 "answer_type": "SINGLE"
@@ -5089,13 +5104,13 @@
     },
     {
         "id": "Q105",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside Bathroom/shower/toilet-{0}[Q104 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside Bathroom/shower/toilet-{0}[Q104 ANSWER]",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside Bathroom/shower/toilet-[Q104 ANSWER]\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Fitting and installing-Inside Bathroom/shower/toilet-[Q104 ANSWER]",
         "answers": [
             {
                 "answer": "Supply and install",
                 "id": "Q105_A1",
                 "parent_id": "Q105_A1",
-                "conditions":"{\"conditions\": \"IF (Q1_A2, ANSWERED_ANY): Q106;\"}",
+                "conditions":"{\"conditions\": \"IF (Q1_A1, ANSWERED_ANY): Q106;\"}",
                 "next_id":"END",
                 "comment": " for HOUSE: Q 106\nfor FLAT: END",
                 "answer_type": "SINGLE"
@@ -5104,7 +5119,7 @@
                 "answer": "Install - Client supply",
                 "id": "Q105_A2",
                 "parent_id": "Q105_A2",
-                "conditions":"{\"conditions\": \"IF (Q1_A2, ANSWERED_ANY): Q106;\"}",
+                "conditions":"{\"conditions\": \"IF (Q1_A1, ANSWERED_ANY): Q106;\"}",
                 "next_id":"END",
                 "comment": " for HOUSE: Q 106\nfor FLAT: END",
                 "answer_type": "SINGLE"
@@ -5179,7 +5194,7 @@
     },
     {
         "id": "Q108",
-        "text": "House - External Refurbishment - {0}[Q107 Answer]",
+        "text": "House - External Refurbishment - [Q107 Answer]",
         "answers": [
             {
                 "answer": "Roof",
@@ -5220,7 +5235,7 @@
     },
     {
         "id": "Q109",
-        "text": "House - External Refurbishment - {0}[Q107 Answer] - Roof type",
+        "text": "House - External Refurbishment - [Q107 Answer] - Roof type",
         "answers": [
             {
                 "answer": "Pitched roof",
@@ -5242,7 +5257,7 @@
     },
     {
         "id": "Q110",
-        "text": "House - External Refurbishment - {0}[Q107 Answer] - Roof - {1}[Q109 Answer]",
+        "text": "House - External Refurbishment - [Q107 Answer] - Roof - {1}[Q109 Answer]",
         "answers": [
             {
                 "answer": "Fixing",
@@ -5262,7 +5277,7 @@
     },
     {
         "id": "Q111",
-        "text": "House - External Refurbishment - [Q107 Answer] - Roof - {0}[Q109 Answer] - [Q110 Answer]",
+        "text": "House - External Refurbishment - [Q107 Answer] - Roof - [Q109 Answer] - [Q110 Answer]",
         "answers": [
             {
                 "answer": "Fix roof tiles",
@@ -5508,7 +5523,7 @@
     },
     {
         "id": "Q117",
-        "text": "House - External Refurbishment - [Q107 Answer] - Back Wall- {0}[Q116 Answer]",
+        "text": "House - External Refurbishment - [Q107 Answer] - Back Wall- [Q116 Answer]",
         "answers": [
             {
                 "answer": "Fix cracks on render",
@@ -5559,7 +5574,7 @@
     },
     {
         "id": "Q118",
-        "text": "House - External Refurbishment - [Q107 Answer] - Back Wall- {0}[Q116 Answer]",
+        "text": "House - External Refurbishment - [Q107 Answer] - Back Wall- [Q116 Answer]",
         "answers": [
             {
                 "answer": "Remove old render",
@@ -5623,7 +5638,7 @@
     },
     {
         "id": "Q120",
-        "text": "House - External Refurbishment - [Q107 Answer] -Left hand side wall (facing the house)-{0}[Q119 Answer]",
+        "text": "House - External Refurbishment - [Q107 Answer] -Left hand side wall (facing the house)-[Q119 Answer]",
         "answers": [
             {
                 "answer": "Fix cracks on render",
@@ -5674,7 +5689,7 @@
     },
     {
         "id": "Q121",
-        "text": "House - External Refurbishment - [Q107 Answer]- Left hand side wall (facing the house)-{0}[Q119 Answer]",
+        "text": "House - External Refurbishment - [Q107 Answer]- Left hand side wall (facing the house)-[Q119 Answer]",
         "answers": [
             {
                 "answer": "Remove old render",
@@ -5738,7 +5753,7 @@
     },
     {
         "id": "Q123",
-        "text": "House - External Refurbishment - [Q107 Answer] - Right hand side wall (facing the house)-{0}[Q122 Answer]",
+        "text": "House - External Refurbishment - [Q107 Answer] - Right hand side wall (facing the house)-[Q122 Answer]",
         "answers": [
             {
                 "answer": "Fix cracks on render",
@@ -5779,7 +5794,7 @@
     },
     {
         "id": "Q124",
-        "text": "House - External Refurbishment - [Q107 Answer] -Right hand side wall (facing the house)-{0}[Q122 Answer]",
+        "text": "House - External Refurbishment - [Q107 Answer] -Right hand side wall (facing the house)-[Q122 Answer]",
         "answers": [
             {
                 "answer": "Remove old render",
@@ -5880,7 +5895,7 @@
                 "answer_type": "MULTI - NQ ONE"
             },
             {
-                "answer": "LEAVE AS IT IS:",
+                "answer": "Leave as it is",
                 "id": "Q125_9",
                 "parent_id": "Q125_9",
                 "next_id":"NEXT",
@@ -5891,7 +5906,7 @@
     },
     {
         "id": "Q126",
-        "text": "House - External Refurbishment - [Q107 Answer]- External Electrics-{0}[Q125 Answer]:",
+        "text": "House - External Refurbishment - [Q107 Answer]- External Electrics-[Q125 Answer]:",
         "answers": [
             {
                 "answer": "Supply and install",
@@ -5937,7 +5952,7 @@
     },
     {
         "id": "Q128",
-        "text": "House - External Refurbishment - [Q107 Answer] - {0}[Q127 Answer]",
+        "text": "House - External Refurbishment - [Q107 Answer] - [Q127 Answer]",
         "answers": [
             {
                 "answer": "Fix brick wall",
@@ -5980,7 +5995,7 @@
                 "id": "Q128_A5",
                 "parent_id": "Q128_A5",
                 "conditions":"{ \"insertion\": \"Right\"}",
-                "next_od":"END",
+                "next_id":"END",
                 "comment": "IF Q107 created Q130 and futher questions -> Go next question in sequence according to Q107\n\nIF Q107 created Q127 Question as Last -> END",
                 "answer_type": "MULTI - NQ ONE"
             },
@@ -5989,8 +6004,8 @@
                 "id": "Q128_A6",
                 "parent_id": "Q128_A6",
                 "conditions":"{ \"insertion\": \"Right\"}",
-                "comment":"END",
-                "next_id": "IF Q107 created Q130 and futher questions -> Go next question in sequence according to Q107\n\nIF Q107 created Q127 Question as Last -> END",
+                "next_id":"END",
+                "comment": "IF Q107 created Q130 and futher questions -> Go next question in sequence according to Q107\n\nIF Q107 created Q127 Question as Last -> END",
                 "answer_type": "MULTI - NQ ONE"
             },
             {
@@ -6006,7 +6021,7 @@
     },
     {
         "id": "Q129",
-        "text": "House - External Refurbishment - [Q107 Answer] - {0}[Q127 Answer]",
+        "text": "House - External Refurbishment - [Q107 Answer] - [Q127 Answer]",
         "answers": [
             {
                 "answer": "Demolish brick wall",
@@ -6070,7 +6085,7 @@
     },
     {
         "id": "Q131",
-        "text": "House - External Refurbishment - [Q107 Answer] - {0}[Q130 Answer]",
+        "text": "House - External Refurbishment - [Q107 Answer] - [Q130 Answer]",
         "answers": [
             {
                 "answer": "Fix fences",
@@ -6130,7 +6145,7 @@
     },
     {
         "id": "Q132",
-        "text": "House - External Refurbishment - [Q107 Answer] - {0}[Q130 Answer]",
+        "text": "House - External Refurbishment - [Q107 Answer] - [Q130 Answer]",
         "answers": [
             {
                 "answer": "Replace fences",
@@ -6194,7 +6209,7 @@
     },
     {
         "id": "Q134",
-        "text": "House - External Refurbishment - [Q107 Answer] - {0}[Q133 Answer]",
+        "text": "House - External Refurbishment - [Q107 Answer] - [Q133 Answer]",
         "answers": [
             {
                 "answer": "Fix fences",
@@ -6326,7 +6341,7 @@
     },
     {
         "id": "Q135",
-        "text": "House - External Refurbishment - [Q107 Answer] - {0}[Q133 Answer]",
+        "text": "House - External Refurbishment - [Q107 Answer] - [Q133 Answer]",
         "answers": [
             {
                 "answer": "Replace fences ",

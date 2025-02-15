@@ -54,7 +54,7 @@ class EmailCode(models.Model):
 
     @property
     def message(self) -> str:
-        return f"code {self.code}"
+        return f"{self.code}"
 
     def save(self, *args, **kwargs):
         from ..conf import conf

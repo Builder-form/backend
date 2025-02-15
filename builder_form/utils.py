@@ -32,7 +32,7 @@ def questionsJSONParse(jsonUrl):
                 )
         
 
-# questionsJSONParse('./utils/questions_test.json')
+# u.questionsJSONParse('./builder_form/utils/questions.json')
 
 def terminCSVParse(csvUrl):
     file = open(csvUrl)
@@ -45,7 +45,7 @@ def terminCSVParse(csvUrl):
             qid=line[2]
         )
 
-# terminCSVParse('/utils/termin.csv')
+#u.terminCSVParse('./builder_form/utils/termins.csv')
     
 
 def namingConditionsJSONParse(jsonUrl):
