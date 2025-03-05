@@ -1265,15 +1265,13 @@
     },
     {
         "id": "Q26",
-        "text": "House - Internal Refurbishment - Floors selection",
+        "text": "House - Internal Refurbishment - Which Floors?",
         "answers": [
             {
                 "answer": "Basement",
                 "id": "Q26_A1",
                 "parent_id": "Q26_A1",
                 "next_id": "Q27",
-                "conditions":"{\"params\":[ \"Basement\"]}",
-
                 "answer_type": "MULTI - NQ EACH"
             },
             {
@@ -1281,8 +1279,6 @@
                 "id": "Q26_A2",
                 "parent_id": "Q26_A2",
                 "next_id": "Q27",
-                "conditions":"{\"params\":[ \"Ground floor\"]}",
-
                 "answer_type": "MULTI - NQ EACH"
             },
             {
@@ -1290,8 +1286,6 @@
                 "id": "Q26_A3",
                 "parent_id": "Q26_A3",
                 "next_id": "Q27",
-                "conditions":"{\"params\":[ \"1st floor\"]}",
-
                 "answer_type": "MULTI - NQ EACH"
             },
             {
@@ -1299,17 +1293,13 @@
                 "id": "Q26_A4",
                 "parent_id": "Q26_A4",
                 "next_id": "Q27",
-                "conditions":"{\"params\":[ \"2nd floor\"]}",
-
                 "answer_type": "MULTI - NQ EACH"
             },
             {
-                "answer": "3rd floor",
+                "answer": "Loft",
                 "id": "Q26_A5",
                 "parent_id": "Q26_A5",
                 "next_id": "Q27",
-                "conditions":"{\"params\":[ \"3rd floor\"]}",
-
                 "answer_type": "MULTI - NQ EACH"
             }
         ]
@@ -1322,8 +1312,8 @@
                 "answer": "Customise:",
                 "id": "Q27_A1",
                 "parent_id": "Q27_A1",
-                "conditions":"{ \"insertion\": \"After equvalent questions\"}",
-                "next_id": "Q29",
+                "conditions":"{ \"insertion\": \"After equvalent questions\", \"conditions\": \"IF(Q26_A1, ANSWERED_ANY): Q300; IF(Q26_A2, ANSWERED_ANY): Q301; IF(Q26_A3, ANSWERED_ANY): Q302; IF(Q26_A4, ANSWERED_ANY): Q303; IF(Q26_A5, ANSWERED_ANY): Q304;\" }", 
+                "next_id": "Q300",
                 "answer_type": "NUMBER EACH"
             }
         ]
@@ -1343,339 +1333,1226 @@
     },
     {
         "id": "Q29",
-        "text": "For House (Q1_A1 - selected):\n[Floor Name] - [Room Sequence Number] - Room Type selection\n\nFor Flat (Q1_A2 - selected):\n[Room Sequence Number] - Room Type selection",
+        "text": "Flat - [Room Sequence Number] - Сurrent Room Purpose selection",
         "answers": [
             {
-                "answer": "Rooms/hallway/landings",
+                "answer": "Bathroom",
                 "id": "Q29_A1",
                 "parent_id": "Q29_A1",
-                "next_id": "Q30",
-                "answer_type": "SINGLE"
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
             },
             {
-                "answer": "Kitchen/utility/storage/attic",
+                "answer": "Bedroom ",
                 "id": "Q29_A2",
                 "parent_id": "Q29_A2",
                 "next_id": "Q31",
-                "answer_type": "SINGLE"
+                "answer_type": "MULTI - NQ ONE"
             },
-            {
-                "answer": "Bathooms/shower roms/toilets",
-                "id": "Q29_A3",
-                "parent_id": "Q29_A3",
-                "next_id": "Q32",
-                "answer_type": "SINGLE"
-            }
-        ]
-    },
-    {
-        "id": "Q30",
-        "text": "Room type - \"Rooms/hallway/landings\" details:",
-        "answers": [
             {
                 "answer": "Dining room",
-                "id": "Q30_A1",
-                "parent_id": "Q30_A1",
-                "conditions":"{\"insertion\": \"After equvalent questions\"}",
-                "next_id":"Q33",
-                "comment": "If Q29 create questions more then Q30, go back to Q29 next logic..\n\nElse go Q33",
-                "answer_type": "MULTI - NQ ONE"
-            },
-            {
-                "answer": "Living room",
-                "id": "Q30_A2",
-                "parent_id": "Q30_A2",
-                "conditions":"{\"insertion\": \"After equvalent questions\"}",
-                "next_id":"Q33",
-                "comment": "If Q29 create questions more then Q30, go back to Q29 next logic..\n\nElse go Q33",
-                "answer_type": "MULTI - NQ ONE"
-            },
-            {
-                "answer": "Sitting room",
-                "id": "Q30_A3",
-                "parent_id": "Q30_A3",
-                "conditions":"{\"insertion\": \"After equvalent questions\"}",
-                "next_id":"Q33",
-                "comment": "If Q29 create questions more then Q30, go back to Q29 next logic..\n\nElse go Q33",
-                "answer_type": "MULTI - NQ ONE"
-            },
-            {
-                "answer": "TV room",
-                "id": "Q30_A4",
-                "parent_id": "Q30_A4",
-                "conditions":"{\"insertion\": \"After equvalent questions\"}",
-                "next_id":"Q33",
-                "comment": "If Q29 create questions more then Q30, go back to Q29 next logic..\n\nElse go Q33",
-                "answer_type": "MULTI - NQ ONE"
-            },
-            {
-                "answer": "Library",
-                "id": "Q30_A5",
-                "parent_id": "Q30_A5",
-                "conditions":"{\"insertion\": \"After equvalent questions\"}",
-                "next_id":"Q33",
-                "comment": "If Q29 create questions more then Q30, go back to Q29 next logic..\n\nElse go Q33",
+                "id": "Q29_A3",
+                "parent_id": "Q29_A3",
+                "next_id": "Q31",
                 "answer_type": "MULTI - NQ ONE"
             },
             {
                 "answer": "Guest room",
-                "id": "Q30_A6",
-                "parent_id": "Q30_A6",
-                "conditions":"{\"insertion\": \"After equvalent questions\"}",
-                "next_id":"Q33",
-                "comment": "If Q29 create questions more then Q30, go back to Q29 next logic..\n\nElse go Q33",
-                "answer_type": "MULTI - NQ ONE"
-            },
-            {
-                "answer": "Utility room",
-                "id": "Q30_A7",
-                "parent_id": "Q30_A7",
-                "conditions":"{\"insertion\": \"After equvalent questions\"}",
-                "next_id":"Q33",
-                "comment": "If Q29 create questions more then Q30, go back to Q29 next logic..\n\nElse go Q33",
-                "answer_type": "MULTI - NQ ONE"
-            },
-            {
-                "answer": "Ply room",
-                "id": "Q30_A8",
-                "parent_id": "Q30_A8",
-                "conditions":"{\"insertion\": \"After equvalent questions\"}",
-                "next_id":"Q33",
-                "comment": "If Q29 create questions more then Q30, go back to Q29 next logic..\n\nElse go Q33",
+                "id": "Q29_A4",
+                "parent_id": "Q29_A4",
+                "next_id": "Q31",
                 "answer_type": "MULTI - NQ ONE"
             },
             {
                 "answer": "Gym",
-                "id": "Q30_A9",
-                "parent_id": "Q30_A9",
-                "conditions":"{\"insertion\": \"After equvalent questions\"}",
-                "next_id":"Q33",
-                "comment": "If Q29 create questions more then Q30, go back to Q29 next logic..\n\nElse go Q33",
-                "answer_type": "MULTI - NQ ONE"
-            },
-            {
-                "answer": "Pray room",
-                "id": "Q30_A10",
-                "parent_id": "Q30_A10",
-                "conditions":"{\"insertion\": \"After equvalent questions\"}",
-                "next_id":"Q33",
-                "comment": "If Q29 create questions more then Q30, go back to Q29 next logic..\n\nElse go Q33",
-                "answer_type": "MULTI - NQ ONE"
-            },
-            {
-                "answer": "Study",
-                "id": "Q30_A11",
-                "parent_id": "Q30_A11",
-                "conditions":"{\"insertion\": \"After equvalent questions\"}",
-                "next_id":"Q33",
-                "comment": "If Q29 create questions more then Q30, go back to Q29 next logic..\n\nElse go Q33",
-                "answer_type": "MULTI - NQ ONE"
-            },
-            {
-                "answer": "Master bedroom",
-                "id": "Q30_A12",
-                "parent_id": "Q30_A12",
-                "conditions":"{\"insertion\": \"After equvalent questions\"}",
-                "next_id":"Q33",
-                "comment": "If Q29 create questions more then Q30, go back to Q29 next logic..\n\nElse go Q33",
-                "answer_type": "MULTI - NQ ONE"
-            },
-            {
-                "answer": "Bedroom – front",
-                "id": "Q30_A13",
-                "parent_id": "Q30_A13",
-                "conditions":"{\"insertion\": \"After equvalent questions\"}",
-                "next_id":"Q33",
-                "comment": "If Q29 create questions more then Q30, go back to Q29 next logic..\n\nElse go Q33",
-                "answer_type": "MULTI - NQ ONE"
-            },
-            {
-                "answer": "Bedroom 2 – front",
-                "id": "Q30_A14",
-                "parent_id": "Q30_A14",
-                "conditions":"{\"insertion\": \"After equvalent questions\"}",
-                "next_id":"Q33",
-                "comment": "If Q29 create questions more then Q30, go back to Q29 next logic..\n\nElse go Q33",
-                "answer_type": "MULTI - NQ ONE"
-            },
-            {
-                "answer": "Bedroom – mid",
-                "id": "Q30_A15",
-                "parent_id": "Q30_A15",
-                "conditions":"{\"insertion\": \"After equvalent questions\"}",
-                "next_id":"Q33",
-                "comment": "If Q29 create questions more then Q30, go back to Q29 next logic..\n\nElse go Q33",
-                "answer_type": "MULTI - NQ ONE"
-            },
-            {
-                "answer": "Bedroom – back",
-                "id": "Q30_A16",
-                "parent_id": "Q30_A16",
-                "conditions":"{\"insertion\": \"After equvalent questions\"}",
-                "next_id":"Q33",
-                "comment": "If Q29 create questions more then Q30, go back to Q29 next logic..\n\nElse go Q33",
-                "answer_type": "MULTI - NQ ONE"
-            },
-            {
-                "answer": "Bedroom 2 – back",
-                "id": "Q30_A17",
-                "parent_id": "Q30_A17",
-                "conditions":"{\"insertion\": \"After equvalent questions\"}",
-                "next_id":"Q33",
-                "comment": "If Q29 create questions more then Q30, go back to Q29 next logic..\n\nElse go Q33",
+                "id": "Q29_A5",
+                "parent_id": "Q29_A5",
+                "next_id": "Q31",
                 "answer_type": "MULTI - NQ ONE"
             },
             {
                 "answer": "Hallway",
-                "id": "Q30_A18",
-                "parent_id": "Q30_A18",
-                "conditions":"{\"insertion\": \"After equvalent questions\"}",
-                "next_id":"Q33",
-                "comment": "If Q29 create questions more then Q30, go back to Q29 next logic..\n\nElse go Q33",
+                "id": "Q29_A6",
+                "parent_id": "Q29_A6",
+                "next_id": "Q31",
                 "answer_type": "MULTI - NQ ONE"
             },
-            {
-                "answer": "Stairway",
-                "id": "Q30_A19",
-                "parent_id": "Q30_A19",
-                "conditions":"{\"insertion\": \"After equvalent questions\"}",
-                "next_id":"Q33",
-                "comment": "If Q29 create questions more then Q30, go back to Q29 next logic..\n\nElse go Q33",
-                "answer_type": "MULTI - NQ ONE"
-            },
-            {
-                "answer": "1st floor landing",
-                "id": "Q30_A20",
-                "parent_id": "Q30_A20",
-                "conditions":"{\"insertion\": \"After equvalent questions\"}",
-                "next_id":"Q33",
-                "comment": "If Q29 create questions more then Q30, go back to Q29 next logic..\n\nElse go Q33",
-                "answer_type": "MULTI - NQ ONE"
-            },
-            {
-                "answer": "2nd floor landing",
-                "id": "Q30_A21",
-                "parent_id": "Q30_A21",
-                "conditions":"{\"insertion\": \"After equvalent questions\"}",
-                "next_id":"Q33",
-                "comment": "If Q29 create questions more then Q30, go back to Q29 next logic..\n\nElse go Q33",
-                "answer_type": "MULTI - NQ ONE"
-            },
-            {
-                "answer": "Customise:",
-                "id": "Q30_A22",
-                "parent_id": "Q30_A22",
-                "conditions":"{\"insertion\": \"After equvalent questions\"}",
-                "next_id":"Q33",
-                "comment": "If Q29 create questions more then Q30, go back to Q29 next logic..\n\nElse go Q33",
-                "answer_type": "MULTI - NQ ONE"
-            }
-        ]
-    },
-    {
-        "id": "Q31",
-        "text": "Room type - \"Kitchen/utility/storage/attic\" details",
-        "answers": [
             {
                 "answer": "Kitchen ",
-                "id": "Q31_A1",
-                "parent_id": "Q31_A1",
-                "conditions":"{\"insertion\": \"After equvalent questions\"}",
-                "next_id":"Q33",
-                "comment": "If Q29 create questions more then Q30 / Q31, go back to Q29 next logic..\n\nElse go Q33",
+                "id": "Q29_A7",
+                "parent_id": "Q29_A7",
+                "next_id": "Q31",
                 "answer_type": "MULTI - NQ ONE"
             },
             {
-                "answer": "Utility room",
-                "id": "Q31_A2",
-                "parent_id": "Q31_A2",
-                "conditions":"{\"insertion\": \"After equvalent questions\"}",
-                "next_id":"Q33",
-                "comment": "If Q29 create questions more then Q30 / Q31, go back to Q29 next logic..\n\nElse go Q33",
+                "answer": "Library",
+                "id": "Q29_A8",
+                "parent_id": "Q29_A8",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Living room",
+                "id": "Q29_A9",
+                "parent_id": "Q29_A9",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Master bedroom",
+                "id": "Q29_A10",
+                "parent_id": "Q29_A10",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Ply room",
+                "id": "Q29_A11",
+                "parent_id": "Q29_A11",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Shower room",
+                "id": "Q29_A12",
+                "parent_id": "Q29_A12",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Sitting room",
+                "id": "Q29_A13",
+                "parent_id": "Q29_A13",
+                "next_id": "Q31",
                 "answer_type": "MULTI - NQ ONE"
             },
             {
                 "answer": "Storage",
-                "id": "Q31_A3",
-                "parent_id": "Q31_A3",
-                "conditions":"{\"insertion\": \"After equvalent questions\"}",
-                "next_id":"Q33",
-                "comment": "If Q29 create questions more then Q30 / Q31, go back to Q29 next logic..\n\nElse go Q33",
+                "id": "Q29_A14",
+                "parent_id": "Q29_A14",
+                "next_id": "Q31",
                 "answer_type": "MULTI - NQ ONE"
             },
             {
-                "answer": "Attic",
-                "id": "Q31_A4",
-                "parent_id": "Q31_A4",
-                "conditions":"{\"insertion\": \"After equvalent questions\"}",
-                "next_id":"Q33",
-                "comment": "If Q29 create questions more then Q30 / Q31, go back to Q29 next logic..\n\nElse go Q33",
+                "answer": "Study",
+                "id": "Q29_A15",
+                "parent_id": "Q29_A15",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Toilet",
+                "id": "Q29_A16",
+                "parent_id": "Q29_A16",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "TV room",
+                "id": "Q29_A17",
+                "parent_id": "Q29_A17",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Utility room",
+                "id": "Q29_A18",
+                "parent_id": "Q29_A18",
+                "next_id": "Q31",
                 "answer_type": "MULTI - NQ ONE"
             },
             {
                 "answer": "Customise:",
-                "id": "Q31_A5",
-                "parent_id": "Q31_A5",
-                "conditions":"{\"insertion\": \"After equvalent questions\"}",
-                "next_id":"Q33",
-                "comment": "If Q29 create questions more then Q30 / Q31, go back to Q29 next logic..\n\nElse go Q33",
+                "id": "Q29_A19",
+                "parent_id": "Q29_A19",
+                "next_id": "Q31",
                 "answer_type": "MULTI - NQ ONE"
             }
         ]
     },
     {
-        "id": "Q32",
-        "text": "Room type - \"Bathrooms/shower rooms/toilets\" details",
+        "id": "Q300",
+        "text": "House - [Floor Name] - [Room Sequence Number] - Сurrent Room Purpose selection",
+        "answers": [
+            {
+                "answer": "TV room",
+                "id": "Q300_A1",
+                "parent_id": "Q300_A1",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Library",
+                "id": "Q300_A2",
+                "parent_id": "Q300_A2",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Guest room",
+                "id": "Q300_A3",
+                "parent_id": "Q300_A3",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Utility room",
+                "id": "Q300_A4",
+                "parent_id": "Q300_A4",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Ply room",
+                "id": "Q300_A5",
+                "parent_id": "Q300_A5",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Gym",
+                "id": "Q300_A6",
+                "parent_id": "Q300_A6",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Storage",
+                "id": "Q300_A7",
+                "parent_id": "Q300_A7",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Bathroom",
+                "id": "Q300_A8",
+                "parent_id": "Q300_A8",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Shower room",
+                "id": "Q300_A9",
+                "parent_id": "Q300_A9",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Toilet",
+                "id": "Q300_A10",
+                "parent_id": "Q300_A10",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Customise:",
+                "id": "Q300_A11",
+                "parent_id": "Q300_A11",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            }
+        ]
+    },
+    {
+        "id": "Q301",
+        "text": "House - [Floor Name] - [Room Sequence Number] - Сurrent Room Purpose selection",
+        "answers": [
+            {
+                "answer": "Hallway",
+                "id": "Q301_A1",
+                "parent_id": "Q301_A1",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Stairway",
+                "id": "Q301_A2",
+                "parent_id": "Q301_A2",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Living room",
+                "id": "Q301_A3",
+                "parent_id": "Q301_A3",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Sitting room",
+                "id": "Q301_A4",
+                "parent_id": "Q301_A4",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Dining room",
+                "id": "Q301_A5",
+                "parent_id": "Q301_A5",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Kitchen ",
+                "id": "Q301_A6",
+                "parent_id": "Q301_A6",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Utility room",
+                "id": "Q301_A7",
+                "parent_id": "Q301_A7",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Shower room",
+                "id": "Q301_A8",
+                "parent_id": "Q301_A8",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Toilet",
+                "id": "Q301_A9",
+                "parent_id": "Q301_A9",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Guest room",
+                "id": "Q301_A10",
+                "parent_id": "Q301_A10",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "TV room",
+                "id": "Q301_A11",
+                "parent_id": "Q301_A11",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Library",
+                "id": "Q301_A12",
+                "parent_id": "Q301_A12",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Study",
+                "id": "Q301_A13",
+                "parent_id": "Q301_A13",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Storage",
+                "id": "Q301_A14",
+                "parent_id": "Q301_A14",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Ply room",
+                "id": "Q301_A15",
+                "parent_id": "Q301_A15",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Gym",
+                "id": "Q301_A16",
+                "parent_id": "Q301_A16",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Customise:",
+                "id": "Q301_A17",
+                "parent_id": "Q301_A17",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            }
+        ]
+    },
+    {
+        "id": "Q302",
+        "text": "House - [Floor Name] - [Room Sequence Number] - Сurrent Room Purpose selection",
+        "answers": [
+            {
+                "answer": "Stairway",
+                "id": "Q302_A1",
+                "parent_id": "Q302_A1",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "1st floor landing",
+                "id": "Q302_A2",
+                "parent_id": "Q302_A2",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Master bedroom",
+                "id": "Q302_A3",
+                "parent_id": "Q302_A3",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Bedroom – front",
+                "id": "Q302_A4",
+                "parent_id": "Q302_A4",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Bedroom 2 – front",
+                "id": "Q302_A5",
+                "parent_id": "Q302_A5",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Bedroom – mid",
+                "id": "Q302_A6",
+                "parent_id": "Q302_A6",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Bedroom – back",
+                "id": "Q302_A7",
+                "parent_id": "Q302_A7",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Bedroom 2 – back",
+                "id": "Q302_A8",
+                "parent_id": "Q302_A8",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Bathroom",
+                "id": "Q302_A9",
+                "parent_id": "Q302_A9",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Shower room",
+                "id": "Q302_A10",
+                "parent_id": "Q302_A10",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Toilet",
+                "id": "Q302_A11",
+                "parent_id": "Q302_A11",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Utility room",
+                "id": "Q302_A12",
+                "parent_id": "Q302_A12",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Storage",
+                "id": "Q302_A13",
+                "parent_id": "Q302_A13",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Customise:",
+                "id": "Q302_A14",
+                "parent_id": "Q302_A14",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            }
+        ]
+    },
+    {
+        "id": "Q303",
+        "text": "House - [Floor Name] - [Room Sequence Number] - Сurrent Room Purpose selection",
+        "answers": [
+            {
+                "answer": "Stairway",
+                "id": "Q303_A1",
+                "parent_id": "Q303_A1",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "2nd floor landing",
+                "id": "Q303_A2",
+                "parent_id": "Q303_A2",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Master bedroom",
+                "id": "Q303_A3",
+                "parent_id": "Q303_A3",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Bedroom – front",
+                "id": "Q303_A4",
+                "parent_id": "Q303_A4",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Bedroom – back",
+                "id": "Q303_A5",
+                "parent_id": "Q303_A5",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Bathroom",
+                "id": "Q303_A6",
+                "parent_id": "Q303_A6",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Shower room",
+                "id": "Q303_A7",
+                "parent_id": "Q303_A7",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Toilet",
+                "id": "Q303_A8",
+                "parent_id": "Q303_A8",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Utility room",
+                "id": "Q303_A9",
+                "parent_id": "Q303_A9",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Storage",
+                "id": "Q303_A10",
+                "parent_id": "Q303_A10",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Customise:",
+                "id": "Q303_A11",
+                "parent_id": "Q303_A11",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            }
+        ]
+    },
+    {
+        "id": "Q304",
+        "text": "House - [Floor Name] - [Room Sequence Number] - Сurrent Room Purpose selection",
+        "answers": [
+            {
+                "answer": "Stairway",
+                "id": "Q304_A1",
+                "parent_id": "Q304_A1",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "3rd  floor landing",
+                "id": "Q304_A2",
+                "parent_id": "Q304_A2",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Master bedroom",
+                "id": "Q304_A3",
+                "parent_id": "Q304_A3",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Bedroom",
+                "id": "Q304_A4",
+                "parent_id": "Q304_A4",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Shower room",
+                "id": "Q304_A5",
+                "parent_id": "Q304_A5",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Storage",
+                "id": "Q304_A6",
+                "parent_id": "Q304_A6",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Customise:",
+                "id": "Q304_A7",
+                "parent_id": "Q304_A7",
+                "next_id": "Q31",
+                "answer_type": "MULTI - NQ ONE"
+            }
+        ]
+    },
+
+    {
+        "id": "Q31",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number] - Target Room Purpose\n\nFor Flat (Q1_A2 - selected):\nFlat - [Room Sequence Number] - Target Room Purpose",
+        "answers": [
+            {
+                "answer": "Yes, Room will change its purpose",
+                "id": "Q31_A1",
+                "parent_id": "Q31_A1",
+                "conditions":"{\"conditions\": \"IF (Q26_A1, ANSWERED_ANY): Q321; IF (Q26_A2, ANSWERED_ANY): Q322; IF (Q26_A3, ANSWERED_ANY): Q323; IF (Q26_A4, ANSWERED_ANY): Q324; IF (Q26_A5, ANSWERED_ANY): Q325; IF (Q28_A1,  ANSWERED_ANY): Q320; \"}",
+                "comment": "IF Q26_A1 selected - > Q321\nIF Q26_A1 selected - > Q322\nIF Q26_A1 selected - > Q323\nIF Q26_A1 selected - > Q324\nIF Q26_A1 selected - > Q325\nIF Q28_A! selected -> Q320",
+                "next_id": "Q321",
+                "answer_type": "SINGLE"
+            },
+            {
+                "answer": "No, Room will remain its current purpose",
+                "id": "Q31_A2",
+                "parent_id": "Q31_A2",
+                "next_id": "Q33",
+                "answer_type": "SINGLE"
+            }
+        ]
+    },
+
+    {
+        "id": "Q320",
+        "text": "Flat - [Room Sequence Number] - Target Room Purpose selection",
         "answers": [
             {
                 "answer": "Bathroom",
-                "id": "Q32_A1",
-                "parent_id": "Q32_A1",
+                "id": "Q320_A1",
+                "parent_id": "Q320_A1",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Bedroom ",
+                "id": "Q320_A2",
+                "parent_id": "Q320_A2",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Dining room",
+                "id": "Q320_A3",
+                "parent_id": "Q320_A3",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Guest room",
+                "id": "Q320_A4",
+                "parent_id": "Q320_A4",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Gym",
+                "id": "Q320_A5",
+                "parent_id": "Q320_A5",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Hallway",
+                "id": "Q320_A6",
+                "parent_id": "Q320_A6",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Kitchen ",
+                "id": "Q320_A7",
+                "parent_id": "Q320_A7",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Library",
+                "id": "Q320_A8",
+                "parent_id": "Q320_A8",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Living room",
+                "id": "Q320_A9",
+                "parent_id": "Q320_A9",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Master bedroom",
+                "id": "Q320_A10",
+                "parent_id": "Q320_A10",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Ply room",
+                "id": "Q320_A11",
+                "parent_id": "Q320_A11",
                 "next_id": "Q33",
                 "answer_type": "MULTI - NQ ONE"
             },
             {
                 "answer": "Shower room",
-                "id": "Q32_A2",
-                "parent_id": "Q32_A2",
+                "id": "Q320_A12",
+                "parent_id": "Q320_A12",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Sitting room",
+                "id": "Q320_A13",
+                "parent_id": "Q320_A13",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Storage",
+                "id": "Q320_A14",
+                "parent_id": "Q320_A14",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Study",
+                "id": "Q320_A15",
+                "parent_id": "Q320_A15",
                 "next_id": "Q33",
                 "answer_type": "MULTI - NQ ONE"
             },
             {
                 "answer": "Toilet",
-                "id": "Q32_A3",
-                "parent_id": "Q32_A3",
+                "id": "Q320_A16",
+                "parent_id": "Q320_A16",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "TV room",
+                "id": "Q320_A17",
+                "parent_id": "Q320_A17",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Utility room",
+                "id": "Q320_A18",
+                "parent_id": "Q320_A18",
                 "next_id": "Q33",
                 "answer_type": "MULTI - NQ ONE"
             },
             {
                 "answer": "Customise:",
-                "id": "Q32_A4",
-                "parent_id": "Q32_A4",
+                "id": "Q320_A19",
+                "parent_id": "Q320_A19",
                 "next_id": "Q33",
                 "answer_type": "MULTI - NQ ONE"
             }
         ]
     },
     {
+        "id": "Q321",
+        "text": "House - [Floor Name] - [Room Sequence Number] - Target Room Purpose selection",
+        "answers": [
+            {
+                "answer": "TV room",
+                "id": "Q321_A1",
+                "parent_id": "Q321_A1",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Library",
+                "id": "Q321_A2",
+                "parent_id": "Q321_A2",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Guest room",
+                "id": "Q321_A3",
+                "parent_id": "Q321_A3",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Utility room",
+                "id": "Q321_A4",
+                "parent_id": "Q321_A4",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Ply room",
+                "id": "Q321_A5",
+                "parent_id": "Q321_A5",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Gym",
+                "id": "Q321_A6",
+                "parent_id": "Q321_A6",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Storage",
+                "id": "Q321_A7",
+                "parent_id": "Q321_A7",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Bathroom",
+                "id": "Q321_A8",
+                "parent_id": "Q321_A8",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Shower room",
+                "id": "Q321_A9",
+                "parent_id": "Q321_A9",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Toilet",
+                "id": "Q321_A10",
+                "parent_id": "Q321_A10",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Customise:",
+                "id": "Q321_A11",
+                "parent_id": "Q321_A11",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            }
+        ]
+    },
+    {
+        "id": "Q322",
+        "text": "House - [Floor Name] - [Room Sequence Number] - Target Room Purpose selection",
+        "answers": [
+            {
+                "answer": "Hallway",
+                "id": "Q322_A1",
+                "parent_id": "Q322_A1",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Stairway",
+                "id": "Q322_A2",
+                "parent_id": "Q322_A2",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Living room",
+                "id": "Q322_A3",
+                "parent_id": "Q322_A3",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Sitting room",
+                "id": "Q322_A4",
+                "parent_id": "Q322_A4",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Dining room",
+                "id": "Q322_A5",
+                "parent_id": "Q322_A5",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Kitchen ",
+                "id": "Q322_A6",
+                "parent_id": "Q322_A6",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Utility room",
+                "id": "Q322_A7",
+                "parent_id": "Q322_A7",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Shower room",
+                "id": "Q322_A8",
+                "parent_id": "Q322_A8",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Toilet",
+                "id": "Q322_A9",
+                "parent_id": "Q322_A9",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Guest room",
+                "id": "Q322_A10",
+                "parent_id": "Q322_A10",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "TV room",
+                "id": "Q322_A11",
+                "parent_id": "Q322_A11",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Library",
+                "id": "Q322_A12",
+                "parent_id": "Q322_A12",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Study",
+                "id": "Q322_A13",
+                "parent_id": "Q322_A13",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Storage",
+                "id": "Q322_A14",
+                "parent_id": "Q322_A14",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Ply room",
+                "id": "Q322_A15",
+                "parent_id": "Q322_A15",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Gym",
+                "id": "Q322_A16",
+                "parent_id": "Q322_A16",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Customise:",
+                "id": "Q322_A17",
+                "parent_id": "Q322_A17",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            }
+        ]
+    },
+    {
+        "id": "Q323",
+        "text": "House - [Floor Name] - [Room Sequence Number] - Target Room Purpose selection",
+        "answers": [
+            {
+                "answer": "Stairway",
+                "id": "Q323_A1",
+                "parent_id": "Q323_A1",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "1st floor landing",
+                "id": "Q323_A2",
+                "parent_id": "Q323_A2",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Master bedroom",
+                "id": "Q323_A3",
+                "parent_id": "Q323_A3",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Bedroom – front",
+                "id": "Q323_A4",
+                "parent_id": "Q323_A4",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Bedroom 2 – front",
+                "id": "Q323_A5",
+                "parent_id": "Q323_A5",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Bedroom – mid",
+                "id": "Q323_A6",
+                "parent_id": "Q323_A6",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Bedroom – back",
+                "id": "Q323_A7",
+                "parent_id": "Q323_A7",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Bedroom 2 – back",
+                "id": "Q323_A8",
+                "parent_id": "Q323_A8",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Bathroom",
+                "id": "Q323_A9",
+                "parent_id": "Q323_A9",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Shower room",
+                "id": "Q323_A10",
+                "parent_id": "Q323_A10",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Toilet",
+                "id": "Q323_A11",
+                "parent_id": "Q323_A11",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Utility room",
+                "id": "Q323_A12",
+                "parent_id": "Q323_A12",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Storage",
+                "id": "Q323_A13",
+                "parent_id": "Q323_A13",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Customise:",
+                "id": "Q323_A14",
+                "parent_id": "Q323_A14",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            }
+        ]
+    },
+    {
+        "id": "Q324",
+        "text": "House - [Floor Name] - [Room Sequence Number] - Target Room Purpose selection",
+        "answers": [
+            {
+                "answer": "Stairway",
+                "id": "Q324_A1",
+                "parent_id": "Q324_A1",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "2nd floor landing",
+                "id": "Q324_A2",
+                "parent_id": "Q324_A2",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Master bedroom",
+                "id": "Q324_A3",
+                "parent_id": "Q324_A3",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Bedroom – front",
+                "id": "Q324_A4",
+                "parent_id": "Q324_A4",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Bedroom – back",
+                "id": "Q324_A5",
+                "parent_id": "Q324_A5",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Bathroom",
+                "id": "Q324_A6",
+                "parent_id": "Q324_A6",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Shower room",
+                "id": "Q324_A7",
+                "parent_id": "Q324_A7",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Toilet",
+                "id": "Q324_A8",
+                "parent_id": "Q324_A8",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Utility room",
+                "id": "Q324_A9",
+                "parent_id": "Q324_A9",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Storage",
+                "id": "Q324_A10",
+                "parent_id": "Q324_A10",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Customise:",
+                "id": "Q324_A11",
+                "parent_id": "Q324_A11",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            }
+        ]
+    },
+    {
+        "id": "Q325",
+        "text": "House - [Floor Name] - [Room Sequence Number] - Target Room Purpose selection",
+        "answers": [
+            {
+                "answer": "Stairway",
+                "id": "Q325_A1",
+                "parent_id": "Q325_A1",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "3rd  floor landing",
+                "id": "Q325_A2",
+                "parent_id": "Q325_A2",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Master bedroom",
+                "id": "Q325_A3",
+                "parent_id": "Q325_A3",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Bedroom ",
+                "id": "Q325_A4",
+                "parent_id": "Q325_A4",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Shower room",
+                "id": "Q325_A5",
+                "parent_id": "Q325_A5",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Storage",
+                "id": "Q325_A6",
+                "parent_id": "Q325_A6",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            },
+            {
+                "answer": "Customise:",
+                "id": "Q325_A7",
+                "parent_id": "Q325_A7",
+                "next_id": "Q33",
+                "answer_type": "MULTI - NQ ONE"
+            }
+        ]
+    },
+
+    {
         "id": "Q33",
-        "text": "For House (Q1_A1 - selected):\n[Floor Name] - [Room Sequence Number] - Strip out and demolition needed?\n\nFor Flat (Q1_A2 - selected):\n[Room Sequence Number] - Strip out and demolition needed?",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Strip out and demolition needed?\n\nFor Fla (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Strip out and demolition needed?",
         "answers": [
             {
                 "answer": "Yes, lets make Strip out and demolition",
                 "id": "Q33_A1",
                 "parent_id": "Q33_A1",
-                "conditions":"{\"conditions\": \"IF (Q30_A1, Q30_A2, ANSWERED_ANY): Q34; IF (Q31_ANSWER, ANSWERED_ANY): Q36; IF (Q32_A1, ANSWERED_ANY): Q36; IF (Q32_A2, ANSWERED_ANY): Q44; \"}",
-                "next_id":"Q46",
-                "comment": "IF Any Q30_A selected -> Q34\nIF Q31_A1 or Q31_A2 selected -> Q36\nIF Q31_A4 selected -> Q38\nIF Q32_A1_selected - >Q40\nIF Q32_A2_selected - >Q42\nIF Q32_A3_selected - >Q44\n\nIF NONE ABOVE TRUE -> Q46",
-                "answer_type": "SINGLE"
+                "conditions": "{ \"insertion\": \"After equvalent questions\", \"conditions\": \"IF (Q29_A1, Q29_A2, Q29_A3, Q29_A4, Q29_A5, Q29_A6, ANSWERED_ANY): Q34; IF (Q29_A8, Q29_A9, Q29_A10, Q29_A11, ANSWERED_ANY): Q34; IF (Q29_A13, Q29_A14, Q29_A15, ANSWERED_ANY): Q34; IF (Q29_A17, ANSWERED_ANY): Q34; IF (Q300_A1, Q300_A2, Q300_A3, ANSWERED_ANY): Q34; IF (Q300_A5, Q300_A6, Q300_A7, ANSWERED_ANY): Q34; IF (Q301_A1, Q301_A2, Q301_A3, Q301_A4, Q301_A5, ANSWERED_ANY): Q34; IF (Q301_A10, Q301_A11, Q301_A12, Q301_A13, Q301_A14, Q301_A15, Q301_A16, ANSWERED_ANY): Q34; IF (Q302_A1, Q302_A2, Q302_A3, Q302_A4, Q302_A5, Q302_A6, Q302_A7, Q302_A8, ANSWERED_ANY): Q34; IF (Q302_A13, ANSWERED_ANY): Q34; IF (Q303_A1, Q303_A2, Q303_A3, Q303_A4, Q303_A5, Q303_A6, ANSWERED_ANY): Q34; IF (Q303_A10, ANSWERED_ANY): Q34; IF (Q304_A1, Q304_A2, Q304_A3, Q304_A4, ANSWERED_ANY): Q34; IF (Q305_A6, ANSWERED_ANY): Q34; IF (Q29_A7, ANSWERED_ANY): Q36; IF (Q29_A18, ANSWERED_ANY): Q36; IF (Q300_A4, ANSWERED_ANY): Q36; IF (Q301_A6, ANSWERED_ANY): Q36; IF (Q301_A7, ANSWERED_ANY): Q36; IF (Q302_A12, ANSWERED_ANY): Q36; IF (Q303_A9, ANSWERED_ANY): Q36; IF (Q304_A6, ANSWERED_ANY): Q38; IF (Q29_A1, ANSWERED_ANY): Q40; IF (Q300_A8, ANSWERED_ANY): Q40; IF (Q302_A9, ANSWERED_ANY): Q40; IF (Q303_A6, ANSWERED_ANY): Q40; IF (Q29_A12, ANSWERED_ANY): Q42; IF (Q300_A9, ANSWERED_ANY): Q42; IF (Q301_A8, ANSWERED_ANY): Q42; IF (Q302_A10, ANSWERED_ANY): Q42; IF (Q303_A7, ANSWERED_ANY): Q42; IF (Q304_A5, ANSWERED_ANY): Q42; IF (Q29_A16, ANSWERED_ANY): Q44; IF (Q300_A10, ANSWERED_ANY): Q44; IF (Q301_A9, ANSWERED_ANY): Q44; IF (Q302_A11, ANSWERED_ANY): Q44; IF (Q303_A8, ANSWERED_ANY): Q44\"}",
+                "next_id": "Q34",
+                "comment": "IF SELECTED :\nQ29_A1 to Q29_A6  - -> Q34 \nQ29_A8 to Q29_A11-> Q34  \nQ29_A13  to Q29_A15 -> Q34  \nQ29_A17 -> Q34  \nQ300_A1 to Q300_A3-> Q34  \nQ300_A5 to Q300_A7 -> Q34  \nQ301_A1 to  Q301_A5-> Q34  \nQ301_A10 to  Q301_A16-> Q34 \nQ302_A1 to  Q302_A8-> Q34   \nQ302_A13-> Q34  \nQ303_A1 to  Q303_A6-> Q34   \nQ303_A10-> Q34  \nQ304_A1 to  Q304_A4-> Q34   \nQ305_A6-> Q34  \n\nQ29_A7-> Q36\nQ29_A18-> Q36\nQ300_A4-> Q36\nQ301_A6-> Q36\nQ301_A7-> Q36\nQ302_A12-> Q36\nQ303_A9-> Q36\n\nQ304_A6-> Q38\n\nQ29_A1->Q40\nQ300_A8->Q40\nQ302_A9->Q40\nQ303_A6->Q40\n\nQ29_A12->Q42\nQ300_A9->Q42\nQ301_A8->Q42\nQ302_A10->Q42\nQ303_A7->Q42\nQ304_A5->Q42\n\nQ29_A16->Q44\nQ300_A10->Q44\nQ301_A9->Q44\nQ302_A11->Q44\nQ303_A8->Q44\n\nIF IN Q29,Q300,Q301,Q302,Q303 - choses something not above _> go Q34\n",
+                "answer_type": "SINGLE "
             },
             {
                 "answer": "No, skip that",
                 "id": "Q33_A2",
                 "parent_id": "Q33_A2",
                 "next_id": "Q51",
-                "answer_type": "SINGLE"
+                "answer_type": "SINGLE "
             }
         ]
     },
@@ -3664,13 +4541,13 @@
     },
     {
         "id": "Q66",
-        "text": "For House (Q1_A1 - selected):\n[Floor Name] - [Room Sequence Number] - Fitting and installing- Enternal doors - [Q65 ANSWER]\n\nFor Flat (Q1_A2 - selected):\n[Room Sequence Number] - Fitting and installing- Internal doors - [Q65 ANSWER]",
+        "text": "For House (Q1_A1 - selected):\n[Floor Name] - [Room Sequence Number] - Fitting and installing - Enternal doors - [Q65 ANSWER]\n\nFor Flat (Q1_A2 - selected):\n[Room Sequence Number] - Fitting and installing - Internal doors - [Q65 ANSWER]",
         "answers": [
             {
                 "answer": "Supply and install",
                 "id": "Q66_A1",
                 "parent_id": "Q66_A1",
-                "conditions":"{ \"insertion\": \"After equvalent questions\", \"conditions\": \"IF (Q67, EXIST_SUPPLY):SKIP;\"}",
+                "conditions": "{ \"insertion\": \"After equvalent questions\", \"conditions\": \"IF (Q31_A2, Q29_A7, ANSWERED_ALL): Q70; IF (Q31_A2, Q29_A18, ANSWERED_ALL): Q70; IF (Q31_A2, Q300_A4, ANSWERED_ALL): Q70; IF (Q31_A2, Q301_A6, ANSWERED_ALL): Q70; IF (Q31_A2, Q301_A7, ANSWERED_ALL): Q70; IF (Q31_A2, Q302_A12, ANSWERED_ALL): Q70; IF (Q31_A2, Q303_A9, ANSWERED_ALL): Q70; IF (Q31_A2, Q29_A14, ANSWERED_ALL): Q87; IF (Q31_A2, Q300_A7, ANSWERED_ALL): Q87; IF (Q31_A2, Q301_A14, ANSWERED_ALL): Q87; IF (Q31_A2, Q302_A13, ANSWERED_ALL): Q87; IF (Q31_A2, Q303_A10, ANSWERED_ALL): Q87; IF (Q31_A2, Q304_A6, ANSWERED_ALL): Q87; IF (Q31_A2, Q29_A1, ANSWERED_ALL): Q93; IF (Q31_A2, Q300_A8, ANSWERED_ALL): Q93; IF (Q31_A2, Q302_A9, ANSWERED_ALL): Q93; IF (Q31_A2, Q303_A6, ANSWERED_ALL): Q93; IF (Q31_A2, Q29_A12, ANSWERED_ALL): Q93; IF (Q31_A2, Q300_A9, ANSWERED_ALL): Q93; IF (Q31_A2, Q301_A8, ANSWERED_ALL): Q93; IF (Q31_A2, Q302_A10, ANSWERED_ALL): Q93; IF (Q31_A2, Q303_A7, ANSWERED_ALL): Q93; IF (Q31_A2, Q304_A5, ANSWERED_ALL): Q93; IF (Q31_A2, Q29_A16, ANSWERED_ALL): Q93; IF (Q31_A2, Q300_A10, ANSWERED_ALL): Q93; IF (Q31_A2, Q301_A9, ANSWERED_ALL): Q93; IF (Q31_A2, Q302_A11, ANSWERED_ALL): Q93; IF (Q31_A2, Q303_A8, ANSWERED_ALL): Q93; IF (Q31_A2, IN, Q29,Q300,Q301,Q302,Q303, ANSWERED_ANY): Q67; IF (Q31_A1, Q320_A7, ANSWERED_ALL): Q70; IF (Q31_A1, Q320_A18, ANSWERED_ALL): Q70; IF (Q31_A1, Q321_A4, ANSWERED_ALL): Q70; IF (Q31_A1, Q322_A6, ANSWERED_ALL): Q70; IF (Q31_A1, Q322_A7, ANSWERED_ALL): Q70; IF (Q31_A1, Q323_A12, ANSWERED_ALL): Q70; IF (Q31_A1, Q324_A9, ANSWERED_ALL): Q70; IF (Q31_A1, Q320_A14, ANSWERED_ALL): Q87; IF (Q31_A1, Q321_A7, ANSWERED_ALL): Q87; IF (Q31_A1, Q322_A14, ANSWERED_ALL): Q87; IF (Q31_A1, Q323_A13, ANSWERED_ALL): Q87; IF (Q31_A1, Q324_A10, ANSWERED_ALL): Q87; IF (Q31_A1, Q325_A6, ANSWERED_ALL): Q87; IF (Q31_A1, Q320_A1, ANSWERED_ALL): Q93; IF (Q31_A1, Q321_A8, ANSWERED_ALL): Q93; IF (Q31_A1, Q323_A9, ANSWERED_ALL): Q93; IF (Q31_A1, Q324_A6, ANSWERED_ALL): Q93; IF (Q31_A1, Q320_A12, ANSWERED_ALL): Q93; IF (Q31_A1, Q321_A9, ANSWERED_ALL): Q93; IF (Q31_A1, Q322_A8, ANSWERED_ALL): Q93; IF (Q31_A1, Q323_A10, ANSWERED_ALL): Q93; IF (Q31_A1, Q324_A7, ANSWERED_ALL): Q93; IF (Q31_A1, Q325_A5, ANSWERED_ALL): Q93; IF (Q31_A1, Q320_A16, ANSWERED_ALL): Q93; IF (Q31_A1, Q321_A10, ANSWERED_ALL): Q93; IF (Q31_A1, Q322_A9, ANSWERED_ALL): Q93; IF (Q31_A1, Q323_A11, ANSWERED_ALL): Q93; IF (Q31_A1, Q324_A8, ANSWERED_ALL): Q93; IF (Q67, EXIST_SUPPLY):SKIP;\"}",
                 "next_id":"Q67",
                 "comment": "Answer all Q66 created, \nif answered go Q67",
                 "answer_type": "SINGLE"
@@ -3931,16 +4808,16 @@
                 "answer": "Customise:",
                 "id": "Q69_A8",
                 "parent_id": "Q69_A8",
-                "conditions":"{\"conditions\": \"IF (Q31_A1, Q31_A2, ANSWERED_ANY): Q70;IF (Q31_A3, Q31_A4, ANSWERED_ANY): Q87;IF (Q32_A1, Q32_A2, ANSWERED_ANY): Q93; IF (Q1_ANSWER, Q1_A2 , EQUAL): Q70; \"}",
+                "conditions": "{\"insertion\": \"After equvalent questions\",\"conditions\": \"IF (Q1_ANSWER, Q1_A1 , EQUAL): Q106; IF (Q1_ANSWER, Q1_A2 , EQUAL): END; \"}",
                 "next_id":"END",
-                "comment": "IF Q31_A1 Or Q31_A2 answered then -> Q70\nIF Q31_A3 Or Q31_A4 answered then -> Q87\nIF Q32_A1 or Q32_A2 or Q32_A3 answered then -> Q93\nElse -> for HOUSE: Q106\nElse -> for FLAT: END",
+                "commet": "IF Q31_A1 Or Q31_A2 answered then -> Q70\nIF Q31_A3 Or Q31_A4 answered then -> Q87\nIF Q32_A1 or Q32_A2 or Q32_A3 answered then -> Q93\nElse -> for HOUSE: Q106\nElse -> for FLAT: END",
                 "answer_type": "MULTI - NQ ONE"
             },
             {
                 "answer": "Leave as it is",
                 "id": "Q69_A9",
                 "parent_id": "Q69_A9",
-                "conditions":"{\"conditions\": \"IF (Q31_A1, 31_A2, ANSWERED_ANY): Q70;IF (Q31_A3, 31_A4, ANSWERED_ANY): Q87;IF (Q32_A1, 32_A2, ANSWERED_ANY): Q93; IF (Q1_ANSWER, Q1_A2 , EQUAL): Q106; \"}",
+                "conditions": "{\"insertion\": \"After equvalent questions\",\"conditions\": \"IF (Q1_ANSWER, Q1_A1 , EQUAL): Q106; IF (Q1_ANSWER, Q1_A2 , EQUAL): END; \"}",
                 "next_id":"END",
                 "comment": "IF Q31_A1 Or Q31_A2 answered then -> Q70\nIF Q31_A3 Or Q31_A4 answered then -> Q87\nIF Q32_A1 or Q32_A2 or Q32_A3 answered then -> Q93\nElse -> for HOUSE: Q106\nElse -> for FLAT: END",
                 "answer_type": "SINGLE"
@@ -3955,7 +4832,7 @@
                 "answer": "Supply and install",
                 "id": "Q691_A1",
                 "parent_id": "Q691_A1",
-                "conditions":"{\"insertion\": \"After equvalent questions\",\"conditions\": \"IF (Q31_A1, 31_A2, ANSWERED_ANY): Q70;IF (Q31_A3, 31_A4, ANSWERED_ANY): Q87;IF (Q32_A1, 32_A2, ANSWERED_ANY): Q93; IF (Q1_ANSWER, Q1_A2 , EQUAL): Q106; \"}",
+                "conditions":"{\"insertion\": \"After equvalent questions\",\"conditions\": \"IF (Q31_A1, Q31_A2, ANSWERED_ANY): Q70;IF (Q31_A3, Q31_A4, ANSWERED_ANY): Q87;IF (Q32_A1, Q32_A2, ANSWERED_ANY): Q93; IF (Q1_ANSWER, Q1_A2 , EQUAL): Q106; \"}",
                 "next_id":"END",
                 "comment": "First Answer all Q691 Created then\n-\nIF Q31_A1 Or Q31_A2 answered then -> Q70\nIF Q31_A3 Or Q31_A4 answered then -> Q87\nIF Q32_A1 or Q32_A2 or Q32_A3 answered then -> Q93\nElse -> for HOUSE: Q106\nElse -> for FLAT: END",
                 "answer_type": "SINGLE"
@@ -3964,7 +4841,7 @@
                 "answer": "Install - Client supply",
                 "id": "Q691_A2",
                 "parent_id": "Q691_A2",
-                "conditions":"{\"insertion\": \"After equvalent questions\",\"conditions\": \"IF (Q31_A1, 31_A2, ANSWERED_ANY): Q70;IF (Q31_A3, 31_A4, ANSWERED_ANY): Q87;IF (Q32_A1, 32_A2, ANSWERED_ANY): Q93; IF (Q1_ANSWER, Q1_A2 , EQUAL): Q106; \"}",
+                "conditions":"{\"insertion\": \"After equvalent questions\",\"conditions\": \"IF (Q31_A1, Q31_A2, ANSWERED_ANY): Q70;IF (Q31_A3, Q31_A4, ANSWERED_ANY): Q87;IF (Q32_A1, Q32_A2, ANSWERED_ANY): Q93; IF (Q1_ANSWER, Q1_A2 , EQUAL): Q106; \"}",
                 "next_id":"END",
                 "comment": "First Answer all Q691 Created then\n-\nIF Q31_A1 Or Q31_A2 answered then -> Q70\nIF Q31_A3 Or Q31_A4 answered then -> Q87\nIF Q32_A1 or Q32_A2 or Q32_A3 answered then -> Q93\nElse -> for HOUSE: Q106\nElse -> for FLAT: END",
                 "answer_type": "SINGLE"
@@ -4497,7 +5374,7 @@
                 "answer": "Leave as it is",
                 "id": "Q85_A2",
                 "parent_id": "Q85_A2",
-                "conditions":"{\"conditions\": \"IF (Q87_ANSWER, ANSWERED_ANY):NEXT;IF (Q93_ANSWER, ANSWERED_ANY):NEXT; IF (Q1_A1, ANSWERED_ANY): Q106\"}",
+                "conditions": "{\"insertion\": \"After equvalent questions\",\"conditions\": \"IF (Q1_ANSWER, Q1_A1 , EQUAL): Q106; IF (Q1_ANSWER, Q1_A2 , EQUAL): END; \"}",
                 "next_id":"END",
                 "comment": "IF Q69 created Q87 / Q93 - go closest created\nElse for HOUSE: Q 106\nElse for FLAT: END",
                 "answer_type": "SINGLE"
@@ -4512,7 +5389,7 @@
                 "answer": "Supply and install",
                 "id": "Q86_A1",
                 "parent_id": "Q86_A1",
-                "conditions":"{\"conditions\": \"IF (Q87_ANSWER, ANSWERED_ANY):NEXT;IF (Q93_ANSWER, ANSWERED_ANY):NEXT; IF (Q1_A1, ANSWERED_ANY): Q106\"}",
+                "conditions": "{\"insertion\": \"After equvalent questions\",\"conditions\": \"IF (Q1_ANSWER, Q1_A1 , EQUAL): Q106; IF (Q1_ANSWER, Q1_A2 , EQUAL): END; \"}",
                 "next_id":"END",
                 "comment": "IF Q69 created Q87 / Q93 - go closest created\nElse for HOUSE: Q 106\nElse for FLAT: END",
                 "answer_type": "SINGLE"
@@ -4521,7 +5398,7 @@
                 "answer": "Install - Client supply",
                 "id": "Q86_A2",
                 "parent_id": "Q86_A2",
-                "conditions":"{\"conditions\": \"IF (Q87_ANSWER, ANSWERED_ANY):NEXT;IF (Q93_ANSWER, ANSWERED_ANY):NEXT; IF (Q1_A1, ANSWERED_ANY): Q106\"}",
+                "conditions": "{\"insertion\": \"After equvalent questions\",\"conditions\": \"IF (Q1_ANSWER, Q1_A1 , EQUAL): Q106; IF (Q1_ANSWER, Q1_A2 , EQUAL): END; \"}",
                 "next_id":"END",
                 "comment": "IF Q69 created Q87 / Q93 - go closest created\nElse for HOUSE: Q 106\nElse for FLAT: END",
                 "answer_type": "SINGLE"
@@ -4672,7 +5549,7 @@
                 "answer": "Leave as it is",
                 "id": "Q91_A3",
                 "parent_id": "Q91_A3",
-                "conditions":"{\"conditions\": \"IF (Q93_ANSWER, ANSWERED_ANY):NEXT; IF (Q1_A1, ANSWERED_ANY): Q106\"}",
+                "conditions": "{\"insertion\": \"After equvalent questions\",\"conditions\": \"IF (Q1_ANSWER, Q1_A1 , EQUAL): Q106; IF (Q1_ANSWER, Q1_A2 , EQUAL): END; \"}",
                 "next_id":"END",
                 "comment": "IF Q69 created Q 93 - go closest created\nElse for HOUSE: Q 106\nElse for FLAT: END",
                 "answer_type": "SINGLE"
@@ -4687,7 +5564,7 @@
                 "answer": "Supply and install",
                 "id": "Q92_A1",
                 "parent_id": "Q92_A1",
-                "conditions":"{\"conditions\": \"IF (Q93_ANSWER, ANSWERED_ANY):NEXT; IF (Q1_A1, ANSWERED_ANY): Q106\"}",
+                "conditions": "{\"insertion\": \"After equvalent questions\",\"conditions\": \"IF (Q1_ANSWER, Q1_A1 , EQUAL): Q106; IF (Q1_ANSWER, Q1_A2 , EQUAL): END; \"}",
                 "next_id":"END",
                 "comment": "IF 69Q created Q 93 - go closest created\nElse for HOUSE: Q 106\nElse for FLAT: END",
                 "answer_type": "SINGLE"
@@ -4696,7 +5573,7 @@
                 "answer": "Install - Client supply",
                 "id": "Q92_A2",
                 "parent_id": "Q92_A2",
-                "conditions":"{\"conditions\": \"IF (Q93_ANSWER, ANSWERED_ANY):NEXT; IF (Q1_A1, ANSWERED_ANY): Q106\"}",
+                "conditions": "{\"insertion\": \"After equvalent questions\",\"conditions\": \"IF (Q1_ANSWER, Q1_A1 , EQUAL): Q106; IF (Q1_ANSWER, Q1_A2 , EQUAL): END; \"}",
                 "next_id":"END",
                 "comment": "IF 69Q created Q 93 - go closest created\nElse for HOUSE: Q 106\nElse for FLAT: END",
                 "answer_type": "SINGLE"

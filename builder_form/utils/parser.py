@@ -34,7 +34,7 @@ def parse_naming_conditions(text, question_id):
     
     return conditions
 
-df = pd.read_excel('table.xlsx')
+df = pd.read_excel('table_v2.xlsx')
 
 questions = []
 naming_conditions = []
@@ -68,7 +68,7 @@ for row in df.to_records():
         })
 
 # Сохраняем вопросы
-json.dump(questions, open('questions.json', mode='w', encoding='utf-8'), ensure_ascii=False)
+# json.dump(questions, open('questions_from_table_v2.json', mode='w', encoding='utf-8'), ensure_ascii=False)
 
 # Сохраняем условия именования
-json.dump(naming_conditions, open('naming_conditions.json', mode='w', encoding='utf-8'), ensure_ascii=False)
+json.dump(naming_conditions, open('naming_conditions_v2.json', mode='w', encoding='utf-8'), ensure_ascii=False)
