@@ -62,4 +62,4 @@ def namingConditionsJSONParse(jsonUrl):
         )
         condition.right_operand.set(Answer.objects.filter(id__in=row['right_operand_ids']))
 
-#namingConditionsJSONParse('./utils/naming_conditions.json')
+#u.namingConditionsJSONParse('./builder_form/utils/naming_conditions.json')

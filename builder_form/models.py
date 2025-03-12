@@ -172,12 +172,13 @@ class Project(models.Model):
             
             return ""
 
-        def get_answer_text(list_qid):
-            return [Answer.objects.get(id=qid).text for qid in list_qid]
+        # def get_answer_text(list_qid):
+        #     return [Answer.objects.get(id=qid).text for qid in list_qid]
         
         def get_answers(qid):
             nonlocal answers
             ans = answers.filter(answer__question__id=qid)
+
             
             answers_text = []
             
@@ -194,96 +195,91 @@ class Project(models.Model):
                 
                 if q.parent_pk == parent_pk:
                     answers_text.append(a.answer_text)
-            
             return answers_text
         
        
-    
-        def addStringReport(string, qid):
+        def add_string_report(string, qid):
             nonlocal report
-            if get_answer(qid) == '' and int(qid[1:]) > 46:
+            if len(get_answers(qid)) == 0:
                 return
             else:
                 report += string
-        if len(get_answers('Q30')) == 0 and len(get_answers('Q31')) == 0 and len(get_answers('Q32')) == 0:
-            return ''
-        report += f"<strong>Room purposes</strong>: {', '.join(get_answers('Q30'))}  {', '.join(get_answers('Q31'))}  {', '.join(get_answers('Q32'))} <br/>"
+
+        # if len(get_answers('Q30')) == 0 and len(get_answers('Q31')) == 0 and len(get_answers('Q32')) == 0:
+        #     return '' исправить
+
+        report += f"<strong>Target Room purposes</strong>: {', '.join(get_answers('Q320'))}  {', '.join(get_answers('Q29'))}<br/>"
         
-        report += "<strong><u>Strip out and demolition</u></strong>:<br/>"
-        report += "<strong>Room type specific:</strong><br/>"
 
-        for q in range(34, 46, 2):
-            addStringReport(self.formatPairAnswers(get_answers(f'Q{q}'), get_answers(f'Q{q+1}')) , f'Q{q}')
-        
-        addStringReport("<strong>Ceilings:</strong><br/>", 'Q46')
-        addStringReport(self.formatAnswers(get_answers('Q46')), 'Q46')
+        add_string_report("<strong>1) Strip out and demolition</strong>:<br/>", 'Q34')
+        add_string_report("<strong>Room type specific:</strong><br/>", 'Q34')
+        add_string_report(self.formatPairAnswers(get_answers('Q34'), get_answers('Q35')), 'Q34')
+        add_string_report(self.formatPairAnswers(get_answers('Q36'), get_answers('Q37')), 'Q36')
+        add_string_report(self.formatPairAnswers(get_answers('Q38'), get_answers('Q39')), 'Q38')
+        add_string_report(self.formatPairAnswers(get_answers('Q40'), get_answers('Q41')), 'Q40')
+        add_string_report(self.formatPairAnswers(get_answers('Q42'), get_answers('Q43')), 'Q42')
+        add_string_report(self.formatPairAnswers(get_answers('Q44'), get_answers('Q45')), 'Q44')
+        add_string_report("<strong>Ceilings:</strong> <br/>", 'Q46')
+        add_string_report(self.formatAnswers(get_answers('Q46')), 'Q46')
+        add_string_report("<strong>Walls:</strong><br/>", 'Q47')
+        add_string_report(self.formatPairAnswers(get_answers('Q47'), get_answers('Q48')), 'Q47')
+        add_string_report("<strong>Floors:</strong> <br/>", 'Q49')
+        add_string_report(self.formatPairAnswers(get_answers('Q49'), get_answers('Q50')), 'Q49')
 
-        addStringReport("<strong>Walls:</strong><br/>", 'Q47')
-        addStringReport(self.formatPairAnswers(get_answers('Q47'),get_answers('Q48')), 'Q47')
+        add_string_report("2) Structure improvement: <br/>", 'Q52')
+        add_string_report("<strong>Ceilings:</strong> <br/>", 'Q52')
+        add_string_report(self.formatAnswers(get_answers('Q52')), 'Q52')
+        add_string_report("<strong>Walls:</strong> <br/>", 'Q53')
+        add_string_report(self.formatAnswers(get_answers('Q53')), 'Q53')
+        add_string_report("<strong>Floors:</strong> <br/>", 'Q54')
+        add_string_report(self.formatAnswers(get_answers('Q54')), 'Q54')
 
-        addStringReport("<strong>Floors:</strong><br/>", 'Q49')
-        addStringReport(self.formatPairAnswers(get_answers('Q49'),get_answers('Q50')), 'Q49')
+        add_string_report("3) Internal decoration and finishes: <br/>", 'Q56')
+        add_string_report("<strong>Ceilings:</strong> <br/>", 'Q56')
+        add_string_report(self.formatAnswers(get_answers('Q56')), 'Q56')
+        add_string_report("<strong>Walls:</strong> <br/>", 'Q57')
+        add_string_report(self.formatPairAnswers(get_answers('Q57'), get_answers('Q58')), 'Q57')
+        add_string_report("<strong>Floors:</strong> <br/>", 'Q59')
+        add_string_report(self.formatPairAnswers(get_answers('Q59'), get_answers('Q60')), 'Q59')
 
-        addStringReport("<br/><strong><u>Structure improvement:<br/></u></strong>", 'Q52')
-        addStringReport("<strong>Ceilings:</strong><br/>", 'Q52')
-        addStringReport(self.formatAnswers(get_answers('Q52')), 'Q52')
+        add_string_report("4) Fitting and installing: <br/>", 'Q63')
+        add_string_report("Windows: <br/>", 'Q63')
+        add_string_report(self.formatPairAnswers(get_answers('Q63'), get_answers('Q64')), 'Q63')
+        add_string_report("External doors: <br/>", 'Q641')
+        add_string_report(self.formatPairAnswers(get_answers('Q641'), get_answers('Q642')), 'Q641')
+        add_string_report("Internal doors: <br/>", 'Q65')
+        add_string_report(self.formatPairAnswers(get_answers('Q65'), get_answers('Q66')), 'Q65')
+        add_string_report("Inside room/hallway/landings: <br/>", 'Q67')
+        add_string_report(self.formatPairAnswers(get_answers('Q67'), get_answers('Q68')), 'Q67')
+        add_string_report('Electrics: <br/>', 'Q69')
+        add_string_report(self.formatPairAnswers(get_answers('Q69'), get_answers('Q70')), 'Q69')
 
-        addStringReport("<strong>Walls:</strong><br/>", 'Q53')
-        addStringReport(self.formatAnswers(get_answers('Q53')), 'Q53')
+        if get_answer('Q70') != '' or get_answer('Q87') != '' or get_answer('Q93') != '':
+            add_string_report('Room type specific: <br/>', 'Q1')
+            add_string_report('Kitchen / Ulitity: <br/>', 'Q70')
+            add_string_report(self.formatPairAnswers(get_answers('Q70'),  get_answers('Q71')), 'Q70')
+            add_string_report(self.formatPairAnswers(get_answers('Q72'), get_answers('Q73')), 'Q72')
+            add_string_report(self.formatPairAnswers(get_answers('Q74'), get_answers('Q75')), 'Q74')
+            add_string_report(self.formatAnswers(get_answers('Q76')), 'Q76')
+            add_string_report(self.formatPairAnswers(get_answers('Q77'), get_answers('Q78')), 'Q77')
+            add_string_report(self.formatPairAnswers(get_answers('Q79'), get_answers('Q80')), 'Q79')
+            add_string_report(self.formatPairAnswers(get_answers('Q81'), get_answers('Q82')), 'Q81')
+            add_string_report(self.formatPairAnswers(get_answers('Q83'), get_answers('Q84')), 'Q83')
+            add_string_report(self.formatPairAnswers(get_answers('Q85'), get_answers('Q86')), 'Q85')
+            
+            add_string_report('Storage / Attic: <br/>', 'Q87')
+            add_string_report(self.formatPairAnswers(get_answers('Q87'), get_answers('Q88')), 'Q87')
+            add_string_report(self.formatPairAnswers(get_answers('Q89'), get_answers('Q90')), 'Q89')
+            add_string_report(self.formatPairAnswers(get_answers('Q91'), get_answers('Q92')), 'Q91')
 
-        addStringReport("<strong>Floors:</strong><br/>", 'Q54')
-        addStringReport(self.formatAnswers(get_answers('Q54')), 'Q54')
-        
-        addStringReport("<br/><strong><u>Internal decoration and finishes:<br/></u></strong>", 'Q56')
-        addStringReport("<strong>Ceilings:</strong><br/>", 'Q56')
-        addStringReport(self.formatAnswers(get_answers('Q56')), 'Q56')
-
-        addStringReport("<strong>Walls:</strong><br/>", 'Q57')
-        addStringReport(self.formatPairAnswers(get_answers('Q57'),get_answers('Q58')), 'Q57')
-
-        addStringReport("<strong>Floors:</strong><br/>", 'Q59')
-        addStringReport(self.formatPairAnswers(get_answers('Q59'),get_answers('Q60')), 'Q59')
-        
-        addStringReport("<strong>Woodwork:</strong><br/>", 'Q61')
-        addStringReport(self.formatAnswers(get_answers('Q61')), 'Q61')
-
-        addStringReport("<br/><strong><u>Fitting and installing:<br/></u></strong>", 'Q63')
-        addStringReport("<strong>Windows:</strong><br/>", 'Q63')
-        addStringReport(self.formatPairAnswers(get_answers('Q63'),get_answers('Q64')), 'Q63')
-
-        addStringReport("<strong>External doors:</strong><br/>", 'Q641')
-        addStringReport(self.formatPairAnswers(get_answers('Q641'),get_answers('Q642')), 'Q641')
-
-        addStringReport("<strong>Internal doors:</strong><br/>", 'Q65')
-        addStringReport(self.formatPairAnswers(get_answers('Q65'),get_answers('Q66')), 'Q65')
-
-        addStringReport("<strong>Inside rooms/hallway/landings:</strong><br/>", 'Q67')
-        addStringReport(self.formatPairAnswers(get_answers('Q67'),get_answers('Q68')), 'Q67')
-
-        addStringReport("<strong>Electrics:</strong><br/>", 'Q69')
-        addStringReport(self.formatPairAnswers(get_answers('Q69'),get_answers('Q691')), 'Q69')
-
-        print('Q31 ANWERS', get_answers('Q31'), get_answer_text(['Q31_A1', 'Q31_A2', 'Q31_A3', 'Q31_A4']))
-        if any(ans in get_answer_text(['Q31_A1', 'Q31_A2']) for ans in get_answers('Q31')):
-            report += "Room type specific:<br/>"
-            report += "Kitchen / Ulitity:<br/>"
-            for q in range(70, 87, 2):
-                addStringReport(self.formatPairAnswers(get_answers(f'Q{q}'), get_answers(f'Q{q+1}')), f'Q{q}')
-                if q == 74:
-                    addStringReport(get_answer('Q76'), 'Q76')
-        
-        if any(ans in get_answer_text(['Q31_A3', 'Q31_A4']) for ans in get_answers('Q31')):
-            report += "Storage / Attic:<br/>"
-            for q in range(87, 93, 2):
-                addStringReport(self.formatPairAnswers(get_answers(f'Q{q}'), get_answers(f'Q{q+1}')), f'Q{q}')
-        
-        if any(ans in get_answer_text(['Q32_A1', 'Q32_A2', 'Q32_A3']) for ans in get_answers('Q32')):
-            report += "Bathroom/shower/toilet:<br/>"
-            for q in range(93, 106, 2):
-                addStringReport(self.formatPairAnswers(get_answers(f'Q{q}'), get_answers(f'Q{q+1}')), f'Q{q}')
-                if q == 95:
-                    addStringReport(get_answer('Q97'), 'Q97')
-                
+            add_string_report('Bathroom/shower/toilet: <br/>', 'Q93')
+            add_string_report(self.formatPairAnswers(get_answers('Q93'), get_answers('Q94')), 'Q93')
+            add_string_report(self.formatPairAnswers(get_answers('Q95'), get_answers('Q96')), 'Q95')
+            add_string_report(self.formatAnswers(get_answers('Q97')), 'Q97')
+            add_string_report(self.formatPairAnswers(get_answers('Q98'), get_answers('Q99')), 'Q98')
+            add_string_report(self.formatPairAnswers(get_answers('Q100'), get_answers('Q101')), 'Q100')
+            add_string_report(self.formatPairAnswers(get_answers('Q102'), get_answers('Q103')), 'Q102')
+            add_string_report(self.formatPairAnswers(get_answers('Q104'), get_answers('Q105')), 'Q104')  
         return report
 
     def generate_house_report(self, key_word):
@@ -305,7 +301,7 @@ class Project(models.Model):
             ans = answers.filter(answer__question__id=qid)
             return [answer.answer_text for answer in ans]
         
-        def addStringReport(string, qid):
+        def add_string_report(string, qid):
             nonlocal report
             if get_answer(qid) == '':
                 return
@@ -313,80 +309,106 @@ class Project(models.Model):
                 report += string
                 
         if answered('Q3_A1'):
-            addStringReport("<strong>House refurbishment</strong>: - " + ", ".join(get_answers('Q5')), 'Q5')
+            add_string_report("<strong>House refurbishment</strong>: - " + ", ".join(get_answers('Q5')), 'Q5')
             if answered('Q5_A3'):
-                addStringReport(" <strong>Demolition Details</strong>: <br/>", 'Q6')
-                addStringReport(self.formatPairAnswers(get_answers('Q6'),get_answers('Q7')), 'Q6')
+                add_string_report(" <strong>Demolition Details</strong>: <br/>", 'Q6')
+                add_string_report(self.formatPairAnswers(get_answers('Q6'),get_answers('Q7')), 'Q6')
 
         if answered('Q3_A2'):
-            addStringReport(f"House extension: <br/> Extension type: {get_answer('Q11')}<br/> Roof type: {get_answer('Q12')}<br/> Extension Purposes: {', '.join(get_answers('Q13'))}<br/>", 'Q11')
+            add_string_report(f"House extension: <br/> Extension type: {get_answer('Q11')}<br/> Roof type: {get_answer('Q12')}<br/> Extension Purposes: {', '.join(get_answers('Q13'))}<br/>", 'Q11')
 
         if answered('Q3_A3'):
-            addStringReport(f"Loft Conversion: <br/> Conversion Type: {get_answer('Q14')}<br/> Conversion Purposes: {', '.join(get_answers('Q15'))}<br/>", 'Q14')
+            add_string_report(f"Loft Conversion: <br/> Conversion Type: {get_answer('Q14')}<br/> Conversion Purposes: {', '.join(get_answers('Q15'))}<br/>", 'Q14')
 
         if answered('Q3_A4'):
-            addStringReport(f"Porch:<br/> Roof Type: {get_answer('Q16')}<br/>", 'Q16')
+            add_string_report(f"Porch:<br/> Roof Type: {get_answer('Q16')}<br/>", 'Q16')
 
         if answered('Q3_A5'):
-            addStringReport(f"Garage Conversion:<br/> Conversion type:<br/> {get_answer('Q17')} <br/>Roof type: {get_answer('Q18')} <br/> Conversion Purposes: {', '.join(get_answers('Q19'))}<br/>", 'Q17')
+            add_string_report(f"Garage Conversion:<br/> Conversion type:<br/> {get_answer('Q17')} <br/>Roof type: {get_answer('Q18')} <br/> Conversion Purposes: {', '.join(get_answers('Q19'))}<br/>", 'Q17')
 
         if answered('Q3_A6'):
-            addStringReport(f"Basement:<br/> Basement Purposes: {', '.join(get_answers('Q20'))}<br/>", 'Q20')
+            add_string_report(f"Basement:<br/> Basement Purposes: {', '.join(get_answers('Q20'))}<br/>", 'Q20')
 
         if answered('Q3_A7'):
-            addStringReport(f"Outbuilding: <br/> Type: {get_answer('Q21')} <br/> Roof type: {get_answer('Q22')} <br/> Outbuilding Purposes: {', '.join(get_answers('Q23'))}<br/>, 'Q21'")
+            add_string_report(f"Outbuilding: <br/> Type: {get_answer('Q21')} <br/> Roof type: {get_answer('Q22')} <br/> Outbuilding Purposes: {', '.join(get_answers('Q23'))}<br/>, 'Q21'")
 
-        addStringReport("<br/>Internal Refurbishment detalisation:<br/> ", 'Q24')
+        add_string_report("<br/>Internal Refurbishment detalisation:<br/> ", 'Q24')
         if answered('Q24_A2'):
-            addStringReport("Not needed<br/>", 'Q24')
+            add_string_report("Not needed<br/>", 'Q24')
         elif answered('Q24_A1'):
-            addStringReport("Number of Rooms to Refurbish on each Floor:<br/> ", 'Q26')
-            addStringReport(self.formatPairAnswers(get_answers('Q26'),get_answers('Q27')), 'Q26')
+            add_string_report("Number of Rooms to Refurbish on each Floor:<br/> ", 'Q26')
+            add_string_report(self.formatPairAnswers(get_answers('Q26'),get_answers('Q27')), 'Q26')
 
         report += '<br/>'
         report += key_word
 
-        addStringReport("<br/>External Refurbishment detalisation:<br/>", 'Q106')
+        add_string_report("<br/>External Refurbishment detalisation:<br/>", 'Q106')
         if answered('Q106_A2') in get_answers('Q106'):
-            addStringReport("Not needed<br/>", 'Q106')
+            add_string_report("Not needed<br/>", 'Q106')
             
         elif answered('Q106_A1'):
             if answered('Q107_A1'):
-                addStringReport("Exterior house surfaces:<br/> ", 'Q107')
+                add_string_report("Exterior house surfaces:<br/> ", 'Q107')
                 if answered('Q108_A1'):
-                    addStringReport(f"Roof:<br/> Type: {get_answer('Q109')}<br/> Work:{get_answer('Q110')} <br/> Work details:{', '.join(get_answers('Q111'))} / {', '.join(get_answers('Q112'))}<br/>", 'Q109')
+                    add_string_report(f"Roof:<br/> Type: {get_answer('Q109')}<br/> Work:{get_answer('Q110')} <br/> Work details:{', '.join(get_answers('Q111'))} / {', '.join(get_answers('Q112'))}<br/>", 'Q109')
                 if answered('Q108_A2'):
-                    addStringReport(f"Front wall: Work: {get_answer('Q113')}<br/> Work details: {', '.join(get_answers('Q114'))} / {', '.join(get_answers('Q115'))}<br/>",'Q113')
+                    add_string_report(f"Front wall: Work: {get_answer('Q113')}<br/> Work details: {', '.join(get_answers('Q114'))} / {', '.join(get_answers('Q115'))}<br/>",'Q113')
                 if answered('Q108_A3'):
-                    addStringReport(f"Back wall:<br/> Work: {get_answer('Q116')} <br/> Work details: {', '.join(get_answers('Q117'))} / {', '.join(get_answers('Q118'))}<br/>", 'Q116')
+                    add_string_report(f"Back wall:<br/> Work: {get_answer('Q116')} <br/> Work details: {', '.join(get_answers('Q117'))} / {', '.join(get_answers('Q118'))}<br/>", 'Q116')
                 if answered('Q108_A4'):
-                    addStringReport(f"Left hand side wall (facing the house) <br/>Work: {get_answer('Q119')} <br/>Work details: {', '.join(get_answers('Q120'))} / {', '.join(get_answers('Q121'))}<br/>", 'Q119')
+                    add_string_report(f"Left hand side wall (facing the house) <br/>Work: {get_answer('Q119')} <br/>Work details: {', '.join(get_answers('Q120'))} / {', '.join(get_answers('Q121'))}<br/>", 'Q119')
                 if answered('Q108_A5'):
-                    addStringReport(f"Right hand side wall (facing the house) <br/>Work: {get_answer('Q122')} <br/>Work details: {', '.join(get_answers('Q123'))} / {', '.join(get_answers('Q124'))}<br/>", 'Q122')
+                    add_string_report(f"Right hand side wall (facing the house) <br/>Work: {get_answer('Q122')} <br/>Work details: {', '.join(get_answers('Q123'))} / {', '.join(get_answers('Q124'))}<br/>", 'Q122')
                 
-                addStringReport("External Electrics:<br/> ", 'Q125')
-                addStringReport(self.formatPairAnswers(get_answers('Q125'),get_answers('Q126')), 'Q125')
+                add_string_report("External Electrics:<br/> ", 'Q125')
+                add_string_report(self.formatPairAnswers(get_answers('Q125'),get_answers('Q126')), 'Q125')
             
             if answered('Q107_A2'):
-                addStringReport("Driveway:<br/> ", 'Q127')
-                addStringReport(self.formatPairAnswers(get_answers('Q127'),get_answers('Q128')), 'Q127')
+                add_string_report("Driveway:<br/> ", 'Q127')
+                add_string_report(self.formatPairAnswers(get_answers('Q127'),get_answers('Q128')), 'Q127')
             if answered('Q107_A3'):
-                addStringReport("Side passage:<br/> ", 'Q130')
-                addStringReport(self.formatPairAnswers(get_answers('Q130'),get_answers('Q131')), 'Q130')
+                add_string_report("Side passage:<br/> ", 'Q130')
+                add_string_report(self.formatPairAnswers(get_answers('Q130'),get_answers('Q131')), 'Q130')
             if answered('Q107_A4'):
-                addStringReport("Garden:<br/> ", 'Q133')
-                addStringReport(self.formatPairAnswers(get_answers('Q133'),get_answers('Q134')), 'Q133')
-                addStringReport(self.formatAnswers(get_answers('Q135')), 'Q135')
+                add_string_report("Garden:<br/> ", 'Q133')
+                add_string_report(self.formatPairAnswers(get_answers('Q133'),get_answers('Q134')), 'Q133')
+                add_string_report(self.formatAnswers(get_answers('Q135')), 'Q135')
             if answered('Q107_A5'):
-                addStringReport(f"<br/>{get_answer('Q107')}<br/>", 'Q107')
+                add_string_report(f"<br/>{get_answer('Q107')}<br/>", 'Q107')
                 
         return report
 
     @property
-    def tree(self):
-        def get_answers(question_instance_pk):
-            answers = AnswerQuestion.objects.filter(question_instance=question_instance_pk, project=self)
-            return [answer.answer_text for answer in answers]
+    def tree_for_builder(self):
+
+        answers = AnswerQuestion.objects.all().filter(project=self)
+
+        def answered(aid):
+            nonlocal answers
+            ans = answers.filter(answer__id=aid)
+            return len(ans) > 0
+        
+        
+        def get_answers(qid):
+            nonlocal answers
+            ans = answers.filter(answer__question__id=qid)
+            if len(ans) == 0:
+                return ''
+            return [answer.answer_text for answer in ans]
+        
+        def get_answer(qid):
+            nonlocal answers
+            ans = answers.filter(answer__question__id=qid)
+            if len(ans) == 0:
+                return ''
+            return ans[0].answer_text
+
+        def get_answers_with_context(qid, variables, prefixes):
+            nonlocal answers
+            ans = answers.filter(answer__question__id=qid)
+            if len(ans) == 0:
+                return ''
+            return [answer.answer_text + ' - ' + ' - '.join([prefix + ': ' + QuestionInstance.objects.get(pk=answer.question_instance).context[var] for var, prefix in zip(variables, prefixes)]) for answer in ans]
 
         table = {
             'property_type':{
@@ -403,61 +425,441 @@ class Project(models.Model):
             },
         }
 
-        flat = True
-        key_word = '[ROOMS]'
-        current_room = 0
+        table['property_type']['text'] = ''.join(get_answers('Q2')) + ' ' + ''.join(get_answers('Q1'))
 
-        def comparator_key(x):
-            if x.qid == 'END':
-                return 100000
-            return int(x.qid[1:])
+        if answered('Q1_A2'):
+            table['project_type']['text'] += 'Flat refurbishment'
+        else:
+            table['project_type']['text'] += '<br/>'.join(get_answers('Q3'))
 
-        for question in sorted(reversed(QuestionInstance.objects.all().filter(project=self)), key=comparator_key):
-            if question.qid == 'Q2' or question.qid == 'Q1':
-                table['property_type']['text'] += '<strong>' + ''.join(get_answers(question.pk)) + ' </strong>'
+        report = ''
+
+        def add_string_report(string, qid,):
+            nonlocal report
+            if get_answer(qid) == '':
+                return
+            report += string + '<br/>'
+                
+
+        if answered('Q1_A2'): #flat
+            add_string_report("<strong>Project type detalisation</strong>: " + get_answer('Q4'), 'Q4')
+            add_string_report("<strong>Refurbishment detalisation</strong>:", 'Q28')
+            add_string_report("<strong>Number of Rooms to Refurbish</strong>:" + get_answer('Q28'), 'Q28')
+            add_string_report('<br/>', 'Q34')
+            
+            add_string_report("1) Strip out and demolition: <br/>", 'Q34')
+            add_string_report("Room type specific: <br/>", 'Q34')
+
+            add_string_report(self.formatPairAnswers(get_answers('Q34'), get_answers_with_context('Q34', ['Room Sequence Number'], ['Room'])), 'Q34')
+            add_string_report(self.formatPairAnswers(get_answers('Q36'), get_answers_with_context('Q37', ['Room Sequence Number'], ['Room'])), 'Q36')
+            add_string_report(self.formatPairAnswers(get_answers('Q38'), get_answers_with_context('Q39', ['Room Sequence Number'], ['Room'])), 'Q38')
+            add_string_report(self.formatPairAnswers(get_answers('Q40'), get_answers_with_context('Q41', ['Room Sequence Number'], ['Room'])), 'Q40')
+            add_string_report(self.formatPairAnswers(get_answers('Q42'), get_answers_with_context('Q43', ['Room Sequence Number'], ['Room'])), 'Q42')
+            add_string_report(self.formatPairAnswers(get_answers('Q44'), get_answers_with_context('Q45', ['Room Sequence Number'], ['Room'])), 'Q44')
+            add_string_report("<strong>Ceilings:</strong> <br/>", 'Q46')
+            add_string_report(self.formatAnswers(get_answers_with_context('Q46', ['Room Sequence Number'], ['Room'])), 'Q46')
+            add_string_report("<strong>Walls:</strong><br/>", 'Q47')
+            add_string_report(self.formatPairAnswers(get_answers('Q47'), get_answers_with_context('Q48', ['Room Sequence Number'], ['Room'])), 'Q47')
+            add_string_report("<strong>Floors:</strong> <br/>", 'Q49')
+            add_string_report(self.formatPairAnswers(get_answers('Q49'), get_answers_with_context('Q50', ['Room Sequence Number'], ['Room'])), 'Q49')
+
+            add_string_report("2) Structure improvement: <br/>", 'Q52')
+            add_string_report("<strong>Ceilings:</strong> <br/>", 'Q52')
+            add_string_report(self.formatAnswers(get_answers_with_context('Q52', ['Room Sequence Number'], ['Room'])), 'Q52')
+            add_string_report("<strong>Walls:</strong> <br/>", 'Q53')
+            add_string_report(self.formatAnswers(get_answers_with_context('Q53', ['Room Sequence Number'], ['Room'])), 'Q53')
+            add_string_report("<strong>Floors:</strong> <br/>", 'Q54')
+            add_string_report(self.formatAnswers(get_answers_with_context('Q54', ['Room Sequence Number'], ['Room'])), 'Q54')
+
+            add_string_report("3) Internal decoration and finishes: <br/>", 'Q56')
+            add_string_report("<strong>Ceilings:</strong> <br/>", 'Q56')
+            add_string_report(self.formatAnswers(get_answers_with_context('Q56', ['Room Sequence Number'], ['Room'])), 'Q56')
+            add_string_report("<strong>Walls:</strong> <br/>", 'Q57')
+            add_string_report(self.formatPairAnswers(get_answers('Q57'), get_answers_with_context('Q58', ['Room Sequence Number'], ['Room'])), 'Q57')
+            add_string_report("<strong>Floors:</strong> <br/>", 'Q59')
+            add_string_report(self.formatPairAnswers(get_answers('Q59'), get_answers_with_context('Q60', ['Room Sequence Number'], ['Room'])), 'Q59')
+
+            add_string_report("4) Fitting and installing: <br/>", 'Q63')
+            add_string_report("Windows: <br/>", 'Q63')
+            add_string_report(self.formatPairAnswers(get_answers('Q63'), get_answers_with_context('Q64', ['Room Sequence Number'], ['Room'])), 'Q63')
+            add_string_report("External doors: <br/>", 'Q641')
+            add_string_report(self.formatPairAnswers(get_answers('Q641'), get_answers_with_context('Q642', ['Room Sequence Number'], ['Room'])), 'Q641')
+            add_string_report("Internal doors: <br/>", 'Q65')
+            add_string_report(self.formatPairAnswers(get_answers('Q65'), get_answers_with_context('Q66', ['Room Sequence Number'], ['Room'])), 'Q65')
+            add_string_report("Inside room/hallway/landings: <br/>", 'Q67')
+            add_string_report(self.formatPairAnswers(get_answers('Q67'), get_answers_with_context('Q68', ['Room Sequence Number'], ['Room'])), 'Q67')
+            add_string_report('Electrics: <br/>', 'Q69')
+            add_string_report(self.formatPairAnswers(get_answers('Q69'), get_answers_with_context('Q70', ['Room Sequence Number'], ['Room'])), 'Q69')
+
+            if get_answer('Q70') != '' or get_answer('Q87') != '' or get_answer('Q93') != '':
+                add_string_report('Room type specific: <br/>', 'Q1')
+                add_string_report('Kitchen / Ulitity: <br/>', 'Q70')
+                add_string_report(self.formatPairAnswers(get_answers('Q70'), get_answers_with_context('Q71', ['Room Sequence Number'], ['Room'])), 'Q70')
+                add_string_report(self.formatPairAnswers(get_answers('Q72'), get_answers_with_context('Q73', ['Room Sequence Number'], ['Room'])), 'Q72')
+                add_string_report(self.formatPairAnswers(get_answers('Q74'), get_answers_with_context('Q75', ['Room Sequence Number'], ['Room'])), 'Q74')
+                add_string_report(self.formatAnswers(get_answers_with_context('Q76', ['Room Sequence Number'], ['Room'])), 'Q76')
+                add_string_report(self.formatPairAnswers(get_answers('Q77'), get_answers_with_context('Q78', ['Room Sequence Number'], ['Room'])), 'Q77')
+                add_string_report(self.formatPairAnswers(get_answers('Q79'), get_answers_with_context('Q80', ['Room Sequence Number'], ['Room'])), 'Q79')
+                add_string_report(self.formatPairAnswers(get_answers('Q81'), get_answers_with_context('Q82', ['Room Sequence Number'], ['Room'])), 'Q81')
+                add_string_report(self.formatPairAnswers(get_answers('Q83'), get_answers_with_context('Q84', ['Room Sequence Number'], ['Room'])), 'Q83')
+                add_string_report(self.formatPairAnswers(get_answers('Q85'), get_answers_with_context('Q86', ['Room Sequence Number'], ['Room'])), 'Q85')
+                
+                add_string_report('Storage / Attic: <br/>', 'Q87')
+                add_string_report(self.formatPairAnswers(get_answers('Q87'), get_answers_with_context('Q88', ['Room Sequence Number'], ['Room'])), 'Q87')
+                add_string_report(self.formatPairAnswers(get_answers('Q89'), get_answers_with_context('Q90', ['Room Sequence Number'], ['Room'])), 'Q89')
+                add_string_report(self.formatPairAnswers(get_answers('Q91'), get_answers_with_context('Q92', ['Room Sequence Number'], ['Room'])), 'Q91')
+
+                add_string_report('Bathroom/shower/toilet: <br/>', 'Q93')
+                add_string_report(self.formatPairAnswers(get_answers('Q93'), get_answers_with_context('Q94', ['Room Sequence Number'], ['Room'])), 'Q93')
+                add_string_report(self.formatPairAnswers(get_answers('Q95'), get_answers_with_context('Q96', ['Room Sequence Number'], ['Room'])), 'Q95')
+                add_string_report(self.formatAnswers(get_answers_with_context('Q97', ['Room Sequence Number'], ['Room'])), 'Q97')
+                add_string_report(self.formatPairAnswers(get_answers('Q98'), get_answers_with_context('Q99', ['Room Sequence Number'], ['Room'])), 'Q98')
+                add_string_report(self.formatPairAnswers(get_answers('Q100'), get_answers_with_context('Q101', ['Room Sequence Number'], ['Room'])), 'Q100')
+                add_string_report(self.formatPairAnswers(get_answers('Q102'), get_answers_with_context('Q103', ['Room Sequence Number'], ['Room'])), 'Q102')
+                add_string_report(self.formatPairAnswers(get_answers('Q104'), get_answers_with_context('Q105', ['Room Sequence Number'], ['Room'])), 'Q104')            
+            
+        if answered('Q1_A1'): #house
+            add_string_report("<strong>Project type detalisation</strong>: " + get_answer('Q4'), 'Q4')
+           
+            add_string_report("<strong>House refurbishment:</strong>", 'Q5')
+            add_string_report(self.formatAnswers(get_answers('Q5')), 'Q5')
+            
+            add_string_report("<strong>Demolition Details:</strong>", 'Q6')
+            add_string_report(self.formatPairAnswers(get_answers('Q6'), get_answers('Q7')), 'Q6')
+
+            if answered('Q3_A2'):
+                add_string_report("<strong>House extention:</strong>", 'Q11')
+                add_string_report("<strong>Extension type:</strong>" + get_answer('Q11'), 'Q11')
+                add_string_report("<strong>Roof type:</strong>" + get_answer('Q12'), 'Q12')
+                add_string_report("<strong>Extension Purposes:</strong>" + get_answer('Q13'), 'Q13')
+            
+            if answered('Q3_A3'):
+                add_string_report("<strong>Loft conversion:</strong>", 'Q14')
+                add_string_report("<strong>Conversion Type:</strong>" + get_answer('Q14'), 'Q14')
+                add_string_report("<strong>Conversion Purposes:</strong>" + get_answer('Q15'), 'Q15')
+
+            if answered('Q3_A4'):
+                add_string_report("<strong>Porch:</strong>", 'Q16')
+                add_string_report("<strong>Roof Type:</strong>" + get_answer('Q16'), 'Q16')
+
+            if answered('Q3_A5'):
+                add_string_report("<strong>Garage Conversion:</strong>", 'Q17')
+                add_string_report("<strong>Conversion Type:</strong>" + get_answer('Q17'), 'Q17')
+                add_string_report("<strong>Roof Type:</strong>" + get_answer('Q18'), 'Q18')
+                add_string_report("<strong>Conversion Purposes:</strong>" + get_answer('Q19'), 'Q19')
+
+            if answered('Q3_A6'):
+                add_string_report("<strong>Basement:</strong>", 'Q20')
+                add_string_report("<strong>Basement Purposes:</strong>" + get_answer('Q20'), 'Q20')
+
+            if answered('Q3_A7'):
+                add_string_report("<strong>Outbuilding:</strong>", 'Q21')
+                add_string_report("<strong>Type:</strong>" + get_answer('Q21'), 'Q21')
+                add_string_report("<strong>Roof Type:</strong>" + get_answer('Q22'), 'Q22')
+                add_string_report("<strong>Outbuilding Purposes:</strong>" + get_answer('Q23'), 'Q23')            
+            
+            add_string_report("<strong>Internal Refurbishment detalisation:</strong>", 'Q24')
+
+            if answered("Q24_A2"):
+                add_string_report('Not needed', 'Q24')
+            else:
+                add_string_report('Number of Rooms to Refurbish on each FLoor: ', 'Q26')
+                add_string_report(self.formatPairAnswers(get_answers('Q26'), get_answers('Q27')), 'Q26')
+            
+            # комнаты
+            add_string_report("1) Strip out and demolition: <br/>", 'Q34')
+            add_string_report("Room type specific: <br/>", 'Q34')
+
+            add_string_report(self.formatPairAnswers(get_answers('Q34'), get_answers_with_context('Q34', ['Room Sequence Number', 'Floor Name'], ['Room', 'Floor'])), 'Q34')
+            add_string_report(self.formatPairAnswers(get_answers('Q36'), get_answers_with_context('Q37', ['Room Sequence Number', 'Floor Name'], ['Room', 'Floor'])), 'Q36')
+            add_string_report(self.formatPairAnswers(get_answers('Q38'), get_answers_with_context('Q39', ['Room Sequence Number', 'Floor Name'], ['Room', 'Floor'])), 'Q38')
+            add_string_report(self.formatPairAnswers(get_answers('Q40'), get_answers_with_context('Q41', ['Room Sequence Number', 'Floor Name'], ['Room', 'Floor'])), 'Q40')
+            add_string_report(self.formatPairAnswers(get_answers('Q42'), get_answers_with_context('Q43', ['Room Sequence Number', 'Floor Name'], ['Room', 'Floor'])), 'Q42')
+            add_string_report(self.formatPairAnswers(get_answers('Q44'), get_answers_with_context('Q45', ['Room Sequence Number', 'Floor Name'], ['Room', 'Floor'])), 'Q44')
+            add_string_report("<strong>Ceilings:</strong> <br/>", 'Q46')
+            add_string_report(self.formatAnswers(get_answers_with_context('Q46', ['Room Sequence Number', 'Floor Name'], ['Room', 'Floor'])), 'Q46')
+            add_string_report("<strong>Walls:</strong><br/>", 'Q47')
+            add_string_report(self.formatPairAnswers(get_answers('Q47'), get_answers_with_context('Q48', ['Room Sequence Number', 'Floor Name'], ['Room', 'Floor'])), 'Q47')
+            add_string_report("<strong>Floors:</strong> <br/>", 'Q49')
+            add_string_report(self.formatPairAnswers(get_answers('Q49'), get_answers_with_context('Q50', ['Room Sequence Number', 'Floor Name'], ['Room', 'Floor'])), 'Q49')
+
+            add_string_report("2) Structure improvement: <br/>", 'Q52')
+            add_string_report("<strong>Ceilings:</strong> <br/>", 'Q52')
+            add_string_report(self.formatAnswers(get_answers_with_context('Q52', ['Room Sequence Number', 'Floor Name'], ['Room', 'Floor'])), 'Q52')
+            add_string_report("<strong>Walls:</strong> <br/>", 'Q53')
+            add_string_report(self.formatAnswers(get_answers_with_context('Q53', ['Room Sequence Number', 'Floor Name'], ['Room', 'Floor'])), 'Q53')
+            add_string_report("<strong>Floors:</strong> <br/>", 'Q54')
+            add_string_report(self.formatAnswers(get_answers_with_context('Q54', ['Room Sequence Number', 'Floor Name'], ['Room', 'Floor'])), 'Q54')
+
+            add_string_report("3) Internal decoration and finishes: <br/>", 'Q56')
+            add_string_report("<strong>Ceilings:</strong> <br/>", 'Q56')
+            add_string_report(self.formatAnswers(get_answers_with_context('Q56', ['Room Sequence Number', 'Floor Name'], ['Room', 'Floor'])), 'Q56')
+            add_string_report("<strong>Walls:</strong> <br/>", 'Q57')
+            add_string_report(self.formatPairAnswers(get_answers('Q57'), get_answers_with_context('Q58', ['Room Sequence Number', 'Floor Name'], ['Room', 'Floor'])), 'Q57')
+            add_string_report("<strong>Floors:</strong> <br/>", 'Q59')
+            add_string_report(self.formatPairAnswers(get_answers('Q59'), get_answers_with_context('Q60', ['Room Sequence Number', 'Floor Name'], ['Room', 'Floor'])), 'Q59')
+
+            add_string_report("4) Fitting and installing: <br/>", 'Q63')
+            add_string_report("Windows: <br/>", 'Q63')
+            add_string_report(self.formatPairAnswers(get_answers('Q63'), get_answers_with_context('Q64', ['Room Sequence Number', 'Floor Name'], ['Room', 'Floor'])), 'Q63')
+            add_string_report("External doors: <br/>", 'Q641')
+            add_string_report(self.formatPairAnswers(get_answers('Q641'), get_answers_with_context('Q642', ['Room Sequence Number', 'Floor Name'], ['Room', 'Floor'])), 'Q641')
+            add_string_report("Internal doors: <br/>", 'Q65')
+            add_string_report(self.formatPairAnswers(get_answers('Q65'), get_answers_with_context('Q66', ['Room Sequence Number', 'Floor Name'], ['Room', 'Floor'])), 'Q65')
+            add_string_report("Inside room/hallway/landings: <br/>", 'Q67')
+            add_string_report(self.formatPairAnswers(get_answers('Q67'), get_answers_with_context('Q68', ['Room Sequence Number', 'Floor Name'], ['Room', 'Floor'])), 'Q67')
+            add_string_report('Electrics: <br/>', 'Q69')
+            add_string_report(self.formatPairAnswers(get_answers('Q69'), get_answers_with_context('Q70', ['Room Sequence Number', 'Floor Name'], ['Room', 'Floor'])), 'Q69')
+
+            if get_answer('Q70') != '' or get_answer('Q87') != '' or get_answer('Q93') != '':
+                add_string_report('Room type specific: <br/>', 'Q1')
+                add_string_report('Kitchen / Ulitity: <br/>', 'Q70')
+                add_string_report(self.formatPairAnswers(get_answers('Q70'), get_answers_with_context('Q71', ['Room Sequence Number', 'Floor Name'], ['Room', 'Floor'])), 'Q70')
+                add_string_report(self.formatPairAnswers(get_answers('Q72'), get_answers_with_context('Q73', ['Room Sequence Number', 'Floor Name'], ['Room', 'Floor'])), 'Q72')
+                add_string_report(self.formatPairAnswers(get_answers('Q74'), get_answers_with_context('Q75', ['Room Sequence Number', 'Floor Name'], ['Room', 'Floor'])), 'Q74')
+                add_string_report(self.formatAnswers(get_answers_with_context('Q76', ['Room Sequence Number', 'Floor Name'], ['Room', 'Floor'])), 'Q76')
+                add_string_report(self.formatPairAnswers(get_answers('Q77'), get_answers_with_context('Q78', ['Room Sequence Number', 'Floor Name'], ['Room', 'Floor'])), 'Q77')
+                add_string_report(self.formatPairAnswers(get_answers('Q79'), get_answers_with_context('Q80', ['Room Sequence Number', 'Floor Name'], ['Room', 'Floor'])), 'Q79')
+                add_string_report(self.formatPairAnswers(get_answers('Q81'), get_answers_with_context('Q82', ['Room Sequence Number', 'Floor Name'], ['Room', 'Floor'])), 'Q81')
+                add_string_report(self.formatPairAnswers(get_answers('Q83'), get_answers_with_context('Q84', ['Room Sequence Number', 'Floor Name'], ['Room', 'Floor'])), 'Q83')
+                add_string_report(self.formatPairAnswers(get_answers('Q85'), get_answers_with_context('Q86', ['Room Sequence Number', 'Floor Name'], ['Room', 'Floor'])), 'Q85')
+                
+                add_string_report('Storage / Attic: <br/>', 'Q87')
+                add_string_report(self.formatPairAnswers(get_answers('Q87'), get_answers_with_context('Q88', ['Room Sequence Number', 'Floor Name'], ['Room', 'Floor'])), 'Q87')
+                add_string_report(self.formatPairAnswers(get_answers('Q89'), get_answers_with_context('Q90', ['Room Sequence Number', 'Floor Name'], ['Room', 'Floor'])), 'Q89')
+                add_string_report(self.formatPairAnswers(get_answers('Q91'), get_answers_with_context('Q92', ['Room Sequence Number', 'Floor Name'], ['Room', 'Floor'])), 'Q91')
+
+                add_string_report('Bathroom/shower/toilet: <br/>', 'Q93')
+                add_string_report(self.formatPairAnswers(get_answers('Q93'), get_answers_with_context('Q94', ['Room Sequence Number', 'Floor Name'], ['Room', 'Floor'])), 'Q93')
+                add_string_report(self.formatPairAnswers(get_answers('Q95'), get_answers_with_context('Q96', ['Room Sequence Number', 'Floor Name'], ['Room', 'Floor'])), 'Q95')
+                add_string_report(self.formatAnswers(get_answers_with_context('Q97', ['Room Sequence Number', 'Floor Name'], ['Room', 'Floor'])), 'Q97')
+                add_string_report(self.formatPairAnswers(get_answers('Q98'), get_answers_with_context('Q99', ['Room Sequence Number', 'Floor Name'], ['Room', 'Floor'])), 'Q98')
+                add_string_report(self.formatPairAnswers(get_answers('Q100'), get_answers_with_context('Q101', ['Room Sequence Number', 'Floor Name'], ['Room', 'Floor'])), 'Q100')
+                add_string_report(self.formatPairAnswers(get_answers('Q102'), get_answers_with_context('Q103', ['Room Sequence Number', 'Floor Name'], ['Room', 'Floor'])), 'Q102')
+                add_string_report(self.formatPairAnswers(get_answers('Q104'), get_answers_with_context('Q105', ['Room Sequence Number', 'Floor Name'], ['Room', 'Floor'])), 'Q104')            
+            
+
+            add_string_report("<strong>External Refurbishment detalisation:</strong>", 'Q106')
+
+            if answered('Q106_A2'):
+                add_string_report('Not needed', 'Q106')
+            else:
+                if answered("Q107_A1"):
+                    add_string_report('Exterior house surfaces', "Q108")
+                    if answered("Q108_A1"):
+                        add_string_report("Roof: <br/>", 'Q109')
+                        add_string_report("Type:" + self.formatAnswers(get_answers('Q109')), 'Q109')
+                        add_string_report("Work:" + self.formatAnswers(get_answers('Q110')), 'Q110')
+                    if answered("Q108_A2"):
+                        add_string_report("Front wall: <br/>", 'Q113')
+                        add_string_report("Work:" + self.formatAnswers(get_answers('Q113')), 'Q113')
+                        add_string_report("Work details: <br/>" + self.formatPairAnswers(get_answers('Q114'), get_answers('Q115')), 'Q114')
+                    if answered("Q108_A3"):
+                        add_string_report("Back wall: <br/>", 'Q116')
+                        add_string_report("Work:" + self.formatAnswers(get_answers('Q116')), 'Q116')
+                        add_string_report("Work details: <br/>" + self.formatPairAnswers(get_answers('Q117'), get_answers('Q118')), 'Q117')
+                    if answered("Q108_A4"):
+                        add_string_report("Left hand side wall (facing the house): <br/>", 'Q119')
+                        add_string_report("Work:" + self.formatAnswers(get_answers('Q119')), 'Q119')
+                        add_string_report("Work details: <br/>" + self.formatPairAnswers(get_answers('Q120'), get_answers('Q121')), 'Q120')
+                    if answered("Q108_A5"):
+                        add_string_report("Right hand side wall (facing the house): <br/>", 'Q122')
+                        add_string_report("Work:" + self.formatAnswers(get_answers('Q122')), 'Q122')
+                        add_string_report("Work details: <br/>" + self.formatPairAnswers(get_answers('Q123'), get_answers('Q124')), 'Q123')
+                    if answered("Q108_A6"):
+                        add_string_report("External Electrics: <br/>", 'Q125')
+                        add_string_report(self.formatPairAnswers(get_answers('Q125'), get_answers('Q126')), 'Q125')
+
+                if (answered("Q107_A2")):
+                    add_string_report("Driveway", 'Q128')
+                    add_string_report(self.formatPairAnswers(get_answers('Q128'), get_answers('Q129')), 'Q128')
+
+                if (answered("Q107_A3")):
+                    add_string_report("Side passage", 'Q131')
+                    add_string_report(self.formatPairAnswers(get_answers('Q131'), get_answers('Q132')), 'Q131')
+                
+                if (answered("Q107_A4")):
+                    add_string_report("Garden", 'Q134')
+                    add_string_report(self.formatPairAnswers(get_answers('Q134'), get_answers('Q135')), 'Q134')
+
+                if (answered("Q107_A5")):
+                    add_string_report(self.formatAnswers(get_answers('Q107')), 'Q107')
+
+        table['list_of_work']['text'] = report
+        return table
+
+    @property
+    def tree(self):
+        answers = AnswerQuestion.objects.filter(project=self)
+
+        def get_answers_pk(question_instance_pk):
+            answers = AnswerQuestion.objects.filter(question_instance=question_instance_pk, project=self)
+            return [answer.answer_text for answer in answers]
         
-            if question.qid == 'Q1':
-                answers = AnswerQuestion.objects.all().filter(question_instance=question.pk)
+        def answered(aid):
+            nonlocal answers
+            ans = answers.filter(answer__id=aid, project=self)
+            return len(ans) > 0
 
-                for answer in answers:
-                    if answer.answer.id == 'Q1_A2':
-                        flat = True
-                        table['project_type']['text'] += '<strong>Flat refurbishment</strong>' + '<br/>'
-                    if answer.answer.id == 'Q1_A1':
-                        flat = False
-                        table['list_of_work']['text'] += self.generate_house_report(key_word)
+        def get_answer(qid):
+            nonlocal answers
+            ans = answers.filter(answer__question__id=qid)
+            return ans[0].answer_text if ans else ""
+
+        def get_answers(qid):
+            nonlocal answers
+            ans = answers.filter(answer__question__id=qid)
+            return [answer.answer_text for answer in ans]
+        
+        table = {
+            'property_type':{
+                'name':'Property type:',
+                'text':''
+            },
+            'list_of_work':{
+                'name':'List of work',
+                'text':''
+            },
+            'project_type':{
+                'name':'Project type',
+                'text':''
+            },
+        }
+
+        def add_string_report(string, qid):
+            nonlocal report
+            if len(get_answers(qid)) == 0:
+                return
+            report += string + '<br/>'   
+        
 
 
-            if question.qid  == 'Q3':
-                if not flat:
-                    answers = AnswerQuestion.objects.all().filter(question_instance=question.pk)
-                    
-                    for answer in answers:
-                        table['project_type']['text'] += answer.answer_text + '<br/>'
+        table['property_type']['text'] = ''.join(get_answers('Q2')) + ' ' + ''.join(get_answers('Q1'))
 
-            if question.qid == 'Q4':
-                # table['list_of_work']['text'] += '<strong>Project type detalisation:</strong> ' + ''.join(get_answers(question.pk)) + '<br/>'
-                table['list_of_work']['text'] +=  ''.join(get_answers(question.pk)) + '<br/>'
+        if answered('Q1_A2'):
+            table['project_type']['text'] += 'Flat refurbishment'
+        else:
+            table['project_type']['text'] += '<br/>'.join(get_answers('Q3'))
 
-            if question.qid == 'Q28':
-                # table['list_of_work']['text'] += '<strong>Refurbishment detalisation:</strong><br/>    Number of Rooms to Refurbish: ' + ''.join(get_answers(question.pk)) + '<br/>'
-                table['list_of_work']['text'] += 'Number of Rooms to Refurbish: ' + ''.join(get_answers(question.pk)) + '<br/>'
 
-            if question.qid == 'Q29' and self:
-                current_room += 1
-                # print("LEN_TREE", question.pk, self.get_answers_tree('Q30', question.pk), self.get_answers_tree('Q31', question.pk), self.get_answers_tree('Q32', question.pk))
-                if len(self.get_answers_tree('Q30', question.pk)) == 0 and len(self.get_answers_tree('Q31', question.pk)) == 0 and len(self.get_answers_tree('Q32', question.pk)) == 0:
-                    continue
+        report = ''
 
-                if flat:
-                    table['list_of_work']['text'] += f'Room {current_room}:<br/>'
-                    table['list_of_work']['text'] += self.generate_room_report(question.pk) + '<br/>'
-                else:
-                    ind =  table['list_of_work']['text'].find(key_word)
-                    if ind:
-                        table['list_of_work']['text'] = table['list_of_work']['text'][:ind+len(key_word)] + f'Room {current_room}:<br/>' +  self.generate_room_report(question.pk) + '<br/>' + table['list_of_work']['text'][ind+len(key_word):]
-        table['list_of_work']['text'] = table['list_of_work']['text'].replace(key_word, '')
-        table['list_of_work']['text'] = re.sub(r'(?:<br/>)+$', '', table['list_of_work']['text'])
+        
+        
+
+        if answered('Q1_A2'): #flat
+            add_string_report("<strong>Project type detalisation</strong>: " + get_answer('Q4'), 'Q4')
+            add_string_report("<strong>Refurbishment detalisation</strong>:", 'Q28')
+            add_string_report("<strong>Number of Rooms to Refurbish</strong>:" + get_answer('Q28'), 'Q28')
+            add_string_report('<br/>', 'Q34')
+            
+            for room in answers.filter(answer__question__id='Q29'):
+                add_string_report("Room № " + QuestionInstance.objects.get(pk=room.question_instance).context["Room Sequence Number"], 'Q28')
+                report += self.generate_room_report(room.question_instance)
+        
+                     
+            
+        if answered('Q1_A1'): #house
+            add_string_report("<strong>Project type detalisation</strong>: " + get_answer('Q4'), 'Q4')
+           
+            add_string_report("<strong>House refurbishment:</strong>", 'Q5')
+            add_string_report(self.formatAnswers(get_answers('Q5')), 'Q5')
+            
+            add_string_report("<strong>Demolition Details:</strong>", 'Q6')
+            add_string_report(self.formatPairAnswers(get_answers('Q6'), get_answers('Q7')), 'Q6')
+
+            if answered('Q3_A2'):
+                add_string_report("<strong>House extention:</strong>", 'Q11')
+                add_string_report("<strong>Extension type:</strong>" + get_answer('Q11'), 'Q11')
+                add_string_report("<strong>Roof type:</strong>" + get_answer('Q12'), 'Q12')
+                add_string_report("<strong>Extension Purposes:</strong>" + get_answer('Q13'), 'Q13')
+            
+            if answered('Q3_A3'):
+                add_string_report("<strong>Loft conversion:</strong>", 'Q14')
+                add_string_report("<strong>Conversion Type:</strong>" + get_answer('Q14'), 'Q14')
+                add_string_report("<strong>Conversion Purposes:</strong>" + get_answer('Q15'), 'Q15')
+
+            if answered('Q3_A4'):
+                add_string_report("<strong>Porch:</strong>", 'Q16')
+                add_string_report("<strong>Roof Type:</strong>" + get_answer('Q16'), 'Q16')
+
+            if answered('Q3_A5'):
+                add_string_report("<strong>Garage Conversion:</strong>", 'Q17')
+                add_string_report("<strong>Conversion Type:</strong>" + get_answer('Q17'), 'Q17')
+                add_string_report("<strong>Roof Type:</strong>" + get_answer('Q18'), 'Q18')
+                add_string_report("<strong>Conversion Purposes:</strong>" + get_answer('Q19'), 'Q19')
+
+            if answered('Q3_A6'):
+                add_string_report("<strong>Basement:</strong>", 'Q20')
+                add_string_report("<strong>Basement Purposes:</strong>" + get_answer('Q20'), 'Q20')
+
+            if answered('Q3_A7'):
+                add_string_report("<strong>Outbuilding:</strong>", 'Q21')
+                add_string_report("<strong>Type:</strong>" + get_answer('Q21'), 'Q21')
+                add_string_report("<strong>Roof Type:</strong>" + get_answer('Q22'), 'Q22')
+                add_string_report("<strong>Outbuilding Purposes:</strong>" + get_answer('Q23'), 'Q23')            
+            
+            add_string_report("<strong>Internal Refurbishment detalisation:</strong>", 'Q24')
+
+            if answered("Q24_A2"):
+                add_string_report('Not needed', 'Q24')
+            else:
+                add_string_report('Number of Rooms to Refurbish on each FLoor: ', 'Q26')
+                add_string_report(self.formatPairAnswers(get_answers('Q26'), get_answers('Q27')), 'Q26')
+            
+
+            # комнаты
+            for room in answers.filter(answer__question__id='Q300'):
+                ctx = QuestionInstance.objects.get(pk=room.question_instance).context
+                add_string_report(ctx["Floor Name"] + " - Room № " + ctx["Room Sequence Number"], 'Q27')
+                report += self.generate_room_report(room.question_instance)
+            
+            add_string_report("<strong>External Refurbishment detalisation:</strong>", 'Q106')
+
+            if answered('Q106_A2'):
+                add_string_report('Not needed', 'Q106')
+            else:
+                if answered("Q107_A1"):
+                    add_string_report('Exterior house surfaces', "Q108")
+                    if answered("Q108_A1"):
+                        add_string_report("Roof: <br/>", 'Q109')
+                        add_string_report("Type:" + self.formatAnswers(get_answers('Q109')), 'Q109')
+                        add_string_report("Work:" + self.formatAnswers(get_answers('Q110')), 'Q110')
+                    if answered("Q108_A2"):
+                        add_string_report("Front wall: <br/>", 'Q113')
+                        add_string_report("Work:" + self.formatAnswers(get_answers('Q113')), 'Q113')
+                        add_string_report("Work details: <br/>" + self.formatPairAnswers(get_answers('Q114'), get_answers('Q115')), 'Q114')
+                    if answered("Q108_A3"):
+                        add_string_report("Back wall: <br/>", 'Q116')
+                        add_string_report("Work:" + self.formatAnswers(get_answers('Q116')), 'Q116')
+                        add_string_report("Work details: <br/>" + self.formatPairAnswers(get_answers('Q117'), get_answers('Q118')), 'Q117')
+                    if answered("Q108_A4"):
+                        add_string_report("Left hand side wall (facing the house): <br/>", 'Q119')
+                        add_string_report("Work:" + self.formatAnswers(get_answers('Q119')), 'Q119')
+                        add_string_report("Work details: <br/>" + self.formatPairAnswers(get_answers('Q120'), get_answers('Q121')), 'Q120')
+                    if answered("Q108_A5"):
+                        add_string_report("Right hand side wall (facing the house): <br/>", 'Q122')
+                        add_string_report("Work:" + self.formatAnswers(get_answers('Q122')), 'Q122')
+                        add_string_report("Work details: <br/>" + self.formatPairAnswers(get_answers('Q123'), get_answers('Q124')), 'Q123')
+                    if answered("Q108_A6"):
+                        add_string_report("External Electrics: <br/>", 'Q125')
+                        add_string_report(self.formatPairAnswers(get_answers('Q125'), get_answers('Q126')), 'Q125')
+
+                if (answered("Q107_A2")):
+                    add_string_report("Driveway", 'Q128')
+                    add_string_report(self.formatPairAnswers(get_answers('Q128'), get_answers('Q129')), 'Q128')
+
+                if (answered("Q107_A3")):
+                    add_string_report("Side passage", 'Q131')
+                    add_string_report(self.formatPairAnswers(get_answers('Q131'), get_answers('Q132')), 'Q131')
+                
+                if (answered("Q107_A4")):
+                    add_string_report("Garden", 'Q134')
+                    add_string_report(self.formatPairAnswers(get_answers('Q134'), get_answers('Q135')), 'Q134')
+
+                if (answered("Q107_A5")):
+                    add_string_report(self.formatAnswers(get_answers('Q107')), 'Q107')
+        table['list_of_work']['text'] = report
         return table
 
     @property

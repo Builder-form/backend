@@ -117,6 +117,19 @@ class GetAnswersAPIView(ResponsesMixin, generics.GenericAPIView):
         data['name'] = project.name
 
         return self.success_objects_response(data)
+    
+class GetAnswersForBuilderAPIView(ResponsesMixin, generics.GenericAPIView):
+    permission_classes = [
+        permissions.AllowAny,
+    ]
+    
+    def post(self, request, *args, **kwargs):
+        project = Project.objects.get(pk=self.request.data['project_id'])
+
+        data = project.tree_for_builder
+        data['name'] = project.name
+
+        return self.success_objects_response(data)
 
 
 

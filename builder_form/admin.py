@@ -38,6 +38,7 @@ class AnswerAdmin(admin.ModelAdmin):
 class QuestionInstanceAdmin(admin.ModelAdmin):
     list_display = ('pk', 'qid', 'text', 'params', 'context')
     search_fields = ('pk', 'qid', 'text', 'params')
+    list_filter = ('project_id',)
 
 
 

@@ -2536,7 +2536,7 @@
 
     {
         "id": "Q33",
-        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Strip out and demolition needed?\n\nFor Fla (Q1_A2 - selected):\nFlat - [Room Sequence Number]- Strip out and demolition needed?",
+        "text": "For House (Q1_A1 - selected):\nHouse - [Floor Name] - [Room Sequence Number]-Strip out and demolition needed?\n\nFor Fla (Q1_A2 - selected):\nFlat - [Room Sequence Number] - Strip out and demolition needed?",
         "answers": [
             {
                 "answer": "Yes, lets make Strip out and demolition",
@@ -2545,14 +2545,14 @@
                 "conditions": "{ \"insertion\": \"After equvalent questions\", \"conditions\": \"IF (Q29_A1, Q29_A2, Q29_A3, Q29_A4, Q29_A5, Q29_A6, ANSWERED_ANY): Q34; IF (Q29_A8, Q29_A9, Q29_A10, Q29_A11, ANSWERED_ANY): Q34; IF (Q29_A13, Q29_A14, Q29_A15, ANSWERED_ANY): Q34; IF (Q29_A17, ANSWERED_ANY): Q34; IF (Q300_A1, Q300_A2, Q300_A3, ANSWERED_ANY): Q34; IF (Q300_A5, Q300_A6, Q300_A7, ANSWERED_ANY): Q34; IF (Q301_A1, Q301_A2, Q301_A3, Q301_A4, Q301_A5, ANSWERED_ANY): Q34; IF (Q301_A10, Q301_A11, Q301_A12, Q301_A13, Q301_A14, Q301_A15, Q301_A16, ANSWERED_ANY): Q34; IF (Q302_A1, Q302_A2, Q302_A3, Q302_A4, Q302_A5, Q302_A6, Q302_A7, Q302_A8, ANSWERED_ANY): Q34; IF (Q302_A13, ANSWERED_ANY): Q34; IF (Q303_A1, Q303_A2, Q303_A3, Q303_A4, Q303_A5, Q303_A6, ANSWERED_ANY): Q34; IF (Q303_A10, ANSWERED_ANY): Q34; IF (Q304_A1, Q304_A2, Q304_A3, Q304_A4, ANSWERED_ANY): Q34; IF (Q305_A6, ANSWERED_ANY): Q34; IF (Q29_A7, ANSWERED_ANY): Q36; IF (Q29_A18, ANSWERED_ANY): Q36; IF (Q300_A4, ANSWERED_ANY): Q36; IF (Q301_A6, ANSWERED_ANY): Q36; IF (Q301_A7, ANSWERED_ANY): Q36; IF (Q302_A12, ANSWERED_ANY): Q36; IF (Q303_A9, ANSWERED_ANY): Q36; IF (Q304_A6, ANSWERED_ANY): Q38; IF (Q29_A1, ANSWERED_ANY): Q40; IF (Q300_A8, ANSWERED_ANY): Q40; IF (Q302_A9, ANSWERED_ANY): Q40; IF (Q303_A6, ANSWERED_ANY): Q40; IF (Q29_A12, ANSWERED_ANY): Q42; IF (Q300_A9, ANSWERED_ANY): Q42; IF (Q301_A8, ANSWERED_ANY): Q42; IF (Q302_A10, ANSWERED_ANY): Q42; IF (Q303_A7, ANSWERED_ANY): Q42; IF (Q304_A5, ANSWERED_ANY): Q42; IF (Q29_A16, ANSWERED_ANY): Q44; IF (Q300_A10, ANSWERED_ANY): Q44; IF (Q301_A9, ANSWERED_ANY): Q44; IF (Q302_A11, ANSWERED_ANY): Q44; IF (Q303_A8, ANSWERED_ANY): Q44\"}",
                 "next_id": "Q34",
                 "comment": "IF SELECTED :\nQ29_A1 to Q29_A6  - -> Q34 \nQ29_A8 to Q29_A11-> Q34  \nQ29_A13  to Q29_A15 -> Q34  \nQ29_A17 -> Q34  \nQ300_A1 to Q300_A3-> Q34  \nQ300_A5 to Q300_A7 -> Q34  \nQ301_A1 to  Q301_A5-> Q34  \nQ301_A10 to  Q301_A16-> Q34 \nQ302_A1 to  Q302_A8-> Q34   \nQ302_A13-> Q34  \nQ303_A1 to  Q303_A6-> Q34   \nQ303_A10-> Q34  \nQ304_A1 to  Q304_A4-> Q34   \nQ305_A6-> Q34  \n\nQ29_A7-> Q36\nQ29_A18-> Q36\nQ300_A4-> Q36\nQ301_A6-> Q36\nQ301_A7-> Q36\nQ302_A12-> Q36\nQ303_A9-> Q36\n\nQ304_A6-> Q38\n\nQ29_A1->Q40\nQ300_A8->Q40\nQ302_A9->Q40\nQ303_A6->Q40\n\nQ29_A12->Q42\nQ300_A9->Q42\nQ301_A8->Q42\nQ302_A10->Q42\nQ303_A7->Q42\nQ304_A5->Q42\n\nQ29_A16->Q44\nQ300_A10->Q44\nQ301_A9->Q44\nQ302_A11->Q44\nQ303_A8->Q44\n\nIF IN Q29,Q300,Q301,Q302,Q303 - choses something not above _> go Q34\n",
-                "answer_type": "SINGLE "
+                "answer_type": "SINGLE"
             },
             {
                 "answer": "No, skip that",
                 "id": "Q33_A2",
                 "parent_id": "Q33_A2",
                 "next_id": "Q51",
-                "answer_type": "SINGLE "
+                "answer_type": "SINGLE"
             }
         ]
     },
