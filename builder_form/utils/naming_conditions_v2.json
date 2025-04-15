@@ -6,7 +6,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Сurrent Room Purpose selection"
+        "text_template": "Flat - [Room Sequence Number] - Сurrent Room Purpose selection"
     },
     {
         "parent_question_id": "Q300",
@@ -15,7 +15,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Сurrent Room Purpose selection"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Сurrent Room Purpose selection"
     },
     {
         "parent_question_id": "Q301",
@@ -24,7 +24,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Сurrent Room Purpose selection"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Сurrent Room Purpose selection"
     },
     {
         "parent_question_id": "Q302",
@@ -33,7 +33,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Сurrent Room Purpose selection"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Сurrent Room Purpose selection"
     },
     {
         "parent_question_id": "Q303",
@@ -42,7 +42,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Сurrent Room Purpose selection"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Сurrent Room Purpose selection"
     },
     {
         "parent_question_id": "Q304",
@@ -51,7 +51,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Сurrent Room Purpose selection"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Сurrent Room Purpose selection"
     },
     {
         "parent_question_id": "Q31",
@@ -60,7 +60,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]- Target Room Purpose"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Target Room Purpose"
     },
     {
         "parent_question_id": "Q31",
@@ -69,7 +69,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Target Room Purpose"
+        "text_template": "Flat - [Room Sequence Number] - Target Room Purpose"
     },
     {
         "parent_question_id": "Q320",
@@ -78,7 +78,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Target Room Purpose selection"
+        "text_template": "Flat - [Room Sequence Number] - Target Room Purpose selection"
     },
     {
         "parent_question_id": "Q321",
@@ -87,7 +87,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Target Room Purpose selection"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Target Room Purpose selection"
     },
     {
         "parent_question_id": "Q322",
@@ -96,7 +96,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Target Room Purpose selection"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Target Room Purpose selection"
     },
     {
         "parent_question_id": "Q323",
@@ -105,7 +105,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Target Room Purpose selection"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Target Room Purpose selection"
     },
     {
         "parent_question_id": "Q324",
@@ -114,7 +114,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Target Room Purpose selection"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Target Room Purpose selection"
     },
     {
         "parent_question_id": "Q325",
@@ -123,7 +123,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Target Room Purpose selection"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Target Room Purpose selection"
     },
     {
         "parent_question_id": "Q33",
@@ -132,7 +132,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Strip out and demolition needed?"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Strip out and demolition needed?"
     },
     {
         "parent_question_id": "Q33",
@@ -141,7 +141,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Strip out and demolition needed?"
+        "text_template": "Flat - [Room Sequence Number] - Strip out and demolition needed?"
     },
     {
         "parent_question_id": "Q34",
@@ -150,7 +150,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Strip out and demolition details"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Strip out and demolition details"
     },
     {
         "parent_question_id": "Q34",
@@ -159,7 +159,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Strip out and demolition details"
+        "text_template": "Flat - [Room Sequence Number] - Strip out and demolition details"
     },
     {
         "parent_question_id": "Q35",
@@ -168,7 +168,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Strip out and demolition - [Q34 ANSWER]"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Strip out and demolition - [Q34 ANSWER]"
     },
     {
         "parent_question_id": "Q35",
@@ -177,7 +177,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Strip out and demolition - [Q34 ANSWER]"
+        "text_template": "Flat - [Room Sequence Number] - Strip out and demolition - [Q34 ANSWER]"
     },
     {
         "parent_question_id": "Q36",
@@ -186,7 +186,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Strip out and demolition details"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Strip out and demolition details"
     },
     {
         "parent_question_id": "Q36",
@@ -195,7 +195,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Strip out and demolition details"
+        "text_template": "Flat - [Room Sequence Number] - Strip out and demolition details"
     },
     {
         "parent_question_id": "Q37",
@@ -204,7 +204,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Strip out and demolition - [Q36 ANSWER]"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Strip out and demolition - [Q36 ANSWER]"
     },
     {
         "parent_question_id": "Q37",
@@ -213,7 +213,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Strip out and demolition - [Q36 ANSWER]"
+        "text_template": "Flat - [Room Sequence Number] - Strip out and demolition - [Q36 ANSWER]"
     },
     {
         "parent_question_id": "Q38",
@@ -222,7 +222,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Strip out and demolition details"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Strip out and demolition details"
     },
     {
         "parent_question_id": "Q38",
@@ -231,7 +231,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Strip out and demolition details"
+        "text_template": "Flat - [Room Sequence Number] - Strip out and demolition details"
     },
     {
         "parent_question_id": "Q39",
@@ -240,7 +240,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Strip out and demolition - [Q38 ANSWER]"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Strip out and demolition - [Q38 ANSWER]"
     },
     {
         "parent_question_id": "Q39",
@@ -249,7 +249,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Strip out and demolition - [Q38 ANSWER]"
+        "text_template": "Flat - [Room Sequence Number] - Strip out and demolition - [Q38 ANSWER]"
     },
     {
         "parent_question_id": "Q40",
@@ -258,7 +258,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Strip out and demolition details"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Strip out and demolition details"
     },
     {
         "parent_question_id": "Q40",
@@ -267,7 +267,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Strip out and demolition details"
+        "text_template": "Flat - [Room Sequence Number] - Strip out and demolition details"
     },
     {
         "parent_question_id": "Q41",
@@ -276,7 +276,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Strip out and demolition - [Q40 ANSWER]"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Strip out and demolition - [Q40 ANSWER]"
     },
     {
         "parent_question_id": "Q41",
@@ -285,7 +285,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Strip out and demolition - [Q40 ANSWER]"
+        "text_template": "Flat - [Room Sequence Number] - Strip out and demolition - [Q40 ANSWER]"
     },
     {
         "parent_question_id": "Q42",
@@ -294,7 +294,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Strip out and demolition details"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Strip out and demolition details"
     },
     {
         "parent_question_id": "Q42",
@@ -303,7 +303,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Strip out and demolition details"
+        "text_template": "Flat - [Room Sequence Number] - Strip out and demolition details"
     },
     {
         "parent_question_id": "Q43",
@@ -312,7 +312,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Strip out and demolition - [Q42 ANSWER]"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Strip out and demolition - [Q42 ANSWER]"
     },
     {
         "parent_question_id": "Q43",
@@ -321,7 +321,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Strip out and demolition - [Q42 ANSWER]"
+        "text_template": "Flat - [Room Sequence Number] - Strip out and demolition - [Q42 ANSWER]"
     },
     {
         "parent_question_id": "Q44",
@@ -330,7 +330,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Strip out and demolition details"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Strip out and demolition details"
     },
     {
         "parent_question_id": "Q44",
@@ -339,7 +339,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Strip out and demolition details"
+        "text_template": "Flat - [Room Sequence Number] - Strip out and demolition details"
     },
     {
         "parent_question_id": "Q45",
@@ -348,7 +348,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Strip out and demolition - [Q44 ANSWER]"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Strip out and demolition - [Q44 ANSWER]"
     },
     {
         "parent_question_id": "Q45",
@@ -357,7 +357,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Strip out and demolition - [Q44 ANSWER]"
+        "text_template": "Flat - [Room Sequence Number] - Strip out and demolition - [Q44 ANSWER]"
     },
     {
         "parent_question_id": "Q46",
@@ -366,7 +366,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Strip out and demolition - Ceilings"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Strip out and demolition - Ceilings"
     },
     {
         "parent_question_id": "Q46",
@@ -375,7 +375,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Strip out and demolition - Ceilings"
+        "text_template": "Flat - [Room Sequence Number] - Strip out and demolition - Ceilings"
     },
     {
         "parent_question_id": "Q47",
@@ -384,7 +384,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Strip out and demolition - Walls"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Strip out and demolition - Walls"
     },
     {
         "parent_question_id": "Q47",
@@ -393,7 +393,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Strip out and demolition - Walls"
+        "text_template": "Flat - [Room Sequence Number] - Strip out and demolition - Walls"
     },
     {
         "parent_question_id": "Q48",
@@ -402,7 +402,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Strip out and demolition - Walls - [Q47 ANSWER]"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Strip out and demolition - Walls - [Q47 ANSWER]"
     },
     {
         "parent_question_id": "Q48",
@@ -411,7 +411,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Strip out and demolition - Walls - [Q47 ANSWER]"
+        "text_template": "Flat - [Room Sequence Number] - Strip out and demolition - Walls - [Q47 ANSWER]"
     },
     {
         "parent_question_id": "Q49",
@@ -420,7 +420,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Strip out and demolition - Floors"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Strip out and demolition - Floors"
     },
     {
         "parent_question_id": "Q49",
@@ -429,7 +429,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Strip out and demolition - Floors"
+        "text_template": "Flat - [Room Sequence Number] - Strip out and demolition - Floors"
     },
     {
         "parent_question_id": "Q50",
@@ -438,7 +438,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Strip out and demolition - Floors - [Q49 ANSWER]"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Strip out and demolition - Floors - [Q49 ANSWER]"
     },
     {
         "parent_question_id": "Q50",
@@ -447,7 +447,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Strip out and demolition - Floors - [Q49 ANSWER]"
+        "text_template": "Flat - [Room Sequence Number] - Strip out and demolition - Floors - [Q49 ANSWER]"
     },
     {
         "parent_question_id": "Q51",
@@ -456,7 +456,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Structure improvement needed?"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Structure improvement needed?"
     },
     {
         "parent_question_id": "Q51",
@@ -465,7 +465,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Structure improvement needed?"
+        "text_template": "Flat - [Room Sequence Number] - Structure improvement needed?"
     },
     {
         "parent_question_id": "Q52",
@@ -474,7 +474,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Structure improvement - Ceilings:"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Structure improvement - Ceilings:"
     },
     {
         "parent_question_id": "Q52",
@@ -483,7 +483,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Structure improvement - Ceilings:"
+        "text_template": "Flat - [Room Sequence Number] - Structure improvement - Ceilings:"
     },
     {
         "parent_question_id": "Q53",
@@ -492,7 +492,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Structure improvement - Walls:"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Structure improvement - Walls:"
     },
     {
         "parent_question_id": "Q53",
@@ -501,7 +501,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Structure improvement - Walls:"
+        "text_template": "Flat - [Room Sequence Number] - Structure improvement - Walls:"
     },
     {
         "parent_question_id": "Q54",
@@ -510,7 +510,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Structure improvement - Floors:"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Structure improvement - Floors:"
     },
     {
         "parent_question_id": "Q54",
@@ -519,7 +519,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Structure improvement - Floors:"
+        "text_template": "Flat - [Room Sequence Number] - Structure improvement - Floors:"
     },
     {
         "parent_question_id": "Q55",
@@ -528,7 +528,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Internal decoration and finishes needed?"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Internal decoration and finishes needed?"
     },
     {
         "parent_question_id": "Q55",
@@ -537,7 +537,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Internal decoration and finishes needed?"
+        "text_template": "Flat - [Room Sequence Number] - Internal decoration and finishes needed?"
     },
     {
         "parent_question_id": "Q56",
@@ -546,7 +546,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Internal decoration and finishes - Ceilings:"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Internal decoration and finishes - Ceilings:"
     },
     {
         "parent_question_id": "Q56",
@@ -555,7 +555,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Internal decoration and finishes - Ceilings:"
+        "text_template": "Flat - [Room Sequence Number] - Internal decoration and finishes - Ceilings:"
     },
     {
         "parent_question_id": "Q57",
@@ -564,7 +564,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Internal decoration and finishes- Walls:"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Internal decoration and finishes - Walls:"
     },
     {
         "parent_question_id": "Q57",
@@ -573,7 +573,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Internal decoration and finishes - Walls:"
+        "text_template": "Flat - [Room Sequence Number] - Internal decoration and finishes - Walls:"
     },
     {
         "parent_question_id": "Q58",
@@ -582,7 +582,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Internal decoration and finishes - Walls - [Q57 ANSWER]"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Internal decoration and finishes - Walls - [Q57 ANSWER]"
     },
     {
         "parent_question_id": "Q58",
@@ -591,7 +591,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Internal decoration and finishes - Walls - [Q57 ANSWER]"
+        "text_template": "Flat - [Room Sequence Number] - Internal decoration and finishes - Walls - [Q57 ANSWER]"
     },
     {
         "parent_question_id": "Q59",
@@ -600,7 +600,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Internal decoration and finishes- Floors:"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Internal decoration and finishes - Floors:"
     },
     {
         "parent_question_id": "Q59",
@@ -609,7 +609,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Internal decoration and finishes - Floors:"
+        "text_template": "Flat - [Room Sequence Number] - Internal decoration and finishes - Floors:"
     },
     {
         "parent_question_id": "Q60",
@@ -618,7 +618,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Internal decoration and finishes - Walls - [Q59 ANSWER]"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Internal decoration and finishes - Walls - [Q59 ANSWER]"
     },
     {
         "parent_question_id": "Q60",
@@ -627,7 +627,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Internal decoration and finishes - Walls - [Q59 ANSWER]"
+        "text_template": "Flat - [Room Sequence Number] - Internal decoration and finishes - Walls - [Q59 ANSWER]"
     },
     {
         "parent_question_id": "Q61",
@@ -636,7 +636,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Internal decoration and finishes- Woodwork:"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Internal decoration and finishes - Woodwork:"
     },
     {
         "parent_question_id": "Q61",
@@ -645,7 +645,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Internal decoration and finishes - Woodwork:"
+        "text_template": "Flat - [Room Sequence Number] - Internal decoration and finishes - Woodwork:"
     },
     {
         "parent_question_id": "Q62",
@@ -654,7 +654,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing needed?"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing needed?"
     },
     {
         "parent_question_id": "Q62",
@@ -663,7 +663,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing needed?"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing needed?"
     },
     {
         "parent_question_id": "Q63",
@@ -672,7 +672,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Windows:"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Windows:"
     },
     {
         "parent_question_id": "Q63",
@@ -681,7 +681,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing- Windows:"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Windows:"
     },
     {
         "parent_question_id": "Q64",
@@ -690,7 +690,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Windows - [Q63 ANSWER]"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Windows - [Q63 ANSWER]"
     },
     {
         "parent_question_id": "Q64",
@@ -699,7 +699,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing- Windows - [Q63 ANSWER]"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Windows - [Q63 ANSWER]"
     },
     {
         "parent_question_id": "Q641",
@@ -708,7 +708,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- External doors:"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - External doors:"
     },
     {
         "parent_question_id": "Q641",
@@ -717,7 +717,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing- External doors:"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - External doors:"
     },
     {
         "parent_question_id": "Q642",
@@ -726,7 +726,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- External doors-[Q641 Answer]"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - External doors - [Q641 Answer]"
     },
     {
         "parent_question_id": "Q642",
@@ -735,7 +735,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing- External doors-[Q641 Answer]"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - External doors - [Q641 Answer]"
     },
     {
         "parent_question_id": "Q65",
@@ -744,7 +744,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Internal doors:"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Internal doors:"
     },
     {
         "parent_question_id": "Q65",
@@ -753,7 +753,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing- Internal doors:"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Internal doors:"
     },
     {
         "parent_question_id": "Q66",
@@ -762,7 +762,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Enternal doors - [Q65 ANSWER]"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Enternal doors - [Q65 ANSWER]"
     },
     {
         "parent_question_id": "Q66",
@@ -771,7 +771,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing- Internal doors - [Q65 ANSWER]"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Internal doors - [Q65 ANSWER]"
     },
     {
         "parent_question_id": "Q67",
@@ -780,7 +780,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside rooms/hallway/landings:"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Inside rooms/hallway/landings:"
     },
     {
         "parent_question_id": "Q67",
@@ -789,7 +789,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing- Inside rooms/hallway/landings:"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Inside rooms/hallway/landings:"
     },
     {
         "parent_question_id": "Q68",
@@ -798,7 +798,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside rooms/hallway/landings - [Q67 ANSWER]"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Inside rooms/hallway/landings - [Q67 ANSWER]"
     },
     {
         "parent_question_id": "Q68",
@@ -807,7 +807,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing- Inside rooms/hallway/landings - [Q67 ANSWER]"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Inside rooms/hallway/landings - [Q67 ANSWER]"
     },
     {
         "parent_question_id": "Q69",
@@ -816,7 +816,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Electrics:"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Electrics:"
     },
     {
         "parent_question_id": "Q69",
@@ -825,7 +825,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Electrics:"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Electrics:"
     },
     {
         "parent_question_id": "Q691",
@@ -834,7 +834,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Electrics-[Q69 Answer]:"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Electrics - [Q69 Answer]:"
     },
     {
         "parent_question_id": "Q691",
@@ -843,7 +843,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility- Electrics-[Q69 Answer]:"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Inside kitchen/utility - Electrics - [Q69 Answer]:"
     },
     {
         "parent_question_id": "Q70",
@@ -852,7 +852,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-Kitchen:"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Inside kitchen/utility - Kitchen:"
     },
     {
         "parent_question_id": "Q70",
@@ -861,7 +861,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-Kitchen:"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Inside kitchen/utility - Kitchen:"
     },
     {
         "parent_question_id": "Q71",
@@ -870,7 +870,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-[Q70 ANSWER]"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Inside kitchen/utility - [Q70 ANSWER]"
     },
     {
         "parent_question_id": "Q71",
@@ -879,7 +879,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-[Q70 ANSWER]"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Inside kitchen/utility - [Q70 ANSWER]"
     },
     {
         "parent_question_id": "Q72",
@@ -888,7 +888,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-Worktop:"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Inside kitchen/utility - Worktop:"
     },
     {
         "parent_question_id": "Q72",
@@ -897,7 +897,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-Worktop:"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Inside kitchen/utility - Worktop:"
     },
     {
         "parent_question_id": "Q73",
@@ -906,7 +906,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-[Q72 ANSWER]"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Inside kitchen/utility - [Q72 ANSWER]"
     },
     {
         "parent_question_id": "Q73",
@@ -915,7 +915,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-[Q72 ANSWER]"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Inside kitchen/utility - [Q72 ANSWER]"
     },
     {
         "parent_question_id": "Q74",
@@ -924,7 +924,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-Appliances:"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Inside kitchen/utility - Appliances:"
     },
     {
         "parent_question_id": "Q74",
@@ -933,7 +933,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-Appliances:"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Inside kitchen/utility - Appliances:"
     },
     {
         "parent_question_id": "Q75",
@@ -942,7 +942,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-[Q74 ANSWER]"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Inside kitchen/utility - [Q74 ANSWER]"
     },
     {
         "parent_question_id": "Q75",
@@ -951,7 +951,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-[Q74 ANSWER]"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Inside kitchen/utility - [Q74 ANSWER]"
     },
     {
         "parent_question_id": "Q76",
@@ -960,7 +960,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-Kitchen/utility appliances:"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Inside kitchen/utility - Kitchen/utility appliances:"
     },
     {
         "parent_question_id": "Q76",
@@ -969,7 +969,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-Kitchen/utility appliances:"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Inside kitchen/utility - Kitchen/utility appliances:"
     },
     {
         "parent_question_id": "Q77",
@@ -978,7 +978,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-Air conditioner:"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Inside kitchen/utility - Air conditioner:"
     },
     {
         "parent_question_id": "Q77",
@@ -987,7 +987,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-Air conditioner:"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Inside kitchen/utility - Air conditioner:"
     },
     {
         "parent_question_id": "Q78",
@@ -996,7 +996,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-[Q77 ANSWER]"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Inside kitchen/utility - [Q77 ANSWER]"
     },
     {
         "parent_question_id": "Q78",
@@ -1005,7 +1005,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-[Q77 ANSWER]"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Inside kitchen/utility - [Q77 ANSWER]"
     },
     {
         "parent_question_id": "Q79",
@@ -1014,7 +1014,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-Combi boiler:"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Inside kitchen/utility - Combi boiler:"
     },
     {
         "parent_question_id": "Q79",
@@ -1023,7 +1023,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-Combi boiler:"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Inside kitchen/utility - Combi boiler:"
     },
     {
         "parent_question_id": "Q80",
@@ -1032,7 +1032,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-[Q79 ANSWER]"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Inside kitchen/utility - [Q79 ANSWER]"
     },
     {
         "parent_question_id": "Q80",
@@ -1041,7 +1041,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-[Q79 ANSWER]"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Inside kitchen/utility - [Q79 ANSWER]"
     },
     {
         "parent_question_id": "Q81",
@@ -1050,7 +1050,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-System boiler & cylinder"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Inside kitchen/utility - System boiler & cylinder"
     },
     {
         "parent_question_id": "Q81",
@@ -1059,7 +1059,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility- System boiler & cylinder"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Inside kitchen/utility - System boiler & cylinder"
     },
     {
         "parent_question_id": "Q82",
@@ -1068,7 +1068,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-[Q81 ANSWER]"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Inside kitchen/utility - [Q81 ANSWER]"
     },
     {
         "parent_question_id": "Q82",
@@ -1077,7 +1077,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-[Q81 ANSWER]"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Inside kitchen/utility - [Q81 ANSWER]"
     },
     {
         "parent_question_id": "Q83",
@@ -1086,7 +1086,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-Radiator:"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Inside kitchen/utility - Radiator:"
     },
     {
         "parent_question_id": "Q83",
@@ -1095,7 +1095,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-Radiator:"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Inside kitchen/utility - Radiator:"
     },
     {
         "parent_question_id": "Q84",
@@ -1104,7 +1104,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-[Q83 ANSWER]"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Inside kitchen/utility - [Q83 ANSWER]"
     },
     {
         "parent_question_id": "Q84",
@@ -1113,7 +1113,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-[Q83 ANSWER]"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Inside kitchen/utility - [Q83 ANSWER]"
     },
     {
         "parent_question_id": "Q85",
@@ -1122,7 +1122,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-Under floor heating:"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Inside kitchen/utility - Under floor heating:"
     },
     {
         "parent_question_id": "Q85",
@@ -1131,7 +1131,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-Under floor heating:"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Inside kitchen/utility - Under floor heating:"
     },
     {
         "parent_question_id": "Q86",
@@ -1140,7 +1140,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside kitchen/utility-[Q85 ANSWER]"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Inside kitchen/utility - [Q85 ANSWER]"
     },
     {
         "parent_question_id": "Q86",
@@ -1149,7 +1149,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside kitchen/utility-[Q85 ANSWER]"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Inside kitchen/utility - [Q85 ANSWER]"
     },
     {
         "parent_question_id": "Q87",
@@ -1158,7 +1158,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside storage/attic - Combi Bolier:"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Inside storage/attic - Combi Bolier:"
     },
     {
         "parent_question_id": "Q87",
@@ -1167,7 +1167,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside storage/attic -Combi Bolier:"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Inside storage/attic - Combi Bolier:"
     },
     {
         "parent_question_id": "Q88",
@@ -1176,7 +1176,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing-Inside storage/attic-[Q87 ANSWER]"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Inside storage/attic - [Q87 ANSWER]"
     },
     {
         "parent_question_id": "Q88",
@@ -1185,7 +1185,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside storage/attic-[Q87 ANSWER]"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Inside storage/attic - [Q87 ANSWER]"
     },
     {
         "parent_question_id": "Q89",
@@ -1194,7 +1194,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside storage/attic -System boiler & cylinder:"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Inside storage/attic - System boiler & cylinder:"
     },
     {
         "parent_question_id": "Q89",
@@ -1203,7 +1203,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside storage/attic -System boiler & cylinder:"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Inside storage/attic - System boiler & cylinder:"
     },
     {
         "parent_question_id": "Q90",
@@ -1212,7 +1212,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing-Inside storage/attic-[Q89 ANSWER]"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Inside storage/attic - [Q89 ANSWER]"
     },
     {
         "parent_question_id": "Q90",
@@ -1221,7 +1221,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside storage/attic-[Q89 ANSWER]"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Inside storage/attic - [Q89 ANSWER]"
     },
     {
         "parent_question_id": "Q91",
@@ -1230,7 +1230,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside storage/attic -Radiator:"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Inside storage/attic - Radiator:"
     },
     {
         "parent_question_id": "Q91",
@@ -1239,7 +1239,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside storage/attic - Radiator:"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Inside storage/attic - Radiator:"
     },
     {
         "parent_question_id": "Q92",
@@ -1248,7 +1248,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing-Inside storage/attic-[Q91 ANSWER]"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Inside storage/attic - [Q91 ANSWER]"
     },
     {
         "parent_question_id": "Q92",
@@ -1257,7 +1257,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside storage/attic-[Q91 ANSWER]"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Inside storage/attic - [Q91 ANSWER]"
     },
     {
         "parent_question_id": "Q93",
@@ -1266,7 +1266,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside Bathroom/shower/toilet-Tile floor & walls:"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Inside Bathroom/shower/toilet - Tile floor & walls:"
     },
     {
         "parent_question_id": "Q93",
@@ -1275,7 +1275,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside Bathroom/shower/toilet - Tile floor & walls:"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Inside Bathroom/shower/toilet - Tile floor & walls:"
     },
     {
         "parent_question_id": "Q94",
@@ -1284,7 +1284,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing-Inside Bathroom/shower/toilet-[Q93 ANSWER]"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Inside Bathroom/shower/toilet - [Q93 ANSWER]"
     },
     {
         "parent_question_id": "Q94",
@@ -1293,7 +1293,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing- Inside Bathroom/shower/toilet-[Q93 ANSWER]"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Inside Bathroom/shower/toilet - [Q93 ANSWER]"
     },
     {
         "parent_question_id": "Q95",
@@ -1302,7 +1302,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside Bathroom/shower/toilet-Appliances:"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Inside Bathroom/shower/toilet - Appliances:"
     },
     {
         "parent_question_id": "Q95",
@@ -1311,7 +1311,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside Bathroom/shower/toilet - Appliances:"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Inside Bathroom/shower/toilet - Appliances:"
     },
     {
         "parent_question_id": "Q96",
@@ -1320,7 +1320,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing-Inside Bathroom/shower/toilet-[Q95 ANSWER]"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Inside Bathroom/shower/toilet - [Q95 ANSWER]"
     },
     {
         "parent_question_id": "Q96",
@@ -1329,7 +1329,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing- Inside Bathroom/shower/toilet-[Q95 ANSWER]"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Inside Bathroom/shower/toilet - [Q95 ANSWER]"
     },
     {
         "parent_question_id": "Q97",
@@ -1338,7 +1338,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside Bathroom/shower/toilet-Appliances:"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Inside Bathroom/shower/toilet - Appliances:"
     },
     {
         "parent_question_id": "Q97",
@@ -1347,7 +1347,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside Bathroom/shower/toilet - Appliances:"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Inside Bathroom/shower/toilet - Appliances:"
     },
     {
         "parent_question_id": "Q98",
@@ -1356,7 +1356,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside Bathroom/shower/toilet-Combi boiler:"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Inside Bathroom/shower/toilet - Combi boiler:"
     },
     {
         "parent_question_id": "Q98",
@@ -1365,7 +1365,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside Bathroom/shower/toilet-Combi boiler:"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Inside Bathroom/shower/toilet - Combi boiler:"
     },
     {
         "parent_question_id": "Q99",
@@ -1374,7 +1374,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside Bathroom/shower/toilet-[Q98 ANSWER]"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Inside Bathroom/shower/toilet - [Q98 ANSWER]"
     },
     {
         "parent_question_id": "Q99",
@@ -1383,7 +1383,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside Bathroom/shower/toilet-[Q98 ANSWER]"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Inside Bathroom/shower/toilet - [Q98 ANSWER]"
     },
     {
         "parent_question_id": "Q100",
@@ -1392,7 +1392,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside Bathroom/shower/toilet-System boiler & cylinder:"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Inside Bathroom/shower/toilet - System boiler & cylinder:"
     },
     {
         "parent_question_id": "Q100",
@@ -1401,7 +1401,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside Bathroom/shower/toilet-System boiler & cylinder:"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Inside Bathroom/shower/toilet - System boiler & cylinder:"
     },
     {
         "parent_question_id": "Q101",
@@ -1410,7 +1410,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside Bathroom/shower/toilet-[Q100 ANSWER]"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Inside Bathroom/shower/toilet - [Q100 ANSWER]"
     },
     {
         "parent_question_id": "Q101",
@@ -1419,7 +1419,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside Bathroom/shower/toilet-[Q100 ANSWER]"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Inside Bathroom/shower/toilet - [Q100 ANSWER]"
     },
     {
         "parent_question_id": "Q102",
@@ -1428,7 +1428,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside Bathroom/shower/toilet-Radiator:"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Inside Bathroom/shower/toilet - Radiator:"
     },
     {
         "parent_question_id": "Q102",
@@ -1437,7 +1437,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside Bathroom/shower/toilet-Radiator:"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Inside Bathroom/shower/toilet - Radiator:"
     },
     {
         "parent_question_id": "Q103",
@@ -1446,7 +1446,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside Bathroom/shower/toilet-[Q102 ANSWER]"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Inside Bathroom/shower/toilet - [Q102 ANSWER]"
     },
     {
         "parent_question_id": "Q103",
@@ -1455,7 +1455,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside Bathroom/shower/toilet-[Q102 ANSWER]"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Inside Bathroom/shower/toilet - [Q102 ANSWER]"
     },
     {
         "parent_question_id": "Q104",
@@ -1464,7 +1464,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside Bathroom/shower/toilet-Under floor heating:"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Inside Bathroom/shower/toilet - Under floor heating:"
     },
     {
         "parent_question_id": "Q104",
@@ -1473,7 +1473,7 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside Bathroom/shower/toilet-Under floor heating:"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Inside Bathroom/shower/toilet - Under floor heating:"
     },
     {
         "parent_question_id": "Q105",
@@ -1482,7 +1482,7 @@
         "right_operand_ids": [
             "Q1_A1"
         ],
-        "text_template": "House - [Floor Name] - [Room Sequence Number]-Fitting and installing- Inside Bathroom/shower/toilet-[Q104 ANSWER]"
+        "text_template": "House - [Floor Name] - [Room Sequence Number] - Fitting and installing - Inside Bathroom/shower/toilet - [Q104 ANSWER]"
     },
     {
         "parent_question_id": "Q105",
@@ -1491,6 +1491,6 @@
         "right_operand_ids": [
             "Q1_A2"
         ],
-        "text_template": "Flat - [Room Sequence Number]- Fitting and installing-Inside Bathroom/shower/toilet-[Q104 ANSWER]"
+        "text_template": "Flat - [Room Sequence Number] - Fitting and installing - Inside Bathroom/shower/toilet - [Q104 ANSWER]"
     }
 ]

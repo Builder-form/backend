@@ -2689,7 +2689,7 @@
                 "answer": "Remove to dispose",
                 "id": "Q35_A1",
                 "parent_id": "Q35_A1",
-                "conditions":"{ \"insertion\": \"After equvalent questions\", \"conditions\": \"IF (Q46, ANSWERED_ANY):SKIP;\"}",
+                "conditions":"{ \"insertion\": \"After equvalent questions\", \"conditions\": \"IF (Q46, EXIST_SUPPLY):SKIP;\"}",
                 "next_id":"Q46",
                 "comment": "Answer all Q35 created and only then \n-----\n\nIF Q33_A1 created not only Q46 Question -> Go next question in sequence according to Q33_A1\n\nIF Q33_A1 created only Q34 Question -> Go Q46\n",
                 "answer_type": "SINGLE"
@@ -2698,7 +2698,7 @@
                 "answer": "Remove and keep to re-install",
                 "id": "Q35_A2",
                 "parent_id": "Q35_A2",
-                "conditions":"{ \"insertion\": \"After equvalent questions\", \"conditions\": \"IF (Q34, ANSWERED_ANY):SKIP;\"}",
+                "conditions":"{ \"insertion\": \"After equvalent questions\", \"conditions\": \"IF (Q46, EXIST_SUPPLY):SKIP;\"}",
                 "next_id":"Q46",
                 "comment": "Answer all Q35 created and only then \n-----\n\nIF Q33_A1 created not only Q34 Question -> Go next question in sequence according to Q33_A1\n\nIF Q33_A1 created only Q34 Question -> Go Q46\n",
                 "answer_type": "SINGLE"
@@ -2848,7 +2848,7 @@
                 "answer": "Remove to dispose",
                 "id": "Q37_A1",
                 "parent_id": "Q37_A1",
-                "conditions":"{ \"insertion\": \"After equvalent questions\", \"conditions\": \"IF (Q46, ANSWERED_ANY):SKIP;\"}",
+                "conditions":"{ \"insertion\": \"After equvalent questions\", \"conditions\": \"IF (Q46, EXIST_SUPPLY):SKIP;\"}",
                 "next_id":"Q46",
                 "comment": "Answer all Q37 created and only then \n-----\n\nIF Q33_A1 created Q36 and futher questions -> Go next question in sequence according to Q33_A1\n\nIF Q33_A1 created Q36 Question as Last -> Go Q46\n",
                 "answer_type": "SINGLE"
@@ -2857,7 +2857,7 @@
                 "answer": "Remove and keep to re-install",
                 "id": "Q37_A2",
                 "parent_id": "Q37_A2",
-                "conditions":"{ \"insertion\": \"After equvalent questions\", \"conditions\": \"IF (Q46, ANSWERED_ANY):SKIP;\"}",
+                "conditions":"{ \"insertion\": \"After equvalent questions\", \"conditions\": \"IF (Q46, EXIST_SUPPLY):SKIP;\"}",
                 "next_id":"Q46",
                 "comment": "Answer all Q37 created and only then \n-----\n\nIF Q33_A1 created Q36 and futher questions -> Go next question in sequence according to Q33_A1\n\nIF Q33_A1 created Q36 Question as Last -> Go Q46\n",
                 "answer_type": "SINGLE"
@@ -2933,7 +2933,7 @@
                 "answer": "Remove to dispose",
                 "id": "Q39_A1",
                 "parent_id": "Q39_A1",
-                "conditions":"{ \"insertion\": \"After equvalent questions\", \"conditions\": \"IF (Q46, ANSWERED_ANY):SKIP;\"}",
+                "conditions":"{ \"insertion\": \"After equvalent questions\", \"conditions\": \"IF (Q46, EXIST_SUPPLY):SKIP;\"}",
                 "next_id":"Q46",
                 "comment": "Answer all Q39 created and only then \n-----\n\nIF Q33_A1 created Q38 and futher questions -> Go next question in sequence according to Q38_A1\n\nIF Q33_A1 created Q38 Question as Last -> Go Q46\n",
                 "answer_type": "SINGLE"
@@ -2942,7 +2942,7 @@
                 "answer": "Remove and keep to re-install",
                 "id": "Q39_A2",
                 "parent_id": "Q39_A2",
-                "conditions":"{ \"insertion\": \"After equvalent questions\", \"conditions\": \"IF (Q46, ANSWERED_ANY):SKIP;\"}",
+                "conditions":"{ \"insertion\": \"After equvalent questions\", \"conditions\": \"IF (Q46, EXIST_SUPPLY):SKIP;\"}",
                 "next_id":"Q46",
                 "comment": "Answer all Q39 created and only then \n-----\n\nIF Q33_A1 created Q38 and futher questions -> Go next question in sequence according to Q33_A1\n\nIF Q33_A1 created Q38 Question as Last -> Go Q46\n",
                 "answer_type": "SINGLE"
@@ -3044,7 +3044,7 @@
                 "answer": "Remove to dispose",
                 "id": "Q41_A1",
                 "parent_id": "Q41_A1",
-                "conditions":"{ \"insertion\": \"After equvalent questions\", \"conditions\": \"IF (Q46, ANSWERED_ANY):SKIP;\"}",
+                "conditions":"{ \"insertion\": \"After equvalent questions\", \"conditions\": \"IF (Q46, EXIST_SUPPLY):SKIP;\"}",
                 "next_id":"Q46",
                 "comment": "\nAnswer all Q41 created and only then \n-----\nIF Q33_A1 created Q40 and futher questions -> Go next question in sequence according to Q33_A1\n\nIF Q33_A1 created Q40 Question as Last -> Go Q46 \n",
                 "answer_type": "SINGLE"
@@ -3053,7 +3053,7 @@
                 "answer": "Remove and keep to re-install",
                 "id": "Q41_A2",
                 "parent_id": "Q41_A2",
-                "conditions":"{ \"insertion\": \"After equvalent questions\", \"conditions\": \"IF (Q46, ANSWERED_ANY):SKIP;\"}",
+                "conditions":"{ \"insertion\": \"After equvalent questions\", \"conditions\": \"IF (Q46, EXIST_SUPPLY):SKIP;\"}",
                 "next_id":"Q46",
                 "comment": "\nAnswer all Q41 created and only then \n-----\n\nIF Q33_A1 created Q40 and futher questions -> Go next question in sequence according to Q33_A1\n\nIF Q33_A1 created Q40 Question as Last -> Go Q46\n",
                 "answer_type": "SINGLE"
@@ -3155,7 +3155,7 @@
                 "answer": "Remove to dispose",
                 "id": "Q43_A1",
                 "parent_id": "Q43_A1",
-                "conditions":"{ \"insertion\": \"After equvalent questions\", \"conditions\": \"IF (Q46, ANSWERED_ANY):SKIP;\"}",
+                "conditions":"{ \"insertion\": \"After equvalent questions\", \"conditions\": \"IF (Q46, EXIST_SUPPLY):SKIP;\"}",
                 "next_id":"Q46",
                 "comment": "\nAnswer all Q43 created and only then \n-----\n\nIF Q33_A1 created Q42 and futher questions -> Go next question in sequence according to Q33_A1\n\nIF Q33_A1 created Q42 Question as Last -> Go Q46\n",
                 "answer_type": "SINGLE"
@@ -3164,7 +3164,7 @@
                 "answer": "Remove and keep to re-install",
                 "id": "Q43_A2",
                 "parent_id": "Q43_A2",
-                "conditions":"{ \"insertion\": \"After equvalent questions\", \"conditions\": \"IF (Q46, ANSWERED_ANY):SKIP;\"}",
+                "conditions":"{ \"insertion\": \"After equvalent questions\", \"conditions\": \"IF (Q46, EXIST_SUPPLY):SKIP;\"}",
                 "next_id":"Q46",
                 "comment": "\nAnswer all Q43 created and only then \n-----\n\nIF Q33_A1 created Q42 and futher questions -> Go next question in sequence according to Q33_A1\n\nIF Q33_A1 created Q42 Question as Last -> Go Q46\n",
                 "answer_type": "SINGLE"
@@ -3252,7 +3252,7 @@
                 "answer": "Remove to dispose",
                 "id": "Q45_A1",
                 "parent_id": "Q45_A1",
-                "conditions":"{ \"insertion\": \"After equvalent questions\", \"conditions\": \"IF (Q46, ANSWERED_ANY):SKIP;\"}",
+                "conditions":"{ \"insertion\": \"After equvalent questions\", \"conditions\": \"IF (Q46, EXIST_SUPPLY):SKIP;\"}",
                 "next_id":"Q46",
                 "сomment": "\nAnswer all Q45 created and only then \n-----\n\nIF Q33_A1 created Q44 and futher questions -> Go next question in sequence according to Q33_A1\n\nIF Q33_A1 created Q44 Question as Last -> Go Q46\n",
                 "answer_type": "SINGLE"
@@ -3261,7 +3261,7 @@
                 "answer": "Remove and keep to re-install",
                 "id": "Q45_A2",
                 "parent_id": "Q45_A2",
-                "conditions":"{ \"insertion\": \"After equvalent questions\", \"conditions\": \"IF (Q46, ANSWERED_ANY):SKIP;\"}",
+                "conditions":"{ \"insertion\": \"After equvalent questions\", \"conditions\": \"IF (Q46, EXIST_SUPPLY):SKIP;\"}",
                 "next_id":"Q46",
                 "comment": "\nAnswer all Q45 created and only then \n-----\n\nIF Q33_A1 created Q44 and futher questions -> Go next question in sequence according to Q33_A1\n\nIF Q33_A1 created Q44 Question as Last -> Go Q46\n",
                 "answer_type": "SINGLE"
@@ -3414,7 +3414,7 @@
                 "answer": "Remove to dispose",
                 "id": "Q48_A1",
                 "parent_id": "Q48_A1",
-                "conditions":"{ \"insertion\": \"After equvalent questions\", \"conditions\": \"IF (Q49, ANSWERED_ANY):SKIP;\"}",
+                "conditions":"{ \"insertion\": \"After equvalent questions\", \"conditions\": \"IF (Q49, EXIST_SUPPLY):SKIP;\"}",
                 "next_id":"Q49",
                 "comment": "Answer all Q48 created, \nif answered go Q49",
                 "answer_type": "SINGLE"
@@ -3423,7 +3423,7 @@
                 "answer": "Remove and keep to re-install",
                 "id": "Q48_A2",
                 "parent_id": "Q48_A2",
-                "conditions":"{ \"insertion\": \"After equvalent questions\", \"conditions\": \"IF (Q49, ANSWERED_ANY):SKIP;\"}",
+                "conditions":"{ \"insertion\": \"After equvalent questions\", \"conditions\": \"IF (Q49, EXIST_SUPPLY):SKIP;\"}",
                 "next_id":"Q49",
                 "comment": "Answer all Q48 created, \nif answered go Q49",
                 "answer_type": "SINGLE"

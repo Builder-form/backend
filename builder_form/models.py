@@ -74,42 +74,106 @@ class Project(models.Model):
             history_or_queue_list.remove(' ')
         return history_or_queue_list
 
-    def back(self):
-        current_question = self.get_current_question()
-        self.deleteFromQueue(str(current_question.pk))
-        current_question.delete()
-
+    def delete_question_recursive(self, question):
+        """
+        Рекурсивно удаляет вопрос и все его дочерние вопросы (детей, внуков и т.д.)
+        Также удаляет ответы на эти вопросы и убирает их из очереди и истории
+        """
+        # Получить историю вопросов
         history = list(self.history_queue.split(','))
         self.normalize_history_or_queue(history)
         
-        last_answered_question_instance = QuestionInstance.objects.get(pk=history[-1])
-        history.pop()
-
-        last_question_instance_childrens = QuestionInstance.objects.filter(parent_pk=last_answered_question_instance.pk)
-        # print(last_question_instance_childrens)
-        for child in last_question_instance_childrens:
-            try: 
-                history.remove(child.pk)
-            except:
-                pass
-            try:
-                self.deleteFromQueue(str(child.pk))
-            except:
-                pass
-
-        last_question_instance_childrens.delete()
-
-
-        last_answered_question = Question.objects.get(id=last_answered_question_instance.qid)
-        AnswerQuestion.objects.all().filter(answer__question=last_answered_question).delete()
-
+        # Найти всех детей вопроса
+        children = QuestionInstance.objects.filter(parent_pk=question.pk)
         
-        self.history_queue = ','.join(history)
-        self.questions_queue =  str(last_answered_question_instance.pk) + ',' + self.questions_queue
+        # Рекурсивно удалить всех детей
+        for child in children:
+            self.delete_question_recursive(child)
+        
+        # Удалить ответы на вопрос
+        AnswerQuestion.objects.filter(question_instance=question.pk, project=self).delete()
+        
+        # Удалить вопрос из очереди
+        try:
+            self.deleteFromQueue(str(question.pk))
+        except:
+            pass
+        
+        # Удалить вопрос из истории
+        if str(question.pk) in history:
+            history.remove(str(question.pk))
+            self.history_queue = ','.join(history)
+        
+        # Удалить сам вопрос
+        question.delete()
 
-        self.save()
-
-        return last_answered_question_instance  
+    def back(self):
+        
+        current_question = self.get_current_question()
+        
+        # Получить родительский вопрос
+        if current_question.parent_pk == 0:
+            return None  # Нет родительского вопроса для возврата
+        
+        parent_question = QuestionInstance.objects.get(pk=current_question.parent_pk)
+        
+        # Определяем, является ли родительский вопрос "братом" другого вопроса
+        # Если да, то нам нужно найти "дедушку" (родителя родителя)
+        grandfather_pk = parent_question.parent_pk
+        if grandfather_pk != 0:
+            siblings_of_parent = QuestionInstance.objects.filter(parent_pk=grandfather_pk).exclude(pk=parent_question.pk)
+            has_sibling_parent = siblings_of_parent.exists()
+        else:
+            has_sibling_parent = False
+        
+        # Получить историю вопросов
+        history = list(self.history_queue.split(','))
+        self.normalize_history_or_queue(history)
+        
+        # Если родительский вопрос имеет "братьев", и мы находимся после группы братьев
+        if has_sibling_parent:
+            # Найти последний отвеченный вопрос в истории, который является самым последним из "дядей" текущего вопроса
+            grandfather = QuestionInstance.objects.get(pk=grandfather_pk)
+            
+            # Рекурсивно удалить текущий вопрос и все его дочерние вопросы
+            self.delete_question_recursive(current_question)
+            
+            # Рекурсивно удалить родительский вопрос и все его дочерние вопросы (кроме текущего, который уже удален)
+            # Это также удалит "дядей" текущего вопроса
+            self.delete_question_recursive(parent_question)
+            
+            # Вернуть "дедушку" в очередь вопросов
+            self.questions_queue = str(grandfather.pk) + ',' + self.questions_queue
+            
+            self.save()
+            
+            return grandfather
+        else:
+            # Стандартная логика - возврат к родительскому вопросу
+            
+            # Найти всех братьев текущего вопроса (вопросы с тем же родителем)
+            sibling_questions = QuestionInstance.objects.filter(parent_pk=current_question.parent_pk)
+            
+            # Рекурсивно удалить всех братьев и их дочерние вопросы
+            for sibling in sibling_questions:
+                self.delete_question_recursive(sibling)
+            
+            # Удалить ответы на родительский вопрос (который теперь станет текущим)
+            AnswerQuestion.objects.filter(question_instance=parent_question.pk, project=self).delete()
+            
+            # Найти и удалить родительский вопрос из истории, если он там есть
+            try:
+                if str(parent_question.pk) in history:
+                    history.remove(str(parent_question.pk))
+            except:
+                pass
+            
+            self.history_queue = ','.join(history)
+            self.questions_queue = str(parent_question.pk) + ',' + self.questions_queue
+            
+            self.save()
+            
+            return parent_question
 
     def formatAnswers(self, answers):
         a = ''
@@ -178,8 +242,7 @@ class Project(models.Model):
         def get_answers(qid):
             nonlocal answers
             ans = answers.filter(answer__question__id=qid)
-
-            
+          
             answers_text = []
             
             for a in ans:
@@ -187,6 +250,11 @@ class Project(models.Model):
                     q = QuestionInstance.objects.get(pk=a.question_instance)
                 except:
                     return answers_text
+                #ЗАИФАНО
+                if qid == 'Q29' and q.pk == parent_pk:
+                    answers_text.append(a.answer_text)
+                    continue
+                #ЗАИФАНО
                 while q.parent_pk != parent_pk:
                     try:
                         q = QuestionInstance.objects.get(pk=q.parent_pk)
@@ -207,6 +275,8 @@ class Project(models.Model):
 
         # if len(get_answers('Q30')) == 0 and len(get_answers('Q31')) == 0 and len(get_answers('Q32')) == 0:
         #     return '' исправить
+
+        print("Q29 ANSWERS", get_answers('Q29'))
 
         report += f"<strong>Target Room purposes</strong>: {', '.join(get_answers('Q320'))}  {', '.join(get_answers('Q29'))}<br/>"
         
@@ -733,7 +803,6 @@ class Project(models.Model):
             report += string + '<br/>'   
         
 
-
         table['property_type']['text'] = ''.join(get_answers('Q2')) + ' ' + ''.join(get_answers('Q1'))
 
         if answered('Q1_A2'):
@@ -741,24 +810,21 @@ class Project(models.Model):
         else:
             table['project_type']['text'] += '<br/>'.join(get_answers('Q3'))
 
-
         report = ''
-
-        
-        
 
         if answered('Q1_A2'): #flat
             add_string_report("<strong>Project type detalisation</strong>: " + get_answer('Q4'), 'Q4')
             add_string_report("<strong>Refurbishment detalisation</strong>:", 'Q28')
-            add_string_report("<strong>Number of Rooms to Refurbish</strong>:" + get_answer('Q28'), 'Q28')
+            add_string_report("<strong>Number of Rooms to Refurbish</strong>: " + get_answer('Q28'), 'Q28')
             add_string_report('<br/>', 'Q34')
-            
+
+            unique_rooms = set()
             for room in answers.filter(answer__question__id='Q29'):
-                add_string_report("Room № " + QuestionInstance.objects.get(pk=room.question_instance).context["Room Sequence Number"], 'Q28')
-                report += self.generate_room_report(room.question_instance)
-        
-                     
-            
+                if room.question_instance not in unique_rooms:
+                    unique_rooms.add(room.question_instance)
+                    add_string_report("Room № " + QuestionInstance.objects.get(pk=room.question_instance).context["Room Sequence Number"], 'Q28')
+                    report += self.generate_room_report(room.question_instance)
+              
         if answered('Q1_A1'): #house
             add_string_report("<strong>Project type detalisation</strong>: " + get_answer('Q4'), 'Q4')
            
@@ -770,14 +836,14 @@ class Project(models.Model):
 
             if answered('Q3_A2'):
                 add_string_report("<strong>House extention:</strong>", 'Q11')
-                add_string_report("<strong>Extension type:</strong>" + get_answer('Q11'), 'Q11')
+                add_string_report("<strong>Extension type:</strong> " + get_answer('Q11'), 'Q11')
                 add_string_report("<strong>Roof type:</strong>" + get_answer('Q12'), 'Q12')
-                add_string_report("<strong>Extension Purposes:</strong>" + get_answer('Q13'), 'Q13')
+                add_string_report("<strong>Extension Purposes:</strong> " + get_answer('Q13'), 'Q13')
             
             if answered('Q3_A3'):
                 add_string_report("<strong>Loft conversion:</strong>", 'Q14')
-                add_string_report("<strong>Conversion Type:</strong>" + get_answer('Q14'), 'Q14')
-                add_string_report("<strong>Conversion Purposes:</strong>" + get_answer('Q15'), 'Q15')
+                add_string_report("<strong>Conversion Type:</strong> " + get_answer('Q14'), 'Q14')
+                add_string_report("<strong>Conversion Purposes:</strong> " + get_answer('Q15'), 'Q15')
 
             if answered('Q3_A4'):
                 add_string_report("<strong>Porch:</strong>", 'Q16')
@@ -785,19 +851,19 @@ class Project(models.Model):
 
             if answered('Q3_A5'):
                 add_string_report("<strong>Garage Conversion:</strong>", 'Q17')
-                add_string_report("<strong>Conversion Type:</strong>" + get_answer('Q17'), 'Q17')
-                add_string_report("<strong>Roof Type:</strong>" + get_answer('Q18'), 'Q18')
-                add_string_report("<strong>Conversion Purposes:</strong>" + get_answer('Q19'), 'Q19')
+                add_string_report("<strong>Conversion Type:</strong> " + get_answer('Q17'), 'Q17')
+                add_string_report("<strong>Roof Type:</strong> " + get_answer('Q18'), 'Q18')
+                add_string_report("<strong>Conversion Purposes:</strong> " + get_answer('Q19'), 'Q19')
 
             if answered('Q3_A6'):
                 add_string_report("<strong>Basement:</strong>", 'Q20')
-                add_string_report("<strong>Basement Purposes:</strong>" + get_answer('Q20'), 'Q20')
+                add_string_report("<strong>Basement Purposes:</strong> " + get_answer('Q20'), 'Q20')
 
             if answered('Q3_A7'):
                 add_string_report("<strong>Outbuilding:</strong>", 'Q21')
-                add_string_report("<strong>Type:</strong>" + get_answer('Q21'), 'Q21')
-                add_string_report("<strong>Roof Type:</strong>" + get_answer('Q22'), 'Q22')
-                add_string_report("<strong>Outbuilding Purposes:</strong>" + get_answer('Q23'), 'Q23')            
+                add_string_report("<strong>Type:</strong> " + get_answer('Q21'), 'Q21')
+                add_string_report("<strong>Roof Type:</strong> " + get_answer('Q22'), 'Q22')
+                add_string_report("<strong>Outbuilding Purposes:</strong> " + get_answer('Q23'), 'Q23')            
             
             add_string_report("<strong>Internal Refurbishment detalisation:</strong>", 'Q24')
 
@@ -823,11 +889,11 @@ class Project(models.Model):
                     add_string_report('Exterior house surfaces', "Q108")
                     if answered("Q108_A1"):
                         add_string_report("Roof: <br/>", 'Q109')
-                        add_string_report("Type:" + self.formatAnswers(get_answers('Q109')), 'Q109')
-                        add_string_report("Work:" + self.formatAnswers(get_answers('Q110')), 'Q110')
+                        add_string_report("Type: " + self.formatAnswers(get_answers('Q109')), 'Q109')
+                        add_string_report("Work: " + self.formatAnswers(get_answers('Q110')), 'Q110')
                     if answered("Q108_A2"):
                         add_string_report("Front wall: <br/>", 'Q113')
-                        add_string_report("Work:" + self.formatAnswers(get_answers('Q113')), 'Q113')
+                        add_string_report("Work: " + self.formatAnswers(get_answers('Q113')), 'Q113')
                         add_string_report("Work details: <br/>" + self.formatPairAnswers(get_answers('Q114'), get_answers('Q115')), 'Q114')
                     if answered("Q108_A3"):
                         add_string_report("Back wall: <br/>", 'Q116')
@@ -835,11 +901,11 @@ class Project(models.Model):
                         add_string_report("Work details: <br/>" + self.formatPairAnswers(get_answers('Q117'), get_answers('Q118')), 'Q117')
                     if answered("Q108_A4"):
                         add_string_report("Left hand side wall (facing the house): <br/>", 'Q119')
-                        add_string_report("Work:" + self.formatAnswers(get_answers('Q119')), 'Q119')
+                        add_string_report("Work: " + self.formatAnswers(get_answers('Q119')), 'Q119')
                         add_string_report("Work details: <br/>" + self.formatPairAnswers(get_answers('Q120'), get_answers('Q121')), 'Q120')
                     if answered("Q108_A5"):
                         add_string_report("Right hand side wall (facing the house): <br/>", 'Q122')
-                        add_string_report("Work:" + self.formatAnswers(get_answers('Q122')), 'Q122')
+                        add_string_report("Work: " + self.formatAnswers(get_answers('Q122')), 'Q122')
                         add_string_report("Work details: <br/>" + self.formatPairAnswers(get_answers('Q123'), get_answers('Q124')), 'Q123')
                     if answered("Q108_A6"):
                         add_string_report("External Electrics: <br/>", 'Q125')
@@ -1028,12 +1094,6 @@ class Project(models.Model):
             self.pushRight(q) 
             self.save()        
          
-        
-
-
-
-    
-
 
 class QuestionInstance(models.Model):
     qid = models.CharField(_("question_id"), max_length=50)
@@ -1274,7 +1334,7 @@ class AnswerQuestion(models.Model):
                 else: params = ''
 
                 next_id = self.checkConditions()
-
+                print("NEXT_ID", self.question_instance, next_id)
                 if next_id == 'SKIP':
                     return
                 if next_id == 'NEXT':
